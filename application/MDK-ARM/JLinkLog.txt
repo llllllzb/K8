@@ -1,0 +1,69 @@
+T25D0 000:002.948   SEGGER J-Link V6.86 Log File
+T25D0 000:003.037   DLL Compiled: Sep 24 2020 17:31:31
+T25D0 000:003.041   Logging started @ 2021-02-22 06:46
+T25D0 000:003.045 - 3.047ms
+T25D0 000:003.052 JLINK_SetWarnOutHandler(...)
+T25D0 000:003.056 - 0.006ms
+T25D0 000:003.061 JLINK_OpenEx(...)
+T25D0 000:004.289   Firmware: J-Link V9 compiled Dec 13 2019 11:14:50
+T25D0 000:004.447   Decompressing FW timestamp took 134 us
+T25D0 000:010.815   Hardware: V9.70
+T25D0 000:010.832   S/N: 59700618
+T25D0 000:010.837   OEM: SEGGER
+T25D0 000:010.843   Feature(s): RDI, FlashBP, FlashDL, JFlash, GDB
+T25D0 000:011.885   TELNET listener socket opened on port 19021
+T25D0 000:011.978   WEBSRV Starting webserver
+T25D0 000:012.080   WEBSRV Webserver running on local port 19080
+T25D0 000:012.088 - 9.029ms returns "O.K."
+T25D0 000:012.100 JLINK_GetEmuCaps()
+T25D0 000:012.127 - 0.028ms returns 0xB9FF7BBF
+T25D0 000:012.136 JLINK_TIF_GetAvailable(...)
+T25D0 000:012.276 - 0.142ms
+T25D0 000:012.282 JLINK_SetErrorOutHandler(...)
+T25D0 000:012.286 - 0.006ms
+T25D0 000:012.296 JLINK_ExecCommand("ProjectFile = "D:\CODE\STcode\ZT09\ZT09\STM32L\MDK-ARM\JLinkSettings.ini"", ...). 
+T25D0 000:019.450 - 7.161ms returns 0x00
+T25D0 000:021.018 JLINK_ExecCommand("Device = STM32L071CBTx", ...). 
+T25D0 000:022.872   Device "STM32L071CB" selected.
+T25D0 000:023.148 - 2.124ms returns 0x00
+T25D0 000:023.164 JLINK_GetHardwareVersion()
+T25D0 000:023.168 - 0.006ms returns 97000
+T25D0 000:023.177 JLINK_GetDLLVersion()
+T25D0 000:023.182 - 0.006ms returns 68600
+T25D0 000:023.186 JLINK_GetOEMString(...)
+T25D0 000:023.191 JLINK_GetFirmwareString(...)
+T25D0 000:023.195 - 0.006ms
+T25D0 000:028.868 JLINK_GetDLLVersion()
+T25D0 000:028.886 - 0.020ms returns 68600
+T25D0 000:028.892 JLINK_GetCompileDateTime()
+T25D0 000:028.896 - 0.005ms
+T25D0 000:030.234 JLINK_GetFirmwareString(...)
+T25D0 000:030.243 - 0.011ms
+T25D0 000:031.536 JLINK_GetHardwareVersion()
+T25D0 000:031.544 - 0.009ms returns 97000
+T25D0 000:032.770 JLINK_GetSN()
+T25D0 000:032.778 - 0.010ms returns 59700618
+T25D0 000:034.004 JLINK_GetOEMString(...)
+T25D0 000:036.448 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T25D0 000:037.224 - 0.781ms returns 0x00
+T25D0 000:037.234 JLINK_HasError()
+T25D0 000:037.244 JLINK_SetSpeed(1000)
+T25D0 000:037.352 - 0.113ms
+T25D0 000:037.364 JLINK_GetId()
+T25D0 000:040.437   Found SW-DP with ID 0x0BC11477
+T25D0 000:051.370   STM32 (connect): Can not attach to CPU. Trying connect under reset.
+T25D0 000:105.235   Found SW-DP with ID 0x0BC11477
+T25D0 000:107.353   
+  ***** Error: 
+T25D0 000:107.365   STM32: Connecting to CPU via connect under reset failed.
+T25D0 000:259.738   Found SW-DP with ID 0x0BC11477
+T25D0 000:269.118   STM32 (connect): Can not attach to CPU. Trying connect under reset.
+T25D0 000:325.923   Found SW-DP with ID 0x0BC11477
+T25D0 000:327.836   
+  ***** Error: 
+T25D0 000:327.847   STM32: Connecting to CPU via connect under reset failed.
+T25D0 000:378.088 - 340.780ms returns 0x00000000
+T25D0 002:117.209 JLINK_Close()
+T25D0 002:126.559 - 9.407ms
+T25D0 002:126.621   
+T25D0 002:126.628   Closed
