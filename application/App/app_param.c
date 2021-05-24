@@ -153,6 +153,7 @@ void paramDefaultInit(uint8_t level)
     paramSaveFence(30);
 	paramSaveAutoAnswer(0);
 	paramSaveTurnalg(0);
+	paramSaveNoNetWakeUpMinutes(60);
     //2¸ö×Ö½ÚÇøÓò
     paramSaveGPSUploadInterval(sysparam.gpsuploadgap);
     paramSaveACCCTLGNSS(1);
@@ -197,6 +198,7 @@ void paramInit(void)
     sysparam.adccal = paramGetAdcCal();
 	sysparam.autoAnswer=eepromReadOneByte(EEPROM_AUTOANSWER_ADDR);
 	sysparam.turnalg=eepromReadOneByte(EEPROM_TURNALG_ADDR);
+	sysparam.noNetWakeUpMinutes=eepromReadOneByte(EEPROM_NONETWAKEUP_ADDR);
     for(i = 0; i < 5; i++)
     {
         sysparam.AlarmTime[i] = eepromReadTwoBytes(EEPROM_ALARMTIEM_ADDR + (2 * i));
@@ -577,5 +579,12 @@ void paramSaveTurnalg(uint8_t onoff)
 	sysparam.turnalg=onoff;
 	eepromWriteByte(EEPROM_TURNALG_ADDR, onoff);
 }
+
+void paramSaveNoNetWakeUpMinutes(uint8_t mis)
+{
+	sysparam.noNetWakeUpMinutes=mis;
+	eepromWriteByte(EEPROM_NONETWAKEUP_ADDR, mis);
+}
+
 
 

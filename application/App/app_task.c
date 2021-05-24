@@ -346,7 +346,7 @@ static void modeRequeUpdateRTC(void)
 void gpsRequestTask(void)
 {
     static uint8_t tick = 0;
-    if (isModuleRunNormal() == 0)
+    if (netWorkModuleRunOk() == 0)
     {
         tick = 0;
         return ;
@@ -598,11 +598,15 @@ void wdtProcess(void)
         systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
     }
 
-    //用于检查模组是否死机,没30分钟
-    if (sysparam.MODE == MODE4 && ++sysinfo.mode4checktick >= 180)
+    //每隔3分钟检查一下网络
+    if (sysparam.MODE == MODE4 && ++sysinfo.mode4checktick >= 18)
     {
+
         sysinfo.mode4checktick = 0;
-        N58_ChangeInvokeStatus(N58_CPIN_STATUS);
+        if (isModuleRunNormal())
+        {
+            N58_ChangeInvokeStatus(N58_CPIN_STATUS);
+        }
     }
 }
 
@@ -624,8 +628,8 @@ void hearbeatRequest(void)
             count2++;
             if (count2 % (sysparam.interval_wakeup_minutes * 6) == 0)
             {
-            	sysinfo.lbsrequest=1;
-				sysinfo.wifirequest=1;
+                sysinfo.lbsrequest = 1;
+                sysinfo.wifirequest = 1;
                 gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
                 count2 = 0;
             }
@@ -636,17 +640,34 @@ void hearbeatRequest(void)
 void uploadRequestInMode4(void)
 {
     static uint16_t mode4runtick = 0;
+    static uint16_t nonettick;
     if (sysparam.MODE != MODE4)
         return ;
+
+
     if (sysparam.interval_wakeup_minutes != 0)
     {
         mode4runtick++;
-        if ((mode4runtick / 6) == sysparam.interval_wakeup_minutes)
+        if ((mode4runtick / 6) >= sysparam.interval_wakeup_minutes)
         {
             mode4runtick = 0;
             sysinfo.lbsrequest = 1;
             sysinfo.wifirequest = 1;
             gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
+        }
+    }
+    if (sysinfo.noNetworkFlag)
+    {
+        nonettick++;
+        LogPrintf(DEBUG_ALL, "no network sleep %d0 sec\n", nonettick);
+        if ((nonettick / 6) >= sysparam.noNetWakeUpMinutes || sysinfo.GPSRequest)
+        {
+            nonettick = 0;
+            sysinfo.noNetworkFlag = 0;
+            if (isModulePowerOn() == 0)
+            {
+                systemRequestSet(SYSTEM_MODULE_STARTUP_REQUEST);
+            }
         }
     }
 }
@@ -1238,7 +1259,7 @@ void gsensorIntervalCheck(void)
     tick++;
 }
 
-uint8_t fileUpliadCheck(void)
+uint8_t fileUploadCheck(void)
 {
     if (sysparam.MODE == MODE4)
         return 1;
@@ -1251,8 +1272,8 @@ void autoSleepTask(void)
     if ((sysparam.MODE == MODE2 || sysparam.MODE == MODE5 || sysparam.MODE == MODE4) && sysinfo.GPSRequest == 0 \
             && sysinfo.GPSStatus == 0 && sysinfo.alarmrequest == 0 \
             && sysinfo.lbsrequest == 0 && sysinfo.wifirequest == 0 \
-            && sysinfo.hearbeatrequest == 0 && isModuleRunNormal()\
-            && fileUpliadCheck() && sysinfo.instructionqequest == 0 && sysinfo.recordingflag == 0)
+            && sysinfo.hearbeatrequest == 0 && (isModuleRunNormal() || sysinfo.noNetworkFlag == 1)\
+            && fileUploadCheck() && sysinfo.instructionqequest == 0 && sysinfo.recordingflag == 0)
     {
         LogMessage(DEBUG_ALL, "auto sleep\n");
         if (sysparam.MODE == MODE4)

@@ -253,6 +253,7 @@ void modulePowerOff(void)
     moduleInfoInit();
     netConnectReset();
     n58_invoke_status.modulepowerstate = 0;
+    sysinfo.GPSStatus = 0;
     LogMessage(DEBUG_ALL, "Close moudle power supply\n");
     appBleInfoReset();
 }
@@ -275,6 +276,7 @@ void moduleReset(void)
     updateSystemLedStatus(SYSTEM_LED_NETOK, 0);
     startTimer(800, moduleResetProcessA, 0);
     appBleInfoReset();
+    sysinfo.GPSStatus = 0;
 }
 
 /*********************************************************/
@@ -340,6 +342,11 @@ uint8_t netWorkModuleRunOk(void)
     return 0;
 }
 
+uint8_t isModulePowerOn(void)
+{
+    return n58_invoke_status.modulepowerstate;
+}
+
 void networkConnectProcess(void)
 {
     if (n58_invoke_status.modulepowerstate == 0)
@@ -403,18 +410,26 @@ void networkConnectProcess(void)
             {
                 sendModuleCmd(N58_ENPWRSAVE_CMD, "1");
                 n58_lte_status.cimi_respon = 0;
-                n58_lte_status.reCSQ_count = 0;
                 N58_ChangeInvokeStatus(N58_CSQ_STATUS);
             }
         case N58_CSQ_STATUS:
             if (n58_lte_status.csq_ok == 0)
             {
                 sendModuleCmd(N58_CSQ_CMD, NULL);
-                if (n58_invoke_status.tick_time >= sysinfo.csqSearchTime) // 1 ,2 ,4 ,8 ,16 ,32
+                if (n58_invoke_status.tick_time >= sysinfo.csqSearchTime) //
                 {
                     sysinfo.csqSearchTime *= 2;
                     n58_invoke_status.tick_time = 0;
                     n58_lte_status.reCSQ_count++;
+
+                    if (sysparam.MODE == MODE4 && n58_lte_status.reCSQ_count >= 2)
+                    {
+                        sysinfo.noNetworkFlag = 1;
+                        sysinfo.wifirequest = 0;
+                        sysinfo.lbsrequest = 0;
+                        systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
+                        break;
+                    }
                     if (n58_lte_status.reCSQ_count >= 3) //超过3次，6分钟，重启设备
                     {
                         moduleReset();//复位设备
@@ -431,7 +446,7 @@ void networkConnectProcess(void)
             {
                 n58_lte_status.csq_ok = 0;
                 n58_lte_status.reCSQ_count = 0;
-
+                sysinfo.csqSearchTime = 30;
                 sendModuleCmd(N58_CMGF_CMD, "1");
                 sendModuleCmd(N58_CNMI_CMD, "0,1");
                 sendModuleCmd(N58_ENPWRSAVE_CMD, "1");
@@ -446,6 +461,14 @@ void networkConnectProcess(void)
                 {
                     n58_invoke_status.tick_time = 0;
                     n58_lte_status.reCreg_Count++;
+                    if (sysparam.MODE == MODE4 && n58_lte_status.reCreg_Count >= 2)
+                    {
+                        sysinfo.noNetworkFlag = 1;
+                        sysinfo.wifirequest = 0;
+                        sysinfo.lbsrequest = 0;
+                        systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
+                        break;
+                    }
                     if (n58_lte_status.reCreg_Count >= 4) //超过4次，6分钟，重启设备
                     {
                         moduleReset();//复位设备
@@ -593,7 +616,6 @@ void networkConnectProcess(void)
                 n58_lte_status.retcpclose_count = 0;
                 n58_lte_status.xiic_queryok = 0;
                 n58_lte_status.rexiic_count = 0;
-                sysinfo.csqSearchTime = 30;
                 N58_ChangeInvokeStatus(N58_TCPCLOSE_STATUS);
             }
         case N58_TCPCLOSE_STATUS:

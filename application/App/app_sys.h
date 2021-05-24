@@ -40,6 +40,7 @@ typedef struct
 	uint8_t hearbeatrequest			:1;
 	uint8_t instructionqequest		:1;
 	uint8_t smsReplyUpload			:1;
+	uint8_t noNetworkFlag			:1;
     __IO uint8_t runFsm;
     __IO uint8_t GPSRequestFsm;
 	

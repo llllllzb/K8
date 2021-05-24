@@ -97,7 +97,7 @@ void doParamInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
             break;
 
         case MODE4:
-            sprintf(message + strlen(message), "Mode4: %d minutes;", sysparam.interval_wakeup_minutes);
+            sprintf(message + strlen(message), "Mode4: %d M,%dM;", sysparam.interval_wakeup_minutes,sysparam.noNetWakeUpMinutes);
             break;
         case MODE5:
             if (sysparam.interval_wakeup_minutes == 0)
@@ -204,7 +204,8 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     {
         paramGetGPSUploadInterval(&sysparam.gpsuploadgap);
         sprintf(message, "Current Mode %d", sysparam.MODE);
-        sprintf(message + strlen(message), ",gps upload gap %ds,%dm", sysparam.gpsuploadgap, sysparam.interval_wakeup_minutes);
+        sprintf(message + strlen(message), ",gps upload gap %ds,%dm,%dm", sysparam.gpsuploadgap,
+                sysparam.interval_wakeup_minutes, sysparam.noNetWakeUpMinutes);
     }
     else
     {
@@ -314,7 +315,7 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                 else
                 {
                     paramSaveMode(MODE2);
-                	gsensorConfig(1);
+                    gsensorConfig(1);
                     if (sysparam.interval_wakeup_minutes == 0)
                     {
                         sprintf(message, "The device switches to mode 2 and uploads the position every %d seconds when moving",
@@ -332,6 +333,7 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
             case 3:
             case 4:
             case 23:
+                sysparam.noNetWakeUpMinutes = 0;
                 if (workmode == 3)
                 {
                     sysparam.interval_wakeup_minutes = atoi(item->item_data[2]);
@@ -352,6 +354,12 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                 else if (workmode == 4)
                 {
                     sysparam.interval_wakeup_minutes = atoi(item->item_data[2]);
+                    sysparam.noNetWakeUpMinutes = atoi(item->item_data[3]);
+                    if (sysparam.noNetWakeUpMinutes == 0)
+                    {
+                        sysparam.noNetWakeUpMinutes = 60;
+                    }
+                    paramSaveNoNetWakeUpMinutes(sysparam.noNetWakeUpMinutes);
                     terminalAccoff();
                     if (gpsRequestGet(GPS_REQUEST_ACC_CTL))
                     {
@@ -370,11 +378,15 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                     }
                     paramSaveMode(MODE23);
                     setNextWakeUpTime();
-					gsensorConfig(1);
+                    gsensorConfig(1);
                 }
                 paramSaveInterval();
                 sprintf(message, "Change to mode %d and update the startup interval time to %d minutes", workmode,
                         sysparam.interval_wakeup_minutes);
+                if (sysparam.noNetWakeUpMinutes != 0)
+                {
+                    sprintf(message + strlen(message), ",sleep %d minutes", sysparam.noNetWakeUpMinutes);
+                }
                 break;
             default:
                 strcpy(message, "Unsupport mode");
@@ -1002,9 +1014,9 @@ void doSmsreplyInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
 void doJTCYCLEInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {
-//    uint8_t value;
+    //    uint8_t value;
     char message[100];
-	
+
     /*if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
     {
         sprintf(message, "recording cycle %s runnig", resIsCycleRuning() ? "is" : "is not");
@@ -1024,7 +1036,7 @@ void doJTCYCLEInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         }
 
     }*/
-    sprintf(message,"JTCYCLE is not support");
+    sprintf(message, "JTCYCLE is not support");
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 

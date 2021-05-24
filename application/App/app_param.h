@@ -44,6 +44,7 @@
 #define EEPROM_SMSREPLY_ADDR					353
 #define EEPROM_AUTOANSWER_ADDR					354
 #define EEPROM_TURNALG_ADDR						355
+#define EEPROM_NONETWAKEUP_ADDR					356
 
 
 
@@ -69,7 +70,7 @@ V
 修订版本        细节修改
 */
 #ifdef RI_ENABLE
-    #define EEPROM_VERSION									"K8_RI_V1.0.16"
+    #define EEPROM_VERSION									"K8_RI_V1.0.17"
 #else
     #define EEPROM_VERSION									"ZT09_V1.0.10"
 #endif
@@ -100,6 +101,7 @@ typedef struct
 	uint8_t smsRespon;
 	uint8_t autoAnswer;//自动接听
 	uint8_t turnalg;
+	uint8_t noNetWakeUpMinutes;
 	
     int8_t utc;
 
@@ -170,6 +172,7 @@ uint8_t paramGetCM(void);
 void paramSaveSmsreply(uint8_t value);
 void paramSaveAutoAnswer(uint8_t onoff);
 void paramSaveTurnalg(uint8_t onoff);
+void paramSaveNoNetWakeUpMinutes(uint8_t mis);
 
 #endif
 

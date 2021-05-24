@@ -186,6 +186,7 @@ void moduleReset(void);
 
 void sendDataToServer(uint8_t * data,uint16_t len);
 void reConnectServer(void);
+uint8_t isModulePowerOn(void);
 uint8_t netWorkModuleRunOk(void);
 void networkConnectProcess(void);
 void moduleResponParaser(uint8_t * buf,uint16_t len);
