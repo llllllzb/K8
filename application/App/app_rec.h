@@ -30,6 +30,9 @@ void recNoFileToread(void);
 uint8_t recIsRun(void);
 void recordUploadRun(void);
 void recUpdateRestoreFileNameAndTotalSize(char *filename,uint32_t totalsize);
+void recUpdateFileName(char *filename);
+void recUpdateFileSize(uint32_t totalsize);
+
 void recReadFileOk(void);
 void recCycleStart(void);
 void recCycleStop(void);
@@ -37,5 +40,9 @@ uint8_t resIsCycleRuning(void);
 void recCycleTask(void);
 
 RECORDFILE * recGetRecStruct(void);
+void recRecordUploadTask(void);
 
 #endif
+
+
+

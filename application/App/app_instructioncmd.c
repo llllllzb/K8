@@ -97,7 +97,7 @@ void doParamInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
             break;
 
         case MODE4:
-            sprintf(message + strlen(message), "Mode4: %d M,%dM;", sysparam.interval_wakeup_minutes,sysparam.noNetWakeUpMinutes);
+            sprintf(message + strlen(message), "Mode4: %d M,%dM;", sysparam.interval_wakeup_minutes, sysparam.noNetWakeUpMinutes);
             break;
         case MODE5:
             if (sysparam.interval_wakeup_minutes == 0)
@@ -437,6 +437,14 @@ void doJtInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     int16_t recordtime, micl = 6;
     char param[4];
     char message[100];
+    if (sysinfo.recordingflag || resIsCycleRuning())
+    {
+        sprintf(message, "The device is recording,please try again later");
+        goto Done;
+    }
+
+
+
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
     {
         recordtime = 30;
@@ -448,33 +456,28 @@ void doJtInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     }
     else
     {
-        if (sysinfo.recordingflag == 0)
+        recordtime = atoi(item->item_data[1]);
+        if (recordtime > 300 || recordtime <= 0)
+            recordtime = 30;
+        if (item->item_data[2][0] != NULL)
         {
-            recordtime = atoi(item->item_data[1]);
-            if (recordtime > 300 || recordtime <= 0)
-                recordtime = 30;
-            if (item->item_data[2][0] != NULL)
+            micl = atoi(item->item_data[2]);
+            if (micl > 9 || micl < 0)
             {
-                micl = atoi(item->item_data[2]);
-                if (micl > 9 || micl < 0)
-                {
-                    micl = 3;
-                }
+                micl = 3;
             }
-            sprintf(param, "%d", micl);
-            sendModuleCmd(N58_MICL_CMD, param);
-            recStart();
-            startTimer(recordtime * 1000, recStopAndUpload, 0);
-            sprintf(message, "Start recording for %d seconds\n", recordtime);
+        }
+        sprintf(param, "%d", micl);
+        sendModuleCmd(N58_MICL_CMD, param);
+        recStart();
+        startTimer(recordtime * 1000, recStopAndUpload, 0);
+        sprintf(message, "Start recording for %d seconds\n", recordtime);
 
-        }
-        else
-        {
-            sprintf(message, "The device is recording,please try again later");
-        }
     }
+Done :
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
+
 
 //(357784086584883)<Local Time:2020-09-23 16:09:33>http://maps.google.com/maps?q=22.58799,113.85864
 
@@ -1014,31 +1017,39 @@ void doSmsreplyInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
 void doJTCYCLEInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {
-    //    uint8_t value;
+    uint8_t value;
     char message[100];
 
-    /*if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
+    if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
     {
         sprintf(message, "recording cycle %s runnig", resIsCycleRuning() ? "is" : "is not");
     }
     else
     {
         value = atoi(item->item_data[1]);
+
         if (value)
         {
-            sprintf(message, "%s", "Start recording cycle");
-            recCycleStart();
+            if (sysinfo.recordingflag || resIsCycleRuning())
+            {
+                sprintf(message, "The device is recording,please try again later");
+            }
+            else
+            {
+                sprintf(message, "%s", "Start recording cycle");
+                recCycleStart();
+            }
         }
         else
         {
             sprintf(message, "%s", "Stop recording cycle");
             recCycleStop();
         }
-
-    }*/
-    sprintf(message, "JTCYCLE is not support");
+    }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
+
 }
+
 
 void doAnswerInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {

@@ -68,6 +68,7 @@ const N58_CMD_STRUCT n58_cmd_table[N58_MAX_NUM] =
     {N58_NWBLEDISCON_CMD, "AT+NWBLEDISCON"},
     {N58_NWBLEMAC_CMD, "AT+NWBLEMAC"},
     {N58_NWBLECCON_CMD, "AT+NWBLECCON"},
+    {N58_SNDTRANS_CMD, "AT+SNDTRANS"},
     {N58_MAX_NUM, NULL},
 };
 
@@ -296,11 +297,13 @@ static void N58enterFlightMode(void)
 {
     LogMessage(DEBUG_ALL, "Module enter flight mode\n");
     sendModuleCmd(N58_CFUN_CMD, "4,0");
+	n58_lte_status.moduleFlyMode=1;
 }
 static void N58enterNormalMode(void)
 {
     sendModuleCmd(N58_CFUN_CMD, "1,0");
     LogMessage(DEBUG_ALL, "Module enter normal mode\n");
+	n58_lte_status.moduleFlyMode=0;
 }
 
 void N58_CreateSocket(uint8_t link, char *server, uint16_t port)
@@ -345,6 +348,25 @@ uint8_t netWorkModuleRunOk(void)
 uint8_t isModulePowerOn(void)
 {
     return n58_invoke_status.modulepowerstate;
+}
+
+void netEnterStopMode(void)
+{
+    if (sysparam.MODE == MODE2 && sysinfo.GPSRequest == 0 &&n58_lte_status.moduleFlyMode==0)
+    {
+        LogMessage(DEBUG_ALL, "netEnterStopMode\n");
+        sysinfo.netCtrlStop = 1;
+        systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
+    }
+}
+void netExitStopMode(void)
+{
+    if (sysinfo.netCtrlStop)
+    {
+        LogMessage(DEBUG_ALL, "netExitStopMode\n");
+        sysinfo.netCtrlStop = 0;        
+        systemRequestSet(SYSTEM_MODULE_STARTUP_REQUEST);
+    }
 }
 
 void networkConnectProcess(void)
@@ -437,8 +459,13 @@ void networkConnectProcess(void)
                     }
                     N58_ChangeInvokeStatus(N58_AT_STATUS);
                     N58enterFlightMode();
-                    startTimer(15000, N58enterNormalMode, 0);
-
+                    startTimer(8000, N58enterNormalMode, 0);
+                }
+                //每2分钟或每2轮后，进入睡眠模式
+                if ((n58_invoke_status.tick_time % 120 == 0 && n58_invoke_status.tick_time != 0) || (n58_lte_status.reCSQ_count != 0 &&
+                        n58_lte_status.reCSQ_count % 2 == 0))
+                {
+                    netEnterStopMode();
                 }
                 break;
             }
@@ -478,6 +505,11 @@ void networkConnectProcess(void)
                     N58enterFlightMode();
                     startTimer(15000, N58enterNormalMode, 0);
 
+                }
+                //工作2轮，180秒后，进入睡眠模式
+                if (n58_lte_status.reCreg_Count >= 2)
+                {
+                    netEnterStopMode();
                 }
                 break;
             }
@@ -1208,7 +1240,7 @@ OK
 
 void n58FSLISTparase(uint8_t *buf, uint16_t len)
 {
-    uint16_t i, count = 0, index;
+    uint16_t i, count = 0, index, recflag = 0;
     char fileinfobuf[70];
     char restore[70];
     char debug[100];
@@ -1248,20 +1280,24 @@ void n58FSLISTparase(uint8_t *buf, uint16_t len)
                     index = getCharIndex((uint8_t *)fileinfobuf, count, ',');
                     strncpy(restore, fileinfobuf, index);
                     restore[index] = 0;
-                    recUpdateRestoreFileNameAndTotalSize(restore, 0);
-                    sprintf(debug, "RECFile:%s", restore);
+                    recUpdateFileName(restore);
+                    sprintf(debug, "File==>%s", restore);
                     strncpy(restore, fileinfobuf + index + 1, count - index - 1);
                     restore[count - index - 1] = 0;
-                    recUpdateRestoreFileNameAndTotalSize(NULL, atoi(restore));
-                    sprintf(debug + strlen(debug), " ,Size:%d\n", atoi(restore));
+                    recUpdateFileSize(atoi(restore));
+                    sprintf(debug + strlen(debug), ",Size:%d\n", atoi(restore));
                     LogMessage(DEBUG_ALL, debug);
-                    N58_ClearCmd();
-                    return;
+                    recflag = 1;
+                    return ;
                 }
                 else
                 {
-                    recNoFileToread();
+                    if (recflag == 0)
+                    {
+                        recNoFileToread();
+                    }
                 }
+
             }
             count = 0;
 
@@ -1277,6 +1313,7 @@ void n58FSLISTparase(uint8_t *buf, uint16_t len)
     }
     N58_ClearCmd();
 }
+
 
 /*
 +FSRF: 20,4Vx4Vx4Vx4Vx4Vx

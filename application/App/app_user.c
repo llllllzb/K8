@@ -11,13 +11,11 @@
 /**************************/
 void myAppConfig(void)
 {
-    //sysinfo.logmessage=9;
     appUartConfig(APPUSART1,1,atCmdParaseFunction);
     paramInit();
     lowPowerConfig();
     createSystemTask(ledRunTask, 100);
     createSystemTask(outPutNodeCmd, 200);
-    createSystemTask(recordUploadRun, 100);
     sysinfo.SystaskID= createSystemTask(taskRunInOneSecond,1000);
     HAL_ADCEx_Calibration_Start(&hadc,ADC_SINGLE_ENDED);
 }

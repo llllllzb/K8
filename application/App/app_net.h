@@ -83,6 +83,7 @@ typedef enum
     N58_NWBLEDISCON_CMD,
     N58_NWBLEMAC_CMD,
     N58_NWBLECCON_CMD,
+    N58_SNDTRANS_CMD,
     N58_MAX_NUM,
 } N58_CMD_TYPE;
 
@@ -137,6 +138,7 @@ typedef struct
     uint8_t tcpsetup_ok   	: 1;
     uint8_t tcpclose_ok   	: 1;
     uint8_t fslist_ok   	: 1;
+	uint8_t moduleFlyMode	: 1;
     uint8_t btcommstate;
     uint8_t btconnection;
     uint8_t btok;
@@ -188,6 +190,7 @@ void sendDataToServer(uint8_t * data,uint16_t len);
 void reConnectServer(void);
 uint8_t isModulePowerOn(void);
 uint8_t netWorkModuleRunOk(void);
+void netExitStopMode(void);
 void networkConnectProcess(void);
 void moduleResponParaser(uint8_t * buf,uint16_t len);
 void N58_ChangeInvokeStatus(N58_WORK_STATUS status);

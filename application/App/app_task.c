@@ -620,7 +620,10 @@ void hearbeatRequest(void)
     {
         if (count % (sysparam.heartbeatgap / 10) == 0)
         {
-            sysinfo.hearbeatrequest = 1;
+            if (isProtocolReday())
+            {
+                sysinfo.hearbeatrequest = 1;
+            }
             count = 0;
         }
         if (sysparam.interval_wakeup_minutes != 0)
@@ -668,6 +671,20 @@ void uploadRequestInMode4(void)
             {
                 systemRequestSet(SYSTEM_MODULE_STARTUP_REQUEST);
             }
+        }
+    }
+}
+void exitNetCtl(void)
+{
+    if (sysinfo.netCtrlStop)
+    {
+        sysinfo.netCtlTick++;//10 * n sec
+        LogPrintf(DEBUG_ALL, "net ctrl tick %d\n", sysinfo.netCtlTick * 10);
+        if (sysinfo.netCtlTick >= 360 || sysinfo.GPSRequest != 0)
+        {
+            sysinfo.netCtlTick = 0;
+
+            netExitStopMode();
         }
     }
 }
@@ -726,6 +743,7 @@ void systemRequestTask(void)
         wdtProcess();
         hearbeatRequest();
         uploadRequestInMode4();
+        exitNetCtl();
     }
     alarmUploadRequest();
 }
@@ -1267,22 +1285,38 @@ uint8_t fileUploadCheck(void)
         return 1;
     return 0;
 }
-void autoSleepTask(void)
+uint8_t autoSleepTask(void)
 {
-    if ((sysparam.MODE == MODE2 || sysparam.MODE == MODE5 || sysparam.MODE == MODE4) && sysinfo.GPSRequest == 0 \
-            && sysinfo.GPSStatus == 0 && sysinfo.alarmrequest == 0 \
-            && sysinfo.lbsrequest == 0 && sysinfo.wifirequest == 0 \
-            && sysinfo.hearbeatrequest == 0 && (isModuleRunNormal() || sysinfo.noNetworkFlag == 1)\
-            && fileUploadCheck() && sysinfo.instructionqequest == 0 && sysinfo.recordingflag == 0)
+    if (!(sysparam.MODE == MODE2 || sysparam.MODE == MODE5 || sysparam.MODE == MODE4))
+        return 1;
+    if (sysinfo.GPSRequest != 0)
+        return 2;
+    if (sysinfo.GPSStatus != 0)
+        return 3;
+    if (sysinfo.alarmrequest != 0 && sysinfo.netCtrlStop==0)
+        return 4;
+    if (sysinfo.lbsrequest != 0&& sysinfo.netCtrlStop==0)
+        return 5;
+    if (sysinfo.wifirequest != 0 && sysinfo.netCtrlStop==0)
+        return 6;
+    if (sysinfo.hearbeatrequest != 0 && sysinfo.netCtrlStop==0)
+        return 7;
+    if (!(isModuleRunNormal() || sysinfo.noNetworkFlag == 1 || sysinfo.netCtrlStop == 1))
+        return 8;
+    if (fileUploadCheck())
+        return 9;
+    if (sysinfo.instructionqequest != 0)
+        return 10;
+    if (sysinfo.recordingflag != 0)
+        return 11;
+    LogMessage(DEBUG_ALL, "auto sleep\n");
+    if (sysparam.MODE == MODE4)
     {
-        LogMessage(DEBUG_ALL, "auto sleep\n");
-        if (sysparam.MODE == MODE4)
-        {
-            netConnectReset();
-        }
-        systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
-        LED1OFF;
+        netConnectReset();
     }
+    systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
+    LED1OFF;
+    return 0;
 }
 
 
@@ -1302,6 +1336,7 @@ void taskRunInOneSecond(void)
     gsensorIntervalCheck();
     gsensorTapTask();
     recCycleTask();
+    recRecordUploadTask();
 #ifdef RI_ENABLE
     autoSleepTask();
 #endif

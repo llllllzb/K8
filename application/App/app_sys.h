@@ -41,6 +41,7 @@ typedef struct
 	uint8_t instructionqequest		:1;
 	uint8_t smsReplyUpload			:1;
 	uint8_t noNetworkFlag			:1;
+	uint8_t netCtrlStop				:1;
     __IO uint8_t runFsm;
     __IO uint8_t GPSRequestFsm;
 	
@@ -64,6 +65,7 @@ typedef struct
     uint16_t mcc;
     uint16_t lac;
 	uint16_t mode4checktick;
+	uint32_t netCtlTick;
 		
     __IO uint32_t GPSRequest;	  /*GPS ¿ª¹ØÇëÇó*/
     uint32_t cid;
