@@ -45,9 +45,9 @@ static void eepromWriteByte(uint32_t addr, uint32_t data)
     uint8_t i;
     __disable_irq();
     HAL_FLASHEx_DATAEEPROM_Unlock();
-    for(i = 0; i < 20; i++)
+    for (i = 0; i < 20; i++)
     {
-        if(HAL_FLASHEx_DATAEEPROM_Program(FLASH_TYPEPROGRAMDATA_BYTE, EEPROM_BASE_ADDRESS + addr, data) == HAL_OK)
+        if (HAL_FLASHEx_DATAEEPROM_Program(FLASH_TYPEPROGRAMDATA_BYTE, EEPROM_BASE_ADDRESS + addr, data) == HAL_OK)
         {
             break;
         }
@@ -65,9 +65,9 @@ static void eepromWriteTwoBytes(uint32_t addr, uint32_t data)
     uint8_t i;
     __disable_irq();
     HAL_FLASHEx_DATAEEPROM_Unlock();
-    for(i = 0; i < 20; i++)
+    for (i = 0; i < 20; i++)
     {
-        if(HAL_FLASHEx_DATAEEPROM_Program(FLASH_TYPEPROGRAMDATA_HALFWORD, EEPROM_BASE_ADDRESS + addr, data) == HAL_OK)
+        if (HAL_FLASHEx_DATAEEPROM_Program(FLASH_TYPEPROGRAMDATA_HALFWORD, EEPROM_BASE_ADDRESS + addr, data) == HAL_OK)
         {
             break;
         }
@@ -85,9 +85,9 @@ static void eepromWriteWord(uint32_t addr, uint32_t data)
     uint8_t i;
     __disable_irq();
     HAL_FLASHEx_DATAEEPROM_Unlock();
-    for(i = 0; i < 20; i++)
+    for (i = 0; i < 20; i++)
     {
-        if(HAL_FLASHEx_DATAEEPROM_Program(FLASH_TYPEPROGRAMDATA_WORD, EEPROM_BASE_ADDRESS + addr, data) == HAL_OK)
+        if (HAL_FLASHEx_DATAEEPROM_Program(FLASH_TYPEPROGRAMDATA_WORD, EEPROM_BASE_ADDRESS + addr, data) == HAL_OK)
         {
             break;
         }
@@ -106,7 +106,7 @@ void paramDefaultInit(uint8_t level)
 {
     uint8_t i;
 
-    if(level == 0)
+    if (level == 0)
     {
         paramSaveSnNumber((uint8_t *)"888888887777777", 15);
         paramSaveServer((uint8_t *)"jzwz.basegps.com", 9998);
@@ -126,7 +126,7 @@ void paramDefaultInit(uint8_t level)
         sysparam.utc = 8;
         paramSaveUTC(sysparam.utc);
 
-        for(i = 0; i < 5; i++)
+        for (i = 0; i < 5; i++)
         {
             sysparam.AlarmTime[i] = 0XFFFF;
             eepromWriteTwoBytes(EEPROM_ALARMTIEM_ADDR + (2 * i), sysparam.AlarmTime[i]);
@@ -141,8 +141,8 @@ void paramDefaultInit(uint8_t level)
     sysparam.gpsuploadgap = 10;
     sysparam.ledctrl = 0;
     sysparam.poitype = 2;
-	sysparam.smsRespon=0;
-	paramSaveSmsreply(sysparam.smsRespon);
+    sysparam.smsRespon = 0;
+    paramSaveSmsreply(sysparam.smsRespon);
 
     eepromWriteByte(EEPROM_POITYPE_ADDR, sysparam.poitype);
     eepromWriteByte(EEPROM_LED_ADDR, sysparam.ledctrl);
@@ -151,9 +151,9 @@ void paramDefaultInit(uint8_t level)
     eepromWriteByte(EEPROM_SLEEP_ADDR, sysparam.SLEEP);
     paramSaveHeartbeatInterval(sysparam.heartbeatgap);
     paramSaveFence(30);
-	paramSaveAutoAnswer(0);
-	paramSaveTurnalg(0);
-	paramSaveNoNetWakeUpMinutes(60);
+    paramSaveAutoAnswer(0);
+    paramSaveTurnalg(0);
+    paramSaveNoNetWakeUpMinutes(60);
     //2¸ö×Ö½ÚÇøÓò
     paramSaveGPSUploadInterval(sysparam.gpsuploadgap);
     paramSaveACCCTLGNSS(1);
@@ -176,7 +176,7 @@ void paramInit(void)
 {
     uint8_t i;
     sysparam.VERSION = eepromReadOneByte(EEPROM_VERSION_APP_ADDR);
-    if(sysparam.VERSION != EEPROM_VER)
+    if (sysparam.VERSION != EEPROM_VER)
     {
         paramDefaultInit(0);
     }
@@ -194,12 +194,12 @@ void paramInit(void)
     sysparam.utc = (int8_t)eepromReadOneByte(EEPROM_UTC_ADDR);
     sysparam.accctlgnss = (int8_t)eepromReadOneByte(EEPROM_ACCCTLGNSS_ADDR);
     sysparam.fence = eepromReadOneByte(EEPROM_FENCE_ADDR);
-	sysparam.smsRespon=eepromReadOneByte(EEPROM_SMSREPLY_ADDR);
+    sysparam.smsRespon = eepromReadOneByte(EEPROM_SMSREPLY_ADDR);
     sysparam.adccal = paramGetAdcCal();
-	sysparam.autoAnswer=eepromReadOneByte(EEPROM_AUTOANSWER_ADDR);
-	sysparam.turnalg=eepromReadOneByte(EEPROM_TURNALG_ADDR);
-	sysparam.noNetWakeUpMinutes=eepromReadOneByte(EEPROM_NONETWAKEUP_ADDR);
-    for(i = 0; i < 5; i++)
+    sysparam.autoAnswer = eepromReadOneByte(EEPROM_AUTOANSWER_ADDR);
+    sysparam.turnalg = eepromReadOneByte(EEPROM_TURNALG_ADDR);
+    sysparam.noNetWakeUpMinutes = eepromReadOneByte(EEPROM_NONETWAKEUP_ADDR);
+    for (i = 0; i < 5; i++)
     {
         sysparam.AlarmTime[i] = eepromReadTwoBytes(EEPROM_ALARMTIEM_ADDR + (2 * i));
     }
@@ -214,7 +214,7 @@ void paramInit(void)
     paramGetApnPswd(sysparam.apnpassword);
     paramGetCodeVersion((uint8_t *)CODEVERSION);
     paramGetMode2cnt();
-    if(strstr(CODEVERSION, EEPROM_VERSION) == NULL)
+    if (strstr(CODEVERSION, EEPROM_VERSION) == NULL)
     {
         paramSaveCodeVersion((uint8_t *)EEPROM_VERSION);
         paramGetCodeVersion((uint8_t *)CODEVERSION);
@@ -222,6 +222,11 @@ void paramInit(void)
     paramGetLoww(&sysparam.lowvoltage);
     sysinfo.lowvoltage = sysparam.lowvoltage / 10.0;
 
+    if (sysparam.heartbeatgap == 0)
+    {
+    	sysparam.heartbeatgap=180;
+        paramSaveHeartbeatInterval(180);
+    }
     //paramShow();
 }
 
@@ -241,7 +246,7 @@ void paramSaveMode1GapDay(uint8_t day)
 void paramSaveAlarmTime(void)
 {
     uint8_t i;
-    for(i = 0; i < 5; i++)
+    for (i = 0; i < 5; i++)
     {
         eepromWriteTwoBytes(EEPROM_ALARMTIEM_ADDR + (2 * i), sysparam.AlarmTime[i]);
     }
@@ -255,10 +260,10 @@ void paramSaveSleepState(void)
     eepromWriteByte(EEPROM_SLEEP_ADDR, sysparam.SLEEP);
 }
 
-void paramSaveSnNumber(uint8_t * sn, uint16_t len)
+void paramSaveSnNumber(uint8_t *sn, uint16_t len)
 {
     uint8_t i;
-    for(i = 0; i < len; i++)
+    for (i = 0; i < len; i++)
     {
         eepromWriteByte(EEPROM_SN_ADDR + i, sn[i]);
     }
@@ -266,30 +271,30 @@ void paramSaveSnNumber(uint8_t * sn, uint16_t len)
 void paramGetSnNumber(uint8_t *sn, uint16_t len)
 {
     uint8_t i;
-    for(i = 0; i < len; i++)
+    for (i = 0; i < len; i++)
     {
         sn[i] = eepromReadOneByte(EEPROM_SN_ADDR + i);
     }
 }
-void paramSaveServer(uint8_t * server, uint32_t port)
+void paramSaveServer(uint8_t *server, uint32_t port)
 {
     uint8_t i, serverlen;
     uint8_t newserver[50];
     memset(newserver, 0, 50);
     serverlen = strlen((const char *)server);
-    if(serverlen > 50)
+    if (serverlen > 50)
         return;
     strncpy((char *)newserver, (char *)server, serverlen);
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         eepromWriteByte(EEPROM_DOMAIN_ADDR + i, newserver[i]);
     }
     eepromWriteWord(EEPROM_DOMAIN_PORT_ADDR, port);
 }
-void paramGetServer(uint8_t * server, uint32_t * port)
+void paramGetServer(uint8_t *server, uint32_t *port)
 {
     uint8_t i;
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         server[i] = eepromReadOneByte(EEPROM_DOMAIN_ADDR + i);
     }
@@ -301,7 +306,7 @@ void paramSaveHeartbeatInterval(uint16_t hbt)
     eepromWriteTwoBytes(EEPROM_HEARTBEATTIME_ADDR, hbt);
 }
 
-void paramGetHeartbeatInterval(uint16_t * hbt)
+void paramGetHeartbeatInterval(uint16_t *hbt)
 {
     *hbt = eepromReadTwoBytes(EEPROM_HEARTBEATTIME_ADDR);
 }
@@ -310,21 +315,21 @@ void paramSaveGPSUploadInterval(uint16_t gpsupload)
 {
     eepromWriteTwoBytes(EEPROM_GPS_INTERVAL_ADDR, gpsupload);
 }
-void paramGetGPSUploadInterval(uint16_t * data)
+void paramGetGPSUploadInterval(uint16_t *data)
 {
     *data = eepromReadTwoBytes(EEPROM_GPS_INTERVAL_ADDR);
 }
 
-void paramSaveApnName(uint8_t * apnname)
+void paramSaveApnName(uint8_t *apnname)
 {
     uint8_t i;
     uint8_t nbuf[50];
     memset(nbuf, 0, 50);
-    if(apnname != NULL)
+    if (apnname != NULL)
     {
         strncpy((char *)nbuf, (char *)apnname, strlen((char *)apnname));
     }
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         eepromWriteByte(EEPROM_APN_NAME_ADDR + i, nbuf[i]);
     }
@@ -332,22 +337,22 @@ void paramSaveApnName(uint8_t * apnname)
 void paramGetApnName(uint8_t *apnname)
 {
     uint8_t i;
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         apnname[i] = eepromReadOneByte(EEPROM_APN_NAME_ADDR + i);
     }
 }
 
-void paramSaveApnUser(uint8_t * apnuser)
+void paramSaveApnUser(uint8_t *apnuser)
 {
     uint8_t i;
     uint8_t nbuf[50];
     memset(nbuf, 0, 50);
-    if(apnuser != NULL)
+    if (apnuser != NULL)
     {
         strncpy((char *)nbuf, (char *)apnuser, strlen((char *)apnuser));
     }
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         eepromWriteByte(EEPROM_APN_USER_ADDR + i, nbuf[i]);
     }
@@ -355,23 +360,23 @@ void paramSaveApnUser(uint8_t * apnuser)
 void paramGetApnUser(uint8_t *apnuser)
 {
     uint8_t i;
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         apnuser[i] = eepromReadOneByte(EEPROM_APN_USER_ADDR + i);
     }
 }
 
 
-void paramSaveApnPswd(uint8_t * apnPSWD)
+void paramSaveApnPswd(uint8_t *apnPSWD)
 {
     uint8_t i;
     uint8_t nbuf[50];
     memset(nbuf, 0, 50);
-    if(apnPSWD != NULL)
+    if (apnPSWD != NULL)
     {
         strncpy((char *)nbuf, (char *)apnPSWD, strlen((char *)apnPSWD));
     }
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         eepromWriteByte(EEPROM_APN_PSWD_ADDR + i, nbuf[i]);
     }
@@ -379,7 +384,7 @@ void paramSaveApnPswd(uint8_t * apnPSWD)
 void paramGetApnPswd(uint8_t *apnPSWD)
 {
     uint8_t i;
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         apnPSWD[i] = eepromReadOneByte(EEPROM_APN_PSWD_ADDR + i);
     }
@@ -397,37 +402,37 @@ void paramGetUpdateStatus(uint8_t *status)
 }
 
 
-void paramSaveUPSServer(uint8_t * server, uint16_t port)
+void paramSaveUPSServer(uint8_t *server, uint16_t port)
 {
     uint8_t i, serverlen;
     uint8_t newserver[50];
     memset(newserver, 0, 50);
     serverlen = strlen((const char *)server);
-    if(serverlen > 50)
+    if (serverlen > 50)
         return;
     strncpy((char *)newserver, (char *)server, serverlen);
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         eepromWriteByte(EEPROM_UPDATEDOMAIN_ADDR + i, newserver[i]);
     }
     eepromWriteTwoBytes(EEPROM_UPDATEDOMAIN_PORT_ADDR, port);
 }
-void paramGetUPSServer(uint8_t * server, uint16_t * port)
+void paramGetUPSServer(uint8_t *server, uint16_t *port)
 {
     uint8_t i;
-    for(i = 0; i < 50; i++)
+    for (i = 0; i < 50; i++)
     {
         server[i] = eepromReadOneByte(EEPROM_UPDATEDOMAIN_ADDR + i);
     }
     *port = eepromReadWord(EEPROM_UPDATEDOMAIN_PORT_ADDR);
 }
 
-void paramSaveCodeVersion(uint8_t * ver)
+void paramSaveCodeVersion(uint8_t *ver)
 {
     uint8_t i;
     uint8_t version[30];
     strcpy((char *)version, (char *)ver);
-    for(i = 0; i < 30; i++)
+    for (i = 0; i < 30; i++)
     {
         eepromWriteByte(EEPROM_CODEVERSION_ADDR + i, version[i]);
     }
@@ -435,7 +440,7 @@ void paramSaveCodeVersion(uint8_t * ver)
 void paramGetCodeVersion(uint8_t *ver)
 {
     uint8_t i;
-    for(i = 0; i < 30; i++)
+    for (i = 0; i < 30; i++)
     {
         ver[i] = eepromReadOneByte(EEPROM_CODEVERSION_ADDR + i);
     }
@@ -461,7 +466,7 @@ void paramSavePoitype(uint8_t value)
 }
 
 
-void paramGetLoww(uint8_t * loww)
+void paramGetLoww(uint8_t *loww)
 {
     *loww = eepromReadOneByte(EEPROM_LOWW_ADDR);
 }
@@ -509,16 +514,16 @@ float paramGetAdcCal(void)
 }
 
 
-void paramSaveBleMac(uint8_t * mac)
+void paramSaveBleMac(uint8_t *mac)
 {
     uint8_t i;
     uint8_t nbuf[19];
     memset(nbuf, 0, 19);
-    if(mac != NULL)
+    if (mac != NULL)
     {
         strncpy((char *)nbuf, (char *)mac, strlen((char *)mac));
     }
-    for(i = 0; i < 19; i++)
+    for (i = 0; i < 19; i++)
     {
         eepromWriteByte(EEPROM_BLEMAC_ADDR + i, nbuf[i]);
     }
@@ -526,7 +531,7 @@ void paramSaveBleMac(uint8_t * mac)
 void paramGetBleMac(uint8_t *mac)
 {
     uint8_t i;
-    for(i = 0; i < 19; i++)
+    for (i = 0; i < 19; i++)
     {
         mac[i] = eepromReadOneByte(EEPROM_BLEMAC_ADDR + i);
     }
@@ -571,19 +576,19 @@ void paramSaveSmsreply(uint8_t value)
 }
 void paramSaveAutoAnswer(uint8_t onoff)
 {
-	sysparam.autoAnswer=onoff;
-	eepromWriteByte(EEPROM_AUTOANSWER_ADDR, onoff);
+    sysparam.autoAnswer = onoff;
+    eepromWriteByte(EEPROM_AUTOANSWER_ADDR, onoff);
 }
 void paramSaveTurnalg(uint8_t onoff)
 {
-	sysparam.turnalg=onoff;
-	eepromWriteByte(EEPROM_TURNALG_ADDR, onoff);
+    sysparam.turnalg = onoff;
+    eepromWriteByte(EEPROM_TURNALG_ADDR, onoff);
 }
 
 void paramSaveNoNetWakeUpMinutes(uint8_t mis)
 {
-	sysparam.noNetWakeUpMinutes=mis;
-	eepromWriteByte(EEPROM_NONETWAKEUP_ADDR, mis);
+    sysparam.noNetWakeUpMinutes = mis;
+    eepromWriteByte(EEPROM_NONETWAKEUP_ADDR, mis);
 }
 
 

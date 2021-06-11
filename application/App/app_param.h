@@ -70,7 +70,7 @@ V
 ÐÞ¶©°æ±¾        Ï¸½ÚÐÞ¸Ä
 */
 #ifdef RI_ENABLE
-    #define EEPROM_VERSION									"K8_RI_V1.1.18"
+    #define EEPROM_VERSION									"K8_RI_V1.1.20"
 #else
     #define EEPROM_VERSION									"ZT09_V1.0.10"
 #endif

@@ -69,6 +69,8 @@ const N58_CMD_STRUCT n58_cmd_table[N58_MAX_NUM] =
     {N58_NWBLEMAC_CMD, "AT+NWBLEMAC"},
     {N58_NWBLECCON_CMD, "AT+NWBLECCON"},
     {N58_SNDTRANS_CMD, "AT+SNDTRANS"},
+    {N58_SIMHOTSWAP_CMD, "AT+SIMHOTSWAP"},
+    {N58_GMR_CMD, "AT+GMR"},
     {N58_MAX_NUM, NULL},
 };
 
@@ -297,13 +299,13 @@ static void N58enterFlightMode(void)
 {
     LogMessage(DEBUG_ALL, "Module enter flight mode\n");
     sendModuleCmd(N58_CFUN_CMD, "4,0");
-	n58_lte_status.moduleFlyMode=1;
+    n58_lte_status.moduleFlyMode = 1;
 }
 static void N58enterNormalMode(void)
 {
     sendModuleCmd(N58_CFUN_CMD, "1,0");
     LogMessage(DEBUG_ALL, "Module enter normal mode\n");
-	n58_lte_status.moduleFlyMode=0;
+    n58_lte_status.moduleFlyMode = 0;
 }
 
 void N58_CreateSocket(uint8_t link, char *server, uint16_t port)
@@ -352,7 +354,7 @@ uint8_t isModulePowerOn(void)
 
 void netEnterStopMode(void)
 {
-    if (sysparam.MODE == MODE2 && sysinfo.GPSRequest == 0 &&n58_lte_status.moduleFlyMode==0)
+    if (sysparam.MODE == MODE2 && sysinfo.GPSRequest == 0 && n58_lte_status.moduleFlyMode == 0)
     {
         LogMessage(DEBUG_ALL, "netEnterStopMode\n");
         sysinfo.netCtrlStop = 1;
@@ -364,7 +366,7 @@ void netExitStopMode(void)
     if (sysinfo.netCtrlStop)
     {
         LogMessage(DEBUG_ALL, "netExitStopMode\n");
-        sysinfo.netCtrlStop = 0;        
+        sysinfo.netCtrlStop = 0;
         systemRequestSet(SYSTEM_MODULE_STARTUP_REQUEST);
     }
 }
@@ -395,6 +397,7 @@ void networkConnectProcess(void)
             }
             else
             {
+                sendModuleCmd(N58_SIMHOTSWAP_CMD, "0");
                 n58_lte_status.at_respon = 0;
                 N58_ChangeInvokeStatus(N58_CPIN_STATUS);
             }
@@ -411,6 +414,7 @@ void networkConnectProcess(void)
             else
             {
                 n58_lte_status.cpin_respon = 0;
+                sendModuleCmd(N58_SIMHOTSWAP_CMD, "0");
                 sendModuleCmd(N58_CIMI_CMD, NULL);
                 N58_ChangeInvokeStatus(N58_IMSI_STATUS);
             }
@@ -533,12 +537,14 @@ void networkConnectProcess(void)
                 sendModuleCmd(N58_CCID_CMD, NULL);
                 if (n58_invoke_status.tick_time > 40)
                 {
-                    moduleReset();//复位设备
+                    //moduleReset();//复位设备
+                    N58_ChangeInvokeStatus(N58_CGATT_STATUS);
                 }
                 break;
             }
             else
             {
+            	sendModuleCmd(N58_GMR_CMD, NULL);
                 N58_ChangeInvokeStatus(N58_CGATT_STATUS);
             }
         case N58_CGATT_STATUS:
@@ -1710,6 +1716,26 @@ void n58NwblecconParser(uint8_t *buf, uint16_t len)
     }
 }
 
+//+GMR: N58-R07-STD-BZ_V20-ZT-004
+//OK
+void n58GmrParser(uint8_t *buf, uint16_t len)
+{
+    int index;
+    uint8_t *rebuf;
+    uint16_t  relen;
+    index = my_getstrindex((char *)buf, "+GMR:", len);
+    if (index >= 0)
+    {
+        rebuf = buf + index+6;
+        relen = len - index-6;
+        index=getCharIndex(rebuf, relen, '\r');
+		index=index>39?39:index;
+		strncpy((char *)sysinfo.moduleGMR,(char *)rebuf,index);
+		LogPrintf(DEBUG_ALL,"ModuleVer:%s\r\n",sysinfo.moduleGMR);			
+    }
+}
+
+
 void moduleResponParaser(uint8_t *buf, uint16_t len)
 {
     uint8_t n58DataRestore[USART2_RX_BUF_SIZE];
@@ -1804,6 +1830,9 @@ void moduleResponParaser(uint8_t *buf, uint16_t len)
             break;
         case N58_NWBLEROLE_CMD:
             n58NwbleroleParser(n58DataRestore, len);
+            break;
+        case N58_GMR_CMD:
+            n58GmrParser(n58DataRestore, len);
             break;
     }
 }

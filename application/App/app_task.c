@@ -1277,14 +1277,6 @@ void gsensorIntervalCheck(void)
     tick++;
 }
 
-uint8_t fileUploadCheck(void)
-{
-    if (sysparam.MODE == MODE4)
-        return 1;
-    if (gpsIsRun() == 0 && recIsRun() == 0)
-        return 1;
-    return 0;
-}
 uint8_t autoSleepTask(void)
 {
     if (!(sysparam.MODE == MODE2 || sysparam.MODE == MODE5 || sysparam.MODE == MODE4))
@@ -1293,22 +1285,28 @@ uint8_t autoSleepTask(void)
         return 2;
     if (sysinfo.GPSStatus != 0)
         return 3;
-    if (sysinfo.alarmrequest != 0 && sysinfo.netCtrlStop==0)
+    if (sysinfo.alarmrequest != 0 && sysinfo.netCtrlStop == 0)
         return 4;
-    if (sysinfo.lbsrequest != 0&& sysinfo.netCtrlStop==0)
+    if (sysinfo.lbsrequest != 0 && sysinfo.netCtrlStop == 0)
         return 5;
-    if (sysinfo.wifirequest != 0 && sysinfo.netCtrlStop==0)
+    if (sysinfo.wifirequest != 0 && sysinfo.netCtrlStop == 0)
         return 6;
-    if (sysinfo.hearbeatrequest != 0 && sysinfo.netCtrlStop==0)
+    if (sysinfo.hearbeatrequest != 0 && sysinfo.netCtrlStop == 0)
         return 7;
     if (!(isModuleRunNormal() || sysinfo.noNetworkFlag == 1 || sysinfo.netCtrlStop == 1))
         return 8;
-    if (fileUploadCheck())
+    if (sysparam.MODE == MODE4)
         return 9;
     if (sysinfo.instructionqequest != 0)
         return 10;
     if (sysinfo.recordingflag != 0)
         return 11;
+    if (gpsIsRun())
+        return 12;
+    if (recIsRun())
+        return 13;
+    if (resIsCycleRuning())
+        return 14;
     LogMessage(DEBUG_ALL, "auto sleep\n");
     if (sysparam.MODE == MODE4)
     {

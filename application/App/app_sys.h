@@ -56,6 +56,7 @@ typedef struct
 	uint8_t logmessage;
 	
     uint8_t mnc;
+	uint8_t moduleGMR[40];
 	
 	
     __IO uint16_t systemRequest;

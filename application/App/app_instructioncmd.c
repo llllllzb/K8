@@ -752,6 +752,8 @@ void doAlarmModeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
+
+//DEBUG,MODULE,AT+GMR=1,3,2,3
 void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {
     char message[256];
@@ -791,6 +793,33 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
             paramSaveMode2cnt(0);
             paramSaveMode1Timer(0);
             strcpy(message, "Debug:clear mode count");
+        }
+        else if (my_strpach(item->item_data[1], "MODULEVER"))
+        {
+            sprintf(message, "Debug:%s",sysinfo.moduleGMR);
+        }
+        else if (my_strpach(item->item_data[1], "MODULE"))
+        {
+            sprintf(message, "%s", item->item_data[2]);
+            if (item->item_data[3][0] != 0)
+            {
+                sprintf(message + strlen(message), "=%s", item->item_data[3]);
+            }
+            if (item->item_data[4][0] != 0)
+            {
+                sprintf(message + strlen(message), ",%s", item->item_data[4]);
+            }
+            if (item->item_data[5][0] != 0)
+            {
+                sprintf(message + strlen(message), ",%s", item->item_data[5]);
+            }
+            if (item->item_data[6][0] != 0)
+            {
+                sprintf(message + strlen(message), ",%s", item->item_data[6]);
+            }
+			sprintf(message+strlen(message),"%s","\r\n");
+			appUartSend(&usart2_ctl, (uint8_t *)message,strlen(message));
+            strcpy(message, "Debug:Send OK");
         }
         else
         {
@@ -993,8 +1022,18 @@ void doFenceInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 void doFactoryInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {
     char message[100];
-    sprintf(message, "Factory Settings restored successfully");
-    paramDefaultInit(1);
+
+    if (my_strpach(item->item_data[1], "ZTINFO8888"))
+    {
+        paramDefaultInit(0);
+        sprintf(message, "Factory all successfully");
+    }
+    else
+    {
+        paramDefaultInit(1);
+        sprintf(message, "Factory Settings restored successfully");
+
+    }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
