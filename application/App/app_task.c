@@ -829,12 +829,27 @@ void voltageCheckTask(void)
 {
     static uint16_t lowpowertick = 0, superlowpowertick = 0;
     static uint8_t  delaytick = 0, powernormaltick = 0, clearRunninginfo = 0, lowwflag = 0;
-    uint8_t chargestate;
+    static float voltage[5] = {0, 0, 0, 0, 0};
+    static uint8_t vi = 0;
+    uint8_t chargestate, j, i;
 
     //∂¡»°µÁ—π
     getBatVoltage();
     chargestate = CHARGEDET;
 
+    vi = (vi++) % 5;
+    voltage[vi] = sysinfo.outsidevoltage;
+    sysinfo.outsidevoltage = 0;
+    j = 0;
+    for (i = 0; i < 5; i++)
+    {
+        if (voltage[i] != 0)
+        {
+            j++;
+            sysinfo.outsidevoltage += voltage[i];
+        }
+    }
+    sysinfo.outsidevoltage /= j;
 
     //≥‰µÁ≈–∂œ
     if (getTerminalChargeState() == 0 && chargestate == 1)

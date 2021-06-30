@@ -796,7 +796,7 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         }
         else if (my_strpach(item->item_data[1], "MODULEVER"))
         {
-            sprintf(message, "Debug:%s",sysinfo.moduleGMR);
+            sprintf(message, "Debug:%s", sysinfo.moduleGMR);
         }
         else if (my_strpach(item->item_data[1], "MODULE"))
         {
@@ -817,8 +817,8 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
             {
                 sprintf(message + strlen(message), ",%s", item->item_data[6]);
             }
-			sprintf(message+strlen(message),"%s","\r\n");
-			appUartSend(&usart2_ctl, (uint8_t *)message,strlen(message));
+            sprintf(message + strlen(message), "%s", "\r\n");
+            appUartSend(&usart2_ctl, (uint8_t *)message, strlen(message));
             strcpy(message, "Debug:Send OK");
         }
         else
@@ -1120,6 +1120,28 @@ void doTurnAlgInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         paramSaveTurnalg(sysparam.turnalg);
 
     }
+    sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
+}
+
+void doAdccalInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+{
+    char message[100];
+    float v = 4.17;
+    float voltage = 0;
+    uint8_t i;
+    if (item->item_data[1][0] != 0)
+    {
+        v = atoi(item->item_data[1]) / 100.0;
+    }
+    for (i = 0; i < 10; i++)
+    {
+        voltage += (((float)getVoltageAdcValue() / 4095) * 1.8);
+        HAL_Delay(10);
+    }
+    voltage /= 10.0;
+    sysparam.adccal = v / voltage ;
+    paramSaveAdcCal(sysparam.adccal);
+    sprintf(message, "RealVoltage:%.2f,Update new calibration parameter to %f", v, sysparam.adccal);
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 

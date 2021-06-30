@@ -114,7 +114,7 @@ void paramDefaultInit(uint8_t level)
         paramSaveApnUser((uint8_t *)"");
         paramSaveApnPswd((uint8_t *)"");
 
-        sysparam.MODE = 2;
+        sysparam.MODE = 1;
         eepromWriteByte(EEPROM_MODE_ADDR, sysparam.MODE);
 
         sysparam.MODE1_GAP_DAY = 1;

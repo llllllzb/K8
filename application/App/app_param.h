@@ -69,11 +69,8 @@ V
 次版本     	与之前版本不能兼容时改变
 修订版本        细节修改
 */
-#ifdef RI_ENABLE
-    #define EEPROM_VERSION									"K8_RI_V1.1.20"
-#else
-    #define EEPROM_VERSION									"ZT09_V1.0.10"
-#endif
+#define EEPROM_VERSION									"K8_RI_V1.1.21"
+//#define EEPROM_VERSION									"ZT09_V1.1.21"
 
 /*EPROM中的数据*/
 typedef struct
@@ -98,11 +95,11 @@ typedef struct
     uint8_t lowvoltage;
     uint8_t bf;
     uint8_t fence;
-	uint8_t smsRespon;
-	uint8_t autoAnswer;//自动接听
-	uint8_t turnalg;
-	uint8_t noNetWakeUpMinutes;
-	
+    uint8_t smsRespon;
+    uint8_t autoAnswer;//自动接听
+    uint8_t turnalg;
+    uint8_t noNetWakeUpMinutes;
+
     int8_t utc;
 
     uint16_t gpsuploadgap;

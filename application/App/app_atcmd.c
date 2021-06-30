@@ -68,6 +68,7 @@ const CMDTABLE instructiontable[] =
     {JTCYCLE_INS, "JTCYCLE"},
     {ANSWER_INS, "ANSWER"},
     {TURNALG_INS, "TURNALG"},
+    {ADCCAL_INS, "ADCCAL"},
     {SN_INS, "*"},
 };
 
@@ -223,6 +224,9 @@ static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, cha
             break;
         case TURNALG_INS:
             doTurnAlgInstrucion(item, mode, telnum);
+            break;
+        case ADCCAL_INS:
+            doAdccalInstrucion(item, mode, telnum);
             break;
         default:
             sprintf(debug, "%s==>%s\n", __FUNCTION__, "unknow cmd");
@@ -409,7 +413,16 @@ static void atCmdFMPCgsmParase(void)
 
 static void atCmdFmpcAdccalParase(void)
 {
-    sysparam.adccal = 4 / (((float)getVoltageAdcValue() / 4095) * 1.8);
+    uint8_t i;
+    float realv;
+    realv = 0;
+    for (i = 0; i < 10; i++)
+    {
+        realv += (((float)getVoltageAdcValue() / 4095) * 1.8);
+        HAL_Delay(10);
+    }
+    realv /= 10.0;
+    sysparam.adccal = 4.0 / realv;
     paramSaveAdcCal(sysparam.adccal);
     LogPrintf(DEBUG_FACTORY, "Update the voltage calibration parameter to %f\n", sysparam.adccal);
 
