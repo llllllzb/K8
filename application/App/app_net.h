@@ -114,7 +114,7 @@ typedef enum
 typedef struct
 {
     N58_CMD_TYPE cmd_type;
-    char cmd[50];
+    char cmd[20];
 } N58_CMD_STRUCT;
 
 /*记录运行的相关状态*/

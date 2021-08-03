@@ -772,6 +772,7 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         sprintf(message + strlen(message), "Sysrun:%.2d:%.2d:%.2d;gpsrequest:%02X;gpslast:%.2d:%.2d:%.2d;",
                 sysinfo.System_Tick / 3600, sysinfo.System_Tick % 3600 / 60, sysinfo.System_Tick % 60, sysinfo.GPSRequest,
                 sysinfo.gpsUpdatetick / 3600, sysinfo.gpsUpdatetick % 3600 / 60, sysinfo.gpsUpdatetick % 60);
+		sprintf(message+strlen(message),"HF:%d;MF:%d;",sysparam.hardfault,sysparam.mallocfault);
     }
     else
     {

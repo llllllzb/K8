@@ -142,6 +142,8 @@ void paramDefaultInit(uint8_t level)
     sysparam.ledctrl = 0;
     sysparam.poitype = 2;
     sysparam.smsRespon = 0;
+	sysparam.hardfault=0;
+	sysparam.mallocfault=0;
     paramSaveSmsreply(sysparam.smsRespon);
 
     eepromWriteByte(EEPROM_POITYPE_ADDR, sysparam.poitype);
@@ -154,6 +156,8 @@ void paramDefaultInit(uint8_t level)
     paramSaveAutoAnswer(0);
     paramSaveTurnalg(0);
     paramSaveNoNetWakeUpMinutes(60);
+	paramSaveHardFault();
+	paramSaveMallocFault();
     //2¸ö×Ö½ÚÇøÓò
     paramSaveGPSUploadInterval(sysparam.gpsuploadgap);
     paramSaveACCCTLGNSS(1);
@@ -199,6 +203,8 @@ void paramInit(void)
     sysparam.autoAnswer = eepromReadOneByte(EEPROM_AUTOANSWER_ADDR);
     sysparam.turnalg = eepromReadOneByte(EEPROM_TURNALG_ADDR);
     sysparam.noNetWakeUpMinutes = eepromReadOneByte(EEPROM_NONETWAKEUP_ADDR);
+	sysparam.hardfault=eepromReadOneByte(EEPROM_HEADFAULT_ADDR);
+	sysparam.mallocfault=eepromReadOneByte(EEPROM_MALLOC_ADDR);
     for (i = 0; i < 5; i++)
     {
         sysparam.AlarmTime[i] = eepromReadTwoBytes(EEPROM_ALARMTIEM_ADDR + (2 * i));
@@ -591,5 +597,13 @@ void paramSaveNoNetWakeUpMinutes(uint8_t mis)
     eepromWriteByte(EEPROM_NONETWAKEUP_ADDR, mis);
 }
 
+void paramSaveHardFault(void)
+{
+    eepromWriteByte(EEPROM_HEADFAULT_ADDR, sysparam.hardfault);
+}
+void paramSaveMallocFault(void)
+{
+    eepromWriteByte(EEPROM_MALLOC_ADDR, sysparam.mallocfault);
+}
 
 

@@ -727,7 +727,7 @@ param：需要传送的参数
 void sendProtocolToServer(PROTOCOLTYPE protocol, void *param)
 {
     GPSINFO *gpsinfo;
-    char txdata[300];
+    char txdata[400];
     char senddata[202];
     int txlen;
     switch (protocol)

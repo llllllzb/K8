@@ -28,8 +28,6 @@ void recStop(void);
 void recStopAndUpload(void);
 void recNoFileToread(void);
 uint8_t recIsRun(void);
-void recordUploadRun(void);
-void recUpdateRestoreFileNameAndTotalSize(char *filename,uint32_t totalsize);
 void recUpdateFileName(char *filename);
 void recUpdateFileSize(uint32_t totalsize);
 

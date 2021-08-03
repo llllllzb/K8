@@ -45,6 +45,8 @@
 #define EEPROM_AUTOANSWER_ADDR					354
 #define EEPROM_TURNALG_ADDR						355
 #define EEPROM_NONETWAKEUP_ADDR					356
+#define EEPROM_HEADFAULT_ADDR					357
+#define EEPROM_MALLOC_ADDR						358
 
 
 
@@ -69,7 +71,7 @@ V
 次版本     	与之前版本不能兼容时改变
 修订版本        细节修改
 */
-#define EEPROM_VERSION									"K8_RI_V1.1.21"
+#define EEPROM_VERSION									"K8_RI_V1.1.22"
 //#define EEPROM_VERSION									"ZT09_V1.1.21"
 
 /*EPROM中的数据*/
@@ -99,6 +101,8 @@ typedef struct
     uint8_t autoAnswer;//自动接听
     uint8_t turnalg;
     uint8_t noNetWakeUpMinutes;
+	uint8_t hardfault;
+	uint8_t mallocfault;
 
     int8_t utc;
 
@@ -170,6 +174,8 @@ void paramSaveSmsreply(uint8_t value);
 void paramSaveAutoAnswer(uint8_t onoff);
 void paramSaveTurnalg(uint8_t onoff);
 void paramSaveNoNetWakeUpMinutes(uint8_t mis);
+void paramSaveHardFault(void);
+void paramSaveMallocFault(void);
 
 #endif
 

@@ -1,7 +1,7 @@
 #include "app_kernal.h"
 #include "app_sys.h"
 #include "main.h"
-
+#include "app_param.h"
 static uint8_t timer_list[TIMER_MAX];
 static Timer *timer_head;
 //static uint32_t systick;
@@ -94,6 +94,8 @@ int8_t startTimer(uint32_t time, void (*fun)(void), uint8_t repeat)
     }
     LogPrintf(DEBUG_ALL, "start cycle==>start Error!(%d)\n", i);
     HAL_NVIC_SystemReset();
+	sysparam.mallocfault++;
+	paramSaveMallocFault();
     return -1;
 
 }

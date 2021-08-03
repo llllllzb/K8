@@ -102,6 +102,8 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
                 headNode = NULL;
                 LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
                 HAL_NVIC_SystemReset();
+	sysparam.mallocfault++;
+	paramSaveMallocFault();
                 return 0;
             }
         }
@@ -109,6 +111,8 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
         {
             LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
             HAL_NVIC_SystemReset();
+	sysparam.mallocfault++;
+	paramSaveMallocFault();
             return 0;
         }
     }
@@ -139,6 +143,8 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
                     nextnode = NULL;
                     LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
                     HAL_NVIC_SystemReset();
+	sysparam.mallocfault++;
+	paramSaveMallocFault();
                     return 0;
                 }
             }
@@ -146,6 +152,8 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
             {
                 LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
                 HAL_NVIC_SystemReset();
+	sysparam.mallocfault++;
+	paramSaveMallocFault();
                 return 0;
             }
         }
@@ -192,7 +200,7 @@ uint8_t  sendModuleCmd(uint8_t cmd, char *param)
 {
     uint8_t i;
     int cmdtype = -1;
-    char sendData[1024];
+    char sendData[256];
     if (cmd >= N58_MAX_NUM)
         return 0;
     for (i = 0; i < N58_MAX_NUM; i++)
@@ -1294,6 +1302,7 @@ void n58FSLISTparase(uint8_t *buf, uint16_t len)
                     sprintf(debug + strlen(debug), ",Size:%d\n", atoi(restore));
                     LogMessage(DEBUG_ALL, debug);
                     recflag = 1;
+					N58_ClearCmd();
                     return ;
                 }
                 else
@@ -1738,7 +1747,14 @@ void n58GmrParser(uint8_t *buf, uint16_t len)
 
 void moduleResponParaser(uint8_t *buf, uint16_t len)
 {
-    uint8_t n58DataRestore[USART2_RX_BUF_SIZE];
+    uint8_t *n58DataRestore;
+	n58DataRestore=malloc(len+1);
+	if(n58DataRestore==NULL)
+	{
+		LogPrintf(DEBUG_ALL,"malloc %d bytes error\r\n",len);
+		HAL_NVIC_SystemReset();
+		return;
+	}
     memcpy(n58DataRestore, buf, len);
     n58DataRestore[len] = NULL;
     LogMessage(DEBUG_ALL, "--->>>---\n");
@@ -1835,6 +1851,7 @@ void moduleResponParaser(uint8_t *buf, uint16_t len)
             n58GmrParser(n58DataRestore, len);
             break;
     }
+		free(n58DataRestore);
 }
 
 /*****************************************************/

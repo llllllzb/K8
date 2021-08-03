@@ -80,8 +80,8 @@ void Error_Handler(void);
 #define GSINT_Pin GPIO_PIN_4
 #define GSINT_GPIO_Port GPIOB
 #define GSINT_EXTI_IRQn EXTI4_15_IRQn
-#define GSPWR_Pin 			GPIO_PIN_5
-#define GSPWR_GPIO_Port 		GPIOB
+#define GSPWR_Pin GPIO_PIN_5
+#define GSPWR_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

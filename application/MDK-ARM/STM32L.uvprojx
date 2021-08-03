@@ -82,7 +82,7 @@
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name>fromelf --bin --output .\bin\K8_RI_V1.1.21.bin .\STM32L\STM32L.axf</UserProg1Name>
+            <UserProg1Name>fromelf --bin --output .\bin\K8_RI_V1.1.22.bin .\STM32L\STM32L.axf</UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
@@ -169,9 +169,9 @@
             <AdsLsym>1</AdsLsym>
             <AdsLszi>1</AdsLszi>
             <AdsLtoi>1</AdsLtoi>
-            <AdsLsun>1</AdsLsun>
+            <AdsLsun>0</AdsLsun>
             <AdsLven>1</AdsLven>
-            <AdsLsxf>1</AdsLsxf>
+            <AdsLsxf>0</AdsLsxf>
             <RvctClst>0</RvctClst>
             <GenPPlst>0</GenPPlst>
             <AdsCpuType>"Cortex-M0+"</AdsCpuType>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32L071xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;             ../Drivers/STM32L0xx_HAL_Driver/Inc;             ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy;             ../Drivers/CMSIS/Device/ST/STM32L0xx/Include;             ../Drivers/CMSIS/Include;             ..\App</IncludePath>
+              <IncludePath>../Inc;              ../Drivers/STM32L0xx_HAL_Driver/Inc;              ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy;              ../Drivers/CMSIS/Device/ST/STM32L0xx/Include;              ../Drivers/CMSIS/Include;              ..\App</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -607,6 +607,11 @@
               <FileName>stm32l0xx_hal_cortex.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_cortex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l0xx_hal_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_exti.c</FilePath>
             </File>
             <File>
               <FileName>stm32l0xx_hal_iwdg.c</FileName>

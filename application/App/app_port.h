@@ -43,7 +43,7 @@ typedef struct {
 #define DTRLOW      HAL_GPIO_WritePin(DTR_GPIO_Port,DTR_Pin,GPIO_PIN_RESET)
 /**********************************************************/
 /*GSENSOR*/
-#define GSENSORON	HAL_GPIO_WritePin(GSPWR_GPIO_Port, GSPWR_Pin, GPIO_PIN_RESET)
+#define GSENSORON		HAL_GPIO_WritePin(GSPWR_GPIO_Port, GSPWR_Pin, GPIO_PIN_RESET)
 #define GSENSOROFF	HAL_GPIO_WritePin(GSPWR_GPIO_Port, GSPWR_Pin, GPIO_PIN_SET)
 /**********************************************************/
 /*LDR*/

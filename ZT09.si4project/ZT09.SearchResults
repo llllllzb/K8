@@ -1,0 +1,4 @@
+---- RI_ENABLE Matches (3 in 3 files) ----
+doinstruction in app_atcmd.c (application\App) : #ifdef RI_ENABLE
+app_sys.h (application\App) line 11 : #define RI_ENABLE
+taskRunInOneSecond in app_task.c (application\App) : #ifdef RI_ENABLE

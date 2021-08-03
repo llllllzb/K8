@@ -1,4 +1,4 @@
-                                                                                                                /* USER CODE BEGIN Header */
+/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file    stm32l0xx_it.c
@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app_port.h"
+#include "app_param.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -33,7 +34,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
- 
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -69,7 +70,7 @@ extern RTC_HandleTypeDef hrtc;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M0+ Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M0+ Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable Interrupt.
@@ -90,7 +91,8 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-
+    sysparam.hardfault++;
+    paramSaveHardFault();
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
@@ -156,7 +158,7 @@ void RTC_IRQHandler(void)
   /* USER CODE END RTC_IRQn 0 */
   HAL_RTCEx_WakeUpTimerIRQHandler(&hrtc);
   /* USER CODE BEGIN RTC_IRQn 1 */
-  HAL_RTC_AlarmIRQHandler(&hrtc);
+    HAL_RTC_AlarmIRQHandler(&hrtc);
   /* USER CODE END RTC_IRQn 1 */
 }
 
@@ -215,7 +217,7 @@ void USART1_IRQHandler(void)
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
-UsartInterruptHandler(&huart1);
+    UsartInterruptHandler(&huart1);
   /* USER CODE END USART1_IRQn 1 */
 }
 
@@ -229,7 +231,7 @@ void USART2_IRQHandler(void)
   /* USER CODE END USART2_IRQn 0 */
   HAL_UART_IRQHandler(&huart2);
   /* USER CODE BEGIN USART2_IRQn 1 */
-UsartInterruptHandler(&huart2);
+    UsartInterruptHandler(&huart2);
   /* USER CODE END USART2_IRQn 1 */
 }
 
@@ -243,7 +245,7 @@ void LPUART1_IRQHandler(void)
   /* USER CODE END LPUART1_IRQn 0 */
   HAL_UART_IRQHandler(&hlpuart1);
   /* USER CODE BEGIN LPUART1_IRQn 1 */
-UsartInterruptHandler(&hlpuart1);
+    UsartInterruptHandler(&hlpuart1);
   /* USER CODE END LPUART1_IRQn 1 */
 }
 
