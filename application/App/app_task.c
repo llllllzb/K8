@@ -173,12 +173,21 @@ void alarmRequestClear(uint16_t request)
 void alarmUploadRequest(void)
 {
     uint8_t alarm;
+
+    static uint8_t alarmUploadWait;
     if (sysinfo.alarmrequest == 0)
     {
+        alarmUploadWait = 0;
         return ;
     }
     if (isProtocolReday() == 0)
     {
+        return ;
+    }
+    if (alarmUploadWait <= 2)
+    {
+        sendModuleCmd(N58_MYLACID_CMD, NULL);
+        alarmUploadWait++;
         return ;
     }
     //¸Ð¹â±¨¾¯

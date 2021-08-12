@@ -631,13 +631,29 @@ int createProtocol16(unsigned short Serial, char *DestBuf, uint8_t event)
     gpsinfo = getLastFixedGPSInfo();
     ret = protocolGPSpack(gpsinfo, DestBuf + pdu_len, PROTOCOL_16, NULL);
     pdu_len += ret;
-    for (i = 0; i < 46; i++)
+
+    /**********************/
+
+    DestBuf[pdu_len++] = 0xFF;
+    DestBuf[pdu_len++] = (sysinfo.mcc >> 8) & 0xff;
+    DestBuf[pdu_len++] = sysinfo.mcc & 0xff;
+    DestBuf[pdu_len++] = sysinfo.mnc;
+    DestBuf[pdu_len++] = (sysinfo.lac >> 8) & 0xff;
+    DestBuf[pdu_len++] = sysinfo.lac & 0xff;
+    DestBuf[pdu_len++] = (sysinfo.cid >> 24) & 0xff;
+    DestBuf[pdu_len++] = (sysinfo.cid >> 16) & 0xff;
+    DestBuf[pdu_len++] = (sysinfo.cid >> 8) & 0xff;
+    DestBuf[pdu_len++] = (sysinfo.cid) & 0xff;
+    for (i = 0; i < 36; i++)
         DestBuf[pdu_len++] = 0;
+
+    /**********************/
+
+
     DestBuf[pdu_len++] = sysinfo.terminalStatus;
     sysinfo.terminalStatus &= ~0x38;
     DestBuf[pdu_len++] = 0;
     DestBuf[pdu_len++] = 0;
-    //LogPrintf(DEBUG_ALL,"createProtocol16==>Event %d\n",event);
     DestBuf[pdu_len++] = event;
     if (event == 0)
     {
@@ -651,6 +667,7 @@ int createProtocol16(unsigned short Serial, char *DestBuf, uint8_t event)
     return pdu_len;
 
 }
+
 
 /*
 78 78 17 19 14 0c 0e 13 20 10
