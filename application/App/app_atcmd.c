@@ -69,6 +69,7 @@ const CMDTABLE instructiontable[] =
     {ANSWER_INS, "ANSWER"},
     {TURNALG_INS, "TURNALG"},
     {ADCCAL_INS, "ADCCAL"},
+    {SETAGPS_INS, "SETAGPS"},
     {SN_INS, "*"},
 };
 
@@ -227,6 +228,9 @@ static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, cha
             break;
         case ADCCAL_INS:
             doAdccalInstrucion(item, mode, telnum);
+            break;
+        case SETAGPS_INS:
+            doSetAgpsInstruction(item, mode, telnum);
             break;
         default:
             sprintf(debug, "%s==>%s\n", __FUNCTION__, "unknow cmd");

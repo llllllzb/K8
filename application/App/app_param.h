@@ -47,17 +47,21 @@
 #define EEPROM_NONETWAKEUP_ADDR					356
 #define EEPROM_HEADFAULT_ADDR					357
 #define EEPROM_MALLOC_ADDR						358
+#define EEPROM_AGPSSERVER_ADDR					359 //359+50=409
+#define EEPROM_AGPSUSER_ADDR					409 //409+50=459
+#define EEPROM_AGPSPSWD_ADDR					409 //459+50=509
 
 
 
 //半字区域，1024~1534        共(512)字节
-#define EEPROM_ALARMTIEM_ADDR						1024
-#define EEPROM_MODE3_GAP_ADDR						1034
+#define EEPROM_ALARMTIEM_ADDR					1024
+#define EEPROM_MODE3_GAP_ADDR					1034
 #define EEPROM_mode2worktime_ADDR				1036
 #define EEPROM_GPS_INTERVAL_ADDR				1038
 #define EEPROM_MODE1TIMER_ADDR					1040
-#define EEPROM_PDOP_ADDR								1042
+#define EEPROM_PDOP_ADDR						1042
 #define EEPROM_HEARTBEATTIME_ADDR				1044 //心跳间隔
+#define EEPROM_AGPSPORT_ADDR					1046
 
 //字区域，1536~2044         共(512)字节
 
@@ -71,16 +75,16 @@ V
 次版本     	与之前版本不能兼容时改变
 修订版本        细节修改
 */
-#define EEPROM_VERSION									"K8_RI_V1.1.23"
+#define EEPROM_VERSION									"K8_RI_V1.1.24"
 
 /*EPROM中的数据*/
 typedef struct
 {
-    uint8_t VERSION;        /*当前软件版本号*/
+    uint8_t VERSION;   /*当前软件版本号*/
     uint8_t MODE;      /*系统工作模式*/
     uint8_t Light_Alarm_En; /*光感触发功能是否开启*/
     uint8_t Switch_Alarm_En;/*开关触发功能是否开启*/
-    uint8_t MODE1_GAP_DAY;        /*模式一间隔天数*/
+    uint8_t MODE1_GAP_DAY;  /*模式一间隔天数*/
     uint8_t SLEEP;
     uint8_t updateStatus;
     uint8_t ledctrl;
@@ -100,8 +104,11 @@ typedef struct
     uint8_t autoAnswer;//自动接听
     uint8_t turnalg;
     uint8_t noNetWakeUpMinutes;
-	uint8_t hardfault;
-	uint8_t mallocfault;
+    uint8_t hardfault;
+    uint8_t mallocfault;
+    uint8_t agpsServer[50];
+    uint8_t agpsUser[50];
+    uint8_t agpsPswd[50];
 
     int8_t utc;
 
@@ -111,6 +118,7 @@ typedef struct
     uint16_t  mode1startuptime;
     uint16_t  pdop;
     uint16_t heartbeatgap;
+    uint16_t agpsPort;
 
     uint32_t  mode2worktime;  /*模式二的工作时间，单位分钟*/
     uint32_t ServerPort;
@@ -175,6 +183,15 @@ void paramSaveTurnalg(uint8_t onoff);
 void paramSaveNoNetWakeUpMinutes(uint8_t mis);
 void paramSaveHardFault(void);
 void paramSaveMallocFault(void);
+
+void paramSaveAgpsServer(void);
+void paramGetAgpsServer(void);
+void paramSaveAgpsUser(void);
+void paramGetAgpsUser(void);
+void paramSaveAgpsPswd(void);
+void paramGetAgpsPswd(void);
+void paramSaveAgpsPort(void);
+void paramGetAgpsPort(void);
 
 #endif
 

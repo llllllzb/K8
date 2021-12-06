@@ -142,8 +142,18 @@ void paramDefaultInit(uint8_t level)
     sysparam.ledctrl = 0;
     sysparam.poitype = 2;
     sysparam.smsRespon = 0;
-	sysparam.hardfault=0;
-	sysparam.mallocfault=0;
+    sysparam.hardfault = 0;
+    sysparam.mallocfault = 0;
+    strcpy((char *)sysparam.agpsServer, "121.41.40.95");
+    strcpy((char *)sysparam.agpsUser, "isimact@189.cn");
+    strcpy((char *)sysparam.agpsPswd, "tinfo_13310886056");
+    sysparam.agpsPort = 2621;
+
+    paramSaveAgpsServer();
+    paramSaveAgpsPort();
+    paramSaveAgpsUser();
+    paramSaveAgpsPswd();
+
     paramSaveSmsreply(sysparam.smsRespon);
 
     eepromWriteByte(EEPROM_POITYPE_ADDR, sysparam.poitype);
@@ -156,8 +166,8 @@ void paramDefaultInit(uint8_t level)
     paramSaveAutoAnswer(0);
     paramSaveTurnalg(0);
     paramSaveNoNetWakeUpMinutes(60);
-	paramSaveHardFault();
-	paramSaveMallocFault();
+    paramSaveHardFault();
+    paramSaveMallocFault();
     //2¸ö×Ö½ÚÇøÓò
     paramSaveGPSUploadInterval(sysparam.gpsuploadgap);
     paramSaveACCCTLGNSS(1);
@@ -203,8 +213,8 @@ void paramInit(void)
     sysparam.autoAnswer = eepromReadOneByte(EEPROM_AUTOANSWER_ADDR);
     sysparam.turnalg = eepromReadOneByte(EEPROM_TURNALG_ADDR);
     sysparam.noNetWakeUpMinutes = eepromReadOneByte(EEPROM_NONETWAKEUP_ADDR);
-	sysparam.hardfault=eepromReadOneByte(EEPROM_HEADFAULT_ADDR);
-	sysparam.mallocfault=eepromReadOneByte(EEPROM_MALLOC_ADDR);
+    sysparam.hardfault = eepromReadOneByte(EEPROM_HEADFAULT_ADDR);
+    sysparam.mallocfault = eepromReadOneByte(EEPROM_MALLOC_ADDR);
     for (i = 0; i < 5; i++)
     {
         sysparam.AlarmTime[i] = eepromReadTwoBytes(EEPROM_ALARMTIEM_ADDR + (2 * i));
@@ -230,9 +240,13 @@ void paramInit(void)
 
     if (sysparam.heartbeatgap == 0)
     {
-    	sysparam.heartbeatgap=180;
+        sysparam.heartbeatgap = 180;
         paramSaveHeartbeatInterval(180);
     }
+    paramGetAgpsServer();
+    paramGetAgpsPort();
+    paramGetAgpsUser();
+    paramGetAgpsPswd();
     //paramShow();
 }
 
@@ -605,5 +619,68 @@ void paramSaveMallocFault(void)
 {
     eepromWriteByte(EEPROM_MALLOC_ADDR, sysparam.mallocfault);
 }
+
+void paramSaveAgpsServer(void)
+{
+    uint8_t i;
+    for (i = 0; i < 50; i++)
+    {
+        eepromWriteByte(EEPROM_AGPSSERVER_ADDR + i, sysparam.agpsServer[i]);
+    }
+}
+void paramGetAgpsServer(void)
+{
+    uint8_t i;
+    for (i = 0; i < 50; i++)
+    {
+        sysparam.agpsServer[i] = eepromReadOneByte(EEPROM_AGPSSERVER_ADDR + i);
+    }
+}
+
+void paramSaveAgpsUser(void)
+{
+    uint8_t i;
+    for (i = 0; i < 50; i++)
+    {
+        eepromWriteByte(EEPROM_AGPSUSER_ADDR + i, sysparam.agpsUser[i]);
+    }
+}
+void paramGetAgpsUser(void)
+{
+    uint8_t i;
+    for (i = 0; i < 50; i++)
+    {
+        sysparam.agpsUser[i] = eepromReadOneByte(EEPROM_AGPSUSER_ADDR + i);
+    }
+}
+
+
+void paramSaveAgpsPswd(void)
+{
+    uint8_t i;
+    for (i = 0; i < 50; i++)
+    {
+        eepromWriteByte(EEPROM_AGPSPSWD_ADDR + i, sysparam.agpsPswd[i]);
+    }
+}
+
+void paramGetAgpsPswd(void)
+{
+    uint8_t i;
+    for (i = 0; i < 50; i++)
+    {
+        sysparam.agpsPswd[i] = eepromReadOneByte(EEPROM_AGPSPSWD_ADDR + i);
+    }
+}
+
+void paramSaveAgpsPort(void)
+{
+    eepromWriteTwoBytes(EEPROM_AGPSPORT_ADDR, sysparam.agpsPort);
+}
+void paramGetAgpsPort(void)
+{
+    sysparam.agpsPort = eepromReadTwoBytes(EEPROM_AGPSPORT_ADDR);
+}
+
 
 

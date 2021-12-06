@@ -82,7 +82,7 @@
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name>fromelf --bin --output .\bin\K8_RI_V1.1.23.bin .\STM32L\STM32L.axf</UserProg1Name>
+            <UserProg1Name>fromelf --bin --output .\bin\K8_RI_V1.1.24.bin .\STM32L\STM32L.axf</UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>

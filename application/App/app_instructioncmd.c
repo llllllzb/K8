@@ -772,7 +772,7 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         sprintf(message + strlen(message), "Sysrun:%.2d:%.2d:%.2d;gpsrequest:%02X;gpslast:%.2d:%.2d:%.2d;",
                 sysinfo.System_Tick / 3600, sysinfo.System_Tick % 3600 / 60, sysinfo.System_Tick % 60, sysinfo.GPSRequest,
                 sysinfo.gpsUpdatetick / 3600, sysinfo.gpsUpdatetick % 3600 / 60, sysinfo.gpsUpdatetick % 60);
-		sprintf(message+strlen(message),"HF:%d;MF:%d;",sysparam.hardfault,sysparam.mallocfault);
+        sprintf(message + strlen(message), "HF:%d;MF:%d;", sysparam.hardfault, sysparam.mallocfault);
     }
     else
     {
@@ -1146,4 +1146,38 @@ void doAdccalInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
+void doSetAgpsInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+{
+    char message[100];
+    if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
+    {
+        sprintf(message, "Agps:%s,%d,%s,%s", sysparam.agpsServer, sysparam.agpsPort, sysparam.agpsUser, sysparam.agpsPswd);
+    }
+    else
+    {
+        if (item->item_data[1][0] != 0)
+        {
+            strcpy((char *)sysparam.agpsServer, item->item_data[1]);
+			paramSaveAgpsServer();
+        }
+        if (item->item_data[2][0] != 0)
+        {
+            sysparam.agpsPort = atoi(item->item_data[2]);
+			paramSaveAgpsPort();
+        }
+        if (item->item_data[3][0] != 0)
+        {
+            strcpy((char *)sysparam.agpsUser, item->item_data[3]);
+			paramSaveAgpsUser();
+        }
+        if (item->item_data[4][0] != 0)
+        {
+            strcpy((char *)sysparam.agpsPswd, item->item_data[4]);
+			paramSaveAgpsPswd();
+        }
+        sprintf(message, "Update Agps info:%s,%d,%s,%s", sysparam.agpsServer, sysparam.agpsPort, sysparam.agpsUser,
+                sysparam.agpsPswd);
+    }
+    sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
+}
 

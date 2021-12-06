@@ -303,6 +303,17 @@ void gpsOutputCheckTask(void)
         sysinfo.GPSStatus = 0;
     }
 }
+static void setAgps(void)
+{
+    char param[150];
+    if (sysparam.agpsServer[0] == 0 || sysparam.agpsPort == 0)
+    {
+        LogMessage(DEBUG_ALL, "Agps no server and port\r\n");
+        return ;
+    }
+    sprintf(param, "1,%s,%d,%s,%s", sysparam.agpsServer, sysparam.agpsPort, sysparam.agpsUser, sysparam.agpsPswd);
+    sendModuleCmd(N58_SETSERVER_CMD, param);
+}
 static void gpsRequestOpen(void)
 {
 
@@ -313,7 +324,7 @@ static void gpsRequestOpen(void)
     if (sysinfo.agpsOpenTick == 0 || (sysinfo.System_Tick >= sysinfo.agpsOpenTick))
     {
         sysinfo.agpsOpenTick = sysinfo.System_Tick + 5400;
-        sendModuleCmd(N58_SETSERVER_CMD, "1,gnss-aide.com,2621,freetrial,123456");
+        setAgps();
         gpsChangeFsmState(GPSOPENWAITSTATUS);
 
     }
@@ -1341,6 +1352,16 @@ uint8_t autoSleepTask(void)
     return 0;
 }
 
+void delSmsOndDay(void)
+{
+	static uint32_t sectick=0;
+	if(++sectick>=86400)
+	{
+		sectick=0;
+		deleteMessage();
+	}
+}
+
 
 /***********************************************************/
 /*系统任务运行*/
@@ -1348,6 +1369,7 @@ void taskRunInOneSecond(void)
 {
     sysinfo.System_Tick++;
     disPlaySystemTime();
+	delSmsOndDay();
     networkConnectProcess();
     gpsOutputCheckTask();
     gpsRequestTask();
