@@ -319,9 +319,13 @@ void appBlePRecv(uint8_t *buf, uint16_t len)
         rebuf = rebuf + index;
         relen = relen - index;
         index = getCharIndexWithNum(rebuf, relen, ',', 2);
+		if(index<0)
+			return ;
         rebuf = rebuf + index + 1;
         relen = relen - index - 1;
         index = getCharIndex(rebuf, relen, ',');
+		if(index<0)
+			return ;
         rebuf[index] = 0;
         blerxlen = atoi((char *)rebuf);
         rebuf = rebuf + index + 1;
@@ -353,9 +357,13 @@ void appBleCRecv(uint8_t *buf, uint16_t len)
         rebuf = rebuf + index;
         relen = relen - index;
         index = getCharIndexWithNum(rebuf, relen, ',', 2);
+		if(index<0)
+			return ;
         rebuf = rebuf + index + 1;
         relen = relen - index - 1;
         index = getCharIndex(rebuf, relen, ',');
+		if(index<0)
+			return ;
         rebuf[index] = 0;
         blerxlen = atoi((char *)rebuf);
         rebuf = rebuf + index + 1;

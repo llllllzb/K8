@@ -102,8 +102,8 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
                 headNode = NULL;
                 LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
                 HAL_NVIC_SystemReset();
-	sysparam.mallocfault++;
-	paramSaveMallocFault();
+                sysparam.mallocfault++;
+                paramSaveMallocFault();
                 return 0;
             }
         }
@@ -111,8 +111,8 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
         {
             LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
             HAL_NVIC_SystemReset();
-	sysparam.mallocfault++;
-	paramSaveMallocFault();
+            sysparam.mallocfault++;
+            paramSaveMallocFault();
             return 0;
         }
     }
@@ -143,8 +143,8 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
                     nextnode = NULL;
                     LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
                     HAL_NVIC_SystemReset();
-	sysparam.mallocfault++;
-	paramSaveMallocFault();
+                    sysparam.mallocfault++;
+                    paramSaveMallocFault();
                     return 0;
                 }
             }
@@ -152,8 +152,8 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
             {
                 LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
                 HAL_NVIC_SystemReset();
-	sysparam.mallocfault++;
-	paramSaveMallocFault();
+                sysparam.mallocfault++;
+                paramSaveMallocFault();
                 return 0;
             }
         }
@@ -552,7 +552,7 @@ void networkConnectProcess(void)
             }
             else
             {
-            	sendModuleCmd(N58_GMR_CMD, NULL);
+                sendModuleCmd(N58_GMR_CMD, NULL);
                 N58_ChangeInvokeStatus(N58_CGATT_STATUS);
             }
         case N58_CGATT_STATUS:
@@ -772,6 +772,8 @@ void n58CSQparase(uint8_t *buf, uint16_t len)
         rebuf = buf + index;
         relen = len - index;
         indexa = getCharIndex(rebuf, relen, ',');
+        if (indexa < 0)
+            return ;
         datalen = indexa - 6;
         if (datalen > 5)
             return;
@@ -998,6 +1000,9 @@ void n58CIMIParase(uint8_t *buf, uint16_t len)
         rebuf = buf + index;
         relen = len - index;
         indexa = getCharIndex(rebuf, relen, '\r');
+
+        if (indexa < 0)
+            return ;
         snlen = indexa - 7;
         if (snlen < 30)
         {
@@ -1030,6 +1035,8 @@ void n58CGSNParase(uint8_t *buf, uint16_t len)
         rebuf = buf + index;
         relen = len - index;
         indexa = getCharIndex(rebuf, relen, '\r');
+        if (indexa < 0)
+            return ;
         snlen = indexa - 7;
         if (snlen < 20)
         {
@@ -1060,6 +1067,8 @@ void n58CCIDParase(uint8_t *buf, uint16_t len)
         rebuf = buf + index;
         relen = len - index;
         indexa = getCharIndex(rebuf, relen, '\r');
+        if (indexa < 0)
+            return ;
         snlen = indexa - 7;
         if (snlen < sizeof(n58_lte_status.ICCID))
         {
@@ -1167,14 +1176,21 @@ void n58TCPRecvparase(uint8_t *buf, uint16_t len)
         rebuf += index;
         relen -= index;
         index = getCharIndex(rebuf, relen, ',');
+        if (index < 0)
+            return ;
         rebuf += (index + 1);
         relen -= (index + 1);
         index = getCharIndex(rebuf, relen, ',');
+        if (index < 0 || index > 6)
+            return ;
         strncpy(restore, (char *)rebuf, index);
         restore[index] = 0;
         datalen = atoi(restore);
         rebuf += (index + 1);
         relen -= (index + 1);
+
+        if (relen < datalen)
+            return ;
         if (datalen < 256)
         {
             changeByteArrayToHexString(rebuf, (uint8_t *)restore, datalen);
@@ -1254,7 +1270,7 @@ OK
 
 void n58FSLISTparase(uint8_t *buf, uint16_t len)
 {
-    uint16_t i, count = 0, index, recflag = 0;
+    int16_t i, count = 0, index, recflag = 0;
     char fileinfobuf[70];
     char restore[70];
     char debug[100];
@@ -1272,6 +1288,8 @@ void n58FSLISTparase(uint8_t *buf, uint16_t len)
                 if (my_strpach(fileinfobuf, "gpssave"))
                 {
                     index = getCharIndex((uint8_t *)fileinfobuf, count, ',');
+                    if (index < 0)
+                        return ;
                     strncpy(restore, fileinfobuf, index);
                     restore[index] = 0;
                     gpsUpdateRestoreFileNameAndTotalSize(restore, 0);
@@ -1292,6 +1310,8 @@ void n58FSLISTparase(uint8_t *buf, uint16_t len)
                 if (my_strpach(fileinfobuf, "REC"))
                 {
                     index = getCharIndex((uint8_t *)fileinfobuf, count, ',');
+                    if (index < 0)
+                        return ;
                     strncpy(restore, fileinfobuf, index);
                     restore[index] = 0;
                     recUpdateFileName(restore);
@@ -1302,7 +1322,7 @@ void n58FSLISTparase(uint8_t *buf, uint16_t len)
                     sprintf(debug + strlen(debug), ",Size:%d\n", atoi(restore));
                     LogMessage(DEBUG_ALL, debug);
                     recflag = 1;
-					N58_ClearCmd();
+                    N58_ClearCmd();
                     return ;
                 }
                 else
@@ -1400,15 +1420,17 @@ void n58CMTIparase(uint8_t *buf, uint16_t len)
     uint8_t i;
     int16_t index;
     uint8_t *rebuf;
-    char restore[5];
+    char restore[6];
     index = my_getstrindex((char *)buf, "+CMTI:", len);
     if (index >= 0)
     {
         rebuf = buf + index;
         index = getCharIndex(rebuf, len, ',');
+        if (index < 0)
+            return;
         rebuf = rebuf + index + 1;
         index = getCharIndex(rebuf, len, '\r');
-        if (index > 5)
+        if (index > 5 || index < 0)
             return ;
         for (i = 0; i < index; i++)
         {
@@ -1442,10 +1464,12 @@ void n58CMGRparse(uint8_t *buf, uint16_t len)
         relen = len - index;
         //识别手机号码
         index = getCharIndexWithNum(rebuf, relen, '"', 3);
+        if (index < 0)
+            return ;
         numbuf = rebuf + index + 1;
         renumlen = relen - index - 1;
         index = getCharIndex(numbuf, renumlen, '"');
-        if (index > 100)
+        if (index > 100 || index < 0)
             return ;
         for (i = 0; i < index; i++)
         {
@@ -1459,11 +1483,13 @@ void n58CMGRparse(uint8_t *buf, uint16_t len)
         LogPrintf(DEBUG_ALL, "Tel:%s\n", n58_lte_status.messagePhone);
         //得到第一个\n的位置
         index = getCharIndex(rebuf, len, '\n');
+        if (index < 0)
+            return ;
         //偏移到内容处
         rebuf = rebuf + index + 1;
         //得到从内容处开始的第一个\n，测试index就是内容长度
         index = getCharIndex(rebuf, len, '\n');
-        if (index > 100)
+        if (index > 100 || index < 0)
             return ;
         for (i = 0; i < index; i++)
         {
@@ -1735,12 +1761,14 @@ void n58GmrParser(uint8_t *buf, uint16_t len)
     index = my_getstrindex((char *)buf, "+GMR:", len);
     if (index >= 0)
     {
-        rebuf = buf + index+6;
-        relen = len - index-6;
-        index=getCharIndex(rebuf, relen, '\r');
-		index=index>39?39:index;
-		strncpy((char *)sysinfo.moduleGMR,(char *)rebuf,index);
-		LogPrintf(DEBUG_ALL,"ModuleVer:%s\r\n",sysinfo.moduleGMR);			
+        rebuf = buf + index + 6;
+        relen = len - index - 6;
+        index = getCharIndex(rebuf, relen, '\r');
+        if (index < 0)
+            return ;
+        index = index > 39 ? 39 : index;
+        strncpy((char *)sysinfo.moduleGMR, (char *)rebuf, index);
+        LogPrintf(DEBUG_ALL, "ModuleVer:%s\r\n", sysinfo.moduleGMR);
     }
 }
 
@@ -1748,13 +1776,13 @@ void n58GmrParser(uint8_t *buf, uint16_t len)
 void moduleResponParaser(uint8_t *buf, uint16_t len)
 {
     uint8_t *n58DataRestore;
-	n58DataRestore=malloc(len+1);
-	if(n58DataRestore==NULL)
-	{
-		LogPrintf(DEBUG_ALL,"malloc %d bytes error\r\n",len);
-		HAL_NVIC_SystemReset();
-		return;
-	}
+    n58DataRestore = malloc(len + 1);
+    if (n58DataRestore == NULL)
+    {
+        LogPrintf(DEBUG_ALL, "malloc %d bytes error\r\n", len);
+        HAL_NVIC_SystemReset();
+        return;
+    }
     memcpy(n58DataRestore, buf, len);
     n58DataRestore[len] = NULL;
     LogMessage(DEBUG_ALL, "--->>>---\n");
@@ -1851,7 +1879,7 @@ void moduleResponParaser(uint8_t *buf, uint16_t len)
             n58GmrParser(n58DataRestore, len);
             break;
     }
-		free(n58DataRestore);
+    free(n58DataRestore);
 }
 
 /*****************************************************/

@@ -3,9 +3,9 @@
 <title>Static Call Graph - [STM32L\STM32L.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32L\STM32L.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Mon Dec 06 19:20:29 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Dec 07 16:13:49 2021
 <BR><P>
-<H3>Maximum Stack Usage =       2752 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       2760 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 moduleResponParaser &rArr; n58TCPRecvparase &rArr; protocolRxParase &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 <P>
@@ -337,7 +337,7 @@ Global Symbols
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdDebugParase
 </UL>
 
-<P><STRONG><a name="[12a]"></a>strncpy</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, strncpy.o(.text))
+<P><STRONG><a name="[12b]"></a>strncpy</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, strncpy.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strncpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParaseFunction
@@ -361,7 +361,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paraseInstructionToItem
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
@@ -2480,14 +2480,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestTask
 </UL>
 
-<P><STRONG><a name="[127]"></a>appBleCRecv</STRONG> (Thumb, 124 bytes, Stack size 152 bytes, app_ble.o(i.appBleCRecv))
+<P><STRONG><a name="[127]"></a>appBleCRecv</STRONG> (Thumb, 144 bytes, Stack size 152 bytes, app_ble.o(i.appBleCRecv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = appBleCRecv &rArr; LogPrintf &rArr; LogMessageWL &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndexWithNum
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndexWithNum
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
@@ -2503,14 +2503,14 @@ Global Symbols
 <LI><a href="#[21f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;modulePowerOff
 </UL>
 
-<P><STRONG><a name="[12d]"></a>appBlePRecv</STRONG> (Thumb, 126 bytes, Stack size 56 bytes, app_ble.o(i.appBlePRecv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 2104<LI>Call Chain = appBlePRecv &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[12d]"></a>appBlePRecv</STRONG> (Thumb, 142 bytes, Stack size 72 bytes, app_ble.o(i.appBlePRecv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 2120<LI>Call Chain = appBlePRecv &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndexWithNum
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndexWithNum
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;instructionParase
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
@@ -2643,7 +2643,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paraseInstructionToItem
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTerminalAccState
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessageWL
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;appUartSend
@@ -2667,7 +2667,7 @@ Global Symbols
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdDebugParase
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getBatVoltage
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -3562,7 +3562,7 @@ Global Symbols
 <LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 </UL>
 
-<P><STRONG><a name="[129]"></a>getCharIndex</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_sys.o(i.getCharIndex))
+<P><STRONG><a name="[12a]"></a>getCharIndex</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_sys.o(i.getCharIndex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = getCharIndex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParaseFunction
@@ -3582,7 +3582,7 @@ Global Symbols
 <LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseGPS
 </UL>
 
-<P><STRONG><a name="[128]"></a>getCharIndexWithNum</STRONG> (Thumb, 40 bytes, Stack size 20 bytes, app_sys.o(i.getCharIndexWithNum))
+<P><STRONG><a name="[129]"></a>getCharIndexWithNum</STRONG> (Thumb, 40 bytes, Stack size 20 bytes, app_sys.o(i.getCharIndexWithNum))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = getCharIndexWithNum
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;appBlePRecv
@@ -4186,7 +4186,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> app_serverprotocol.o(i.protocolRunFsm)
 </UL>
 <P><STRONG><a name="[3c]"></a>moduleResponParaser</STRONG> (Thumb, 494 bytes, Stack size 24 bytes, app_net.o(i.moduleResponParaser))
-<BR><BR>[Stack]<UL><LI>Max Depth = 2752<LI>Call Chain = moduleResponParaser &rArr; n58TCPRecvparase &rArr; protocolRxParase &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 2760<LI>Call Chain = moduleResponParaser &rArr; n58TCPRecvparase &rArr; protocolRxParase &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
@@ -4262,7 +4262,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[12b]"></a>my_getstrindex</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, app_sys.o(i.my_getstrindex))
+<P><STRONG><a name="[128]"></a>my_getstrindex</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, app_sys.o(i.my_getstrindex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = my_getstrindex &rArr; my_strpach
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
@@ -4301,7 +4301,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58FSLISTparase
 <LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSNInstruction
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doFactoryInstrucion
@@ -4340,31 +4340,31 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[22e]"></a>n58CCIDParase</STRONG> (Thumb, 100 bytes, Stack size 88 bytes, app_net.o(i.n58CCIDParase))
+<P><STRONG><a name="[22e]"></a>n58CCIDParase</STRONG> (Thumb, 106 bytes, Stack size 88 bytes, app_net.o(i.n58CCIDParase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = n58CCIDParase &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[22c]"></a>n58CGSNParase</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, app_net.o(i.n58CGSNParase))
+<P><STRONG><a name="[22c]"></a>n58CGSNParase</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, app_net.o(i.n58CGSNParase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = n58CGSNParase &rArr; my_getstrindex &rArr; my_strpach
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[22d]"></a>n58CIMIParase</STRONG> (Thumb, 174 bytes, Stack size 64 bytes, app_net.o(i.n58CIMIParase))
+<P><STRONG><a name="[22d]"></a>n58CIMIParase</STRONG> (Thumb, 180 bytes, Stack size 64 bytes, app_net.o(i.n58CIMIParase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = n58CIMIParase &rArr; LogPrintf &rArr; LogMessageWL &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
@@ -4372,12 +4372,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[226]"></a>n58CMGRparse</STRONG> (Thumb, 182 bytes, Stack size 128 bytes, app_net.o(i.n58CMGRparse))
+<P><STRONG><a name="[226]"></a>n58CMGRparse</STRONG> (Thumb, 190 bytes, Stack size 128 bytes, app_net.o(i.n58CMGRparse))
 <BR><BR>[Stack]<UL><LI>Max Depth = 2176<LI>Call Chain = n58CMGRparse &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndexWithNum
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndexWithNum
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;instructionParase
 <LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
@@ -4385,11 +4385,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[225]"></a>n58CMTIparase</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, app_net.o(i.n58CMTIparase))
+<P><STRONG><a name="[225]"></a>n58CMTIparase</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, app_net.o(i.n58CMTIparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = n58CMTIparase &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendModuleCmd
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
@@ -4400,7 +4400,7 @@ Global Symbols
 <P><STRONG><a name="[230]"></a>n58CREGparase</STRONG> (Thumb, 136 bytes, Stack size 176 bytes, app_net.o(i.n58CREGparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = n58CREGparase &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
@@ -4408,25 +4408,25 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[22f]"></a>n58CSQparase</STRONG> (Thumb, 108 bytes, Stack size 48 bytes, app_net.o(i.n58CSQparase))
+<P><STRONG><a name="[22f]"></a>n58CSQparase</STRONG> (Thumb, 114 bytes, Stack size 48 bytes, app_net.o(i.n58CSQparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = n58CSQparase &rArr; clearHbtTimer &rArr; stopTimer &rArr; LogPrintf &rArr; LogMessageWL &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearHbtTimer
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[239]"></a>n58FSLISTparase</STRONG> (Thumb, 336 bytes, Stack size 272 bytes, app_net.o(i.n58FSLISTparase))
+<P><STRONG><a name="[239]"></a>n58FSLISTparase</STRONG> (Thumb, 344 bytes, Stack size 272 bytes, app_net.o(i.n58FSLISTparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 744<LI>Call Chain = n58FSLISTparase &rArr; recUpdateFileSize &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recUpdateFileSize
@@ -4435,7 +4435,7 @@ Global Symbols
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsUpdateRestoreFileNameAndTotalSize
 <LI><a href="#[241]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsNoRestoreFileToRead
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -4445,8 +4445,8 @@ Global Symbols
 <P><STRONG><a name="[23a]"></a>n58FswrParase</STRONG> (Thumb, 250 bytes, Stack size 1192 bytes, app_net.o(i.n58FswrParase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1720<LI>Call Chain = n58FswrParase &rArr; createProtocol62 &rArr; sendDataToServer &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[246]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recReadFileOk
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recIsRun
@@ -4462,13 +4462,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[23d]"></a>n58GmrParser</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, app_net.o(i.n58GmrParser))
+<P><STRONG><a name="[23d]"></a>n58GmrParser</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, app_net.o(i.n58GmrParser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = n58GmrParser &rArr; LogPrintf &rArr; LogMessageWL &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
@@ -4476,7 +4476,7 @@ Global Symbols
 <P><STRONG><a name="[221]"></a>n58MygpsposParaser</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, app_net.o(i.n58MygpsposParaser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1160<LI>Call Chain = n58MygpsposParaser &rArr; nmeaParse &rArr; parseGPS &rArr; parse_RMC &rArr; showgpsinfo &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nmeaParse
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
@@ -4486,7 +4486,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = n58MygpsstateParase &rArr; my_strstr &rArr; my_strpach
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSystemLedStatus
 <LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsClearCurrentGPSInfo
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsChangeFsmState
@@ -4497,7 +4497,7 @@ Global Symbols
 <P><STRONG><a name="[229]"></a>n58MylacidParse</STRONG> (Thumb, 178 bytes, Stack size 176 bytes, app_net.o(i.n58MylacidParse))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = n58MylacidParse &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtoul
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
@@ -4508,7 +4508,7 @@ Global Symbols
 <P><STRONG><a name="[22b]"></a>n58NwblecconParser</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, app_net.o(i.n58NwblecconParser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = n58NwblecconParser &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
@@ -4517,7 +4517,7 @@ Global Symbols
 <P><STRONG><a name="[23c]"></a>n58NwbleroleParser</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, app_net.o(i.n58NwbleroleParser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = n58NwbleroleParser &rArr; LogPrintf &rArr; LogMessageWL &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
@@ -4526,7 +4526,7 @@ Global Symbols
 <P><STRONG><a name="[23b]"></a>n58NwbtblepwrParser</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, app_net.o(i.n58NwbtblepwrParser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = n58NwbtblepwrParser &rArr; LogPrintf &rArr; LogMessageWL &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
@@ -4535,21 +4535,21 @@ Global Symbols
 <P><STRONG><a name="[22a]"></a>n58NwurcblestatParser</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, app_net.o(i.n58NwurcblestatParser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = n58NwurcblestatParser &rArr; LogPrintf &rArr; LogMessageWL &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
 
-<P><STRONG><a name="[222]"></a>n58TCPRecvparase</STRONG> (Thumb, 164 bytes, Stack size 536 bytes, app_net.o(i.n58TCPRecvparase))
-<BR><BR>[Stack]<UL><LI>Max Depth = 2728<LI>Call Chain = n58TCPRecvparase &rArr; protocolRxParase &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[222]"></a>n58TCPRecvparase</STRONG> (Thumb, 194 bytes, Stack size 544 bytes, app_net.o(i.n58TCPRecvparase))
+<BR><BR>[Stack]<UL><LI>Max Depth = 2736<LI>Call Chain = n58TCPRecvparase &rArr; protocolRxParase &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeByteArrayToHexString
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[249]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
@@ -4558,7 +4558,7 @@ Global Symbols
 <P><STRONG><a name="[224]"></a>n58TCPcloseparase</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, app_net.o(i.n58TCPcloseparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = n58TCPcloseparase &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_ChangeInvokeStatus
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
@@ -4569,7 +4569,7 @@ Global Symbols
 <P><STRONG><a name="[223]"></a>n58TCPsetupparase</STRONG> (Thumb, 234 bytes, Stack size 176 bytes, app_net.o(i.n58TCPsetupparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = n58TCPsetupparase &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
@@ -4581,14 +4581,14 @@ Global Symbols
 <P><STRONG><a name="[227]"></a>n58WIFISCANParse</STRONG> (Thumb, 174 bytes, Stack size 400 bytes, app_net.o(i.n58WIFISCANParse))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1496<LI>Call Chain = n58WIFISCANParse &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeHexStringToByteArray
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCurrentGPSInfo
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocolF3
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
@@ -4596,7 +4596,7 @@ Global Symbols
 <P><STRONG><a name="[231]"></a>n58cgattparase</STRONG> (Thumb, 52 bytes, Stack size 40 bytes, app_net.o(i.n58cgattparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = n58cgattparase &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -4614,7 +4614,7 @@ Global Symbols
 <P><STRONG><a name="[232]"></a>n58mysysteminfoparase</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, app_net.o(i.n58mysysteminfoparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = n58mysysteminfoparase &rArr; my_getstrindex &rArr; my_strpach
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleResponParaser
 </UL>
@@ -4656,7 +4656,7 @@ Global Symbols
 <P><STRONG><a name="[236]"></a>n58xiicqueryparase</STRONG> (Thumb, 136 bytes, Stack size 176 bytes, app_net.o(i.n58xiicqueryparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = n58xiicqueryparase &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -4975,7 +4975,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
@@ -4987,7 +4987,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
@@ -4999,7 +4999,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
@@ -5030,7 +5030,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSetblemacInstrucion
@@ -5205,7 +5205,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteWord
 <LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
@@ -5246,7 +5246,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteTwoBytes
 <LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doUPSInstruction
@@ -5286,7 +5286,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 1016<LI>Call Chain = parseGPS &rArr; parse_RMC &rArr; showgpsinfo &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
 <LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
@@ -5408,7 +5408,7 @@ Global Symbols
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearHbtTimer
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateLocalRTCTime
 <LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
