@@ -3,7 +3,7 @@
 <title>Static Call Graph - [STM32L\STM32L.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32L\STM32L.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Dec 07 16:13:49 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Jan 21 17:14:23 2022
 <BR><P>
 <H3>Maximum Stack Usage =       2760 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -93,7 +93,7 @@ Global Symbols
 <P><STRONG><a name="[24]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l071xx.o(.text)
 </UL>
-<P><STRONG><a name="[27e]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[281]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[41]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -103,19 +103,19 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[27f]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[282]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[280]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[283]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[281]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[284]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
 <P><STRONG><a name="[43]"></a>__rt_lib_shutdown_fini</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry12b.o(.ARM.Collect$$$$0000000E))
 <BR><BR>[Calls]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_fini_ (Weak Reference)
 </UL>
 
-<P><STRONG><a name="[282]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[285]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000F))
 
-<P><STRONG><a name="[283]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$00000011))
+<P><STRONG><a name="[286]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$00000011))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32l071xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l071xx.o(RESET)
@@ -187,7 +187,7 @@ Global Symbols
 <P><STRONG><a name="[6]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32l071xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l071xx.o(RESET)
 </UL>
-<P><STRONG><a name="[284]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[287]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[46]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
@@ -207,10 +207,10 @@ Global Symbols
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addNewGPSInfo
 <LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol19
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolGPSpack
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
-<LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hearbeatRequest
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
@@ -225,7 +225,7 @@ Global Symbols
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[285]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
+<P><STRONG><a name="[288]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[45]"></a>__aeabi_idivmod</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, idiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = __aeabi_idivmod &rArr; __aeabi_uidivmod
@@ -255,7 +255,7 @@ Global Symbols
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_localtime
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCurrentDateTimeOfSec
-<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
 </UL>
 
 <P><STRONG><a name="[7f]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
@@ -265,8 +265,8 @@ Global Symbols
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateNodeCmd
 <LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseGPS
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateLocalRTCTime
-<LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
-<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
+<LI><a href="#[280]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
+<LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
 </UL>
 
 <P><STRONG><a name="[11f]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
@@ -274,16 +274,16 @@ Global Symbols
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLastPoint
 </UL>
 
-<P><STRONG><a name="[286]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[289]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[4d]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[287]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[28a]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[288]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[28b]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[4c]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -292,13 +292,13 @@ Global Symbols
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;appBleInfoReset
 <LI><a href="#[1d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSetblemacInstrucion
 <LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doParamInstruction
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 </UL>
 
 <P><STRONG><a name="[8d]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
+<BR><BR>[Called By]<UL><LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;modulePinConfig
 <LI><a href="#[249]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
 <LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsClearCurrentGPSInfo
@@ -309,8 +309,8 @@ Global Symbols
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveApnUser
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveApnPswd
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveApnName
-<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
 <LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseGPS
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
@@ -319,7 +319,7 @@ Global Symbols
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
-<P><STRONG><a name="[289]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[28c]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[4e]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -407,7 +407,7 @@ Global Symbols
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doACCCTLGNSSInstrucion
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mycmdPatch
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdDebugParase
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
+<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;charstrToHexValue
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocolF1
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;packIMEI
@@ -415,10 +415,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[191]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recUpdateFileName
+<BR><BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
+<LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recUpdateFileName
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsUpdateRestoreFileNameAndTotalSize
 <LI><a href="#[226]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CMGRparse
-<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveCodeVersion
+<LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveCodeVersion
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSetAgpsInstruction
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doPOITYPEInstruction
@@ -470,10 +471,10 @@ Global Symbols
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAdccalInstrucion
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doACCCTLGNSSInstrucion
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdDebugLevelParser
-<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
-<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSA
-<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GGA
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
+<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSA
+<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GGA
 </UL>
 
 <P><STRONG><a name="[55]"></a>atol</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, atol.o(.text))
@@ -494,7 +495,7 @@ Global Symbols
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
 </UL>
 
@@ -520,7 +521,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAdccalInstrucion
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcAdccalParase
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getBatVoltage
 </UL>
 
@@ -538,7 +539,7 @@ Global Symbols
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;latitude_to_double
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;charstrToHexValue
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateTheDistanceBetweenTwoPonits
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
@@ -586,7 +587,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAdccalInstrucion
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcAdccalParase
-<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
 <LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;longitude_to_double
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;latitude_to_double
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;charstrToHexValue
@@ -611,7 +612,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
-<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAdcCal
+<LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAdcCal
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doPdopInstrucion
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doLOWWInstruction
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAdccalInstrucion
@@ -642,7 +643,7 @@ Global Symbols
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
 
-<P><STRONG><a name="[28a]"></a>scalbn</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, dscalb.o(.text), UNUSED)
+<P><STRONG><a name="[28d]"></a>scalbn</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, dscalb.o(.text), UNUSED)
 
 <P><STRONG><a name="[64]"></a>__aeabi_ui2f</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, ffltui.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = __aeabi_ui2f &rArr; _float_epilogue
@@ -651,7 +652,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAdccalInstrucion
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcAdccalParase
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getBatVoltage
 </UL>
 
@@ -672,7 +673,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
-<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAdcCal
+<LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAdcCal
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doPdopInstrucion
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doLOWWInstruction
 <LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;longitude_to_double
@@ -707,11 +708,11 @@ Global Symbols
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doFactoryTestInstruction
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAdccalInstrucion
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcAdccalParase
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
+<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsFilter
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getBatteryLevel
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getBatVoltage
 </UL>
 
@@ -728,7 +729,7 @@ Global Symbols
 
 <P><STRONG><a name="[119]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdrcmple.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsFilter
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
@@ -740,19 +741,19 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
-<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAdcCal
+<LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAdcCal
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doLOWWInstruction
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAdccalInstrucion
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcAdccalParase
-<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSA
+<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSA
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getBatVoltage
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
 </UL>
 
-<P><STRONG><a name="[28b]"></a>__aeabi_cfcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cfcmple.o(.text), UNUSED)
+<P><STRONG><a name="[28e]"></a>__aeabi_cfcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cfcmple.o(.text), UNUSED)
 
-<P><STRONG><a name="[277]"></a>__aeabi_cfcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<P><STRONG><a name="[27a]"></a>__aeabi_cfcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 </UL>
 
 <P><STRONG><a name="[49]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text))
@@ -765,7 +766,7 @@ Global Symbols
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[28c]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[28f]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[48]"></a>__aeabi_llsr</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, llushr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_llsr
@@ -778,7 +779,7 @@ Global Symbols
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[28d]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[290]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[5d]"></a>__aeabi_lasr</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, llsshr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_lasr
@@ -786,7 +787,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[28e]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
+<P><STRONG><a name="[291]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
 
 <P><STRONG><a name="[51]"></a>__rt_ctype_table</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, ctype_o.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtol
@@ -838,7 +839,7 @@ Global Symbols
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 </UL>
 
-<P><STRONG><a name="[28f]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
+<P><STRONG><a name="[292]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[58]"></a>_float_round</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, fepilogue.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
@@ -899,7 +900,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[290]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[293]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[69]"></a>_chval</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, _chval.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_strtoul
@@ -938,7 +939,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
 </UL>
 
-<P><STRONG><a name="[291]"></a>_ll_mul</STRONG> (Thumb, 0 bytes, Stack size 64 bytes, llmul.o(.text), UNUSED)
+<P><STRONG><a name="[294]"></a>_ll_mul</STRONG> (Thumb, 0 bytes, Stack size 64 bytes, llmul.o(.text), UNUSED)
 
 <P><STRONG><a name="[73]"></a>__aeabi_ul2d</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, dfltul.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
@@ -958,7 +959,7 @@ Global Symbols
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendModuleCmd
-<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
+<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendDataToServer
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doTTSInstruction
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRestoreWriteData
@@ -991,9 +992,9 @@ Global Symbols
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_LPUART1_UART_Init
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
-<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
+<LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltageAdcValue
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
+<LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_RTC_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_IWDG_Init
@@ -1202,7 +1203,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParaseFunction
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ldrInterrupt
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doFactoryTestInstruction
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 </UL>
 
 <P><STRONG><a name="[7d]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32l0xx_hal_gpio.o(i.HAL_GPIO_WritePin))
@@ -1409,7 +1410,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[26c]"></a>HAL_PWR_EnterSTOPMode</STRONG> (Thumb, 88 bytes, Stack size 20 bytes, stm32l0xx_hal_pwr.o(i.HAL_PWR_EnterSTOPMode))
+<P><STRONG><a name="[26f]"></a>HAL_PWR_EnterSTOPMode</STRONG> (Thumb, 88 bytes, Stack size 20 bytes, stm32l0xx_hal_pwr.o(i.HAL_PWR_EnterSTOPMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = HAL_PWR_EnterSTOPMode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestTask
@@ -1516,7 +1517,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
+<BR>[Called By]<UL><LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
 </UL>
 
 <P><STRONG><a name="[c0]"></a>HAL_RTC_GetAlarm</STRONG> (Thumb, 134 bytes, Stack size 20 bytes, stm32l0xx_hal_rtc.o(i.HAL_RTC_GetAlarm))
@@ -1568,7 +1569,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ByteToBcd2
 </UL>
-<BR>[Called By]<UL><LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
+<BR>[Called By]<UL><LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
 </UL>
 
 <P><STRONG><a name="[cb]"></a>HAL_RTC_SetDate</STRONG> (Thumb, 190 bytes, Stack size 24 bytes, stm32l0xx_hal_rtc.o(i.HAL_RTC_SetDate))
@@ -1578,7 +1579,7 @@ Global Symbols
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ByteToBcd2
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_WaitForSynchro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
+<BR>[Called By]<UL><LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
 </UL>
 
 <P><STRONG><a name="[cc]"></a>HAL_RTC_SetTime</STRONG> (Thumb, 228 bytes, Stack size 24 bytes, stm32l0xx_hal_rtc.o(i.HAL_RTC_SetTime))
@@ -1588,7 +1589,7 @@ Global Symbols
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ByteToBcd2
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_WaitForSynchro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
+<BR>[Called By]<UL><LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
 </UL>
 
 <P><STRONG><a name="[c7]"></a>HAL_RTC_WaitForSynchro</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, stm32l0xx_hal_rtc.o(i.HAL_RTC_WaitForSynchro))
@@ -1601,7 +1602,7 @@ Global Symbols
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_Init
 </UL>
 
-<P><STRONG><a name="[26d]"></a>HAL_ResumeTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32l0xx_hal.o(i.HAL_ResumeTick))
+<P><STRONG><a name="[270]"></a>HAL_ResumeTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32l0xx_hal.o(i.HAL_ResumeTick))
 <BR><BR>[Called By]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestTask
 </UL>
 
@@ -1613,7 +1614,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
-<P><STRONG><a name="[26b]"></a>HAL_SuspendTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32l0xx_hal.o(i.HAL_SuspendTick))
+<P><STRONG><a name="[26e]"></a>HAL_SuspendTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32l0xx_hal.o(i.HAL_SuspendTick))
 <BR><BR>[Called By]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestTask
 </UL>
 
@@ -1769,7 +1770,7 @@ Global Symbols
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParaseFunction
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paraseInstructionToItem
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunStart
-<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
+<LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;modulePinConfig
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ldrInterrupt
 <LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorConfig
@@ -1777,7 +1778,7 @@ Global Symbols
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;appUartConfig
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_AlarmAEventCallback
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
+<LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemTaskSuspend
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemTaskResume
@@ -1796,7 +1797,7 @@ Global Symbols
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocolF3
 <LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol62
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendModuleCmd
-<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
+<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
 <LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;networkConnectProcess
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netExitStopMode
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netEnterStopMode
@@ -1829,15 +1830,15 @@ Global Symbols
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doinstruction
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFMPCnmeaParase
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdDebugParase
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
+<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
 <LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseGPS
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRestoreWriteData
 <LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsReadFromModuleAndSendtoServe
-<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
+<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
 <LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsUploadPointToServer
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestSet
@@ -1848,7 +1849,7 @@ Global Symbols
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLastPoint
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateTheGPSCornerPoint
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateDistanceOfPoint
-<LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recStop
+<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recStop
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recStart
 <LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessageWithDifMode
 </UL>
@@ -1900,12 +1901,12 @@ Global Symbols
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdIMEIParseRespon
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcIMSIParseRespon
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcAdccalParase
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
+<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
+<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readInterruptConfig
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
-<LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exitNetCtl
 <LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessageWithDifMode
 </UL>
@@ -2004,11 +2005,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSystemLedStatus
 </UL>
-<BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reConnectServer
+<BR>[Called By]<UL><LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
+<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reConnectServer
 <LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;networkConnectProcess
 <LI><a href="#[224]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPcloseparase
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TcpsendParase
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
 </UL>
 
 <P><STRONG><a name="[fc]"></a>N58_CreateSocket</STRONG> (Thumb, 30 bytes, Stack size 112 bytes, app_net.o(i.N58_CreateSocket))
@@ -2170,17 +2172,17 @@ Global Symbols
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[292]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[295]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
 <P><STRONG><a name="[84]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParaseFunction
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paraseInstructionToItem
-<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
+<LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disPlaySystemTime
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_AlarmAEventCallback
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
+<LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemTaskSuspend
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemTaskResume
 <LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kernalRun
@@ -2188,7 +2190,7 @@ Global Symbols
 <LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAgps
 <LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recUpdateFileSize
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendModuleCmd
-<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
+<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendDataToServer
 <LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
 <LI><a href="#[24b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setXGAUTH
@@ -2232,10 +2234,10 @@ Global Symbols
 <LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAPNInstruction
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doACCCTLGNSSInstrucion
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doinstruction
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
+<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
 <LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsReadFromModuleAndSendtoServe
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocolF1
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
+<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dorequestSend123
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestSet
 <LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestClear
@@ -2245,20 +2247,20 @@ Global Symbols
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;appBleSendData
 </UL>
 
-<P><STRONG><a name="[293]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[296]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
-<P><STRONG><a name="[294]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[297]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
 <P><STRONG><a name="[10b]"></a>__0vsprintf</STRONG> (Thumb, 30 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[295]"></a>__1vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[298]"></a>__1vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
-<P><STRONG><a name="[296]"></a>__2vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[299]"></a>__2vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
-<P><STRONG><a name="[297]"></a>__c89vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[29a]"></a>__c89vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
 <P><STRONG><a name="[ee]"></a>vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vsprintf
@@ -2304,7 +2306,7 @@ Global Symbols
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtoul
 </UL>
 
-<P><STRONG><a name="[298]"></a>__rt_errno_addr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, errno.o(i.__aeabi_errno_addr), UNUSED)
+<P><STRONG><a name="[29b]"></a>__rt_errno_addr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, errno.o(i.__aeabi_errno_addr), UNUSED)
 
 <P><STRONG><a name="[10c]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 838 bytes, Stack size 120 bytes, rred.o(i.__ieee754_rem_pio2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
@@ -2424,11 +2426,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atof
 </UL>
 
-<P><STRONG><a name="[299]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[29c]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[29a]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[29d]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[29b]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[29e]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[132]"></a>__set_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__set_errno))
 <BR><BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
@@ -2454,7 +2456,7 @@ Global Symbols
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<BR>[Called By]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
 </UL>
 
 <P><STRONG><a name="[124]"></a>alarmRequestClear</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_task.o(i.alarmRequestClear))
@@ -2463,7 +2465,7 @@ Global Symbols
 
 <P><STRONG><a name="[20c]"></a>alarmRequestSet</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_task.o(i.alarmRequestSet))
 <BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ldrInterrupt
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 </UL>
 
@@ -2694,8 +2696,8 @@ Global Symbols
 <LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__read_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
-<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSA
+<BR>[Called By]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSA
 </UL>
 
 <P><STRONG><a name="[15d]"></a>autoSleepTask</STRONG> (Thumb, 236 bytes, Stack size 16 bytes, app_task.o(i.autoSleepTask))
@@ -3533,7 +3535,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IWDG_Refresh
 </UL>
-<BR>[Called By]<UL><LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<BR>[Called By]<UL><LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
 </UL>
 
 <P><STRONG><a name="[80]"></a>free</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, malloc.o(i.free))
@@ -3558,8 +3560,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParaseFunction
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doFactoryTestInstruction
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 </UL>
 
 <P><STRONG><a name="[12a]"></a>getCharIndex</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_sys.o(i.getCharIndex))
@@ -3661,14 +3663,14 @@ Global Symbols
 <P><STRONG><a name="[153]"></a>getTerminalAccState</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_sys.o(i.getTerminalAccState))
 <BR><BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParaseFunction
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doStatusInstruction
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestTask
 </UL>
 
 <P><STRONG><a name="[1dd]"></a>getTerminalChargeState</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_sys.o(i.getTerminalChargeState))
 <BR><BR>[Called By]<UL><LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doStatusInstruction
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 </UL>
 
 <P><STRONG><a name="[141]"></a>getVoltageAdcValue</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, app_port.o(i.getVoltageAdcValue))
@@ -3741,10 +3743,10 @@ Global Symbols
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendModuleCmd
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
+<BR>[Called By]<UL><LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadGpsRestoreData
 </UL>
 
-<P><STRONG><a name="[262]"></a>gpsReadRestoreReset</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_gpsrestore.o(i.gpsReadRestoreReset))
+<P><STRONG><a name="[264]"></a>gpsReadRestoreReset</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_gpsrestore.o(i.gpsReadRestoreReset))
 <BR><BR>[Called By]<UL><LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
 </UL>
 
@@ -3756,7 +3758,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doModeInstruction
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doACCCTLGNSSInstrucion
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsUplodOnePointTask
@@ -3764,7 +3766,7 @@ Global Symbols
 
 <P><STRONG><a name="[1c3]"></a>gpsRequestGet</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_task.o(i.gpsRequestGet))
 <BR><BR>[Called By]<UL><LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doModeInstruction
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsUplodOnePointTask
@@ -3780,8 +3782,8 @@ Global Symbols
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doModeInstruction
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doACCCTLGNSSInstrucion
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do123Instruction
-<LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hearbeatRequest
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
@@ -3842,7 +3844,7 @@ Global Symbols
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateTheGPSCornerPoint
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateDistanceOfPoint
 </UL>
-<BR>[Called By]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<BR>[Called By]<UL><LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
 <P><STRONG><a name="[204]"></a>gpsUplodOnePointTask</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, app_task.o(i.gpsUplodOnePointTask))
@@ -3871,8 +3873,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;repairGsensor
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doModeInstruction
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
 </UL>
 
@@ -3948,14 +3950,14 @@ Global Symbols
 <LI><a href="#[226]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CMGRparse
 </UL>
 
-<P><STRONG><a name="[274]"></a>isModulePowerOn</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_net.o(i.isModulePowerOn))
-<BR><BR>[Called By]<UL><LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
+<P><STRONG><a name="[277]"></a>isModulePowerOn</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_net.o(i.isModulePowerOn))
+<BR><BR>[Called By]<UL><LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
 </UL>
 
 <P><STRONG><a name="[154]"></a>isModuleRunNormal</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, app_net.o(i.isModuleRunNormal))
 <BR><BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParaseFunction
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isProtocolReday
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;autoSleepTask
 </UL>
 
@@ -3966,9 +3968,9 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;modeShutDownQuickly
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
-<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifiUploadRequestTask
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
+<LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifiUploadRequestTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lbsUploadRequestTask
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hearbeatRequest
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
@@ -3999,7 +4001,7 @@ Global Symbols
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<BR>[Called By]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
 </UL>
 
 <P><STRONG><a name="[211]"></a>lbsUploadRequestTask</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, app_task.o(i.lbsUploadRequestTask))
@@ -4045,7 +4047,7 @@ Global Symbols
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<BR>[Called By]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
 </UL>
 
 <P><STRONG><a name="[215]"></a>lowPowerConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, app_port.o(i.lowPowerConfig))
@@ -4307,7 +4309,7 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doFactoryInstrucion
 <LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doDebugInstrucion
 <LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAlarmModeInstrucion
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
 </UL>
 
 <P><STRONG><a name="[13d]"></a>my_strstr</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, app_sys.o(i.my_strstr))
@@ -4742,7 +4744,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_user.o(i.myAppConfig)
 </UL>
-<P><STRONG><a name="[1ad]"></a>paramDefaultInit</STRONG> (Thumb, 368 bytes, Stack size 24 bytes, app_param.o(i.paramDefaultInit))
+<P><STRONG><a name="[1ad]"></a>paramDefaultInit</STRONG> (Thumb, 374 bytes, Stack size 24 bytes, app_param.o(i.paramDefaultInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = paramDefaultInit &rArr; paramSaveServer &rArr; eepromWriteWord &rArr; HAL_FLASHEx_DATAEEPROM_Program &rArr; FLASH_WaitForLastOperation &rArr; FLASH_SetErrorCode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteTwoBytes
@@ -4763,6 +4765,7 @@ Global Symbols
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveGPSUploadInterval
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveFence
 <LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveBF
+<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAutoParam
 <LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAutoAnswer
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveApnUser
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveApnPswd
@@ -4779,7 +4782,7 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doFactoryInstrucion
 </UL>
 
-<P><STRONG><a name="[252]"></a>paramGetAdcCal</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, app_param.o(i.paramGetAdcCal))
+<P><STRONG><a name="[253]"></a>paramGetAdcCal</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, app_param.o(i.paramGetAdcCal))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = paramGetAdcCal &rArr; __aeabi_ui2d &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
@@ -4789,23 +4792,23 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
 </UL>
 
-<P><STRONG><a name="[258]"></a>paramGetAgpsPort</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_param.o(i.paramGetAgpsPort))
+<P><STRONG><a name="[259]"></a>paramGetAgpsPort</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_param.o(i.paramGetAgpsPort))
 <BR><BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
 </UL>
 
-<P><STRONG><a name="[25a]"></a>paramGetAgpsPswd</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, app_param.o(i.paramGetAgpsPswd))
+<P><STRONG><a name="[25b]"></a>paramGetAgpsPswd</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, app_param.o(i.paramGetAgpsPswd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = paramGetAgpsPswd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
 </UL>
 
-<P><STRONG><a name="[257]"></a>paramGetAgpsServer</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, app_param.o(i.paramGetAgpsServer))
+<P><STRONG><a name="[258]"></a>paramGetAgpsServer</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, app_param.o(i.paramGetAgpsServer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = paramGetAgpsServer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
 </UL>
 
-<P><STRONG><a name="[259]"></a>paramGetAgpsUser</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, app_param.o(i.paramGetAgpsUser))
+<P><STRONG><a name="[25a]"></a>paramGetAgpsUser</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, app_param.o(i.paramGetAgpsUser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = paramGetAgpsUser
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
@@ -4826,7 +4829,11 @@ Global Symbols
 <LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAPNInstruction
 </UL>
 
-<P><STRONG><a name="[253]"></a>paramGetBleMac</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, app_param.o(i.paramGetBleMac))
+<P><STRONG><a name="[25c]"></a>paramGetAutoParam</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_param.o(i.paramGetAutoParam))
+<BR><BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
+</UL>
+
+<P><STRONG><a name="[254]"></a>paramGetBleMac</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, app_param.o(i.paramGetBleMac))
 <BR><BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
 </UL>
 
@@ -4835,7 +4842,7 @@ Global Symbols
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdCmGetParser
 </UL>
 
-<P><STRONG><a name="[254]"></a>paramGetCodeVersion</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_param.o(i.paramGetCodeVersion))
+<P><STRONG><a name="[255]"></a>paramGetCodeVersion</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_param.o(i.paramGetCodeVersion))
 <BR><BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
 </UL>
 
@@ -4851,7 +4858,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doLOWWInstruction
 </UL>
 
-<P><STRONG><a name="[255]"></a>paramGetMode2cnt</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_param.o(i.paramGetMode2cnt))
+<P><STRONG><a name="[256]"></a>paramGetMode2cnt</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_param.o(i.paramGetMode2cnt))
 <BR><BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
 </UL>
 
@@ -4878,28 +4885,35 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doUPSInstruction
 </UL>
 
-<P><STRONG><a name="[23e]"></a>paramInit</STRONG> (Thumb, 406 bytes, Stack size 24 bytes, app_param.o(i.paramInit))
+<P><STRONG><a name="[23e]"></a>paramInit</STRONG> (Thumb, 472 bytes, Stack size 24 bytes, app_param.o(i.paramInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = paramInit &rArr; paramDefaultInit &rArr; paramSaveServer &rArr; eepromWriteWord &rArr; HAL_FLASHEx_DATAEEPROM_Program &rArr; FLASH_WaitForLastOperation &rArr; FLASH_SetErrorCode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[1b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveHeartbeatInterval
-<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveCodeVersion
+<LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveCodeVersion
+<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAutoParam
+<LI><a href="#[1d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAgpsUser
+<LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAgpsServer
+<LI><a href="#[1d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAgpsPswd
+<LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAgpsPort
 <LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetSnNumber
 <LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetServer
-<LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetMode2cnt
-<LI><a href="#[254]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetCodeVersion
-<LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetBleMac
+<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetMode2cnt
+<LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetCodeVersion
+<LI><a href="#[254]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetBleMac
+<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAutoParam
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetApnUser
 <LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetApnPswd
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetApnName
-<LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAgpsUser
-<LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAgpsServer
-<LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAgpsPswd
-<LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAgpsPort
-<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAdcCal
+<LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAgpsUser
+<LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAgpsServer
+<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAgpsPswd
+<LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAgpsPort
+<LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetAdcCal
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
+<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAppConfig
@@ -4931,7 +4945,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteTwoBytes
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
+<BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
+<LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSetAgpsInstruction
 </UL>
 
@@ -4940,7 +4955,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
+<BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
+<LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSetAgpsInstruction
 </UL>
 
@@ -4949,7 +4965,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
+<BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
+<LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSetAgpsInstruction
 </UL>
 
@@ -4958,7 +4975,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
+<BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
+<LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSetAgpsInstruction
 </UL>
 
@@ -5015,6 +5033,15 @@ Global Symbols
 <LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doAnswerInstrucion
 </UL>
 
+<P><STRONG><a name="[252]"></a>paramSaveAutoParam</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, app_param.o(i.paramSaveAutoParam))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = paramSaveAutoParam &rArr; eepromWriteByte &rArr; HAL_FLASHEx_DATAEEPROM_Program &rArr; FLASH_WaitForLastOperation &rArr; FLASH_SetErrorCode
+</UL>
+<BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
+</UL>
+<BR>[Called By]<UL><LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramInit
+<LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
+</UL>
+
 <P><STRONG><a name="[1a7]"></a>paramSaveBF</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_param.o(i.paramSaveBF))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = paramSaveBF &rArr; eepromWriteByte &rArr; HAL_FLASHEx_DATAEEPROM_Program &rArr; FLASH_WaitForLastOperation &rArr; FLASH_SetErrorCode
 </UL>
@@ -5044,7 +5071,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcCMParse
 </UL>
 
-<P><STRONG><a name="[256]"></a>paramSaveCodeVersion</STRONG> (Thumb, 38 bytes, Stack size 48 bytes, app_param.o(i.paramSaveCodeVersion))
+<P><STRONG><a name="[257]"></a>paramSaveCodeVersion</STRONG> (Thumb, 38 bytes, Stack size 48 bytes, app_param.o(i.paramSaveCodeVersion))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = paramSaveCodeVersion &rArr; eepromWriteByte &rArr; HAL_FLASHEx_DATAEEPROM_Program &rArr; FLASH_WaitForLastOperation &rArr; FLASH_SetErrorCode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
@@ -5139,7 +5166,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doModeInstruction
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
 <P><STRONG><a name="[1c0]"></a>paramSaveMode1GapDay</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_param.o(i.paramSaveMode1GapDay))
@@ -5157,8 +5184,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
 <LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doDebugInstrucion
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
 <P><STRONG><a name="[1aa]"></a>paramSaveMode2cnt</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, app_param.o(i.paramSaveMode2cnt))
@@ -5169,8 +5196,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramDefaultInit
 <LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doResetInstruction
 <LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doDebugInstrucion
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
 <P><STRONG><a name="[1c7]"></a>paramSaveNoNetWakeUpMinutes</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_param.o(i.paramSaveNoNetWakeUpMinutes))
@@ -5288,10 +5315,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
-<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
-<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSA
-<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GGA
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSV
+<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GSA
+<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_GGA
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;charstrToHexValue
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -5299,7 +5326,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nmeaParse
 </UL>
 
-<P><STRONG><a name="[25d]"></a>parse_GGA</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, app_nmea.o(i.parse_GGA))
+<P><STRONG><a name="[25f]"></a>parse_GGA</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, app_nmea.o(i.parse_GGA))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = parse_GGA &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
@@ -5307,7 +5334,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseGPS
 </UL>
 
-<P><STRONG><a name="[25c]"></a>parse_GSA</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, app_nmea.o(i.parse_GSA))
+<P><STRONG><a name="[25e]"></a>parse_GSA</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, app_nmea.o(i.parse_GSA))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = parse_GSA &rArr; atof &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
 </UL>
 <BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
@@ -5317,7 +5344,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseGPS
 </UL>
 
-<P><STRONG><a name="[25e]"></a>parse_GSV</STRONG> (Thumb, 426 bytes, Stack size 72 bytes, app_nmea.o(i.parse_GSV))
+<P><STRONG><a name="[260]"></a>parse_GSV</STRONG> (Thumb, 426 bytes, Stack size 72 bytes, app_nmea.o(i.parse_GSV))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = parse_GSV &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
@@ -5328,10 +5355,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseGPS
 </UL>
 
-<P><STRONG><a name="[25b]"></a>parse_RMC</STRONG> (Thumb, 326 bytes, Stack size 64 bytes, app_nmea.o(i.parse_RMC))
+<P><STRONG><a name="[25d]"></a>parse_RMC</STRONG> (Thumb, 326 bytes, Stack size 64 bytes, app_nmea.o(i.parse_RMC))
 <BR><BR>[Stack]<UL><LI>Max Depth = 512<LI>Call Chain = parse_RMC &rArr; showgpsinfo &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
+<BR>[Calls]<UL><LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showgpsinfo
 <LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;longitude_to_double
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;latitude_to_double
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addNewGPSInfo
@@ -5347,7 +5374,7 @@ Global Symbols
 <P><STRONG><a name="[23f]"></a>pollUartData</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_port.o(i.pollUartData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = pollUartData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsartReceiveDataPost
+<BR>[Calls]<UL><LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsartReceiveDataPost
 </UL>
 <BR>[Called By]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAppRun
 </UL>
@@ -5376,7 +5403,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;charstrToHexValue
 </UL>
 
-<P><STRONG><a name="[261]"></a>protocolFsmStateChange</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_serverprotocol.o(i.protocolFsmStateChange))
+<P><STRONG><a name="[263]"></a>protocolFsmStateChange</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_serverprotocol.o(i.protocolFsmStateChange))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = protocolFsmStateChange &rArr; LogPrintf &rArr; LogMessageWL &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
@@ -5385,21 +5412,22 @@ Global Symbols
 <LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
 </UL>
 
-<P><STRONG><a name="[250]"></a>protocolRunFsm</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, app_serverprotocol.o(i.protocolRunFsm))
+<P><STRONG><a name="[250]"></a>protocolRunFsm</STRONG> (Thumb, 282 bytes, Stack size 24 bytes, app_serverprotocol.o(i.protocolRunFsm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1120<LI>Call Chain = protocolRunFsm &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;csqRequest
-<LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsReadRestoreReset
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsReadFromModuleAndSendtoServe
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_ChangeInvokeStatus
+<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsReadRestoreReset
+<LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadGpsRestoreData
+<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;networkConnectProcess
 </UL>
 
-<P><STRONG><a name="[249]"></a>protocolRxParase</STRONG> (Thumb, 212 bytes, Stack size 144 bytes, app_serverprotocol.o(i.protocolRxParase))
+<P><STRONG><a name="[249]"></a>protocolRxParase</STRONG> (Thumb, 218 bytes, Stack size 144 bytes, app_serverprotocol.o(i.protocolRxParase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 2192<LI>Call Chain = protocolRxParase &rArr; instructionParase &rArr; doinstruction &rArr; doDebugInstrucion &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
@@ -5407,7 +5435,7 @@ Global Symbols
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;instructionParase
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearHbtTimer
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateLocalRTCTime
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
+<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
@@ -5456,7 +5484,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doJTCYCLEInstrucion
 </UL>
 
-<P><STRONG><a name="[263]"></a>recCycleTask</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, app_rec.o(i.recCycleTask))
+<P><STRONG><a name="[266]"></a>recCycleTask</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, app_rec.o(i.recCycleTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 536<LI>Call Chain = recCycleTask &rArr; recStart &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
@@ -5488,7 +5516,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[23a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58FswrParase
 </UL>
 
-<P><STRONG><a name="[264]"></a>recRecordUploadTask</STRONG> (Thumb, 150 bytes, Stack size 112 bytes, app_rec.o(i.recRecordUploadTask))
+<P><STRONG><a name="[267]"></a>recRecordUploadTask</STRONG> (Thumb, 150 bytes, Stack size 112 bytes, app_rec.o(i.recRecordUploadTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 528<LI>Call Chain = recRecordUploadTask &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
@@ -5510,10 +5538,10 @@ Global Symbols
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doJtInstruction
-<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
+<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
 </UL>
 
-<P><STRONG><a name="[265]"></a>recStop</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, app_rec.o(i.recStop))
+<P><STRONG><a name="[268]"></a>recStop</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, app_rec.o(i.recStop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 424<LI>Call Chain = recStop &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
@@ -5525,9 +5553,9 @@ Global Symbols
 <P><STRONG><a name="[30]"></a>recStopAndUpload</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, app_rec.o(i.recStopAndUpload))
 <BR><BR>[Stack]<UL><LI>Max Depth = 432<LI>Call Chain = recStopAndUpload &rArr; recStop &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recStop
+<BR>[Calls]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recStop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
+<BR>[Called By]<UL><LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleStop
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_instructioncmd.o(i.doJtInstruction)
@@ -5572,7 +5600,7 @@ Global Symbols
 <LI><a href="#[23a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58FswrParase
 </UL>
 
-<P><STRONG><a name="[266]"></a>sendMessage</STRONG> (Thumb, 60 bytes, Stack size 72 bytes, app_net.o(i.sendMessage))
+<P><STRONG><a name="[269]"></a>sendMessage</STRONG> (Thumb, 60 bytes, Stack size 72 bytes, app_net.o(i.sendMessage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 488<LI>Call Chain = sendMessage &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
@@ -5590,7 +5618,7 @@ Global Symbols
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
-<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
+<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;appBleSendData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doVersionInstruction
@@ -5639,7 +5667,7 @@ Global Symbols
 <LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAgps
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsStartBD
 <LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recUpdateFileSize
-<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
+<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessage
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendDataToServer
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;openModuleGPS
 <LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;networkConnectProcess
@@ -5660,12 +5688,12 @@ Global Symbols
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFMPCnmeaParase
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRestoreWriteData
 <LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsReadFromModuleAndSendtoServe
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
-<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
+<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
+<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
 <LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lbsUploadRequestTask
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestTask
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;alarmUploadRequest
-<LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recStop
+<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recStop
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recStart
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;appBleSendData
 </UL>
@@ -5706,29 +5734,29 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetAlarm
 <LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRtcDateTime
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
+<LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_AlarmAEventCallback
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doModeInstruction
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateLocalRTCTime
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
 <P><STRONG><a name="[bc]"></a>setNextWakeUpTime</STRONG> (Thumb, 212 bytes, Stack size 56 bytes, app_port.o(i.setNextWakeUpTime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = setNextWakeUpTime &rArr; updateAlarmA &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRtcDateTime
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
+<LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateAlarmA
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_AlarmAEventCallback
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doModeInstruction
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateLocalRTCTime
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
-<P><STRONG><a name="[25f]"></a>showgpsinfo</STRONG> (Thumb, 320 bytes, Stack size 344 bytes, app_nmea.o(i.showgpsinfo))
+<P><STRONG><a name="[261]"></a>showgpsinfo</STRONG> (Thumb, 320 bytes, Stack size 344 bytes, app_nmea.o(i.showgpsinfo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 448<LI>Call Chain = showgpsinfo &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
@@ -5736,7 +5764,7 @@ Global Symbols
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
+<BR>[Called By]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parse_RMC
 </UL>
 
 <P><STRONG><a name="[167]"></a>sin</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, sin.o(i.sin))
@@ -5785,7 +5813,7 @@ Global Symbols
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdIMEIParse
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdFmpcIMSIParse
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doinstruction
-<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifiUploadRequestTask
+<LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifiUploadRequestTask
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
 <LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendMessageWithDifMode
 </UL>
@@ -5806,10 +5834,10 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ldrInterrupt
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_AlarmAEventCallback
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
 </UL>
 
-<P><STRONG><a name="[268]"></a>systemModeRunTask</STRONG> (Thumb, 522 bytes, Stack size 24 bytes, app_task.o(i.systemModeRunTask))
+<P><STRONG><a name="[26b]"></a>systemModeRunTask</STRONG> (Thumb, 522 bytes, Stack size 24 bytes, app_task.o(i.systemModeRunTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1200<LI>Call Chain = systemModeRunTask &rArr; gpsUploadPointToServer &rArr; calculateTheGPSCornerPoint &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTerminalAccState
@@ -5824,14 +5852,14 @@ Global Symbols
 <LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveMode1Timer
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveMode
 <LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsUploadPointToServer
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestSet
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskRunInOneSecond
 </UL>
 
-<P><STRONG><a name="[26a]"></a>systemRequestClear</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_task.o(i.systemRequestClear))
+<P><STRONG><a name="[26d]"></a>systemRequestClear</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_task.o(i.systemRequestClear))
 <BR><BR>[Called By]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestTask
 </UL>
 
@@ -5841,11 +5869,11 @@ Global Symbols
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netExitStopMode
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netEnterStopMode
 <LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doDebugInstrucion
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
-<LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;autoSleepTask
 </UL>
 
@@ -5857,13 +5885,13 @@ Global Symbols
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netModuleStartup
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netModuleShutdown
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SuspendTick
-<LI><a href="#[26d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ResumeTick
-<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWR_EnterSTOPMode
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
-<LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
-<LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestClear
+<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SuspendTick
+<LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ResumeTick
+<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWR_EnterSTOPMode
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdtProcess
+<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[26d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestClear
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hearbeatRequest
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exitNetCtl
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;alarmUploadRequest
@@ -5871,7 +5899,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myAppRun
 </UL>
 
-<P><STRONG><a name="[26e]"></a>systemShutDown</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, app_task.o(i.systemShutDown))
+<P><STRONG><a name="[271]"></a>systemShutDown</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, app_task.o(i.systemShutDown))
 <BR><BR>[Stack]<UL><LI>Max Depth = 448<LI>Call Chain = systemShutDown &rArr; gpsRequestClose &rArr; closeModuleGPS &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;terminalAccoff
@@ -5911,10 +5939,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disPlaySystemTime
 <LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;networkConnectProcess
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
-<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
-<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifiUploadRequestTask
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recRecordUploadTask
+<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recCycleTask
+<LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifiUploadRequestTask
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 <LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lbsUploadRequestTask
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
@@ -5928,7 +5956,7 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[1c2]"></a>terminalAccoff</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, app_sys.o(i.terminalAccoff))
 <BR><BR>[Called By]<UL><LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doModeInstruction
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 </UL>
 
@@ -5940,8 +5968,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;alarmUploadRequest
 </UL>
 
-<P><STRONG><a name="[275]"></a>terminalCharge</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, app_sys.o(i.terminalCharge))
-<BR><BR>[Called By]<UL><LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<P><STRONG><a name="[278]"></a>terminalCharge</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, app_sys.o(i.terminalCharge))
+<BR><BR>[Called By]<UL><LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 </UL>
 
 <P><STRONG><a name="[120]"></a>terminalGPSFixed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, app_sys.o(i.terminalGPSFixed))
@@ -5953,15 +5981,15 @@ Global Symbols
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addNewGPSInfo
 </UL>
 
-<P><STRONG><a name="[276]"></a>terminalunCharge</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, app_sys.o(i.terminalunCharge))
-<BR><BR>[Called By]<UL><LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
+<P><STRONG><a name="[279]"></a>terminalunCharge</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, app_sys.o(i.terminalunCharge))
+<BR><BR>[Called By]<UL><LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 </UL>
 
 <P><STRONG><a name="[121]"></a>updateLocalRTCTime</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, app_gps.o(i.updateLocalRTCTime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = updateLocalRTCTime &rArr; setNextAlarmTime &rArr; updateAlarmA &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeUTCTimeToLocalTime
-<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
+<LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRTCdatetime
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setNextWakeUpTime
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setNextAlarmTime
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -5970,7 +5998,7 @@ Global Symbols
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addNewGPSInfo
 </UL>
 
-<P><STRONG><a name="[272]"></a>updateRTCdatetime</STRONG> (Thumb, 126 bytes, Stack size 176 bytes, app_port.o(i.updateRTCdatetime))
+<P><STRONG><a name="[275]"></a>updateRTCdatetime</STRONG> (Thumb, 126 bytes, Stack size 176 bytes, app_port.o(i.updateRTCdatetime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = updateRTCdatetime &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetTime
@@ -5992,7 +6020,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = updateSystemLedStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledSetPeriod
+<LI><a href="#[276]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledSetPeriod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netModuleShutdown
 <LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestClose
@@ -6001,8 +6029,8 @@ Global Symbols
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moduleReset
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_ChangeInvokeStatus
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addNewGPSInfo
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 <LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsOutputCheckTask
 </UL>
 
@@ -6011,23 +6039,31 @@ Global Symbols
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;do123Instruction
 </UL>
 
-<P><STRONG><a name="[270]"></a>uploadRequestInMode4</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, app_task.o(i.uploadRequestInMode4))
+<P><STRONG><a name="[265]"></a>uploadGpsRestoreData</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, app_serverprotocol.o(i.uploadGpsRestoreData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 648<LI>Call Chain = uploadGpsRestoreData &rArr; gpsReadFromModuleAndSendtoServe &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+</UL>
+<BR>[Calls]<UL><LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsReadFromModuleAndSendtoServe
+</UL>
+<BR>[Called By]<UL><LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
+</UL>
+
+<P><STRONG><a name="[273]"></a>uploadRequestInMode4</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, app_task.o(i.uploadRequestInMode4))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = uploadRequestInMode4 &rArr; gpsRequestSet &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestSet
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
-<LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isModulePowerOn
+<LI><a href="#[277]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isModulePowerOn
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestSet
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestTask
 </UL>
 
-<P><STRONG><a name="[269]"></a>voltageCheckTask</STRONG> (Thumb, 542 bytes, Stack size 32 bytes, app_task.o(i.voltageCheckTask))
+<P><STRONG><a name="[26c]"></a>voltageCheckTask</STRONG> (Thumb, 542 bytes, Stack size 32 bytes, app_task.o(i.voltageCheckTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = voltageCheckTask &rArr; getBatVoltage &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[276]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;terminalunCharge
-<LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;terminalCharge
+<BR>[Calls]<UL><LI><a href="#[279]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;terminalunCharge
+<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;terminalCharge
 <LI><a href="#[1dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTerminalChargeState
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestSet
 <LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;alarmRequestSet
@@ -6042,15 +6078,15 @@ Global Symbols
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[277]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[27a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getBatVoltage
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<BR>[Called By]<UL><LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
-<P><STRONG><a name="[26f]"></a>wdtProcess</STRONG> (Thumb, 182 bytes, Stack size 24 bytes, app_task.o(i.wdtProcess))
+<P><STRONG><a name="[272]"></a>wdtProcess</STRONG> (Thumb, 182 bytes, Stack size 24 bytes, app_task.o(i.wdtProcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = wdtProcess &rArr; getBatVoltage &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestSet
@@ -6066,7 +6102,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestTask
 </UL>
 
-<P><STRONG><a name="[271]"></a>wifiUploadRequestTask</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, app_task.o(i.wifiUploadRequestTask))
+<P><STRONG><a name="[274]"></a>wifiUploadRequestTask</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, app_task.o(i.wifiUploadRequestTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = wifiUploadRequestTask &rArr; startTimer &rArr; Create_Timer &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
@@ -6075,25 +6111,25 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;taskRunInOneSecond
 </UL>
 
-<P><STRONG><a name="[278]"></a>ztvm_encrypt_des</STRONG> (Thumb, 86 bytes, Stack size 120 bytes, app_sn.o(i.ztvm_encrypt_des))
+<P><STRONG><a name="[27b]"></a>ztvm_encrypt_des</STRONG> (Thumb, 86 bytes, Stack size 120 bytes, app_sn.o(i.ztvm_encrypt_des))
 <BR><BR>[Stack]<UL><LI>Max Depth = 476<LI>Call Chain = ztvm_encrypt_des &rArr; encrypt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[27a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setkey
-<LI><a href="#[279]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;expand
-<LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encrypt
-<LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compress
+<BR>[Calls]<UL><LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setkey
+<LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;expand
+<LI><a href="#[27e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encrypt
+<LI><a href="#[27f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compress
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_untrides
 </UL>
 
-<P><STRONG><a name="[27d]"></a>ztvm_encrypt_undes</STRONG> (Thumb, 88 bytes, Stack size 112 bytes, app_sn.o(i.ztvm_encrypt_undes))
+<P><STRONG><a name="[280]"></a>ztvm_encrypt_undes</STRONG> (Thumb, 88 bytes, Stack size 112 bytes, app_sn.o(i.ztvm_encrypt_undes))
 <BR><BR>[Stack]<UL><LI>Max Depth = 468<LI>Call Chain = ztvm_encrypt_undes &rArr; encrypt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[27a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setkey
-<LI><a href="#[279]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;expand
-<LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encrypt
-<LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compress
+<BR>[Calls]<UL><LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setkey
+<LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;expand
+<LI><a href="#[27e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encrypt
+<LI><a href="#[27f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compress
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_untrides
@@ -6102,8 +6138,8 @@ Global Symbols
 <P><STRONG><a name="[18c]"></a>ztvm_encrypt_untrides</STRONG> (Thumb, 40 bytes, Stack size 40 bytes, app_sn.o(i.ztvm_encrypt_untrides))
 <BR><BR>[Stack]<UL><LI>Max Depth = 516<LI>Call Chain = ztvm_encrypt_untrides &rArr; ztvm_encrypt_des &rArr; encrypt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
-<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
+<BR>[Calls]<UL><LI><a href="#[280]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
+<LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
 </UL>
 <BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decryptSN
 </UL>
@@ -6122,11 +6158,11 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 </UL>
 
-<P><STRONG><a name="[260]"></a>UsartReceiveDataPost</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_port.o(i.UsartReceiveDataPost))
+<P><STRONG><a name="[262]"></a>UsartReceiveDataPost</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_port.o(i.UsartReceiveDataPost))
 <BR><BR>[Called By]<UL><LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pollUartData
 </UL>
 
-<P><STRONG><a name="[267]"></a>updateAlarmA</STRONG> (Thumb, 92 bytes, Stack size 160 bytes, app_port.o(i.updateAlarmA))
+<P><STRONG><a name="[26a]"></a>updateAlarmA</STRONG> (Thumb, 92 bytes, Stack size 160 bytes, app_port.o(i.updateAlarmA))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = updateAlarmA &rArr; LogMessage &rArr; appUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetAlarm_IT
@@ -6177,10 +6213,11 @@ Local Symbols
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveLedCtl
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveHardFault
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveFence
-<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveCodeVersion
+<LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveCodeVersion
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveCM
 <LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveBleMac
 <LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveBF
+<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAutoParam
 <LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveAutoAnswer
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveApnUser
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramSaveApnPswd
@@ -6273,7 +6310,7 @@ Local Symbols
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<BR>[Called By]<UL><LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
 <P><STRONG><a name="[212]"></a>gpsLedTask</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, app_task.o(i.gpsLedTask))
@@ -6291,7 +6328,7 @@ Local Symbols
 <LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsClearCurrentGPSInfo
 <LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;closeModuleGPS
 </UL>
-<BR>[Called By]<UL><LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<BR>[Called By]<UL><LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestTask
 </UL>
 
@@ -6314,7 +6351,7 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_task.o(i.gpsRequestOpen)
 </UL>
-<P><STRONG><a name="[273]"></a>ledSetPeriod</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, app_task.o(i.ledSetPeriod))
+<P><STRONG><a name="[276]"></a>ledSetPeriod</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, app_task.o(i.ledSetPeriod))
 <BR><BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSystemLedStatus
 </UL>
 
@@ -6324,7 +6361,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isProtocolReday
 </UL>
-<BR>[Called By]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
+<BR>[Called By]<UL><LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunTask
 </UL>
 
 <P><STRONG><a name="[24d]"></a>netModuleShutdown</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, app_task.o(i.netModuleShutdown))
@@ -6337,7 +6374,7 @@ Local Symbols
 <LI><a href="#[21f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;modulePowerOff
 </UL>
 <BR>[Called By]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemRequestTask
-<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
+<LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
 </UL>
 
 <P><STRONG><a name="[24e]"></a>netModuleStartup</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, app_task.o(i.netModuleStartup))
@@ -6579,32 +6616,32 @@ Local Symbols
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;instructionParase
 </UL>
 
-<P><STRONG><a name="[27c]"></a>compress</STRONG> (Thumb, 42 bytes, Stack size 20 bytes, app_sn.o(i.compress))
+<P><STRONG><a name="[27f]"></a>compress</STRONG> (Thumb, 42 bytes, Stack size 20 bytes, app_sn.o(i.compress))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = compress
 </UL>
-<BR>[Called By]<UL><LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
-<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
+<BR>[Called By]<UL><LI><a href="#[280]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
+<LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
 </UL>
 
-<P><STRONG><a name="[27b]"></a>encrypt</STRONG> (Thumb, 304 bytes, Stack size 356 bytes, app_sn.o(i.encrypt))
+<P><STRONG><a name="[27e]"></a>encrypt</STRONG> (Thumb, 304 bytes, Stack size 356 bytes, app_sn.o(i.encrypt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 356<LI>Call Chain = encrypt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
-<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
+<BR>[Called By]<UL><LI><a href="#[280]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
+<LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
 </UL>
 
-<P><STRONG><a name="[279]"></a>expand</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, app_sn.o(i.expand))
+<P><STRONG><a name="[27c]"></a>expand</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, app_sn.o(i.expand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = expand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
-<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
+<BR>[Called By]<UL><LI><a href="#[280]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
+<LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
 </UL>
 
-<P><STRONG><a name="[27a]"></a>setkey</STRONG> (Thumb, 170 bytes, Stack size 20 bytes, app_sn.o(i.setkey))
+<P><STRONG><a name="[27d]"></a>setkey</STRONG> (Thumb, 170 bytes, Stack size 20 bytes, app_sn.o(i.setkey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = setkey
 </UL>
-<BR>[Called By]<UL><LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
-<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
+<BR>[Called By]<UL><LI><a href="#[280]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_undes
+<LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ztvm_encrypt_des
 </UL>
 
 <P><STRONG><a name="[77]"></a>ADC_ConversionStop</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, stm32l0xx_hal_adc.o(i.ADC_ConversionStop))

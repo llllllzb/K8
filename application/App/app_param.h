@@ -6,6 +6,11 @@
 #define EEPROM_MAX_SIZE			0x7FF
 
 #define EEPROM_VER				0X2B
+
+
+//远程升级后，有需要更改参数时，这个值变一变
+#define PARAM_AUTO_UPDATE_FLAG							0xA0
+
 //设置地址时，需要保证地址对齐，单个字节无所谓，半字或字，需要注意对齐，勿跨界
 //addr%4==0,字对齐
 //addr%2==0,半字对齐
@@ -49,8 +54,8 @@
 #define EEPROM_MALLOC_ADDR						358
 #define EEPROM_AGPSSERVER_ADDR					359 //359+50=409
 #define EEPROM_AGPSUSER_ADDR					409 //409+50=459
-#define EEPROM_AGPSPSWD_ADDR					409 //459+50=509
-
+#define EEPROM_AGPSPSWD_ADDR					459 //459+50=509
+#define EEPROM_PARAM_AUTOUPDATE_ADDR			509
 
 
 //半字区域，1024~1534        共(512)字节
@@ -75,7 +80,7 @@ V
 次版本     	与之前版本不能兼容时改变
 修订版本        细节修改
 */
-#define EEPROM_VERSION									"K8_RI_V1.1.25"
+#define EEPROM_VERSION									"K8_RI_V1.1.26"
 
 /*EPROM中的数据*/
 typedef struct
@@ -109,6 +114,7 @@ typedef struct
     uint8_t agpsServer[50];
     uint8_t agpsUser[50];
     uint8_t agpsPswd[50];
+	uint8_t autoParamUpdate;
 
     int8_t utc;
 
@@ -192,6 +198,10 @@ void paramSaveAgpsPswd(void);
 void paramGetAgpsPswd(void);
 void paramSaveAgpsPort(void);
 void paramGetAgpsPort(void);
+
+void paramSaveAutoParam(uint8_t flag);
+void paramGetAutoParam(void);
+
 
 #endif
 

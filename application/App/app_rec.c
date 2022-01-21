@@ -38,7 +38,7 @@ void recStopAndUpload(void)
 
 void recNoFileToread(void)
 {
-	LogMessage(DEBUG_ALL,"no rec file\n");
+    LogMessage(DEBUG_ALL, "no rec file\n");
     rf.nofileflag = 1;
 }
 
@@ -74,7 +74,7 @@ void recUpdateFileSize(uint32_t totalsize)
 
     if (rf.filename[0] != 0 && rf.totalsize != 0)
     {
-    if (rf.fsmstate != FSM_RECORD_SEARCH)
+        if (rf.fsmstate != FSM_RECORD_SEARCH)
             return ;
         rf.fsmstate = FSM_RECORD_READ;
     }
@@ -155,7 +155,7 @@ void recRecordUploadTask(void)
     switch (rf.fsmstate)
     {
         case FSM_RECORD_SEARCH:
-            if (rf.waittick++ % 5 == 0)
+            if (++rf.waittick % 10 == 0)
             {
                 sendModuleCmd(N58_FSLIST_CMD, NULL);
             }

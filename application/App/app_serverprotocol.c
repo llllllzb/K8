@@ -852,6 +852,28 @@ void moduleResetProcess(void)
     hbtTimerid = -1;
     moduleReset();
 }
+
+void uploadGpsRestoreData(void)
+{
+    static uint8_t waitTick = 0;
+    if (netconnect.uploadFlag == 0)
+    {
+
+        if (++waitTick >= 10)
+        {
+            waitTick = 0;
+            netconnect.uploadFlag = 1;
+        }
+        return ;
+    }
+    waitTick++;
+    if (waitTick % 4 == 0)
+    {
+        gpsReadFromModuleAndSendtoServe();
+    }
+}
+
+
 /*运行网络连接状态机
 执行登录信息，心跳信息的发送，维持链接稳定
 */
@@ -867,6 +889,8 @@ void protocolRunFsm(void)
             protocolFsmStateChange(NETWORK_LOGIN_WAIT);
             gpsReadRestoreReset();
             netconnect.logintick = 0;
+            netconnect.loginCount++;
+            netconnect.uploadFlag = 0;
             if (sysparam.MODE == MODE2 || sysparam.MODE == MODE5)
             {
                 sysinfo.hearbeatrequest = 1;
@@ -876,7 +900,15 @@ void protocolRunFsm(void)
             netconnect.logintick++;
             if (netconnect.logintick >= 60)
             {
-                protocolFsmStateChange(NETWORK_LOGIN);
+                if (netconnect.loginCount >= 3)
+                {
+                    netconnect.loginCount = 0;
+                    N58_ChangeInvokeStatus(N58_CPIN_STATUS);
+                }
+                else
+                {
+                    protocolFsmStateChange(NETWORK_LOGIN);
+                }
 
             }
             break;
@@ -908,7 +940,6 @@ void protocolRunFsm(void)
                 {
                     netconnect.heartbeattick = 0;
                 }
-                gpsReadFromModuleAndSendtoServe();
             }
             else
             {
@@ -925,12 +956,9 @@ void protocolRunFsm(void)
                     netconnect.heartbeattick = 0;
                     sendProtocolToServer(PROTOCOL_13, NULL);
                 }
-                if (netconnect.heartbeattick % 4 == 0)
-                {
-                    gpsReadFromModuleAndSendtoServe();
-                }
                 netconnect.heartbeattick++;
             }
+            uploadGpsRestoreData();
             break;
         default:
             netconnect.fsmstate = NETWORK_LOGIN;
@@ -954,6 +982,7 @@ static void protoclparase01(char *protocol, int size)
     //serialno=protocol[4]<<8|protocol[5];
     protocolFsmStateChange(NETWORK_LOGIN_READY);
     updateSystemLedStatus(SYSTEM_LED_NETOK, 1);
+	netconnect.loginCount=0;
     LogMessage(DEBUG_ALL, "登录成功\n");
 }
 /* 13 协议解析

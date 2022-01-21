@@ -178,6 +178,7 @@ void paramDefaultInit(uint8_t level)
     paramSaveLoww(36);
     paramSaveBF(0);
 
+	paramSaveAutoParam(PARAM_AUTO_UPDATE_FLAG);
     eepromWriteByte(EEPROM_VERSION_APP_ADDR, sysparam.VERSION);
 }
 
@@ -247,7 +248,24 @@ void paramInit(void)
     paramGetAgpsPort();
     paramGetAgpsUser();
     paramGetAgpsPswd();
-    //paramShow();
+	paramGetAutoParam();
+
+    /*--------------------------------------------------*/
+    //远程升级时，参数自动更新
+    if (sysparam.autoParamUpdate != PARAM_AUTO_UPDATE_FLAG)
+    {
+        paramSaveAutoParam(PARAM_AUTO_UPDATE_FLAG);
+        strcpy((char *)sysparam.agpsServer, "agps.domilink.com");
+        strcpy((char *)sysparam.agpsUser, "Hi_Man");
+        strcpy((char *)sysparam.agpsPswd, "Hi_Girl");
+        sysparam.agpsPort = 10188;
+
+		paramSaveAgpsServer();
+		paramSaveAgpsPort();
+		paramSaveAgpsUser();
+		paramSaveAgpsPswd();
+
+    }
 }
 
 
@@ -683,4 +701,13 @@ void paramGetAgpsPort(void)
 }
 
 
+void paramSaveAutoParam(uint8_t flag)
+{
+    eepromWriteByte(EEPROM_PARAM_AUTOUPDATE_ADDR, flag);
+}
+
+void paramGetAutoParam(void)
+{
+    sysparam.autoParamUpdate = eepromReadOneByte(EEPROM_PARAM_AUTOUPDATE_ADDR);
+}
 

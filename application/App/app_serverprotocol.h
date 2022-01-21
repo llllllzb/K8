@@ -25,6 +25,8 @@ typedef struct
 	unsigned int heartbeattick;
 	unsigned short serial;
 	uint8_t logintick;
+	uint8_t loginCount;
+	uint8_t uploadFlag;
 }NetWorkConnectStruct;
 
 typedef struct
