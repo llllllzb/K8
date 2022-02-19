@@ -7,7 +7,7 @@
 
 /*´®¿ÚÇý¶¯ÅäÖÃ*/
 #define USART1_RX_BUF_SIZE	256
-#define USART2_RX_BUF_SIZE	2560
+#define USART2_RX_BUF_SIZE	2048
 #define USART3_RX_BUF_SIZE	128
 
 
@@ -43,7 +43,7 @@ typedef struct {
 #define DTRLOW      HAL_GPIO_WritePin(DTR_GPIO_Port,DTR_Pin,GPIO_PIN_RESET)
 /**********************************************************/
 /*GSENSOR*/
-#define GSENSORON		HAL_GPIO_WritePin(GSPWR_GPIO_Port, GSPWR_Pin, GPIO_PIN_RESET)
+#define GSENSORON	HAL_GPIO_WritePin(GSPWR_GPIO_Port, GSPWR_Pin, GPIO_PIN_RESET)
 #define GSENSOROFF	HAL_GPIO_WritePin(GSPWR_GPIO_Port, GSPWR_Pin, GPIO_PIN_SET)
 /**********************************************************/
 /*LDR*/

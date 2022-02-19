@@ -201,6 +201,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     }
     else if(huart->Instance==USART2)
     {
+		UsartReceiveDataPush(&usart2_ctl, usart2_ctl.rxbuf, USART2_RX_BUF_SIZE);
         LogMessage(DEBUG_ALL,"USART2 DMARX complete\n");
     }
     else if(huart->Instance==LPUART1)

@@ -13,6 +13,7 @@ static uint8_t instructionid[4];
 static uint8_t instructionid123[4];
 static uint16_t instructionserier = 0;
 static GPSRestoreStruct gpsres;
+static AudioFileStruct audiofile;
 static int8_t hbtTimerid = -1;
 Message protocolmessage[] =
 {
@@ -730,6 +731,63 @@ int createProtocol_8A(unsigned short Serial, char *DestBuf)
     return pdu_len;
 }
 
+static int createProtocol51(char *dest)
+{
+    int pdu_len;
+    int ret;
+    int Serial;
+    pdu_len = createProtocolHead(dest, 0x51);
+    dest[pdu_len++] = (audiofile.audioId >> 24) & 0xFF;
+    dest[pdu_len++] = (audiofile.audioId >> 16) & 0xFF;
+    Serial = audiofile.audioId & 0xFFFF;
+    ret = createProtocolTail(dest, pdu_len,  Serial);
+    pdu_len = ret;
+    return pdu_len;
+}
+
+
+static int createProtocol52(char *dest)
+{
+    int pdu_len;
+    int ret;
+    int Serial;
+    pdu_len = createProtocolHead(dest, 0x52);
+    dest[pdu_len++] = audiofile.audioPackId >> 8 & 0xFF;
+    dest[pdu_len++] = audiofile.audioPackId & 0xFF;
+    dest[pdu_len++] = (audiofile.audioId >> 24) & 0xFF;
+    dest[pdu_len++] = (audiofile.audioId >> 16) & 0xFF;
+    Serial = audiofile.audioId & 0xFFFF;
+    ret = createProtocolTail(dest, pdu_len,  Serial);
+    pdu_len = ret;
+    return pdu_len;
+}
+
+static int createProtocol53(char *dest)
+{
+    int pdu_len;
+    int ret;
+    int Serial;
+    pdu_len = createProtocolHead(dest, 0x53);
+	//应收
+    dest[pdu_len++] = audiofile.audioCnt >> 8 & 0xFF;
+    dest[pdu_len++] = audiofile.audioCnt & 0xFF;
+	//实收
+    dest[pdu_len++] = audiofile.audioCnt >> 8 & 0xFF;
+    dest[pdu_len++] = audiofile.audioCnt & 0xFF;
+	//文件总大小	
+    dest[pdu_len++] = audiofile.audioSize >> 24 & 0xFF;
+    dest[pdu_len++] = audiofile.audioSize >> 16 & 0xFF;
+    dest[pdu_len++] = audiofile.audioSize >> 8 & 0xFF;
+    dest[pdu_len++] = audiofile.audioSize & 0xFF;
+	
+    dest[pdu_len++] = (audiofile.audioId >> 24) & 0xFF;
+    dest[pdu_len++] = (audiofile.audioId >> 16) & 0xFF;
+    Serial = audiofile.audioId & 0xFFFF;
+    ret = createProtocolTail(dest, pdu_len,  Serial);
+    pdu_len = ret;
+    return pdu_len;
+}
+
 
 /*生成序列号
 */
@@ -781,6 +839,15 @@ void sendProtocolToServer(PROTOCOLTYPE protocol, void *param)
             break;
         case PROTOCOL_8A:
             txlen = createProtocol_8A(createProtocolSerial(), txdata);
+            break;		
+        case PROTOCOL_51:
+            txlen = createProtocol51(txdata);
+            break;
+        case PROTOCOL_52:
+            txlen = createProtocol52(txdata);
+            break;
+        case PROTOCOL_53:
+            txlen = createProtocol53(txdata);
             break;
     }
     switch (protocol)
@@ -1032,6 +1099,51 @@ static void protoclParase8A(char *protocol, int size)
     updateLocalRTCTime(&datetime);
 }
 
+static void protoclparser51(char *protocol, int size)
+{
+    //文件类型
+    audiofile.audioType = protocol[4];
+    //分包数
+    audiofile.audioCnt = protocol[6] << 8 | protocol[7];
+    //文件大小
+    audiofile.audioSize = protocol[8];
+    audiofile.audioSize <<= 8;
+    audiofile.audioSize |= protocol[9];
+    audiofile.audioSize <<= 8;
+    audiofile.audioSize |= protocol[10];
+    audiofile.audioSize <<= 8;
+    audiofile.audioSize |= protocol[11];
+    //文件ID
+    audiofile.audioId = protocol[12];
+    audiofile.audioId <<= 8;
+    audiofile.audioId |= protocol[13];
+    audiofile.audioId <<= 8;
+    audiofile.audioId |= protocol[14];
+    audiofile.audioId <<= 8;
+    audiofile.audioId |= protocol[15];
+    LogPrintf(DEBUG_ALL, "Type:%d,Cnt:%d,Size:%d,Id:%X\r\n", audiofile.audioType, audiofile.audioCnt, audiofile.audioSize,
+              audiofile.audioId);
+    //appDeleteAudio();
+    sendProtocolToServer(PROTOCOL_51, NULL);
+}
+
+static void protoclparser52(char *protocol, int size)
+{
+    uint16_t packid;
+    packid = protocol[5] << 8 | protocol[6];
+	audiofile.audioPackId = packid;
+    //appSaveAudio((uint8_t *)protocol + 7, size - 15);
+    LogPrintf(DEBUG_ALL, "Receive Audio Num:%d,size:%d\r\n", packid, size - 15);
+    if ((packid + 1) == audiofile.audioCnt)
+    {
+        LogMessage(DEBUG_ALL, "Play audio\r\n");
+		sendProtocolToServer(PROTOCOL_53, NULL);
+    }else{
+		sendProtocolToServer(PROTOCOL_52, NULL);
+
+    	}
+}
+
 
 /*解析接收到的服务器协议
 */
@@ -1052,6 +1164,18 @@ void protocolRxParase(char *protocol, int size)
                 break;
             case (uint8_t)0x8A:
                 protoclParase8A(protocol, size);
+                break;
+            case (uint8_t)0x51:
+                protoclparser51(protocol, size);
+                break;
+        }
+    }
+    else if (protocol[0] == 0X79 && protocol[1] == 0X79)
+    {
+        switch (protocol[4])
+        {
+            case (uint8_t)0x52:
+                protoclparser52(protocol, size);
                 break;
         }
     }
@@ -1075,3 +1199,112 @@ void reCover123InstructionId(void)
     instructionid[2] = instructionid123[2];
     instructionid[3] = instructionid123[3];
 }
+
+/*
+78 78 05 01 00 00 C8 55 0D 0A
+79 79 00 05 52 00 00 FF F3 0D 0A
+
+*/
+#define PROTOCOL_BUFSZIE	2048  //6k
+
+void protocolReceivePush(char *protocol, int size)
+{
+    static uint8_t dataBuf[PROTOCOL_BUFSZIE];
+    static uint16_t dataBufLen = 0;
+    uint16_t remain, i, contentlen, lastindex = 0, beginindex;
+    //剩余空间大小
+    remain = PROTOCOL_BUFSZIE - dataBufLen;
+    if (remain == 0)
+    {
+        LogMessage(DEBUG_ALL, "buff full,clear all\r\n");
+        dataBufLen = 0;
+        remain = PROTOCOL_BUFSZIE;
+    }
+    //可写入内容
+    size = size > remain ? remain : size;
+    //LogPrintf(DEBUG_ALL, "Push %d,", size);
+    //数据复制
+    memcpy(dataBuf + dataBufLen, protocol, size);
+    dataBufLen += size;
+    //遍历，寻找7878
+    //LogPrintf(DEBUG_ALL, "Size:%d\r\n", dataBufLen);
+    for (i = 0; i < dataBufLen; i++)
+    {
+        beginindex = i;
+        if (dataBuf[i] == 0x78)
+        {
+            if (i + 1 >= dataBufLen)
+            {
+                continue ;
+            }
+            if (dataBuf[i + 1] != 0x78)
+            {
+                continue ;
+            }
+            if (i + 2 >= dataBufLen)
+            {
+                continue ;
+            }
+            contentlen = dataBuf[i + 2];
+            if ((i + 5 + contentlen) > dataBufLen)
+            {
+                continue ;
+            }
+            if (dataBuf[i + 3 + contentlen] == 0x0D && dataBuf[i + 4 + contentlen] == 0x0A)
+            {
+                i += (4 + contentlen);
+                lastindex = i + 1;
+                //LogPrintf(DEBUG_ALL, "Fint it ====>Begin:7878[%d,%d]\r\n", beginindex, lastindex - beginindex);
+                protocolRxParase((char *)dataBuf + beginindex, lastindex - beginindex);
+            }
+            //            else
+            //            {
+            //                LogMessage(DEBUG_ALL, "78no find\r\n");
+            //            }
+        }
+        else if (dataBuf[i] == 0x79)
+        {
+            if (i + 1 >= dataBufLen)
+            {
+                continue ;
+            }
+            if (dataBuf[i + 1] != 0x79)
+            {
+                continue ;
+            }
+            //找长度
+            if (i + 3 >= dataBufLen)
+            {
+                continue ;
+            }
+            contentlen = dataBuf[i + 2] << 8 | dataBuf[i + 3];
+            if ((i + 6 + contentlen) > dataBufLen)
+            {
+                continue ;
+            }
+            if (dataBuf[i + 4 + contentlen] == 0x0D && dataBuf[i + 5 + contentlen] == 0x0A)
+            {
+                i += (5 + contentlen);
+                lastindex = i + 1;
+                //LogPrintf(DEBUG_ALL, "Fint it ====>Begin:7979[%d,%d]\r\n", beginindex, lastindex - beginindex);
+                protocolRxParase((char *)dataBuf + beginindex, lastindex - beginindex);
+            }
+            //            else
+            //            {
+            //                LogMessage(DEBUG_ALL, "79no find\r\n");
+            //            }
+        }
+    }
+    if (lastindex != 0)
+    {
+        remain = dataBufLen - lastindex;
+        //LogPrintf(DEBUG_ALL, "Remain:%d\r\n", remain);
+        if (remain != 0)
+        {
+            memcpy(dataBuf, dataBuf + lastindex, remain);
+        }
+        dataBufLen = remain;
+    }
+
+}
+

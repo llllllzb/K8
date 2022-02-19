@@ -1199,7 +1199,7 @@ void n58TCPRecvparase(uint8_t *buf, uint16_t len)
             LogMessage(DEBUG_ALL, restore);
             LogMessage(DEBUG_ALL, "\n");
         }
-        protocolRxParase((char *)rebuf, datalen);
+        protocolReceivePush((char *)rebuf, datalen);
         rebuf += (datalen);
         relen -= (datalen);
         index = my_getstrindex((char *)rebuf, "+TCPRECV:", relen);

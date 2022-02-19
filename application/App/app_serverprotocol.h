@@ -12,6 +12,9 @@ typedef enum{
 	PROTOCOL_19,//¶à»ùÕ¾
 	PROTOCOL_21,//À¶ÑÀ
 	PROTOCOL_8A,
+	PROTOCOL_51,
+	PROTOCOL_52,
+	PROTOCOL_53,
 	PROTOCOL_F1,//ICCID
 }PROTOCOLTYPE;
 typedef enum{
@@ -35,6 +38,13 @@ typedef struct
 	char message[30];
 }Message;
 
+typedef struct{
+	uint8_t audioType;
+	uint16_t audioCnt;
+	uint16_t audioPackId;
+	uint32_t audioSize;
+	uint32_t audioId;
+}AudioFileStruct;
 
 void sendProtocolToServer(PROTOCOLTYPE protocol,void * param);
 void netConnectReset(void);
@@ -48,5 +58,6 @@ void createProtocolF3(char *dest,N58_WIFIAPSCAN *wap);
 void save123InstructionId(void);
 void reCover123InstructionId(void);
 void clearHbtTimer(void);
+void protocolReceivePush(char *protocol, int size);
 
 #endif
