@@ -71,6 +71,7 @@ const N58_CMD_STRUCT n58_cmd_table[N58_MAX_NUM] =
     {N58_SNDTRANS_CMD, "AT+SNDTRANS"},
     {N58_SIMHOTSWAP_CMD, "AT+SIMHOTSWAP"},
     {N58_GMR_CMD, "AT+GMR"},
+    {N58_AUDPLAY_CMD, "AT+AUDPLAY"},
     {N58_MAX_NUM, NULL},
 };
 
@@ -101,18 +102,18 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
                 free(headNode);
                 headNode = NULL;
                 LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
-                HAL_NVIC_SystemReset();
                 sysparam.mallocfault++;
                 paramSaveMallocFault();
+                portSystemReset();
                 return 0;
             }
         }
         else
         {
             LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
-            HAL_NVIC_SystemReset();
             sysparam.mallocfault++;
             paramSaveMallocFault();
+            portSystemReset();
             return 0;
         }
     }
@@ -130,7 +131,6 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
                 nextnode->data = malloc(datalen);
                 if (nextnode->data != NULL)
                 {
-                    //LogPrintf(DEBUG_ALL,"CreateNodeCmd==>Node 0x%08X ,data 0x%08X\n",nextnode,nextnode->data);
                     memcpy(nextnode->data, data, datalen);
                     nextnode->datalen = datalen;
                     nextnode->nextnode = NULL;
@@ -142,18 +142,18 @@ uint8_t CreateNodeCmd(char *data, uint16_t datalen, uint8_t currentcmd)
                     free(nextnode);
                     nextnode = NULL;
                     LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
-                    HAL_NVIC_SystemReset();
                     sysparam.mallocfault++;
                     paramSaveMallocFault();
+                    portSystemReset();
                     return 0;
                 }
             }
             else
             {
                 LogMessage(DEBUG_ALL, "CreateNodeCmd==>Malloc memory error\n");
-                HAL_NVIC_SystemReset();
                 sysparam.mallocfault++;
                 paramSaveMallocFault();
+                portSystemReset();
                 return 0;
             }
         }
@@ -179,12 +179,11 @@ void outPutNodeCmd(void)
         nextnode = currentnode->nextnode;
         n58_lte_status.current_cmd = currentnode->currentcmd;
         //数据发送
-        appUartSend(&usart2_ctl, (uint8_t *)currentnode->data, currentnode->datalen);
-        if (currentnode->data[0] != 0X78 && currentnode->data[0] != 0x79)
+        portUartSend(&usart2_ctl, (uint8_t *)currentnode->data, currentnode->datalen);
+        if (currentnode->data[0] == 'A')
         {
             LogMessageWL(DEBUG_ALL, currentnode->data, currentnode->datalen);
         }
-        //LogPrintf(DEBUG_ALL,"outPutNodeCmd==>Free 0x%08X,Free Data 0x%08X\n",currentnode,currentnode->data);
         free(currentnode->data);
         free(currentnode);
 
@@ -759,7 +758,7 @@ void N58_ClearCmd(void)
 +CSQ: 25,99
 OK
 */
-void n58CSQparase(uint8_t *buf, uint16_t len)
+void n58CSQParser(uint8_t *buf, uint16_t len)
 {
     int index, indexa, datalen;
     uint8_t *rebuf;
@@ -794,7 +793,7 @@ void n58CSQparase(uint8_t *buf, uint16_t len)
 OK
 
 */
-void n58CREGparase(uint8_t *buf, uint16_t len)
+void n58CREGParser(uint8_t *buf, uint16_t len)
 {
     int index, datalen;
     uint8_t *rebuf;
@@ -819,7 +818,7 @@ void n58CREGparase(uint8_t *buf, uint16_t len)
                     restore[datalen] = 0;
                     cnt++;
                     datalen = 0;
-                    //sprintf(debug,"n58CREGparase==>%s,cnt=%d\n",restore,cnt);
+                    //sprintf(debug,"n58CREGParser==>%s,cnt=%d\n",restore,cnt);
                     //LogMessage(DEBUG_ALL, debug);
                     switch (cnt)
                     {
@@ -850,7 +849,7 @@ void n58CREGparase(uint8_t *buf, uint16_t len)
 +CGATT: 0
 OK
 */
-void n58cgattparase(uint8_t *buf, uint16_t len)
+void n58cgattParser(uint8_t *buf, uint16_t len)
 {
     int16_t index;
     uint8_t  value;
@@ -867,7 +866,7 @@ void n58cgattparase(uint8_t *buf, uint16_t len)
     }
 }
 
-void n58mysysteminfoparase(uint8_t *buf, uint16_t len)
+void n58mysysteminfoParser(uint8_t *buf, uint16_t len)
 {
     if (my_getstrindex((char *)buf, "OK", len) >= 0 || my_getstrindex((char *)buf, "ERROR", len) >= 0)
     {
@@ -875,28 +874,28 @@ void n58mysysteminfoparase(uint8_t *buf, uint16_t len)
 
     }
 }
-void n58cgdcontparase(uint8_t *buf, uint16_t len)
+void n58cgdcontParser(uint8_t *buf, uint16_t len)
 {
     if (distinguishOK((char *) buf))
     {
         n58_lte_status.cgdcont_ok = 1;
     }
 }
-void n58xgauthparase(uint8_t *buf, uint16_t len)
+void n58xgauthParser(uint8_t *buf, uint16_t len)
 {
     if (distinguishOK((char *) buf))
     {
         n58_lte_status.xgauth_ok = 1;
     }
 }
-void n58xiicparase(uint8_t *buf, uint16_t len)
+void n58xiicParser(uint8_t *buf, uint16_t len)
 {
     if (distinguishOK((char *) buf))
     {
         n58_lte_status.xiic_ok = 1;
     }
 }
-void n58xiicqueryparase(uint8_t *buf, uint16_t len)
+void n58xiicqueryParser(uint8_t *buf, uint16_t len)
 {
 
     int index, datalen;
@@ -922,7 +921,7 @@ void n58xiicqueryparase(uint8_t *buf, uint16_t len)
                     restore[datalen] = 0;
                     cnt++;
                     datalen = 0;
-                    //sprintf(debug,"n58CREGparase==>%s,cnt=%d\n",restore,cnt);
+                    //sprintf(debug,"n58CREGParser==>%s,cnt=%d\n",restore,cnt);
                     //LogMessage(DEBUG_ALL, debug);
                     switch (cnt)
                     {
@@ -954,7 +953,7 @@ void n58xiicqueryparase(uint8_t *buf, uint16_t len)
 +TCPCLOSE: 0,Link Closed
 
 */
-void n58TCPcloseparase(uint8_t *buf, uint16_t len)
+void n58TCPcloseParser(uint8_t *buf, uint16_t len)
 {
     int index;
     uint8_t *rebuf;
@@ -987,7 +986,7 @@ void n58TCPcloseparase(uint8_t *buf, uint16_t len)
 OK
 
 */
-void n58CIMIParase(uint8_t *buf, uint16_t len)
+void n58CIMIParser(uint8_t *buf, uint16_t len)
 {
     int16_t index, indexa;
     uint8_t *rebuf;
@@ -1023,7 +1022,7 @@ void n58CIMIParase(uint8_t *buf, uint16_t len)
 
 }
 
-void n58CGSNParase(uint8_t *buf, uint16_t len)
+void n58CGSNParser(uint8_t *buf, uint16_t len)
 {
     int16_t index, indexa;
     uint8_t *rebuf;
@@ -1054,7 +1053,7 @@ void n58CGSNParase(uint8_t *buf, uint16_t len)
 OK
 
 */
-void n58CCIDParase(uint8_t *buf, uint16_t len)
+void n58CCIDParser(uint8_t *buf, uint16_t len)
 {
     int16_t index, indexa;
     uint8_t *rebuf;
@@ -1086,7 +1085,7 @@ void n58CCIDParase(uint8_t *buf, uint16_t len)
 }
 
 /*+TCPSETUP: 0,ERROR1*/
-void n58TCPsetupparase(uint8_t *buf, uint16_t len)
+void n58TCPsetupParser(uint8_t *buf, uint16_t len)
 {
 
     int index, datalen;
@@ -1112,7 +1111,7 @@ void n58TCPsetupparase(uint8_t *buf, uint16_t len)
                     restore[datalen] = 0;
                     cnt++;
                     datalen = 0;
-                    //sprintf(debug,"n58CREGparase==>%s,cnt=%d\n",restore,cnt);
+                    //sprintf(debug,"n58CREGParser==>%s,cnt=%d\n",restore,cnt);
                     //LogMessage(DEBUG_ALL,debug);
                     switch (cnt)
                     {
@@ -1162,7 +1161,7 @@ void n58TCPsetupparase(uint8_t *buf, uint16_t len)
 }
 
 
-void n58TCPRecvparase(uint8_t *buf, uint16_t len)
+void n58TCPRecvParser(uint8_t *buf, uint16_t len)
 {
     int16_t index;
     uint8_t *rebuf;
@@ -1233,7 +1232,7 @@ $MYGPSSTATE: gps closed
 
 
 */
-void n58MygpsstateParase(uint8_t *buf, uint16_t len)
+void n58MygpsstateParser(uint8_t *buf, uint16_t len)
 {
     uint8_t *rebuf;
     uint16_t  relen;
@@ -1268,7 +1267,7 @@ OK
 
 */
 
-void n58FSLISTparase(uint8_t *buf, uint16_t len)
+void n58FSLISTParser(uint8_t *buf, uint16_t len)
 {
     int16_t i, count = 0, index, recflag = 0;
     char fileinfobuf[70];
@@ -1355,7 +1354,7 @@ void n58FSLISTparase(uint8_t *buf, uint16_t len)
 OK
 
 */
-void n58FswrParase(uint8_t *buf, uint16_t len)
+void n58FswrParser(uint8_t *buf, uint16_t len)
 {
     int16_t index;
     uint8_t gpscount, i;
@@ -1415,7 +1414,7 @@ void n58FswrParase(uint8_t *buf, uint16_t len)
 +CMTI: "SM",33
 
 */
-void n58CMTIparase(uint8_t *buf, uint16_t len)
+void n58CMTIParser(uint8_t *buf, uint16_t len)
 {
     uint8_t i;
     int16_t index;
@@ -1448,7 +1447,7 @@ OK
 
 
 */
-void n58CMGRparse(uint8_t *buf, uint16_t len)
+void n58CMGRParser(uint8_t *buf, uint16_t len)
 {
     int index;
     uint8_t *rebuf;
@@ -1513,7 +1512,7 @@ void n58CMGRparse(uint8_t *buf, uint16_t len)
 OK
 
 */
-void n58WIFISCANParse(uint8_t *buf, uint16_t len)
+void n58WIFISCANParser(uint8_t *buf, uint16_t len)
 {
     int16_t index;
     uint8_t *rebuf;
@@ -1565,7 +1564,7 @@ void n58WIFISCANParse(uint8_t *buf, uint16_t len)
 }
 
 
-void n58MygpsposParaser(uint8_t *buf, uint16_t len)
+void n58MygpsposParser(uint8_t *buf, uint16_t len)
 {
     int16_t index;
     uint8_t *rebuf;
@@ -1594,7 +1593,7 @@ void n58ATA(void)
     sendModuleCmd(N58_ATA_CMD, NULL);
     autoatatimerid = -1;
 }
-void n58AutoATA(uint8_t *buf, uint16_t len)
+void n58AtaParser(uint8_t *buf, uint16_t len)
 {
     if (sysparam.autoAnswer == 0)
         return ;
@@ -1611,7 +1610,7 @@ void n58AutoATA(uint8_t *buf, uint16_t len)
 $MYLACID: 24D3,029CC501
 OK
 */
-void n58MylacidParse(uint8_t *buf, uint16_t len)
+void n58MylacidParser(uint8_t *buf, uint16_t len)
 {
     int index, datalen;
     uint8_t *rebuf;
@@ -1780,26 +1779,26 @@ void moduleResponParaser(uint8_t *buf, uint16_t len)
     if (n58DataRestore == NULL)
     {
         LogPrintf(DEBUG_ALL, "malloc %d bytes error\r\n", len);
-        HAL_NVIC_SystemReset();
+        portSystemReset();
         return;
     }
     memcpy(n58DataRestore, buf, len);
     n58DataRestore[len] = NULL;
-    LogMessage(DEBUG_ALL, "--->>>---\n");
+	LogMessage(DEBUG_ALL, "--->>>---\r\n");
     LogMessageWL(DEBUG_FACTORY, (char *)n58DataRestore, len);
-    LogMessage(DEBUG_ALL, "---<<<---\n");
+    LogMessage(DEBUG_ALL, "---<<<---\r\n");
     /*不区分指令区域*/
-    n58MygpsposParaser(n58DataRestore, len);
-    n58TCPRecvparase(n58DataRestore, len);
-    n58TCPsetupparase(n58DataRestore, len);
-    n58TCPcloseparase(n58DataRestore, len);
-    n58CMTIparase(n58DataRestore, len);
-    n58CMGRparse(n58DataRestore, len);
-    n58WIFISCANParse(n58DataRestore, len);
-    n58AutoATA(n58DataRestore, len);
-    n58MylacidParse(n58DataRestore, len);
-    appBlePRecv(n58DataRestore, len);
-    appBleCRecv(n58DataRestore, len);
+    n58MygpsposParser(n58DataRestore, len);
+    n58TCPRecvParser(n58DataRestore, len);
+    n58TCPsetupParser(n58DataRestore, len);
+    n58TCPcloseParser(n58DataRestore, len);
+    n58CMTIParser(n58DataRestore, len);
+    n58CMGRParser(n58DataRestore, len);
+    n58WIFISCANParser(n58DataRestore, len);
+    n58AtaParser(n58DataRestore, len);
+    n58MylacidParser(n58DataRestore, len);
+    appBlePRecvParser(n58DataRestore, len);
+    appBleCRecvParser(n58DataRestore, len);
     n58NwurcblestatParser(n58DataRestore, len);
     n58NwblecconParser(n58DataRestore, len);
     /*区分指令区域*/
@@ -1820,47 +1819,47 @@ void moduleResponParaser(uint8_t *buf, uint16_t len)
             }
             break;
         case N58_CGSN_CMD:
-            n58CGSNParase(n58DataRestore, len);
+            n58CGSNParser(n58DataRestore, len);
             break;
         case N58_CIMI_CMD:
-            n58CIMIParase(n58DataRestore, len);
+            n58CIMIParser(n58DataRestore, len);
             break;
         case N58_CCID_CMD:
-            n58CCIDParase(n58DataRestore, len);
+            n58CCIDParser(n58DataRestore, len);
             break;
         case N58_CSQ_CMD:
-            n58CSQparase(n58DataRestore, len);
+            n58CSQParser(n58DataRestore, len);
             break;
         case N58_CREG_CMD:
-            n58CREGparase(n58DataRestore, len);
+            n58CREGParser(n58DataRestore, len);
             break;
         case N58_CGATT_CMD:
-            n58cgattparase(n58DataRestore, len);
+            n58cgattParser(n58DataRestore, len);
             break;
         case N58_MYSYSINFO_CMD:
-            n58mysysteminfoparase(n58DataRestore, len);
+            n58mysysteminfoParser(n58DataRestore, len);
             break;
         case N58_CGDCONT_CMD:
-            n58cgdcontparase(n58DataRestore, len);
+            n58cgdcontParser(n58DataRestore, len);
             break;
         case N58_XGAUTH_CMD:
-            n58xgauthparase(n58DataRestore, len);
+            n58xgauthParser(n58DataRestore, len);
             break;
         case N58_XIIC_CMD:
-            n58xiicparase(n58DataRestore, len);
-            n58xiicqueryparase(n58DataRestore, len);
+            n58xiicParser(n58DataRestore, len);
+            n58xiicqueryParser(n58DataRestore, len);
             break;
         case N58_TCPSEND_CMD:
             n58TcpsendParase(n58DataRestore, len);
             break;
         case N58_MYGPSSTATE_CMD:
-            n58MygpsstateParase(n58DataRestore, len);
+            n58MygpsstateParser(n58DataRestore, len);
             break;
         case N58_FSLIST_CMD:
-            n58FSLISTparase(n58DataRestore, len);
+            n58FSLISTParser(n58DataRestore, len);
             break;
         case N58_FSRF_CMD:
-            n58FswrParase(n58DataRestore, len);
+            n58FswrParser(n58DataRestore, len);
             break;
         case N58_NWBTBLEPWR_CMD:
             n58NwbtblepwrParser(n58DataRestore, len);

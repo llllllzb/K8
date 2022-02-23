@@ -43,4 +43,6 @@ stm32l\app_kernal.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h
 stm32l\app_kernal.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h
 stm32l\app_kernal.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h
 stm32l\app_kernal.o: ..\App\app_nmea.h
+stm32l\app_kernal.o: ..\App\app_port.h
+stm32l\app_kernal.o: ../Inc/usart.h
 stm32l\app_kernal.o: ..\App\app_param.h

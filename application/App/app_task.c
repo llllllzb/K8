@@ -349,8 +349,7 @@ static void gpsRequestClose(void)
 //是否更新RTC时间判断逻辑函数
 static void modeRequeUpdateRTC(void)
 {
-    if (sysparam.MODE == MODE1 || sysparam.MODE == MODE2 || sysparam.MODE == MODE21 || sysparam.MODE == MODE5 ||
-            sysparam.MODE == MODE4)
+    if (sysparam.MODE == MODE1 || sysparam.MODE == MODE2 || sysparam.MODE == MODE21 || sysparam.MODE == MODE4)
     {
         updateRTCtimeRequest();
     }
@@ -521,9 +520,9 @@ static void netModuleStartup(void)
 {
     if (sysinfo.systempowerlow == 0)
     {
-        modulePinConfig(1);
+        portModuleCfg(1);
         modulePowerOn();
-        appUartConfig(APPUSART2, 1, moduleResponParaser);
+        portUartCfg(APPUSART2, 1, moduleResponParaser);
         LogPrintf(DEBUG_ALL, "netModuleStartup==>at %d\n", sysinfo.System_Tick);
     }
     else
@@ -534,9 +533,9 @@ static void netModuleStartup(void)
 /*模组关机*/
 static void netModuleShutdown(void)
 {
-    appUartConfig(APPUSART2, 0, NULL);
+    portUartCfg(APPUSART2, 0, NULL);
     modulePowerOff();
-    modulePinConfig(0);
+    portModuleCfg(0);
     updateSystemLedStatus(SYSTEM_LED_NETOK, 0);
     LogPrintf(DEBUG_ALL, "netModuleShutdown==>at %d\n", sysinfo.System_Tick);
 }
@@ -558,7 +557,7 @@ void systemShutDown(void)
     if (sysinfo.runFsm == MODE_RUNING)
     {
         sysinfo.runFsm = MODE_DONE;
-        gsensorConfig(0);
+        portGsensorCfg(0);
         netModuleShutdown();
         updateSystemLedStatus(SYSTEM_LED_RUN, 0);
     }
@@ -578,7 +577,7 @@ void systemShutDown(void)
 void wdtProcess(void)
 {
     static uint8_t tick = 0;
-    feedWdt();
+    portWdtFeed();
     if (sysinfo.runFsm == MODE_DONE && sysinfo.alarmrequest == 0 && sysinfo.GPSRequest == 0)
     {
         //更新电压值
@@ -595,7 +594,7 @@ void wdtProcess(void)
                 if (++tick > 5)
                 {
                     tick = 0;
-                    if (sysparam.MODE == MODE2 || sysparam.MODE == MODE5)
+                    if (sysparam.MODE == MODE2)
                     {
                         sysinfo.systempowerlow = 0;
                         systemModeRunStart();
@@ -636,7 +635,7 @@ void hearbeatRequest(void)
     static uint8_t count = 0;
     static uint16_t count2 = 0;
     count++;
-    if (sysparam.MODE == MODE2 || sysparam.MODE == MODE5)
+    if (sysparam.MODE == MODE2)
     {
         if (count % (sysparam.heartbeatgap / 10) == 0)
         {
@@ -646,10 +645,10 @@ void hearbeatRequest(void)
             }
             count = 0;
         }
-        if (sysparam.interval_wakeup_minutes != 0)
+        if (sysparam.gapMinutes != 0)
         {
             count2++;
-            if (count2 % (sysparam.interval_wakeup_minutes * 6) == 0)
+            if (count2 % (sysparam.gapMinutes * 6) == 0)
             {
                 sysinfo.lbsrequest = 1;
                 sysinfo.wifirequest = 1;
@@ -668,10 +667,10 @@ void uploadRequestInMode4(void)
         return ;
 
 
-    if (sysparam.interval_wakeup_minutes != 0)
+    if (sysparam.gapMinutes != 0)
     {
         mode4runtick++;
-        if ((mode4runtick / 6) >= sysparam.interval_wakeup_minutes)
+        if ((mode4runtick / 6) >= sysparam.gapMinutes)
         {
             mode4runtick = 0;
             sysinfo.lbsrequest = 1;
@@ -728,7 +727,7 @@ void systemRequestTask(void)
     if (sysinfo.systemRequest & SYSTEM_ENTERSLEEP_REQUEST)
     {
         systemRequestClear(SYSTEM_ENTERSLEEP_REQUEST);
-        LogMessage(DEBUG_ALL, "systemRequestTask==>Enter Sleep\n");
+        LogMessage(DEBUG_ALL, "SystemRequestTask==>Enter Sleep\n");
         HAL_SuspendTick();
         HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
         SystemClock_Config();
@@ -746,14 +745,14 @@ void systemRequestTask(void)
     if (sysinfo.systemRequest & SYSTEM_CLOSEUART1_REQUEST)
     {
         systemRequestClear(SYSTEM_CLOSEUART1_REQUEST);
-        appUartConfig(APPUSART1, 0, NULL);
+        portUartCfg(APPUSART1, 0, NULL);
         LogMessage(DEBUG_ALL, "System request close uart\n");
     }
     //开启串口
     if (sysinfo.systemRequest & SYSTEM_OPENUART1_REQUEST)
     {
         systemRequestClear(SYSTEM_OPENUART1_REQUEST);
-        appUartConfig(APPUSART1, 1, atCmdParaseFunction);
+        portUartCfg(APPUSART1, 1, atCmdParserFunction);
         LogMessage(DEBUG_ALL, "System request open uart\n");
     }
     //喂狗
@@ -765,7 +764,7 @@ void systemRequestTask(void)
         uploadRequestInMode4();
         exitNetCtl();
     }
-    alarmUploadRequest();
+
 }
 
 /***********************************************************/
@@ -777,7 +776,6 @@ static void doPoitypeRequest(void)
         case MODE1:
         case MODE3:
         //case MODE4:
-        case MODE5:
         case MODE21:
         case MODE23:
             //only lbs
@@ -842,7 +840,7 @@ static void modeShutDownQuickly(void)
 
 void getBatVoltage(void)
 {
-    sysinfo.outsidevoltage = ((float)getVoltageAdcValue() / 4095) * 1.8 * sysparam.adccal;
+    sysinfo.outsidevoltage = ((float)portGetAdc() / 4095) * 1.8 * sysparam.adccal;
 }
 /*电压，充电检测*/
 void voltageCheckTask(void)
@@ -1002,185 +1000,158 @@ void systemModeRunStart(void)
         LogMessage(DEBUG_ALL, "systemModeRunStart==>system power too low\n");
     }
 }
-
-void systemModeRunTask(void)
+static void modeChangeFsm(uint8_t fsm)
 {
-    static uint8_t mode2runtick;
-    static uint8_t delaytick;
+    sysinfo.runFsm = fsm;
+}
+static void modeStart(void)
+{
+    sysinfo.runStartTick = sysinfo.System_Tick;
+    sysinfo.gpsuploadonepositiontime = 180;
+    portGsensorCfg(1);
+    switch (sysparam.MODE)
+    {
+        case MODE1:
+        case MODE21:
+            portSetNextAlarmTime();
+            sysparam.startUpCnt++;
+            sysinfo.gpsuploadonepositiontime = 90;
+            break;
+        case MODE2:
+            if (sysparam.accctlgnss == 0)
+            {
+                gpsRequestSet(GPS_REQUEST_GPSKEEPOPEN_CTL);
+            }
+
+            break;
+        case MODE3:
+        case MODE23:
+            portSetNextWakeUpTime();
+            sysparam.startUpCnt++;
+            sysinfo.gpsuploadonepositiontime = 90;
+            break;
+        case MODE4:
+            break;
+    }
+    paramSaveMode1Timer(sysparam.startUpCnt);
+    doPoitypeRequest();
+    systemRequestSet(SYSTEM_MODULE_STARTUP_REQUEST);
+    updateSystemLedStatus(SYSTEM_LED_RUN, 1);
+    sysinfo.csqSearchTime = 60;
+    modeChangeFsm(MODE_RUNING);
+
+}
+
+static void runTimeCount(void)
+{
+
+    static uint8_t runTick = 0;
+    runTick++;
+    if (runTick >= 180)
+    {
+        runTick = 0;
+        sysparam.runTime++;
+        if (sysparam.runTime % 20 == 0)
+        {
+            paramSaveMode2cnt(sysparam.runTime);
+        }
+        //每180秒记录一次工作时长
+        //确保在已经关机下被感光唤醒时，4G模块开不起来时，最多工作3分钟
+        if (sysinfo.systempowerlow == 1)
+        {
+            modeChangeFsm(MODE_STOP); //执行完毕，关机
+        }
+    }
+}
+static void modeRun(void)
+{
+    static uint8_t delayTick = 0;
+
+    voltageCheckTask();
+
+    switch (sysparam.MODE)
+    {
+        case MODE1:
+        case MODE3:
+            if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 210)
+            {
+                sysinfo.alarmrequest = 0;
+                modeChangeFsm(MODE_STOP); //执行完毕，关机
+            }
+            modeShutDownQuickly();
+            break;
+        case MODE2:
+            runTimeCount();
+
+            if (sysparam.gpsuploadgap != 0)
+                gpsUploadPointToServer();
+            break;
+        case MODE21:
+        case MODE23:
+            modeShutDownQuickly();
+            if (getTerminalAccState())
+            {
+                delayTick = 0;
+                runTimeCount();
+            }
+            else if (++delayTick >= 210)
+            {
+                sysinfo.alarmrequest = 0;
+                delayTick = 0;
+                modeChangeFsm(MODE_STOP); //执行完毕，关机
+            }
+            gpsUploadPointToServer();
+            break;
+        case MODE4:
+            runTimeCount();
+            break;
+        default:
+            sysparam.MODE = MODE1;
+            break;
+    }
+}
+static void modeStop(void)
+{
+    if (sysparam.MODE != MODE21 && sysparam.MODE != MODE23)
+    {
+        portGsensorCfg(0);
+    }
+    systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
+    systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
+    updateSystemLedStatus(SYSTEM_LED_RUN, 0);
+    modeChangeFsm(MODE_DONE);
+
+}
+static void modeDone(void)
+{
+    if ((sysinfo.GPSRequest != 0 || sysinfo.alarmrequest != 0) && sysinfo.runFsm == MODE_DONE)
+    {
+        modeChangeFsm(MODE_START);
+    }
+    else
+    {
+        systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
+    }
+
+}
+
+
+
+void systemModeTask(void)
+{
     switch (sysinfo.runFsm)
     {
         case MODE_START:
-            mode2runtick = 0;
-            delaytick = 0;
-            sysinfo.runStartTick = sysinfo.System_Tick;
-            sysinfo.gpsuploadonepositiontime = 180;
-
-            gsensorConfig(1);
-            if (sysparam.MODE == MODE1)
-            {
-                setNextAlarmTime();
-                sysparam.mode1startuptime++;
-                sysinfo.gpsuploadonepositiontime = 90;
-            }
-            else if (sysparam.MODE == MODE2)
-            {
-                if (sysparam.accctlgnss == 0)
-                {
-                    gpsRequestSet(GPS_REQUEST_GPSKEEPOPEN_CTL);
-                }
-            }
-            else if (sysparam.MODE == MODE3)
-            {
-                setNextWakeUpTime();
-                sysparam.mode1startuptime++;
-                sysinfo.gpsuploadonepositiontime = 90;
-            }
-
-            else if (sysparam.MODE == MODE4)
-            {
-                gsensorConfig(0);
-                sysinfo.gpsuploadonepositiontime = 90;
-            }
-
-            else if (sysparam.MODE == MODE5)
-            {
-                sysinfo.gpsuploadonepositiontime = 90;
-                gsensorConfig(0);
-            }
-            else if (sysparam.MODE == MODE23)
-            {
-                setNextWakeUpTime();
-                if (getTerminalAccState() == 0)
-                    sysparam.mode1startuptime++;
-            }
-            else if (sysparam.MODE == MODE21)
-            {
-                setNextAlarmTime();
-                if (getTerminalAccState() == 0)
-                    sysparam.mode1startuptime++;
-            }
-            paramSaveMode1Timer(sysparam.mode1startuptime);
-            doPoitypeRequest();
-            systemRequestSet(SYSTEM_MODULE_STARTUP_REQUEST);
-            updateSystemLedStatus(SYSTEM_LED_RUN, 1);
-            sysinfo.runFsm = MODE_RUNING;
-            sysinfo.csqSearchTime = 30;
+            modeStart();
             break;
         case MODE_RUNING:
-
-            if (sysparam.MODE == MODE1)
-            {
-                if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 210)
-                {
-                    sysinfo.alarmrequest = 0;
-                    sysinfo.runFsm = MODE_STOP; //执行完毕，关机
-                }
-                modeShutDownQuickly();
-
-            }
-            else if (sysparam.MODE == MODE2)
-            {
-                mode2runtick++;
-                if (mode2runtick >= 180)
-                {
-                    mode2runtick = 0;
-                    sysparam.mode2worktime++;
-                    if (sysparam.mode2worktime % 20 == 0)
-                    {
-                        paramSaveMode2cnt(sysparam.mode2worktime);
-                    }
-                    //每180秒记录一次工作时长
-                    //确保在已经关机下被感光唤醒时，4G模块开不起来时，最多工作3分钟
-                    if (sysinfo.systempowerlow == 1)
-                    {
-                        sysinfo.runFsm = MODE_STOP; //执行完毕，关机
-                    }
-                }
-            }
-            else if (sysparam.MODE == MODE3)
-            {
-                if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 210)
-                {
-                    sysinfo.alarmrequest = 0;
-                    sysinfo.runFsm = MODE_STOP; //执行完毕，关机
-                }
-                modeShutDownQuickly();
-            }
-
-            else if (sysparam.MODE == MODE4)
-            {
-            }
-            //实时在线，自动上报
-            else if (sysparam.MODE == MODE5)
-            {
-                mode2runtick++;
-                if (mode2runtick >= 180)
-                {
-                    mode2runtick = 0;
-                    sysparam.mode2worktime++;
-                    if (sysparam.mode2worktime % 20 == 0)
-                    {
-                        paramSaveMode2cnt(sysparam.mode2worktime);
-                    }
-                }
-            }
-
-            //模式21和23的与模式2和3的区别在于gsensor是否有开启
-            else if (sysparam.MODE == MODE21 || sysparam.MODE == MODE23)
-            {
-                modeShutDownQuickly();
-                if (getTerminalAccState())
-                {
-                    mode2runtick++;
-                    delaytick = 0;
-                    if (mode2runtick >= 180)
-                    {
-                        mode2runtick = 0;
-                        sysparam.mode2worktime++;
-                        if (sysparam.mode2worktime % 20 == 0)
-                        {
-                            paramSaveMode2cnt(sysparam.mode2worktime);
-                        }
-                        //每180秒记录一次工作时长
-                    }
-                }
-                else if (++delaytick >= 210)
-                {
-                    sysinfo.alarmrequest = 0;
-                    sysinfo.runFsm = MODE_STOP; //执行完毕，关机
-                }
-
-            }
-            else
-            {
-                paramSaveMode(MODE1);
-            }
-
-            //启用轨迹算法
-            if (sysparam.MODE == MODE2 || sysparam.MODE == MODE21 || sysparam.MODE == MODE23)
-            {
-                gpsUploadPointToServer();
-            }
-            voltageCheckTask();
+            modeRun();
             break;
         case MODE_STOP:
-            if (sysparam.MODE != MODE21 && sysparam.MODE != MODE23)
-                gsensorConfig(0);
-            systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
-            systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
-            updateSystemLedStatus(SYSTEM_LED_RUN, 0);
-            sysinfo.runFsm = MODE_DONE;
+            modeStop();
             break;
-
         case MODE_DONE:
-            if ((getTerminalAccState() || sysinfo.alarmrequest != 0) && sysinfo.runFsm == MODE_DONE)
-            {
-                sysinfo.runFsm = MODE_START;
-            }
-            else
-            {
-                systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
-            }
+            modeDone();
             break;
     }
 
@@ -1196,7 +1167,7 @@ void gsensorTapTask(void)
     uint8_t i;
     uint16_t total = 0;
     //当模式不属于一下模式时，不启用GSENSOR 算法
-    if (sysparam.MODE != MODE2 && sysparam.MODE != MODE21 && sysparam.MODE != MODE23)
+    if (sysparam.MODE == MODE1 || sysparam.MODE == MODE3 || sysparam.MODE == MODE4)
     {
         tick = 0;
         terminalAccoff();
@@ -1232,8 +1203,11 @@ void gsensorTapTask(void)
             {
                 alarmRequestSet(ALARM_GUARD_REQUEST);
             }
-            gpsRequestSet(GPS_REQUEST_ACC_CTL);
-            gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
+            if (sysparam.gpsuploadgap != 0)
+            {
+                gpsRequestSet(GPS_REQUEST_ACC_CTL);
+                gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
+            }
             memset(sysinfo.onetaprecord, 0, 15);
         }
     }
@@ -1270,7 +1244,7 @@ void gsensorTapTask(void)
 
 static void repairGsensor(void)
 {
-    gsensorConfig(1);
+    portGsensorCfg(1);
 }
 void gsensorIntervalCheck(void)
 {
@@ -1284,12 +1258,11 @@ void gsensorIntervalCheck(void)
     if (tick % 60 == 0)
     {
         tick = 0;
-        if (readInterruptConfig() != 0 && sysparam.MODE != MODE1 && sysparam.MODE != MODE3 && sysparam.MODE != MODE5 &&
-                sysparam.MODE != MODE4)
+        if (readInterruptConfig() != 0)
         {
             LogMessage(DEBUG_ALL, "gsensor open error\n");
             errorcount++;
-            gsensorConfig(0);
+            portGsensorCfg(0);
             startTimer(500, repairGsensor, 0);
             if (errorcount >= 3)
             {
@@ -1314,7 +1287,8 @@ void gsensorIntervalCheck(void)
 
 uint8_t autoSleepTask(void)
 {
-    if (!(sysparam.MODE == MODE2 || sysparam.MODE == MODE5 || sysparam.MODE == MODE4))
+
+    if (!(sysparam.MODE == MODE2 || sysparam.MODE == MODE4))
         return 1;
     if (sysinfo.GPSRequest != 0)
         return 2;
@@ -1332,7 +1306,7 @@ uint8_t autoSleepTask(void)
         return 8;
     if (sysparam.MODE == MODE4)
         return 9;
-    if (sysinfo.instructionqequest != 0)
+    if (sysinfo.ringWakeUp != 0)
         return 10;
     if (sysinfo.recordingflag != 0)
         return 11;
@@ -1342,6 +1316,8 @@ uint8_t autoSleepTask(void)
         return 13;
     if (resIsCycleRuning())
         return 14;
+    if (getTerminalAccState())
+        return 15;
     LogMessage(DEBUG_ALL, "auto sleep\n");
     if (sysparam.MODE == MODE4)
     {
@@ -1354,13 +1330,15 @@ uint8_t autoSleepTask(void)
 
 void delSmsOndDay(void)
 {
-	static uint32_t sectick=0;
-	if(++sectick>=86400)
-	{
-		sectick=0;
-		deleteMessage();
-	}
+    static uint32_t sectick = 0;
+    if (++sectick >= 86400)
+    {
+        sectick = 0;
+        deleteMessage();
+    }
 }
+
+
 
 
 /***********************************************************/
@@ -1369,20 +1347,19 @@ void taskRunInOneSecond(void)
 {
     sysinfo.System_Tick++;
     disPlaySystemTime();
-	delSmsOndDay();
+    delSmsOndDay();
     networkConnectProcess();
     gpsOutputCheckTask();
     gpsRequestTask();
     gpsUplodOnePointTask();
-    systemModeRunTask();
+    systemModeTask();
     lbsUploadRequestTask();
     wifiUploadRequestTask();
     gsensorIntervalCheck();
     gsensorTapTask();
     recCycleTask();
     recRecordUploadTask();
-#ifdef RI_ENABLE
     autoSleepTask();
-#endif
+
 }
 

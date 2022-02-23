@@ -86,6 +86,7 @@ typedef enum
     N58_SNDTRANS_CMD,
     N58_SIMHOTSWAP_CMD,
     N58_GMR_CMD,
+    N58_AUDPLAY_CMD,
     N58_MAX_NUM,
 } N58_CMD_TYPE;
 

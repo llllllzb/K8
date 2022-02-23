@@ -43,35 +43,35 @@ static const unsigned short ztvm_crctab16[] =
 
 void LogMessage(uint8_t level, char *debug)
 {
-    if(sysinfo.logmessage>=level)
+    if (sysinfo.logmessage >= level)
     {
-        appUartSend(&usart1_ctl,(uint8_t *)debug,strlen((const char *)debug));
+        portUartSend(&usart1_ctl, (uint8_t *)debug, strlen((const char *)debug));
     }
 }
-void LogMessageWL(uint8_t level, char *buf,uint16_t len)
+void LogMessageWL(uint8_t level, char *buf, uint16_t len)
 {
-    if(sysinfo.logmessage>=level)
+    if (sysinfo.logmessage >= level)
     {
-        appUartSend(&usart1_ctl,(uint8_t *)buf,len);
+        portUartSend(&usart1_ctl, (uint8_t *)buf, len);
     }
 }
 
 static char LOGDEBUG[256];
 
-void LogPrintf(uint8_t level,const char * debug,...)
+void LogPrintf(uint8_t level, const char *debug, ...)
 {
     va_list args;
-    if(sysinfo.logmessage<level)
+    if (sysinfo.logmessage < level)
         return ;
-    if(strlen(debug)>218)
+    if (strlen(debug) > 218)
     {
-        LogMessage(DEBUG_ALL,"LogPrintf==>Message too long\n");
+        LogMessage(DEBUG_ALL, "LogPrintf==>Message too long\n");
         return ;
     }
-    va_start(args,debug);
-    vsprintf(LOGDEBUG,debug,args);
+    va_start(args, debug);
+    vsprintf(LOGDEBUG, debug, args);
     va_end(args);
-    LogMessageWL(level,LOGDEBUG,strlen(LOGDEBUG));
+    LogMessageWL(level, LOGDEBUG, strlen(LOGDEBUG));
 }
 
 /**************************************************/
@@ -96,11 +96,11 @@ void LogPrintf(uint8_t level,const char * debug,...)
 //0位，撤防布防
 void terminalDefense(void)
 {
-    sysinfo.terminalStatus|=0x01;
+    sysinfo.terminalStatus |= 0x01;
 }
 void terminalDisarm(void)
 {
-    sysinfo.terminalStatus&=~0x01;
+    sysinfo.terminalStatus &= ~0x01;
 }
 //1位，acc状态
 uint8_t getTerminalAccState(void)
@@ -110,21 +110,21 @@ uint8_t getTerminalAccState(void)
 }
 void terminalAccon(void)
 {
-    sysinfo.terminalStatus|=0x02;
+    sysinfo.terminalStatus |= 0x02;
 }
 void terminalAccoff(void)
 {
-    sysinfo.terminalStatus&=~0x02;
+    sysinfo.terminalStatus &= ~0x02;
 }
 //2位，充电检测
 void terminalCharge(void)
 {
-    sysinfo.terminalStatus|=0x04;
+    sysinfo.terminalStatus |= 0x04;
 }
 
 void terminalunCharge(void)
 {
-    sysinfo.terminalStatus&=~0x04;
+    sysinfo.terminalStatus &= ~0x04;
 }
 uint8_t getTerminalChargeState(void)
 {
@@ -133,26 +133,26 @@ uint8_t getTerminalChargeState(void)
 //3,4,5
 void terminalAlarmSet(TERMINAL_WARNNING_TYPE alarm)
 {
-    sysinfo.terminalStatus&=~(0x38);
-    sysinfo.terminalStatus|=(alarm<<3);
+    sysinfo.terminalStatus &= ~(0x38);
+    sysinfo.terminalStatus |= (alarm << 3);
 }
 //6位，gps状态
 void terminalGPSFixed(void)
 {
-    sysinfo.terminalStatus|=0x60;
+    sysinfo.terminalStatus |= 0x60;
 }
 void terminalGPSUnFixed(void)
 {
-    sysinfo.terminalStatus&=~0x60;
+    sysinfo.terminalStatus &= ~0x60;
 }
 
 
 unsigned short GetCrc16(const char *pData, int nLength)
 {
     uint16_t fcs = 0xffff;
-    while(nLength > 0)
+    while (nLength > 0)
     {
-        fcs = (fcs >> 8) ^ ztvm_crctab16[(fcs ^( *pData)) & 0xff];
+        fcs = (fcs >> 8) ^ ztvm_crctab16[(fcs ^ (*pData)) & 0xff];
         nLength--;
         pData++;
     }
@@ -161,27 +161,27 @@ unsigned short GetCrc16(const char *pData, int nLength)
 }
 
 //获取字符ch在str中的位置
-int getCharIndex(uint8_t * src,int src_len,char ch)
+int getCharIndex(uint8_t *src, int src_len, char ch)
 {
     int i;
-    for(i=0; i<src_len; i++)
+    for (i = 0; i < src_len; i++)
     {
-        if(src[i]==ch)
+        if (src[i] == ch)
             return i;
     }
     return -1;
 }
 
 //匹配str2是否完全等同于str1的头部
-int my_strpach(char *str1,const char *str2)
+int my_strpach(char *str1, const char *str2)
 {
-    int i=0,len;
-    if(str1==NULL || str2==NULL)
+    int i = 0, len;
+    if (str1 == NULL || str2 == NULL)
         return 0;
-    len=strlen(str2);
-    for(i=0; i<len; i++)
+    len = strlen(str2);
+    for (i = 0; i < len; i++)
     {
-        if(str1[i]!=str2[i])
+        if (str1[i] != str2[i])
             return 0;
     }
     return 1;
@@ -191,16 +191,16 @@ int my_strpach(char *str1,const char *str2)
 //str1
 //str2 匹配内容
 //len  str1的串长度
-int my_strstr(char * str1,const char * str2,int len)
+int my_strstr(char *str1, const char *str2, int len)
 {
     int strsize;
-    int i=0;
-    strsize=strlen(str2);
-    for(i=0; i<=(len-strsize); i++)
+    int i = 0;
+    strsize = strlen(str2);
+    for (i = 0; i <= (len - strsize); i++)
     {
-        if(str1[i]==str2[0])
+        if (str1[i] == str2[0])
         {
-            if(my_strpach(&str1[i],str2))
+            if (my_strpach(&str1[i], str2))
             {
                 return 1;
             }
@@ -209,20 +209,20 @@ int my_strstr(char * str1,const char * str2,int len)
     return 0;
 }
 //获取str2在str1中的位置
-int my_getstrindex(char *str1,const char *str2,int len)
+int my_getstrindex(char *str1, const char *str2, int len)
 {
     uint16_t strsize;
-    uint16_t i=0;
-    if(str1==NULL || str2==NULL || len<=0)
+    uint16_t i = 0;
+    if (str1 == NULL || str2 == NULL || len <= 0)
         return -1;
-    strsize=strlen(str2);
-    if(len<strsize)
+    strsize = strlen(str2);
+    if (len < strsize)
         return -2;
-    for(i=0; i<=(len-strsize); i++)
+    for (i = 0; i <= (len - strsize); i++)
     {
-        if(str1[i]==str2[0])
+        if (str1[i] == str2[0])
         {
-            if(my_strpach(&str1[i],str2))
+            if (my_strpach(&str1[i], str2))
             {
                 return i;
             }
@@ -234,23 +234,23 @@ int my_getstrindex(char *str1,const char *str2,int len)
 //识别OK
 int distinguishOK(char *buf)
 {
-    if(strstr(buf,"OK")!=NULL)
+    if (strstr(buf, "OK") != NULL)
         return 1;
     return 0;
 }
 
 //获取字符ch出现在str中的n个位置的索引
-int16_t getCharIndexWithNum(uint8_t * src,uint16_t src_len,uint8_t ch,uint8_t num)
+int16_t getCharIndexWithNum(uint8_t *src, uint16_t src_len, uint8_t ch, uint8_t num)
 {
-    int i,count=0;
-    if(src==NULL)
+    int i, count = 0;
+    if (src == NULL)
         return -1;
-    for(i=0; i<src_len; i++)
+    for (i = 0; i < src_len; i++)
     {
-        if(src[i]==ch)
+        if (src[i] == ch)
         {
             ++count;
-            if(count==num)
+            if (count == num)
             {
                 return i;
             }
@@ -261,31 +261,31 @@ int16_t getCharIndexWithNum(uint8_t * src,uint16_t src_len,uint8_t ch,uint8_t nu
 
 
 //将字节数组转换成16进制的字符串
-void changeByteArrayToHexString(uint8_t *src, uint8_t *dest,uint16_t srclen)
+void changeByteArrayToHexString(uint8_t *src, uint8_t *dest, uint16_t srclen)
 {
     uint16_t i;
-    uint8_t a,b;
-    for(i=0; i<srclen; i++)
+    uint8_t a, b;
+    for (i = 0; i < srclen; i++)
     {
-        a=(src[i]>>4)&0x0F;
-        b=(src[i])&0x0F;
-        if(a<10)
+        a = (src[i] >> 4) & 0x0F;
+        b = (src[i]) & 0x0F;
+        if (a < 10)
         {
-            dest[i*2]=a+'0';
+            dest[i * 2] = a + '0';
         }
         else
         {
-            dest[i*2]=a-10+'A';
+            dest[i * 2] = a - 10 + 'A';
         }
 
-        if(b<10)
+        if (b < 10)
         {
-            dest[i*2+1]=b+'0';
+            dest[i * 2 + 1] = b + '0';
 
         }
         else
         {
-            dest[i*2+1]=b-10+'A';
+            dest[i * 2 + 1] = b - 10 + 'A';
         }
     }
 
@@ -313,12 +313,12 @@ static unsigned char  asciiToHex(char ch)
     return 0;
 }
 //将src中前size*2个字符，转换成size个字节,最终转换成16进制
-int16_t changeHexStringToByteArray(uint8_t *dest,uint8_t *src,uint16_t size)
+int16_t changeHexStringToByteArray(uint8_t *dest, uint8_t *src, uint16_t size)
 {
     uint8_t temp_l, temp_h;
     uint16_t i = 0;
 
-    if (src == NULL|| dest==NULL||size == 0)
+    if (src == NULL || dest == NULL || size == 0)
     {
         return -1;
     }
@@ -333,20 +333,20 @@ int16_t changeHexStringToByteArray(uint8_t *dest,uint8_t *src,uint16_t size)
 
 
 //将src中前size*2个字符，转换成size个字节,最终转换成16进制
-int16_t changeHexStringToByteArray_10in(uint8_t *dest,uint8_t *src,uint16_t size)
+int16_t changeHexStringToByteArray_10in(uint8_t *dest, uint8_t *src, uint16_t size)
 {
     uint8_t temp_l, temp_h;
     uint16_t i = 0;
 
-    if (src == NULL|| dest==NULL||size == 0)
+    if (src == NULL || dest == NULL || size == 0)
     {
         return -1;
     }
     for (i = 0; i < (size); i++)
     {
-        temp_h = asciiToHex(src[i * 2])*10;
+        temp_h = asciiToHex(src[i * 2]) * 10;
         temp_l = asciiToHex(src[i * 2 + 1]);
-        temp_h+=temp_l;
+        temp_h += temp_l;
         dest[i] = temp_h;
     }
     return i;
@@ -355,169 +355,171 @@ int16_t changeHexStringToByteArray_10in(uint8_t *dest,uint8_t *src,uint16_t size
 /*****************************************************************************************/
 
 
-void paraseInstructionToItem(ITEM *item,uint8_t * str,uint16_t len)
+void paraseInstructionToItem(ITEM *item, uint8_t *str, uint16_t len)
 {
-    uint16_t i,data_len;
+    uint16_t i, data_len;
     char debug[128];
-    item->item_cnt=0;
-    data_len=0;
+    item->item_cnt = 0;
+    data_len = 0;
     //逗号分隔
-    for(i=0; i<ITEMCNTMAX; i++)
+    for (i = 0; i < ITEMCNTMAX; i++)
     {
-        item->item_data[i][0]=0;
+        item->item_data[i][0] = 0;
     }
-    for(i=0; i<len; i++)
+    for (i = 0; i < len; i++)
     {
-        if(str[i]==',' || str[i]=='#'|| str[i]=='\r'|| str[i]=='\n' || str[i]=='=')
+        if (str[i] == ',' || str[i] == '#' || str[i] == '\r' || str[i] == '\n' || str[i] == '=')
         {
-            if(item->item_data[item->item_cnt][0]!=0)
+            if (item->item_data[item->item_cnt][0] != 0)
             {
                 //sprintf(debug,"Parse(%d):%s\n",item->item_cnt,item->item_data[item->item_cnt]);
                 item->item_cnt++;
-                data_len=0;
-                if(item->item_cnt>=ITEMCNTMAX)
+                data_len = 0;
+                if (item->item_cnt >= ITEMCNTMAX)
                 {
-//						sprintf(debug,"%s==>%s\n",__FUNCTION__,"item cnt max");
+                    //						sprintf(debug,"%s==>%s\n",__FUNCTION__,"item cnt max");
                     break; ;
                 }
             }
         }
         else
         {
-            item->item_data[item->item_cnt][data_len]=str[i];
+            item->item_data[item->item_cnt][data_len] = str[i];
             data_len++;
-            if(data_len>=ITEMSIZEMAX)
+            if (data_len >= ITEMSIZEMAX)
             {
-                sprintf(debug,"%s==>%s\n",__FUNCTION__,"item size max");
+                sprintf(debug, "%s==>%s\n", __FUNCTION__, "item size max");
                 LogMessage(DEBUG_ALL, debug);
                 return ;
             }
-            item->item_data[item->item_cnt][data_len]=0;
+            item->item_data[item->item_cnt][data_len] = 0;
         }
     }
-    if(item->item_cnt==0)
-        item->item_cnt=1;
-    sprintf(debug,"%s==>Total cnt=%d\n",__FUNCTION__,item->item_cnt);
-    LogMessage(DEBUG_ALL,debug);
+    if (item->item_cnt == 0)
+        item->item_cnt = 1;
+    sprintf(debug, "Total cnt=%d\n", item->item_cnt);
+    LogMessage(DEBUG_ALL, debug);
     //转大写
-    if(item->item_cnt>0)
+    if (item->item_cnt > 0)
     {
-        data_len=strlen(item->item_data[0]);
-        for( i = 0; i < data_len; i++)
+        data_len = strlen(item->item_data[0]);
+        for (i = 0; i < data_len; i++)
         {
-            if ( item->item_data[0][i] >= 'a' && item->item_data[0][i] <= 'z')
+            if (item->item_data[0][i] >= 'a' && item->item_data[0][i] <= 'z')
             {
-                item->item_data[0][i] = item->item_data[0][i]-'a'+'A';
+                item->item_data[0][i] = item->item_data[0][i] - 'a' + 'A';
             }
         }
-        sprintf(debug,"%s==>Instruction:%s\n",__FUNCTION__,item->item_data[0]);
-        LogMessage(DEBUG_ALL,debug);
+        sprintf(debug, "Instruction:%s\n", item->item_data[0]);
+        LogMessage(DEBUG_ALL, debug);
     }
 }
 
 
 //时区转换
-DATETIME changeUTCTimeToLocalTime(DATETIME utctime,int8_t localtimezone)
+DATETIME changeUTCTimeToLocalTime(DATETIME utctime, int8_t localtimezone)
 {
     DATETIME localtime;
-    if(utctime.year==0 || utctime.month==0 || utctime.day==0)
+    if (utctime.year == 0 || utctime.month == 0 || utctime.day == 0)
     {
         return utctime;
     }
-    localtime.second=utctime.second;
-    localtime.minute=utctime.minute;
-    localtime.hour=utctime.hour+localtimezone;
-    localtime.day=utctime.day;
-    localtime.month=utctime.month;
-    localtime.year=utctime.year;
+    localtime.second = utctime.second;
+    localtime.minute = utctime.minute;
+    localtime.hour = utctime.hour + localtimezone;
+    localtime.day = utctime.day;
+    localtime.month = utctime.month;
+    localtime.year = utctime.year;
 
-    if(localtime.hour>=24)//到了第二天的时间
+    if (localtime.hour >= 24) //到了第二天的时间
     {
-        localtime.hour=localtime.hour%24;
-        localtime.day+=1;//日期加1
-        if(localtime.month == 4 || localtime.month == 6 || localtime.month == 9|| localtime.month == 11)
+        localtime.hour = localtime.hour % 24;
+        localtime.day += 1; //日期加1
+        if (localtime.month == 4 || localtime.month == 6 || localtime.month == 9 || localtime.month == 11)
         {
             //30天
-            if(localtime.day>30)
+            if (localtime.day > 30)
             {
-                localtime.day=1;
-                localtime.month+=1;
+                localtime.day = 1;
+                localtime.month += 1;
             }
         }
-        else if(localtime.month == 2 )//2月份
+        else if (localtime.month == 2)//2月份
         {
             //28天或29天
-            if ((((localtime.year+2000)%100!=0)&&((localtime.year+2000)%4==0))||((localtime.year+2000)%400==0))//闰年
+            if ((((localtime.year + 2000) % 100 != 0) && ((localtime.year + 2000) % 4 == 0)) ||
+                    ((localtime.year + 2000) % 400 == 0))//闰年
             {
-                if(localtime.day>29)
+                if (localtime.day > 29)
                 {
-                    localtime.day=1;
-                    localtime.month+=1;
+                    localtime.day = 1;
+                    localtime.month += 1;
                 }
             }
             else
             {
-                if(localtime.day>28)
+                if (localtime.day > 28)
                 {
-                    localtime.day=1;
-                    localtime.month+=1;
+                    localtime.day = 1;
+                    localtime.month += 1;
                 }
             }
         }
         else
         {
             //31天
-            if(localtime.day>31)
+            if (localtime.day > 31)
             {
-                localtime.day=1;
-                if(localtime.month==12)
+                localtime.day = 1;
+                if (localtime.month == 12)
                 {
                     //需要跨年
-                    localtime.month=1;
-                    localtime.year+=1;
+                    localtime.month = 1;
+                    localtime.year += 1;
 
                 }
                 else
                 {
-                    localtime.month+=1;
+                    localtime.month += 1;
                 }
             }
 
         }
     }
-    else if(localtime.hour<0) //前一天的时间
+    else if (localtime.hour < 0) //前一天的时间
     {
-        localtime.hour=localtime.hour+24;
-        localtime.day-=1;
-        if(localtime.day==0)
+        localtime.hour = localtime.hour + 24;
+        localtime.day -= 1;
+        if (localtime.day == 0)
         {
-            localtime.month-=1;
-            if(localtime.month == 4 || localtime.month == 6 || localtime.month == 9|| localtime.month == 11)
+            localtime.month -= 1;
+            if (localtime.month == 4 || localtime.month == 6 || localtime.month == 9 || localtime.month == 11)
             {
                 //30天
-                localtime.day=30;
+                localtime.day = 30;
 
             }
-            else if(localtime.month == 2 )//2月份
+            else if (localtime.month == 2)//2月份
             {
                 //28天或29天
-                if ((((localtime.year+2000)%100!=0)&&((localtime.year+2000)%4==0))||((localtime.year+2000)%400==0))//闰年
+                if ((((localtime.year + 2000) % 100 != 0) && ((localtime.year + 2000) % 4 == 0)) ||
+                        ((localtime.year + 2000) % 400 == 0))//闰年
                 {
-                    localtime.day=29;
+                    localtime.day = 29;
                 }
                 else
                 {
-                    localtime.day=28;
+                    localtime.day = 28;
                 }
             }
             else
             {
                 //31天
-                localtime.day=31;
-                if(localtime.month==0)
+                localtime.day = 31;
+                if (localtime.month == 0)
                 {
-                    localtime.month=12;
-                    localtime.year-=1;
+                    localtime.month = 12;
+                    localtime.year -= 1;
                 }
             }
         }
@@ -528,11 +530,11 @@ DATETIME changeUTCTimeToLocalTime(DATETIME utctime,int8_t localtimezone)
 
 void updateRTCtimeRequest(void)
 {
-    sysinfo.localrtchadupdate=0;
+    sysinfo.localrtchadupdate = 0;
 }
 void updateSystemStartTime(void)
 {
-    sysinfo.runStartTick=sysinfo.System_Tick;
+    sysinfo.runStartTick = sysinfo.System_Tick;
 }
 
 

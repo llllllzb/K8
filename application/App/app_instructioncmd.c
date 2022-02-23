@@ -79,43 +79,49 @@ void doParamInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
             sprintf(message + strlen(message), ", Every %d day;", sysparam.MODE1_GAP_DAY);
             break;
         case MODE2:
-            if (sysparam.interval_wakeup_minutes == 0)
+
+            if (sysparam.gpsuploadgap == 0)
             {
-                //检测到震动，n 秒上送
-                sprintf(message + strlen(message), "Mode2: %dS;", sysparam.gpsuploadgap);
+                if (sysparam.gapMinutes == 0)
+                {
+                    //保持在线，不上送
+                    sprintf(message + strlen(message), "Mode2: online;");
+                }
+                else
+                {
+                    //保持在线，不检测震动，每隔m分钟，自动上送
+                    sprintf(message + strlen(message), "Mode2: %dM;", sysparam.gapMinutes);
+                }
             }
             else
             {
-                //检测到震动，n 秒上送，未震动，m分钟自动上送
-                sprintf(message + strlen(message), "Mode2: %dS,%dM;", sysparam.gpsuploadgap, sysparam.interval_wakeup_minutes);
 
+                if (sysparam.gapMinutes == 0)
+                {
+                    //检测到震动，n 秒上送
+                    sprintf(message + strlen(message), "Mode2: %dS;", sysparam.gpsuploadgap);
+                }
+                else
+                {
+                    //检测到震动，n 秒上送，未震动，m分钟自动上送
+                    sprintf(message + strlen(message), "Mode2: %dS,%dM;", sysparam.gpsuploadgap, sysparam.gapMinutes);
+
+                }
             }
             break;
 
         case MODE3:
-            sprintf(message + strlen(message), "Mode3: %d minutes;", sysparam.interval_wakeup_minutes);
+            sprintf(message + strlen(message), "Mode3: %d minutes;", sysparam.gapMinutes);
             break;
 
         case MODE4:
-            sprintf(message + strlen(message), "Mode4: %d M,%dM;", sysparam.interval_wakeup_minutes, sysparam.noNetWakeUpMinutes);
-            break;
-        case MODE5:
-            if (sysparam.interval_wakeup_minutes == 0)
-            {
-                //保持在线，不上送
-                sprintf(message + strlen(message), "Mode2: online;");
-            }
-            else
-            {
-                //保持在线，不检测震动，每隔m分钟，自动上送
-                sprintf(message + strlen(message), "Mode2: %dM;", sysparam.interval_wakeup_minutes);
-            }
+            sprintf(message + strlen(message), "Mode4: %d M,%dM;", sysparam.gapMinutes, sysparam.noNetWakeUpMinutes);
             break;
         case MODE23:
-            sprintf(message + strlen(message), "Mode23: %d minutes;", sysparam.interval_wakeup_minutes);
+            sprintf(message + strlen(message), "Mode23: %d minutes;", sysparam.gapMinutes);
             break;
     }
-    sprintf(message + strlen(message), "MODE1:%d;MODE2:%d;", sysparam.mode1startuptime, sysparam.mode2worktime);
+    sprintf(message + strlen(message), "MODE1:%d;MODE2:%d;", sysparam.startUpCnt, sysparam.runTime);
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
@@ -124,6 +130,7 @@ void doStatusInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {
     char message[100];
     GPSINFO *gpsinfo;
+    portUpdateStep();
     sprintf(message, "BAT-VOLTAGE=%.2fV;", sysinfo.outsidevoltage);
     if (sysinfo.GPSStatus)
     {
@@ -139,6 +146,7 @@ void doStatusInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sprintf(message + strlen(message), "ACC=%s;", getTerminalAccState() > 0 ? "On" : "Off");
     sprintf(message + strlen(message), "SIGNAL=%d;", getModuleRssi());
     sprintf(message + strlen(message), "BATTERY=%s;", getTerminalChargeState() > 0 ? "Charging" : "Uncharged");
+    sprintf(message + strlen(message), "STEP=%d;", sysinfo.step);
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
@@ -205,13 +213,12 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         paramGetGPSUploadInterval(&sysparam.gpsuploadgap);
         sprintf(message, "Current Mode %d", sysparam.MODE);
         sprintf(message + strlen(message), ",gps upload gap %ds,%dm,%dm", sysparam.gpsuploadgap,
-                sysparam.interval_wakeup_minutes, sysparam.noNetWakeUpMinutes);
+                sysparam.gapMinutes, sysparam.noNetWakeUpMinutes);
     }
     else
     {
         workmode = atoi(item->item_data[1]);
         gpsRequestClear(GPS_REQUEST_GPSKEEPOPEN_CTL);
-        //gsensorConfig(1);
         //开后再关，容易造成设备复位，硬件问题
         switch (workmode)
         {
@@ -267,12 +274,12 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                         gpsRequestClear(GPS_REQUEST_ACC_CTL);
                     }
                     paramSaveMode(MODE1);
-                    gsensorConfig(0);
+                    portGsensorCfg(0);
                 }
                 else
                 {
                     paramSaveMode(MODE21);
-                    gsensorConfig(1);
+                    portGsensorCfg(1);
                 }
                 sprintf(message, "Change to Mode%d,and work on at", workmode);
                 for (i = 0; i < timecount; i++)
@@ -280,16 +287,19 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                     sprintf(message + strlen(message), " %.2d:%.2d", sysparam.AlarmTime[i] / 60, sysparam.AlarmTime[i] % 60);
                 }
                 sprintf(message + strlen(message), ",every %d day", gapday);
-                setNextAlarmTime();
+                portSetNextAlarmTime();
                 break;
             case 2:
                 //MODE,2,0,0
                 //MODE,2,0,M
                 //MODE,2,N,M
+
+                portGsensorCfg(1);
+                paramSaveMode(MODE2);
+
                 sysparam.gpsuploadgap = (uint8_t)atoi((const char *)item->item_data[2]);
                 paramSaveGPSUploadInterval(sysparam.gpsuploadgap);
-
-                sysparam.interval_wakeup_minutes = atoi(item->item_data[3]);
+                sysparam.gapMinutes = atoi(item->item_data[3]);
                 paramSaveInterval();
 
                 if (sysparam.accctlgnss == 0)
@@ -299,9 +309,7 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                 if (sysparam.gpsuploadgap == 0)
                 {
                     //运动不自动传GPS
-                    paramSaveMode(MODE5);
-                    gsensorConfig(0);
-                    if (sysparam.interval_wakeup_minutes == 0)
+                    if (sysparam.gapMinutes == 0)
                     {
 
                         sprintf(message, "The device switches to mode 2 without uploading the location");
@@ -309,14 +317,13 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                     else
                     {
                         sprintf(message, "The device switches to mode 2 and uploads the position every %d minutes all the time",
-                                sysparam.interval_wakeup_minutes);
+                                sysparam.gapMinutes);
                     }
                 }
                 else
                 {
-                    paramSaveMode(MODE2);
-                    gsensorConfig(1);
-                    if (sysparam.interval_wakeup_minutes == 0)
+
+                    if (sysparam.gapMinutes == 0)
                     {
                         sprintf(message, "The device switches to mode 2 and uploads the position every %d seconds when moving",
                                 sysparam.gpsuploadgap);
@@ -326,7 +333,12 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                     {
                         sprintf(message,
                                 "The device switches to mode 2 and uploads the position every %d seconds when moving, and every %d minutes when standing still",
-                                sysparam.gpsuploadgap, sysparam.interval_wakeup_minutes);
+                                sysparam.gpsuploadgap, sysparam.gapMinutes);
+                    }
+                    if (getTerminalAccState())
+                    {
+                        gpsRequestSet(GPS_REQUEST_ACC_CTL);
+                        gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
                     }
                 }
                 break;
@@ -336,10 +348,10 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                 sysparam.noNetWakeUpMinutes = 0;
                 if (workmode == 3)
                 {
-                    sysparam.interval_wakeup_minutes = atoi(item->item_data[2]);
-                    if (sysparam.interval_wakeup_minutes <= 5)
+                    sysparam.gapMinutes = atoi(item->item_data[2]);
+                    if (sysparam.gapMinutes <= 5)
                     {
-                        sysparam.interval_wakeup_minutes = 5;
+                        sysparam.gapMinutes = 5;
                     }
                     terminalAccoff();
                     if (gpsRequestGet(GPS_REQUEST_ACC_CTL))
@@ -348,12 +360,12 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                     }
                     gpsRequestClear(GPS_REQUEST_ACC_CTL);
                     paramSaveMode(MODE3);
-                    gsensorConfig(0);
-                    setNextWakeUpTime();
+                    portGsensorCfg(0);
+                    portSetNextWakeUpTime();
                 }
                 else if (workmode == 4)
                 {
-                    sysparam.interval_wakeup_minutes = atoi(item->item_data[2]);
+                    sysparam.gapMinutes = atoi(item->item_data[2]);
                     sysparam.noNetWakeUpMinutes = atoi(item->item_data[3]);
                     if (sysparam.noNetWakeUpMinutes == 0)
                     {
@@ -367,22 +379,21 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                     }
                     gpsRequestClear(GPS_REQUEST_ACC_CTL);
                     paramSaveMode(MODE4);
-                    gsensorConfig(0);
                 }
                 else
                 {
-                    sysparam.interval_wakeup_minutes = atoi(item->item_data[2]);
-                    if (sysparam.interval_wakeup_minutes <= 5)
+                    sysparam.gapMinutes = atoi(item->item_data[2]);
+                    if (sysparam.gapMinutes <= 5)
                     {
-                        sysparam.interval_wakeup_minutes = 5;
+                        sysparam.gapMinutes = 5;
                     }
                     paramSaveMode(MODE23);
-                    setNextWakeUpTime();
-                    gsensorConfig(1);
+                    portSetNextWakeUpTime();
+                    portGsensorCfg(1);
                 }
                 paramSaveInterval();
                 sprintf(message, "Change to mode %d and update the startup interval time to %d minutes", workmode,
-                        sysparam.interval_wakeup_minutes);
+                        sysparam.gapMinutes);
                 if (sysparam.noNetWakeUpMinutes != 0)
                 {
                     sprintf(message + strlen(message), ",sleep %d minutes", sysparam.noNetWakeUpMinutes);
@@ -495,7 +506,7 @@ void dorequestSend123(void)
     uint8_t second;
     GPSINFO *gpsinfo;
 
-    getRtcDateTime(&year, &month, &date, &hour, &minute, &second);
+    portGetSystemDateTime(&year, &month, &date, &hour, &minute, &second);
     sysinfo.flag123 = 0;
     gpsinfo = getCurrentGPSInfo();
     sprintf(message, "(%s)<Local Time:%.2d/%.2d/%.2d %.2d:%.2d:%.2d>http://maps.google.com/maps?q=%s%f,%s%f", sysparam.SN, \
@@ -597,7 +608,7 @@ void doUPSInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     }
     sprintf(message, "The device will download the firmware from %s:%d in 5 seconds", server, port);
     paramSaveUpdateStatus(1);
-    startTimer(4000, HAL_NVIC_SystemReset, 0);
+    startTimer(4000, portSystemReset, 0);
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
@@ -697,8 +708,8 @@ void doResetInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {
     char message[50];
     sprintf(message, "System will reset after 5 seconds");
-    startTimer(5000, HAL_NVIC_SystemReset, 0);
-    paramSaveMode2cnt(sysparam.mode2worktime);
+    startTimer(5000, portSystemReset, 0);
+    paramSaveMode2cnt(sysparam.runTime);
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
@@ -767,7 +778,7 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
     {
-        getRtcDateTime(&year, &month, &date, &hour, &minute, &second);
+        portGetSystemDateTime(&year, &month, &date, &hour, &minute, &second);
         sprintf(message, "Time:%.2d/%.2d/%.2d %.2d:%.2d:%.2d;", year, month, date, hour, minute, second);
         sprintf(message + strlen(message), "Sysrun:%.2d:%.2d:%.2d;gpsrequest:%02X;gpslast:%.2d:%.2d:%.2d;",
                 sysinfo.System_Tick / 3600, sysinfo.System_Tick % 3600 / 60, sysinfo.System_Tick % 60, sysinfo.GPSRequest,
@@ -819,9 +830,14 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                 sprintf(message + strlen(message), ",%s", item->item_data[6]);
             }
             sprintf(message + strlen(message), "%s", "\r\n");
-            appUartSend(&usart2_ctl, (uint8_t *)message, strlen(message));
+            portUartSend(&usart2_ctl, (uint8_t *)message, strlen(message));
             strcpy(message, "Debug:Send OK");
         }
+		else if (my_strpach(item->item_data[1], "STEPCLEAR"))
+		{
+			portClearStep();
+			strcpy(message, "Debug:Clear OK");
+		}
         else
         {
             strcpy(message, "Debug:Unknow cmd");
@@ -1136,7 +1152,7 @@ void doAdccalInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     }
     for (i = 0; i < 10; i++)
     {
-        voltage += (((float)getVoltageAdcValue() / 4095) * 1.8);
+        voltage += (((float)portGetAdc() / 4095) * 1.8);
         HAL_Delay(10);
     }
     voltage /= 10.0;
@@ -1158,25 +1174,45 @@ void doSetAgpsInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         if (item->item_data[1][0] != 0)
         {
             strcpy((char *)sysparam.agpsServer, item->item_data[1]);
-			paramSaveAgpsServer();
+            paramSaveAgpsServer();
         }
         if (item->item_data[2][0] != 0)
         {
             sysparam.agpsPort = atoi(item->item_data[2]);
-			paramSaveAgpsPort();
+            paramSaveAgpsPort();
         }
         if (item->item_data[3][0] != 0)
         {
             strcpy((char *)sysparam.agpsUser, item->item_data[3]);
-			paramSaveAgpsUser();
+            paramSaveAgpsUser();
         }
         if (item->item_data[4][0] != 0)
         {
             strcpy((char *)sysparam.agpsPswd, item->item_data[4]);
-			paramSaveAgpsPswd();
+            paramSaveAgpsPswd();
         }
         sprintf(message, "Update Agps info:%s,%d,%s,%s", sysparam.agpsServer, sysparam.agpsPort, sysparam.agpsUser,
                 sysparam.agpsPswd);
+    }
+    sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
+}
+
+void doAudioInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+{
+    char message[100];
+    char param[30];
+    uint8_t ind;
+    if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
+    {
+        sprintf(message, "Please enter your param");
+    }
+    else
+    {
+        ind = atoi(item->item_data[1]);
+        sprintf(message, "Play the audio %d", ind);
+
+        sprintf(param, "3,\"Music%d.amr\",0", ind);
+        sendModuleCmd(N58_AUDPLAY_CMD, param);
     }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }

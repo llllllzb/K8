@@ -120,8 +120,8 @@ void paramDefaultInit(uint8_t level)
         sysparam.MODE1_GAP_DAY = 1;
         eepromWriteByte(EEPROM_MODE1_GAP_ADDR, sysparam.MODE1_GAP_DAY);
 
-        sysparam.interval_wakeup_minutes = 0;
-        eepromWriteTwoBytes(EEPROM_MODE3_GAP_ADDR, sysparam.interval_wakeup_minutes);
+        sysparam.gapMinutes = 0;
+        eepromWriteTwoBytes(EEPROM_MODE3_GAP_ADDR, sysparam.gapMinutes);
 
         sysparam.utc = 8;
         paramSaveUTC(sysparam.utc);
@@ -137,7 +137,7 @@ void paramDefaultInit(uint8_t level)
     sysparam.Light_Alarm_En = 1;
     sysparam.Switch_Alarm_En = 1;
     sysparam.heartbeatgap = 180;
-    sysparam.mode1startuptime = 0;
+    sysparam.startUpCnt = 0;
     sysparam.gpsuploadgap = 10;
     sysparam.ledctrl = 0;
     sysparam.poitype = 2;
@@ -148,6 +148,8 @@ void paramDefaultInit(uint8_t level)
     strcpy((char *)sysparam.agpsUser, "isimact@189.cn");
     strcpy((char *)sysparam.agpsPswd, "tinfo_13310886056");
     sysparam.agpsPort = 2621;
+    sysparam.step = 0;
+    paramSaveStep();
 
     paramSaveAgpsServer();
     paramSaveAgpsPort();
@@ -178,7 +180,7 @@ void paramDefaultInit(uint8_t level)
     paramSaveLoww(36);
     paramSaveBF(0);
 
-	paramSaveAutoParam(PARAM_AUTO_UPDATE_FLAG);
+    paramSaveAutoParam(PARAM_AUTO_UPDATE_FLAG);
     eepromWriteByte(EEPROM_VERSION_APP_ADDR, sysparam.VERSION);
 }
 
@@ -202,10 +204,10 @@ void paramInit(void)
     sysparam.Switch_Alarm_En = eepromReadOneByte(EEPROM_SEN_ADDR);
     sysparam.MODE1_GAP_DAY = eepromReadOneByte(EEPROM_MODE1_GAP_ADDR);
     sysparam.SLEEP = eepromReadOneByte(EEPROM_SLEEP_ADDR);
-    sysparam.interval_wakeup_minutes = eepromReadTwoBytes(EEPROM_MODE3_GAP_ADDR);
+    sysparam.gapMinutes = eepromReadTwoBytes(EEPROM_MODE3_GAP_ADDR);
     sysparam.bf = eepromReadOneByte(EEPROM_BF_ADDR);
     sysparam.pdop = eepromReadTwoBytes(EEPROM_PDOP_ADDR);
-    sysparam.mode1startuptime = eepromReadTwoBytes(EEPROM_MODE1TIMER_ADDR);
+    sysparam.startUpCnt = eepromReadTwoBytes(EEPROM_MODE1TIMER_ADDR);
     sysparam.utc = (int8_t)eepromReadOneByte(EEPROM_UTC_ADDR);
     sysparam.accctlgnss = (int8_t)eepromReadOneByte(EEPROM_ACCCTLGNSS_ADDR);
     sysparam.fence = eepromReadOneByte(EEPROM_FENCE_ADDR);
@@ -248,8 +250,8 @@ void paramInit(void)
     paramGetAgpsPort();
     paramGetAgpsUser();
     paramGetAgpsPswd();
-	paramGetAutoParam();
-
+    paramGetAutoParam();
+	paramGetStep();
     /*--------------------------------------------------*/
     //远程升级时，参数自动更新
     if (sysparam.autoParamUpdate != PARAM_AUTO_UPDATE_FLAG)
@@ -260,10 +262,10 @@ void paramInit(void)
         strcpy((char *)sysparam.agpsPswd, "Hi_Girl");
         sysparam.agpsPort = 10188;
 
-		paramSaveAgpsServer();
-		paramSaveAgpsPort();
-		paramSaveAgpsUser();
-		paramSaveAgpsPswd();
+        paramSaveAgpsServer();
+        paramSaveAgpsPort();
+        paramSaveAgpsUser();
+        paramSaveAgpsPswd();
 
     }
 }
@@ -291,7 +293,7 @@ void paramSaveAlarmTime(void)
 }
 void paramSaveInterval(void)
 {
-    eepromWriteTwoBytes(EEPROM_MODE3_GAP_ADDR, sysparam.interval_wakeup_minutes);
+    eepromWriteTwoBytes(EEPROM_MODE3_GAP_ADDR, sysparam.gapMinutes);
 }
 void paramSaveSleepState(void)
 {
@@ -512,8 +514,8 @@ void paramGetLoww(uint8_t *loww)
 
 void paramSaveMode1Timer(uint16_t count)
 {
-    sysparam.mode1startuptime = count;
-    eepromWriteTwoBytes(EEPROM_MODE1TIMER_ADDR, sysparam.mode1startuptime);
+    sysparam.startUpCnt = count;
+    eepromWriteTwoBytes(EEPROM_MODE1TIMER_ADDR, sysparam.startUpCnt);
 }
 
 void paramSaveUTC(uint8_t UTC)
@@ -577,13 +579,13 @@ void paramGetBleMac(uint8_t *mac)
 
 void paramSaveMode2cnt(uint32_t cnt)
 {
-    sysparam.mode2worktime = cnt;
-    eepromWriteTwoBytes(EEPROM_mode2worktime_ADDR, sysparam.mode2worktime);
+    sysparam.runTime = cnt;
+    eepromWriteTwoBytes(EEPROM_mode2worktime_ADDR, sysparam.runTime);
 }
 
 void paramGetMode2cnt(void)
 {
-    sysparam.mode2worktime = eepromReadTwoBytes(EEPROM_mode2worktime_ADDR);
+    sysparam.runTime = eepromReadTwoBytes(EEPROM_mode2worktime_ADDR);
 }
 
 void paramSaveBF(uint8_t onoff)
@@ -711,3 +713,11 @@ void paramGetAutoParam(void)
     sysparam.autoParamUpdate = eepromReadOneByte(EEPROM_PARAM_AUTOUPDATE_ADDR);
 }
 
+void paramSaveStep(void)
+{
+    eepromWriteTwoBytes(EEPROM_STEP_ADDR, sysparam.step);
+}
+void paramGetStep(void)
+{
+    sysparam.step = eepromReadTwoBytes(EEPROM_STEP_ADDR);
+}

@@ -66,6 +66,7 @@ typedef enum{
 	TURNALG_INS,
 	ADCCAL_INS,
 	SETAGPS_INS,
+	AUDIO_INS,
 	MAX_INS
 }INSTRUCTIONID;
 
@@ -77,7 +78,7 @@ typedef enum{
 }DOINSTRUCTIONMODE;
 
 
-void atCmdParaseFunction(uint8_t *buf, uint16_t len);
+void atCmdParserFunction(uint8_t *buf, uint16_t len);
 void instructionParase(uint8_t * str,uint16_t len,DOINSTRUCTIONMODE mode,char * telnum);
 
 

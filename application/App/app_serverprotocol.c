@@ -280,9 +280,10 @@ static int protocolLBSPack(char *dest)
         return -1;
     }
     pdu_len = 0;
+	portUpdateStep();
     /*mcc*/
-    dest[pdu_len++] = 0; //(lai.MCC >> 8) & 0xff;
-    dest[pdu_len++] = 0; //(lai.MCC) & 0xff;
+    dest[pdu_len++] = sysinfo.step>>8; //(lai.MCC >> 8) & 0xff;
+    dest[pdu_len++] = sysinfo.step; //(lai.MCC) & 0xff;
     /*mnc*/
     dest[pdu_len++] = 0; ///(lai.MNC) & 0xff;
     /*lac*/
@@ -469,9 +470,9 @@ int createProtocol_13(unsigned short Serial, char *DestBuf)
     value |= ((getModuleRssi() & 0x1F));
     value |= 0x8000;
 
-    DestBuf[pdu_len++] = (value >> 8) & 0xff; //卫星数(BDGPV>>8)&0XFF;
-    DestBuf[pdu_len++] = value & 0xff; // BDGPV&0XFF;
-    DestBuf[pdu_len++ ] = 0;
+    DestBuf[pdu_len++] = (value >> 8) & 0xff;
+    DestBuf[pdu_len++] = value & 0xff;
+    DestBuf[pdu_len++ ] = 0xF1;//手持设备，计步
     DestBuf[pdu_len++ ] = 0;//language
     DestBuf[pdu_len++ ] = getBatteryLevel();//电量
     DestBuf[pdu_len ] = 2 | (0x01 << 6); //模式
@@ -480,10 +481,11 @@ int createProtocol_13(unsigned short Serial, char *DestBuf)
     DestBuf[pdu_len++ ] = (value >> 8) & 0xff; //电压(vol >>8 ) & 0xff;
     DestBuf[pdu_len++ ] = value & 0xff; //vol & 0xff;
     DestBuf[pdu_len++ ] = 0;//感光
-    DestBuf[pdu_len++ ] = (sysparam.mode1startuptime >> 8) & 0xff; //模式一次数
-    DestBuf[pdu_len++ ] = sysparam.mode1startuptime & 0xff;
-    DestBuf[pdu_len++ ] = (sysparam.mode2worktime >> 8) & 0xff; //模式二次数
-    DestBuf[pdu_len++ ] = sysparam.mode2worktime & 0xff;
+    DestBuf[pdu_len++ ] = (sysparam.startUpCnt >> 8) & 0xff; //模式一次数
+    DestBuf[pdu_len++ ] = sysparam.startUpCnt & 0xff;
+	portUpdateStep();
+    DestBuf[pdu_len++ ] = (sysinfo.step >> 8) & 0xff; //模式二次数
+    DestBuf[pdu_len++ ] = sysinfo.step & 0xff;
     ret = createProtocolTail(DestBuf, pdu_len,  Serial);
     if (ret < 0)
     {
@@ -585,7 +587,7 @@ void createProtocolF3(char *dest, N58_WIFIAPSCAN *wap)
     uint8_t minute;
     uint8_t second;
 
-    getRtcDateTime(&year, &month, &date, &hour, &minute, &second);
+    portGetSystemDateTime(&year, &month, &date, &hour, &minute, &second);
     uint16_t pdu_len;
     pdu_len = createProtocolHead(dest, 0xF3);
     dest[pdu_len++] = year % 100;
@@ -693,7 +695,7 @@ int createProtocol19(unsigned short Serial, char *DestBuf)
     uint8_t minute;
     uint8_t second;
 
-    getRtcDateTime(&year, &month, &date, &hour, &minute, &second);
+    portGetSystemDateTime(&year, &month, &date, &hour, &minute, &second);
     pdu_len = createProtocolHead(DestBuf, 0x19);
     DestBuf[pdu_len++] = year % 100;
     DestBuf[pdu_len++] = month;
@@ -768,18 +770,18 @@ static int createProtocol53(char *dest)
     int ret;
     int Serial;
     pdu_len = createProtocolHead(dest, 0x53);
-	//应收
+    //应收
     dest[pdu_len++] = audiofile.audioCnt >> 8 & 0xFF;
     dest[pdu_len++] = audiofile.audioCnt & 0xFF;
-	//实收
+    //实收
     dest[pdu_len++] = audiofile.audioCnt >> 8 & 0xFF;
     dest[pdu_len++] = audiofile.audioCnt & 0xFF;
-	//文件总大小	
+    //文件总大小
     dest[pdu_len++] = audiofile.audioSize >> 24 & 0xFF;
     dest[pdu_len++] = audiofile.audioSize >> 16 & 0xFF;
     dest[pdu_len++] = audiofile.audioSize >> 8 & 0xFF;
     dest[pdu_len++] = audiofile.audioSize & 0xFF;
-	
+
     dest[pdu_len++] = (audiofile.audioId >> 24) & 0xFF;
     dest[pdu_len++] = (audiofile.audioId >> 16) & 0xFF;
     Serial = audiofile.audioId & 0xFFFF;
@@ -839,7 +841,7 @@ void sendProtocolToServer(PROTOCOLTYPE protocol, void *param)
             break;
         case PROTOCOL_8A:
             txlen = createProtocol_8A(createProtocolSerial(), txdata);
-            break;		
+            break;
         case PROTOCOL_51:
             txlen = createProtocol51(txdata);
             break;
@@ -860,7 +862,6 @@ void sendProtocolToServer(PROTOCOLTYPE protocol, void *param)
                 {
                     txlen = 100;
                 }
-                //memset(senddata, 0, sizeof(senddata));
                 changeByteArrayToHexString((uint8_t *)txdata, (uint8_t *)senddata, txlen);
                 senddata[txlen * 2] = 0;
                 LogMessage(DEBUG_ALL, "TCP Send:");
@@ -902,7 +903,6 @@ void netConnectReset(void)
 void protocolFsmStateChange(NetWorkFsmState state)
 {
     netconnect.fsmstate = state;
-    LogPrintf(DEBUG_ALL, "protocolFsmStateChange:change state to %d\n", state);
 }
 
 void clearHbtTimer(void)
@@ -958,7 +958,7 @@ void protocolRunFsm(void)
             netconnect.logintick = 0;
             netconnect.loginCount++;
             netconnect.uploadFlag = 0;
-            if (sysparam.MODE == MODE2 || sysparam.MODE == MODE5)
+            if (sysparam.MODE == MODE2)
             {
                 sysinfo.hearbeatrequest = 1;
             }
@@ -980,13 +980,12 @@ void protocolRunFsm(void)
             }
             break;
         case NETWORK_LOGIN_READY:
-            if (sysparam.MODE == MODE2 || sysparam.MODE == MODE5)
+            if (sysparam.MODE == MODE2)
             {
                 if (sysinfo.hearbeatrequest == 1)
                 {
                     if (netconnect.heartbeattick == 0)
                     {
-                        csqRequest();
                         csqRequest();
                         csqRequest();
                         if (hbtTimerid == -1)
@@ -1049,7 +1048,7 @@ static void protoclparase01(char *protocol, int size)
     //serialno=protocol[4]<<8|protocol[5];
     protocolFsmStateChange(NETWORK_LOGIN_READY);
     updateSystemLedStatus(SYSTEM_LED_NETOK, 1);
-	netconnect.loginCount=0;
+    netconnect.loginCount = 0;
     LogMessage(DEBUG_ALL, "登录成功\n");
 }
 /* 13 协议解析
@@ -1101,6 +1100,7 @@ static void protoclParase8A(char *protocol, int size)
 
 static void protoclparser51(char *protocol, int size)
 {
+    char param[20];
     //文件类型
     audiofile.audioType = protocol[4];
     //分包数
@@ -1123,31 +1123,44 @@ static void protoclparser51(char *protocol, int size)
     audiofile.audioId |= protocol[15];
     LogPrintf(DEBUG_ALL, "Type:%d,Cnt:%d,Size:%d,Id:%X\r\n", audiofile.audioType, audiofile.audioCnt, audiofile.audioSize,
               audiofile.audioId);
-    //appDeleteAudio();
+
+    sprintf((char *)audiofile.fileName, "Music%d.amr", protocol[5]);
     sendProtocolToServer(PROTOCOL_51, NULL);
+    //删除旧文件
+    sprintf(param, "\"%s\"", audiofile.fileName);
+    sendModuleCmd(N58_FSDF_CMD, param);
 }
 
 static void protoclparser52(char *protocol, int size)
 {
     uint16_t packid;
+    char param[100];
     packid = protocol[5] << 8 | protocol[6];
-	audiofile.audioPackId = packid;
-    //appSaveAudio((uint8_t *)protocol + 7, size - 15);
+    audiofile.audioPackId = packid;
     LogPrintf(DEBUG_ALL, "Receive Audio Num:%d,size:%d\r\n", packid, size - 15);
+    sprintf(param, "\"%s\",1,%d,2000", audiofile.fileName, size - 15);
+    sendModuleCmd(N58_FSWF_CMD, param);
+    CreateNodeCmd(protocol + 7, size - 15, 0);
+
+
+
     if ((packid + 1) == audiofile.audioCnt)
     {
         LogMessage(DEBUG_ALL, "Play audio\r\n");
-		sendProtocolToServer(PROTOCOL_53, NULL);
-    }else{
-		sendProtocolToServer(PROTOCOL_52, NULL);
-
-    	}
+        sprintf(param, "3,\"%s\",0",audiofile.fileName);
+        sendModuleCmd(N58_AUDPLAY_CMD, param);
+        sendProtocolToServer(PROTOCOL_53, NULL);
+    }
+    else
+    {
+        sendProtocolToServer(PROTOCOL_52, NULL);
+    }
 }
 
 
 /*解析接收到的服务器协议
 */
-void protocolRxParase(char *protocol, int size)
+void protocolRxParser(char *protocol, int size)
 {
     if (protocol[0] == 0X78 && protocol[1] == 0X78)
     {
@@ -1181,7 +1194,7 @@ void protocolRxParase(char *protocol, int size)
     }
     else
     {
-        LogMessage(DEBUG_ALL, "protocolRxParase:Error\n");
+        LogMessage(DEBUG_ALL, "protocolRxParser:Error\n");
     }
 }
 
@@ -1255,7 +1268,7 @@ void protocolReceivePush(char *protocol, int size)
                 i += (4 + contentlen);
                 lastindex = i + 1;
                 //LogPrintf(DEBUG_ALL, "Fint it ====>Begin:7878[%d,%d]\r\n", beginindex, lastindex - beginindex);
-                protocolRxParase((char *)dataBuf + beginindex, lastindex - beginindex);
+                protocolRxParser((char *)dataBuf + beginindex, lastindex - beginindex);
             }
             //            else
             //            {
@@ -1287,7 +1300,7 @@ void protocolReceivePush(char *protocol, int size)
                 i += (5 + contentlen);
                 lastindex = i + 1;
                 //LogPrintf(DEBUG_ALL, "Fint it ====>Begin:7979[%d,%d]\r\n", beginindex, lastindex - beginindex);
-                protocolRxParase((char *)dataBuf + beginindex, lastindex - beginindex);
+                protocolRxParser((char *)dataBuf + beginindex, lastindex - beginindex);
             }
             //            else
             //            {

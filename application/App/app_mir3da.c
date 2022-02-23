@@ -167,4 +167,35 @@ s8_m readInterruptConfig(void)
     return 0;
 }
 
+void startStep(void)
+{
+    LogMessage(DEBUG_ALL, "Gsensor enable step counting\r\n");
+    mir3da_register_write(NSA_REG_STEP_CONGIF1, 0x01);
+    mir3da_register_write(NSA_REG_STEP_CONGIF2, 0x62);
+    mir3da_register_write(NSA_REG_STEP_CONGIF3, 0x46);
+    mir3da_register_write(NSA_REG_STEP_CONGIF4, 0x32);
+    mir3da_register_write(NSA_REG_STEP_FILTER, 0xa2);
+
+}
+void stopStep(void)
+{
+    mir3da_register_write(NSA_REG_STEP_FILTER, 0x22);
+
+}
+u16_m getStep(void)
+{
+    uint8_t data[2];
+    uint16_t va;
+    data[0] = 0;
+    data[1] = 0;
+    mir3da_register_read(NSA_REG_STEPS_MSB, data, 2);
+    va = data[0] << 8 | data[1];
+    return va;
+}
+
+void clearStep(void)
+{
+    mir3da_register_write(NSA_REG_RESET_STEP, 0x80);
+    LogMessage(DEBUG_ALL, "Clear step\r\n");
+}
 

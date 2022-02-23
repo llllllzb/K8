@@ -52,3 +52,4 @@ stm32l\app_port.o: ../Inc/adc.h
 stm32l\app_port.o: ..\App\app_task.h
 stm32l\app_port.o: ../Inc/i2c.h
 stm32l\app_port.o: ../Inc/iwdg.h
+stm32l\app_port.o: ..\App\app_kernal.h

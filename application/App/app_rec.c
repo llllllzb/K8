@@ -15,7 +15,7 @@ void recStart(void)
     uint8_t minute;
     uint8_t second;
 
-    getRtcDateTime(&year, &month, &date, &hour, &minute, &second);
+    portGetSystemDateTime(&year, &month, &date, &hour, &minute, &second);
     sprintf(param, "0,REC%.2d%.2d%.2d%.2d%.2d%.2d.amr,3", year % 100, month, date, hour, minute, second);
     sendModuleCmd(N58_RECMODE_CMD, param);
     sendModuleCmd(N58_RECF_CMD, "1");

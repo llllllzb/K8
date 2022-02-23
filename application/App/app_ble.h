@@ -35,8 +35,8 @@ extern BLE_INFO ble_info;
 
 void appBleInfoReset(void);
 void appBleTask(void);
-void appBlePRecv(uint8_t *buf,uint16_t len);
-void appBleCRecv(uint8_t *buf,uint16_t len);
+void appBlePRecvParser(uint8_t *buf,uint16_t len);
+void appBleCRecvParser(uint8_t *buf,uint16_t len);
 void appBleSendData(uint8_t *buf,uint16_t len);
 uint8_t appBleIsLinkNormal(void);
 

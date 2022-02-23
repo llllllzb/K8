@@ -9,7 +9,7 @@
 
 
 //远程升级后，有需要更改参数时，这个值变一变
-#define PARAM_AUTO_UPDATE_FLAG							0xA0
+#define PARAM_AUTO_UPDATE_FLAG							0xA1
 
 //设置地址时，需要保证地址对齐，单个字节无所谓，半字或字，需要注意对齐，勿跨界
 //addr%4==0,字对齐
@@ -67,6 +67,7 @@
 #define EEPROM_PDOP_ADDR						1042
 #define EEPROM_HEARTBEATTIME_ADDR				1044 //心跳间隔
 #define EEPROM_AGPSPORT_ADDR					1046
+#define EEPROM_STEP_ADDR						1048
 
 //字区域，1536~2044         共(512)字节
 
@@ -80,7 +81,7 @@ V
 次版本     	与之前版本不能兼容时改变
 修订版本        细节修改
 */
-#define EEPROM_VERSION									"K8_RI_V1.1.26"
+#define EEPROM_VERSION									"K8_RI_V1.1.27"
 
 /*EPROM中的数据*/
 typedef struct
@@ -114,19 +115,20 @@ typedef struct
     uint8_t agpsServer[50];
     uint8_t agpsUser[50];
     uint8_t agpsPswd[50];
-	uint8_t autoParamUpdate;
+    uint8_t autoParamUpdate;
 
     int8_t utc;
 
     uint16_t gpsuploadgap;
     uint16_t  AlarmTime[5];  /*每日时间，0XFFFF，表示未定义，单位分钟*/
-    uint16_t  interval_wakeup_minutes;    /*模式三间隔周期，单位分钟*/
-    uint16_t  mode1startuptime;
+    uint16_t  gapMinutes;    /*模式三间隔周期，单位分钟*/
+    uint16_t  startUpCnt;
     uint16_t  pdop;
     uint16_t heartbeatgap;
     uint16_t agpsPort;
+	uint16_t step;
 
-    uint32_t  mode2worktime;  /*模式二的工作时间，单位分钟*/
+    uint32_t  runTime;  /*模式二的工作时间，单位分钟*/
     uint32_t ServerPort;
 
     float  adccal;
@@ -202,6 +204,8 @@ void paramGetAgpsPort(void);
 void paramSaveAutoParam(uint8_t flag);
 void paramGetAutoParam(void);
 
+void paramSaveStep(void);
+void paramGetStep(void);
 
 #endif
 

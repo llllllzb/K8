@@ -39,6 +39,7 @@ void doAnswerInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum);
 void doTurnAlgInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum);
 void doAdccalInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum);
 void doSetAgpsInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum);
+void doAudioInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum);
 
 
 #endif

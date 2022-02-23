@@ -39,6 +39,7 @@ typedef struct
 }Message;
 
 typedef struct{
+	uint8_t fileName[20];
 	uint8_t audioType;
 	uint16_t audioCnt;
 	uint16_t audioPackId;
@@ -50,7 +51,7 @@ void sendProtocolToServer(PROTOCOLTYPE protocol,void * param);
 void netConnectReset(void);
 void protocolFsmStateChange(NetWorkFsmState state);
 void protocolRunFsm(void);
-void protocolRxParase(char * protocol,int size);
+void protocolRxParser(char * protocol,int size);
 uint8_t isProtocolReday(void);
 void createProtocol61(char *dest,char *datetime,uint32_t totalsize,uint8_t filetye,uint16_t packsize);
 void createProtocol62(char *dest,char *datetime,uint16_t packnum,uint8_t * recdata,uint16_t reclen);

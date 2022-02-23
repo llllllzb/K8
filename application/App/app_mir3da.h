@@ -43,6 +43,16 @@ Macro definitions - Register define for Gsensor asic
 #define NSA_REG_MEMS_OPTION             0x8f
 #define NSA_REG_CHIP_INFO               0xc0
 
+#define NSA_REG_STEPS_MSB				0x0D
+#define NSA_REG_STEPS_LSB				0x0E
+#define NSA_REG_RESET_STEP			    0x2E
+#define NSA_REG_STEP_CONGIF1			0x2F
+#define NSA_REG_STEP_CONGIF2			0x30
+#define NSA_REG_STEP_CONGIF3			0x31
+#define NSA_REG_STEP_CONGIF4			0x32
+#define NSA_REG_STEP_FILTER             0x33
+
+
 /*******************************************************************************
 Typedef definitions
 ********************************************************************************/
@@ -84,5 +94,11 @@ s8_m mir3da_open_interrupt(u8_m th);
 s8_m mir3da_set_enable(u8_m enable);
 s8_m read_gsensor_id(void);
 s8_m readInterruptConfig(void);
+
+void startStep(void);
+void stopStep(void);
+u16_m getStep(void);
+void clearStep(void);
+
 
 #endif

@@ -28,7 +28,6 @@ const CMDTABLE atcmdtable[] =
     {AT_NMEA_CMD, "NMEA"},
     {AT_FMPC_ALL_CMD, "FMPC_ALL"},
     {AT_FMPC_CM_CMD, "FMPC_CM"},
-
     {AT_ZTSN_CMD, "ZTSN"},
     {AT_IMEI_CMD, "IMEI"},
     {AT_FMPC_IMSI_CMD, "FMPC_IMSI"},
@@ -70,6 +69,7 @@ const CMDTABLE instructiontable[] =
     {TURNALG_INS, "TURNALG"},
     {ADCCAL_INS, "ADCCAL"},
     {SETAGPS_INS, "SETAGPS"},
+    {AUDIO_INS, "AUDIO"},
     {SN_INS, "*"},
 };
 
@@ -118,19 +118,10 @@ static int16_t getInstructionid(uint8_t *cmdstr)
     return -1;
 }
 
-void clearInstrucionRequest(void)
-{
-    sysinfo.instructionqequest = 0;
-}
-
 
 static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {
     char debug[50];
-#ifdef RI_ENABLE
-    sysinfo.instructionqequest = 1;
-    startTimer(6000, clearInstrucionRequest, 0);
-#endif
     switch (cmdid)
     {
         case PARAM_INS:
@@ -231,6 +222,9 @@ static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, cha
             break;
         case SETAGPS_INS:
             doSetAgpsInstruction(item, mode, telnum);
+            break;
+        case AUDIO_INS:
+            doAudioInstrucion(item, mode, telnum);
             break;
         default:
             sprintf(debug, "%s==>%s\n", __FUNCTION__, "unknow cmd");
@@ -346,7 +340,7 @@ static void atCmdDebugParase(uint8_t *buf, uint16_t len)
     }
     else if (strstr(item.item_data[0], "RESET") != NULL)
     {
-        HAL_NVIC_SystemReset();
+        portSystemReset();
     }
     else
     {
@@ -422,7 +416,7 @@ static void atCmdFmpcAdccalParase(void)
     realv = 0;
     for (i = 0; i < 10; i++)
     {
-        realv += (((float)getVoltageAdcValue() / 4095) * 1.8);
+        realv += (((float)portGetAdc() / 4095) * 1.8);
         HAL_Delay(10);
     }
     realv /= 10.0;
@@ -533,7 +527,7 @@ void atCmdFmpcIMSIParse(void)
 }
 
 //指令集处理
-void atCmdParaseFunction(uint8_t *buf, uint16_t len)
+void atCmdParserFunction(uint8_t *buf, uint16_t len)
 {
     int ret, cmdlen, cmdid;
     char debug[100];
@@ -629,7 +623,7 @@ void atCmdParaseFunction(uint8_t *buf, uint16_t len)
     }
     else
     {
-        appUartSend(&usart2_ctl, buf, len);
+        portUartSend(&usart2_ctl, buf, len);
     }
 
 }

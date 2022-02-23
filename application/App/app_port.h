@@ -63,30 +63,36 @@ extern UART_RXTX_CTL usart3_ctl;
 
 /*******FUNCTION********/
 /*串口功能*/
-void appUartConfig(UARTTYPE type, uint8_t onoff, void (*rxhandlefun)(uint8_t *, uint16_t len));
-int8_t appUartSend(UART_RXTX_CTL *uartctl, uint8_t * buf, uint16_t len);
-void UsartInterruptHandler(UART_HandleTypeDef *huart);
-void pollUartData(void);
+void portUartCfg(UARTTYPE type, uint8_t onoff, void (*rxhandlefun)(uint8_t *, uint16_t len));
+int8_t portUartSend(UART_RXTX_CTL *uartctl, uint8_t * buf, uint16_t len);
+void halRecvInIdle(UART_HandleTypeDef *huart);
+void portPollUart(void);
 /*gsensor功能*/
-void gsensorConfig(uint8_t onoff);
-void gsensorInterrupt(void);
+void portGsensorCfg(uint8_t onoff);
+
+void portGsensorInt(void);
 /*rtc功能*/
-void getRtcDateTime(uint16_t * year,uint8_t * month,uint8_t * date,uint8_t * hour,uint8_t * minute,uint8_t * second);
-uint32_t getCurrentDateTimeOfSec(void);
+void portGetSystemDateTime(uint16_t * year,uint8_t * month,uint8_t * date,uint8_t * hour,uint8_t * minute,uint8_t * second);
+uint32_t portGetDateTimeOfSeconds(void);
 void disPlaySystemTime(void);
-void updateRTCdatetime(uint8_t year, uint8_t month, uint8_t date, uint8_t hour, uint8_t minute, uint8_t second);
-int setNextAlarmTime( void );
-void setNextWakeUpTime(void);
+void portSetSystemDateTime(uint8_t year, uint8_t month, uint8_t date, uint8_t hour, uint8_t minute, uint8_t second);
+int portSetNextAlarmTime( void );
+void portSetNextWakeUpTime(void);
 /*感光功能*/
-void ldrInterrupt(void);
+void portLdrInt(void);
 /*adc功能*/
-uint32_t getVoltageAdcValue(void);
+uint32_t portGetAdc(void);
 /*模组功能*/
-void modulePinConfig(uint8_t onoff);
+void portModuleCfg(uint8_t onoff);
 /*低功耗功能*/
-void lowPowerConfig(void);
+void portLowPowerCfg(void);
 /*看门狗*/
-void feedWdt(void);
+void portWdtFeed(void);
 /*RI 信号*/
-void moduleRiSignal(void);
+void portRingSignal(void);
+void portUpdateStep(void);
+void portClearStep(void);
+void portSaveStep(void);
+void portSystemReset(void);
+
 #endif

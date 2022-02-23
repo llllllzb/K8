@@ -11,35 +11,36 @@
 /**************************/
 void myAppConfig(void)
 {
-    appUartConfig(APPUSART1,1,atCmdParaseFunction);
+    portUartCfg(APPUSART1, 1, atCmdParserFunction);
     paramInit();
-    lowPowerConfig();
+    portLowPowerCfg();
     createSystemTask(ledRunTask, 100);
     createSystemTask(outPutNodeCmd, 200);
-    sysinfo.SystaskID= createSystemTask(taskRunInOneSecond,1000);
-    HAL_ADCEx_Calibration_Start(&hadc,ADC_SINGLE_ENDED);
+    sysinfo.SystaskID = createSystemTask(taskRunInOneSecond, 1000);
+    HAL_ADCEx_Calibration_Start(&hadc, ADC_SINGLE_ENDED);
 }
 
 void myAppRun(void)
 {
     kernalRun();
-    pollUartData();
+    portPollUart();
     systemRequestTask();
+    alarmUploadRequest();
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    if(GPIO_Pin==GSINT_Pin)
+    if (GPIO_Pin == GSINT_Pin)
     {
-        gsensorInterrupt();
+        portGsensorInt();
     }
-    else if(GPIO_Pin==LDR_Pin)
+    else if (GPIO_Pin == LDR_Pin)
     {
-        ldrInterrupt();
+        portLdrInt();
     }
-    else if(GPIO_Pin==RI_Pin)
+    else if (GPIO_Pin == RI_Pin)
     {
-        moduleRiSignal();
+        portRingSignal();
     }
 }
 

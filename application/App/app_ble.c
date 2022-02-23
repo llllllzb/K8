@@ -304,7 +304,7 @@ OK
 
 */
 
-void appBlePRecv(uint8_t *buf, uint16_t len)
+void appBlePRecvParser(uint8_t *buf, uint16_t len)
 {
     int16_t index;
     uint8_t *rebuf;
@@ -342,7 +342,7 @@ void appBlePRecv(uint8_t *buf, uint16_t len)
 }
 
 
-void appBleCRecv(uint8_t *buf, uint16_t len)
+void appBleCRecvParser(uint8_t *buf, uint16_t len)
 {
     int16_t index;
     uint8_t *rebuf;

@@ -33,15 +33,15 @@ void updateLocalRTCTime(DATETIME * datetime)
 {
     DATETIME localtime;
     localtime=changeUTCTimeToLocalTime(*datetime,sysparam.utc);
-    updateRTCdatetime(localtime.year,localtime.month,localtime.day,localtime.hour,localtime.minute,localtime.second);
+    portSetSystemDateTime(localtime.year,localtime.month,localtime.day,localtime.hour,localtime.minute,localtime.second);
 
     if(sysparam.MODE==MODE1 || sysparam.MODE==MODE21)
     {
-        setNextAlarmTime();
+        portSetNextAlarmTime();
     }
     else if(sysparam.MODE==MODE3|| sysparam.MODE==MODE23)
     {
-        setNextWakeUpTime();
+        portSetNextWakeUpTime();
     }
 };
 void addNewGPSInfo(GPSINFO *gpsinfo)

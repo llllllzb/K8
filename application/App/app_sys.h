@@ -8,7 +8,6 @@
 #include "main.h"
 #include "app_nmea.h"
 
-#define RI_ENABLE
 
 #define ITEMCNTMAX	8
 #define ITEMSIZEMAX	60
@@ -38,7 +37,7 @@ typedef struct
 	uint8_t gsensorerror			:1;
 	uint8_t recordingflag			:1;
 	uint8_t hearbeatrequest			:1;
-	uint8_t instructionqequest		:1;
+	uint8_t ringWakeUp		:1;
 	uint8_t smsReplyUpload			:1;
 	uint8_t noNetworkFlag			:1;
 	uint8_t netCtrlStop				:1;
@@ -66,6 +65,7 @@ typedef struct
     uint16_t mcc;
     uint16_t lac;
 	uint16_t mode4checktick;
+	uint16_t step;
 	uint32_t netCtlTick;
 		
     __IO uint32_t GPSRequest;	  /*GPS ¿ª¹ØÇëÇó*/
