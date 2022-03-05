@@ -194,6 +194,8 @@ uint8_t isModulePowerOn(void);
 uint8_t netWorkModuleRunOk(void);
 void netExitStopMode(void);
 void networkConnectProcess(void);
+void moduleSleepCtl(uint8_t onoff);
+
 void moduleResponParaser(uint8_t * buf,uint16_t len);
 void N58_ChangeInvokeStatus(N58_WORK_STATUS status);
 

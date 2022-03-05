@@ -379,6 +379,18 @@ void netExitStopMode(void)
     }
 }
 
+void moduleSleepCtl(uint8_t onoff)
+{
+    if (onoff)
+    {
+        sendModuleCmd(N58_ENPWRSAVE_CMD, "1");
+    }
+    else
+    {
+        sendModuleCmd(N58_ENPWRSAVE_CMD, "0");
+    }
+}
+
 void networkConnectProcess(void)
 {
     if (n58_invoke_status.modulepowerstate == 0)
@@ -442,7 +454,7 @@ void networkConnectProcess(void)
             }
             else
             {
-                sendModuleCmd(N58_ENPWRSAVE_CMD, "1");
+                //sendModuleCmd(N58_ENPWRSAVE_CMD, "1");
                 n58_lte_status.cimi_respon = 0;
                 N58_ChangeInvokeStatus(N58_CSQ_STATUS);
             }
@@ -488,7 +500,7 @@ void networkConnectProcess(void)
                 sysinfo.csqSearchTime = 30;
                 sendModuleCmd(N58_CMGF_CMD, "1");
                 sendModuleCmd(N58_CNMI_CMD, "0,1");
-                sendModuleCmd(N58_ENPWRSAVE_CMD, "1");
+                //sendModuleCmd(N58_ENPWRSAVE_CMD, "1");
                 sendModuleCmd(N58_AT_CMD, NULL);
                 N58_ChangeInvokeStatus(N58_CREG_STATUS);
             }
@@ -726,6 +738,10 @@ void networkConnectProcess(void)
                 n58_lte_status.tcpsetup_error = 0;
                 netConnectReset();
                 N58_ChangeInvokeStatus(N58_NORMAL_STATUS);
+                if (sysinfo.GPSRequest == 0)
+                {
+                    moduleSleepCtl(1);
+                }
             }
         case N58_NORMAL_STATUS:
             if (sysparam.MODE == MODE4)

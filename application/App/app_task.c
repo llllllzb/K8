@@ -318,6 +318,7 @@ static void gpsRequestOpen(void)
 {
 
     LogMessage(DEBUG_ALL, "gpsRequestTask==>open GPS\n");
+	moduleSleepCtl(0);
     GPSLNAON;
     startTimer(8000, gpsStartBD, 0);
     sysinfo.gpsUpdatetick = sysinfo.System_Tick;
@@ -339,6 +340,7 @@ static void gpsRequestOpen(void)
 static void gpsRequestClose(void)
 {
     LogMessage(DEBUG_ALL, "gpsRequestTask==>close GSP\n");
+	moduleSleepCtl(1);
     GPSLNAOFF;
     closeModuleGPS();
     gpsClearCurrentGPSInfo();
