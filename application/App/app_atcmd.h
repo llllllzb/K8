@@ -5,7 +5,7 @@
 typedef struct
 {
 	uint8_t cmdid;
-	int8_t   cmdstr[16];
+	char * cmdstr;
 }CMDTABLE;
 
 typedef enum{
@@ -67,6 +67,7 @@ typedef enum{
 	ADCCAL_INS,
 	SETAGPS_INS,
 	AUDIO_INS,
+	VOL_INS,
 	MAX_INS
 }INSTRUCTIONID;
 

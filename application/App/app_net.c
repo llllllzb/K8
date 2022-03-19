@@ -72,6 +72,7 @@ const N58_CMD_STRUCT n58_cmd_table[N58_MAX_NUM] =
     {N58_SIMHOTSWAP_CMD, "AT+SIMHOTSWAP"},
     {N58_GMR_CMD, "AT+GMR"},
     {N58_AUDPLAY_CMD, "AT+AUDPLAY"},
+    {N58_CLVL_CMD, "AT+CLVL"},
     {N58_MAX_NUM, NULL},
 };
 
@@ -1771,6 +1772,45 @@ void n58GmrParser(uint8_t *buf, uint16_t len)
     }
 }
 
+/*+AUDPLAY: PLAY SUCCESSED*/
+void n58AudplayParser(uint8_t *buf, uint16_t len)
+{
+    int index;
+    uint8_t *rebuf;
+    uint16_t  relen;
+    index = my_getstrindex((char *)buf, "+AUDPLAY:", len);
+    if (index >= 0)
+    {
+        rebuf = buf + index;
+        relen = len - index;
+        index = my_getstrindex((char *)rebuf, "PLAY SUCCESSED", relen);
+        if (index >= 0)
+        {
+            if (sysinfo.playAudioCnt > 0)
+            {
+                sysinfo.playAudioCnt--;
+                LogPrintf(DEBUG_ALL, "Play audio cnt:%d\r\n", sysinfo.playAudioCnt);
+                if (sysinfo.playAudioCnt > 0)
+                {
+                    startTimer(500, playAudio, 0);
+                }
+                else
+                {
+                    sysinfo.audioPlayNow = 0;
+                }
+            }
+            else
+            {
+                sysinfo.audioPlayNow = 0;
+                LogMessage(DEBUG_ALL, "play done\r\n");
+            }
+        }
+        else
+        {
+            sysinfo.audioPlayNow = 0;
+        }
+    }
+}
 
 void moduleResponParaser(uint8_t *buf, uint16_t len)
 {
@@ -1784,7 +1824,7 @@ void moduleResponParaser(uint8_t *buf, uint16_t len)
     }
     memcpy(n58DataRestore, buf, len);
     n58DataRestore[len] = NULL;
-	LogMessage(DEBUG_ALL, "--->>>---\r\n");
+    LogMessage(DEBUG_ALL, "--->>>---\r\n");
     LogMessageWL(DEBUG_FACTORY, (char *)n58DataRestore, len);
     LogMessage(DEBUG_ALL, "---<<<---\r\n");
     /*不区分指令区域*/
@@ -1801,6 +1841,7 @@ void moduleResponParaser(uint8_t *buf, uint16_t len)
     appBleCRecvParser(n58DataRestore, len);
     n58NwurcblestatParser(n58DataRestore, len);
     n58NwblecconParser(n58DataRestore, len);
+    n58AudplayParser(n58DataRestore, len);
     /*区分指令区域*/
     switch (n58_lte_status.current_cmd)
     {
@@ -1877,6 +1918,13 @@ void moduleResponParaser(uint8_t *buf, uint16_t len)
         case N58_GMR_CMD:
             n58GmrParser(n58DataRestore, len);
             break;
+        case N58_AUDPLAY_CMD:
+            if (my_strstr((char *)buf, "ERROR", len))
+            {
+                sysinfo.audioPlayNow = 0;
+                LogMessage(DEBUG_ALL, "Play error\r\n");
+            }
+            break;
     }
     free(n58DataRestore);
 }
@@ -1936,4 +1984,19 @@ void openModuleGPS(void)
 void closeModuleGPS(void)
 {
     sendModuleCmd(N58_MYGPSPWR_CMD, "0");
+}
+
+void playAudio(void)
+{
+    char param[20];
+    sysinfo.audioPlayNow = 1;
+    sprintf(param, "3,\"Music%d.amr\",0", sysinfo.audioInd);
+    sendModuleCmd(N58_AUDPLAY_CMD, param);
+}
+//0~100
+void setModuleVol(uint8_t vol)
+{
+    char param[10];
+    sprintf(param, "%d", vol);
+    sendModuleCmd(N58_CLVL_CMD, param);
 }

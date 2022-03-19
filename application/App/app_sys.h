@@ -41,8 +41,11 @@ typedef struct
 	uint8_t smsReplyUpload			:1;
 	uint8_t noNetworkFlag			:1;
 	uint8_t netCtrlStop				:1;
+	uint8_t audioPlayNow		    :1;
     __IO uint8_t runFsm;
     __IO uint8_t GPSRequestFsm;
+	uint8_t playAudioCnt;
+	uint8_t audioInd;
 	
     uint8_t GPSStatus;
     uint8_t gsensortapcount;

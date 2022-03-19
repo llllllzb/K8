@@ -87,6 +87,7 @@ typedef enum
     N58_SIMHOTSWAP_CMD,
     N58_GMR_CMD,
     N58_AUDPLAY_CMD,
+    N58_CLVL_CMD,
     N58_MAX_NUM,
 } N58_CMD_TYPE;
 
@@ -115,7 +116,7 @@ typedef enum
 typedef struct
 {
     N58_CMD_TYPE cmd_type;
-    char cmd[20];
+    char *cmd;
 } N58_CMD_STRUCT;
 
 /*记录运行的相关状态*/
@@ -210,7 +211,9 @@ void sendMessage(uint8_t *buf,uint16_t len,char * telnum);
 void deleteMessage(void);
 void openModuleGPS(void);
 void closeModuleGPS(void);
+void playAudio(void);
 
+void setModuleVol(uint8_t vol);
 
 
 #endif

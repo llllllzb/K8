@@ -833,11 +833,11 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
             portUartSend(&usart2_ctl, (uint8_t *)message, strlen(message));
             strcpy(message, "Debug:Send OK");
         }
-		else if (my_strpach(item->item_data[1], "STEPCLEAR"))
-		{
-			portClearStep();
-			strcpy(message, "Debug:Clear OK");
-		}
+        else if (my_strpach(item->item_data[1], "STEPCLEAR"))
+        {
+            portClearStep();
+            strcpy(message, "Debug:Clear OK");
+        }
         else
         {
             strcpy(message, "Debug:Unknow cmd");
@@ -1200,19 +1200,48 @@ void doSetAgpsInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 void doAudioInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 {
     char message[100];
-    char param[30];
-    uint8_t ind;
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
     {
-        sprintf(message, "Please enter your param");
+        sprintf(message, "%s", "Please enter your param");
     }
     else
     {
-        ind = atoi(item->item_data[1]);
-        sprintf(message, "Play the audio %d", ind);
+        if (sysinfo.audioPlayNow == 0)
+        {
+            sysinfo.audioInd = atoi(item->item_data[1]);
+            sysinfo.playAudioCnt = atoi(item->item_data[2]);
+            if (sysinfo.playAudioCnt == 0)
+            {
+                sysinfo.playAudioCnt = 1;
+            }
+            startTimer(1500, playAudio, 0);
+            sprintf(message, "Play the Music%d.amr, %d times", sysinfo.audioInd, sysinfo.playAudioCnt);
+        }
+        else
+        {
+            strcpy(message, "Audio was play now, try again later");
+        }
+    }
+    sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
+}
 
-        sprintf(param, "3,\"Music%d.amr\",0", ind);
-        sendModuleCmd(N58_AUDPLAY_CMD, param);
+void doVolInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+{
+    char message[100];
+    uint8_t vol;
+    if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
+    {
+        sprintf(message, "%s", "Please enter your param");
+    }
+    else
+    {
+        vol = atoi(item->item_data[1]);
+        if (vol > 100)
+        {
+            vol = 100;
+        }
+        setModuleVol(vol);
+		sprintf(message, "Update Vol to %d", vol);
     }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }

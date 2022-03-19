@@ -70,6 +70,7 @@ const CMDTABLE instructiontable[] =
     {ADCCAL_INS, "ADCCAL"},
     {SETAGPS_INS, "SETAGPS"},
     {AUDIO_INS, "AUDIO"},
+    {VOL_INS, "VOL"},
     {SN_INS, "*"},
 };
 
@@ -225,6 +226,9 @@ static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, cha
             break;
         case AUDIO_INS:
             doAudioInstrucion(item, mode, telnum);
+            break;
+        case VOL_INS:
+            doVolInstrucion(item, mode, telnum);
             break;
         default:
             sprintf(debug, "%s==>%s\n", __FUNCTION__, "unknow cmd");

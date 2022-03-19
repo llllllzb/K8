@@ -1318,6 +1318,8 @@ uint8_t autoSleepTask(void)
         return 14;
     if (getTerminalAccState())
         return 15;
+    if (sysinfo.audioPlayNow)
+        return 16;
     LogMessage(DEBUG_ALL, "auto sleep\n");
     if (sysparam.MODE == MODE4)
     {
