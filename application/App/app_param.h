@@ -56,6 +56,7 @@
 #define EEPROM_AGPSUSER_ADDR					409 //409+50=459
 #define EEPROM_AGPSPSWD_ADDR					459 //459+50=509
 #define EEPROM_PARAM_AUTOUPDATE_ADDR			509
+#define EEPROM_VIBRANGE_ADDR					510
 
 
 //半字区域，1024~1534        共(512)字节
@@ -81,7 +82,7 @@ V
 次版本     	与之前版本不能兼容时改变
 修订版本        细节修改
 */
-#define EEPROM_VERSION									"K8_RI_V1.1.28"
+#define EEPROM_VERSION									"K8_RI_V1.1.29"
 
 /*EPROM中的数据*/
 typedef struct
@@ -116,7 +117,7 @@ typedef struct
     uint8_t agpsUser[50];
     uint8_t agpsPswd[50];
     uint8_t autoParamUpdate;
-
+	uint8_t vibRange;
     int8_t utc;
 
     uint16_t gpsuploadgap;
@@ -206,6 +207,9 @@ void paramGetAutoParam(void);
 
 void paramSaveStep(void);
 void paramGetStep(void);
+
+void paramSaveVibrange(void);
+void paramGetVibrange(void);
 
 #endif
 

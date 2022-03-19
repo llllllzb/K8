@@ -230,6 +230,7 @@ void portGsensorCfg(uint8_t onoff)
         mir3da_init();
         mir3da_open_interrupt(10);
         mir3da_set_enable(1);
+        updateRange(sysparam.vibRange);
         startStep();
         LogMessage(DEBUG_ALL, "portGsensorCfg==>on\n");
     }
@@ -432,6 +433,7 @@ int portSetNextAlarmTime(void)
         if (next_ones == 0xFFFF)
         {
             next_ones = 720; //默认12:00
+            sysparam.AlarmTime[0] = 720;
         }
     }
     //6、设置下次上报的日期和时间
@@ -670,15 +672,15 @@ void portClearStep(void)
 
 void portSaveStep(void)
 {
-	portUpdateStep();
+    portUpdateStep();
     sysparam.step = sysinfo.step;
     paramSaveStep();
-	LogPrintf(DEBUG_ALL,"Save last step %d\r\n",sysparam.step);
+    LogPrintf(DEBUG_ALL, "Save last step %d\r\n", sysparam.step);
 }
 
 void portSystemReset(void)
 {
-	portSaveStep();
-	HAL_NVIC_SystemReset();
-	LogMessage(DEBUG_ALL,"portSystemReset\r\n");
+    portSaveStep();
+    HAL_NVIC_SystemReset();
+    LogMessage(DEBUG_ALL, "portSystemReset\r\n");
 }

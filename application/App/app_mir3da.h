@@ -99,6 +99,7 @@ void startStep(void);
 void stopStep(void);
 u16_m getStep(void);
 void clearStep(void);
+void updateRange(u8_m rang);
 
 
 #endif

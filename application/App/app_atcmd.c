@@ -71,6 +71,7 @@ const CMDTABLE instructiontable[] =
     {SETAGPS_INS, "SETAGPS"},
     {AUDIO_INS, "AUDIO"},
     {VOL_INS, "VOL"},
+    {VIBRANGE_INS, "VIBRANGE"},
     {SN_INS, "*"},
 };
 
@@ -230,6 +231,9 @@ static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, cha
         case VOL_INS:
             doVolInstrucion(item, mode, telnum);
             break;
+        case VIBRANGE_INS:
+            doVibrangeInstrucion(item, mode, telnum);
+            break;
         default:
             sprintf(debug, "%s==>%s\n", __FUNCTION__, "unknow cmd");
             LogMessage(DEBUG_ALL, debug);
@@ -345,6 +349,10 @@ static void atCmdDebugParase(uint8_t *buf, uint16_t len)
     else if (strstr(item.item_data[0], "RESET") != NULL)
     {
         portSystemReset();
+    }
+    else if (strstr(item.item_data[0], "RANGE") != NULL)
+    {
+        updateRange(atoi(item.item_data[1]));
     }
     else
     {

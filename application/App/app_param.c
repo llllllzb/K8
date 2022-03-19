@@ -126,7 +126,8 @@ void paramDefaultInit(uint8_t level)
         sysparam.utc = 8;
         paramSaveUTC(sysparam.utc);
 
-        for (i = 0; i < 5; i++)
+		sysparam.AlarmTime[0] = 720;
+        for (i = 1; i < 5; i++)
         {
             sysparam.AlarmTime[i] = 0XFFFF;
             eepromWriteTwoBytes(EEPROM_ALARMTIEM_ADDR + (2 * i), sysparam.AlarmTime[i]);
@@ -150,6 +151,8 @@ void paramDefaultInit(uint8_t level)
     sysparam.agpsPort = 2621;
     sysparam.step = 0;
     paramSaveStep();
+    sysparam.vibRange = 0;
+    paramSaveVibrange();
 
     paramSaveAgpsServer();
     paramSaveAgpsPort();
@@ -251,7 +254,8 @@ void paramInit(void)
     paramGetAgpsUser();
     paramGetAgpsPswd();
     paramGetAutoParam();
-	paramGetStep();
+    paramGetStep();
+    paramGetVibrange();
     /*--------------------------------------------------*/
     //远程升级时，参数自动更新
     if (sysparam.autoParamUpdate != PARAM_AUTO_UPDATE_FLAG)
@@ -721,3 +725,13 @@ void paramGetStep(void)
 {
     sysparam.step = eepromReadTwoBytes(EEPROM_STEP_ADDR);
 }
+
+void paramSaveVibrange(void)
+{
+    eepromWriteTwoBytes(EEPROM_VIBRANGE_ADDR, sysparam.vibRange);
+}
+void paramGetVibrange(void)
+{
+    sysparam.vibRange = eepromReadTwoBytes(EEPROM_VIBRANGE_ADDR);
+}
+

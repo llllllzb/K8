@@ -49,6 +49,7 @@
 #define MODE2									2
 #define MODE3									3
 #define MODE4									4
+#define MODE5									5
 #define MODE21									6  //模式2的扩展，类似模式1
 #define MODE23									7  //模式2的扩展，类似模式3
 

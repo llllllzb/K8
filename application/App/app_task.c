@@ -775,7 +775,7 @@ static void doPoitypeRequest(void)
     {
         case MODE1:
         case MODE3:
-        //case MODE4:
+        case MODE5:
         case MODE21:
         case MODE23:
             //only lbs
@@ -1012,6 +1012,7 @@ static void modeStart(void)
     switch (sysparam.MODE)
     {
         case MODE1:
+		case MODE5:
         case MODE21:
             portSetNextAlarmTime();
             sysparam.startUpCnt++;
@@ -1031,6 +1032,7 @@ static void modeStart(void)
             sysinfo.gpsuploadonepositiontime = 90;
             break;
         case MODE4:
+			portGsensorCfg(0);
             break;
     }
     paramSaveMode1Timer(sysparam.startUpCnt);
@@ -1073,9 +1075,11 @@ static void modeRun(void)
     {
         case MODE1:
         case MODE3:
+		case MODE5:
             if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 210)
             {
                 sysinfo.alarmrequest = 0;
+				sysinfo.GPSRequest=0;
                 modeChangeFsm(MODE_STOP); //执行完毕，关机
             }
             modeShutDownQuickly();
@@ -1097,6 +1101,7 @@ static void modeRun(void)
             else if (++delayTick >= 210)
             {
                 sysinfo.alarmrequest = 0;
+				sysinfo.GPSRequest=0;
                 delayTick = 0;
                 modeChangeFsm(MODE_STOP); //执行完毕，关机
             }
@@ -1112,7 +1117,7 @@ static void modeRun(void)
 }
 static void modeStop(void)
 {
-    if (sysparam.MODE != MODE21 && sysparam.MODE != MODE23)
+    if (sysparam.MODE != MODE21 && sysparam.MODE != MODE23&& sysparam.MODE != MODE5)
     {
         portGsensorCfg(0);
     }
@@ -1135,6 +1140,7 @@ static void modeDone(void)
 
 }
 
+ 
 
 
 void systemModeTask(void)
@@ -1167,9 +1173,10 @@ void gsensorTapTask(void)
     uint8_t i;
     uint16_t total = 0;
     //当模式不属于一下模式时，不启用GSENSOR 算法
-    if (sysparam.MODE == MODE1 || sysparam.MODE == MODE3 || sysparam.MODE == MODE4)
+    if (sysparam.MODE == MODE1 || sysparam.MODE == MODE3 || sysparam.MODE == MODE4 || sysparam.MODE == MODE5)
     {
         tick = 0;
+		sysinfo.gsensortapcount=0;
         terminalAccoff();
         if (gpsRequestGet(GPS_REQUEST_ACC_CTL))
         {

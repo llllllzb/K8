@@ -57,10 +57,16 @@ void doParamInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     switch (sysparam.MODE)
     {
         case MODE1:
+        case MODE5:
         case MODE21:
             if (sysparam.MODE == MODE1)
             {
                 sprintf(message + strlen(message), "Mode1:");
+
+            }
+            else if (sysparam.MODE == MODE5)
+            {
+                sprintf(message + strlen(message), "Mode5:");
 
             }
             else
@@ -223,6 +229,7 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         switch (workmode)
         {
             case 1:
+            case 5:
             case 21:
                 //内容项如果大于2，说明有时间或日期
                 if (item->item_cnt > 2)
@@ -255,7 +262,8 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
                 }
 
-                for (i = 0; i < 5; i++)
+                sysparam.AlarmTime[0] = 720;
+                for (i = 1; i < 5; i++)
                 {
                     sysparam.AlarmTime[i] = 0xFFFF;
                 }
@@ -276,15 +284,23 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                     paramSaveMode(MODE1);
                     portGsensorCfg(0);
                 }
+                else if (workmode == MODE5)
+                {
+                    portGsensorCfg(1);
+                    paramSaveMode(MODE5);
+                }
                 else
                 {
                     paramSaveMode(MODE21);
                     portGsensorCfg(1);
                 }
                 sprintf(message, "Change to Mode%d,and work on at", workmode);
-                for (i = 0; i < timecount; i++)
+                for (i = 0; i < 5; i++)
                 {
-                    sprintf(message + strlen(message), " %.2d:%.2d", sysparam.AlarmTime[i] / 60, sysparam.AlarmTime[i] % 60);
+                    if (sysparam.AlarmTime[i] != 0xFFFF)
+                    {
+                        sprintf(message + strlen(message), " %.2d:%.2d", sysparam.AlarmTime[i] / 60, sysparam.AlarmTime[i] % 60);
+                    }
                 }
                 sprintf(message + strlen(message), ",every %d day", gapday);
                 portSetNextAlarmTime();
@@ -1241,8 +1257,27 @@ void doVolInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
             vol = 100;
         }
         setModuleVol(vol);
-		sprintf(message, "Update Vol to %d", vol);
+        sprintf(message, "Update Vol to %d", vol);
     }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
+
+void doVibrangeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+{
+    char message[100];
+    if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
+    {
+        sprintf(message, "Current vibration range is level %d", sysparam.vibRange);
+    }
+    else
+    {
+        sysparam.vibRange = atoi(item->item_data[1]);
+        sysparam.vibRange = sysparam.vibRange > 3 ? 3 : sysparam.vibRange;
+        updateRange(sysparam.vibRange);
+        paramSaveVibrange();
+        sprintf(message, "Update vibration range to level %d", sysparam.vibRange);
+    }
+    sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
+}
+
 
