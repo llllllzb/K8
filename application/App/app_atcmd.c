@@ -72,6 +72,7 @@ const CMDTABLE instructiontable[] =
     {AUDIO_INS, "AUDIO"},
     {VOL_INS, "VOL"},
     {VIBRANGE_INS, "VIBRANGE"},
+    {STATICTIME_INS, "STATICTIME"},
     {SN_INS, "*"},
 };
 
@@ -233,6 +234,9 @@ static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, cha
             break;
         case VIBRANGE_INS:
             doVibrangeInstrucion(item, mode, telnum);
+            break;
+        case STATICTIME_INS:
+            doStaticTimeInstrucion(item, mode, telnum);
             break;
         default:
             sprintf(debug, "%s==>%s\n", __FUNCTION__, "unknow cmd");

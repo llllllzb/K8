@@ -29,59 +29,6 @@ void myAppRun(void)
     alarmUploadRequest();
 }
 
-
-void gsensorInMode5(void)
-{
-    static uint32_t befTick = 0, CurTick = 0;
-    static uint8_t tapCnt = 0;
-    static uint8_t flag = 0;
-
-    CurTick = portGetDateTimeOfSeconds();
-    if (CurTick < befTick)
-    {
-        CurTick += 86399;
-    }
-    if (flag == 0)
-    {
-        LogPrintf(DEBUG_FACTORY, "静止时长:%d\r\n", CurTick - befTick);
-        if (CurTick - befTick >= 10)
-        {
-            //静止超过10秒，启动计算
-            flag = 1;
-        }
-        befTick = CurTick % 86400;
-    }
-    else
-    {
-        tapCnt++;
-        LogPrintf(DEBUG_ALL, "TapCnt=%d\r\n", tapCnt);
-        if (CurTick - befTick <= 20)
-        {
-            //20秒内如果震动超过7次，可以认为真的震动了
-            if (tapCnt >= 7)
-            {
-
-                flag = 0;
-                tapCnt = 0;
-                befTick = CurTick % 86400;
-                LogMessage(DEBUG_ALL, "启动上报\r\n");
-                if (sysparam.MODE == MODE5 && sysinfo.runFsm == MODE_DONE)
-                {
-                    gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
-                    //启动上报
-                }
-            }
-        }
-        else
-        {
-
-            flag = 0;
-            tapCnt = 0;
-            befTick = CurTick % 86400;
-            LogMessage(DEBUG_ALL, "未达到次数\r\n");
-        }
-    }
-}
 #define MAX_TICK_CNT	10
 void tapIntInMode5(void)
 {
@@ -95,7 +42,12 @@ void tapIntInMode5(void)
     nowind = now;
     tickTime[ind++] = portGetDateTimeOfSeconds();
     ind %= MAX_TICK_CNT;
-    //查找记录中有没有静止超过10秒的
+//    for (i = 0; i < MAX_TICK_CNT; i++)
+//    {
+//        LogPrintf(DEBUG_ALL, "{[%d]:%d} ", i, tickTime[i]);
+//    }
+//    LogPrintf(DEBUG_ALL, "\r\n");
+    //查找记录中有没有静止超过60秒的
     for (i = 0; i < MAX_TICK_CNT - 1; i++)
     {
         bef = (now + MAX_TICK_CNT - 1) % MAX_TICK_CNT;
@@ -124,14 +76,23 @@ void tapIntInMode5(void)
             cnt = nowind + MAX_TICK_CNT  - staticind + 1;
         }
 
-        //LogPrintf(DEBUG_ALL, "个数：%d\r\n", cnt);
-
-        if (cnt >= 7)
+        nowTick = tickTime[nowind];
+        if (nowTick < tickTime[staticind])
         {
-            if (gpsRequestGet(GPS_REQUEST_UPLOAD_ONE) == 0)
+            nowTick += 86400;
+        }
+//        LogPrintf(DEBUG_ALL, "Interval time %d\r\n", nowTick - tickTime[staticind]);
+        if (nowTick - tickTime[staticind] <= sysparam.staticTime)
+        {
+            //LogPrintf(DEBUG_ALL, "个数：%d\r\n", cnt);
+            if (cnt >= 7)
             {
-                LogMessage(DEBUG_ALL, "震动触发\r\n");
-                gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
+                if (gpsRequestGet(GPS_REQUEST_UPLOAD_ONE) == 0)
+                {
+                    LogMessage(DEBUG_ALL, "震动触发\r\n");
+                    gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
+                    alarmRequestSet(ALARM_GUARD_REQUEST);
+                }
             }
         }
     }

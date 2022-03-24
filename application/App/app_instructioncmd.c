@@ -1280,4 +1280,22 @@ void doVibrangeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
+void doStaticTimeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+{
+    char message[100];
+    if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
+    {
+        sprintf(message, "Current static time is %d", sysparam.staticTime);
+    }
+    else
+    {
+        sysparam.staticTime = atoi(item->item_data[1]);
+        sysparam.staticTime = sysparam.staticTime ==0 ? 15 : sysparam.staticTime;
+        paramSaveStaticTime();
+        sprintf(message, "Update static time to %d", sysparam.staticTime);
+    }
+    sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
+}
+
+
 
