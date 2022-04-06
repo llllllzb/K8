@@ -932,86 +932,86 @@ Image Symbol Table
     i.systemShutDown                         0x080194d4   Section        0  app_task.o(i.systemShutDown)
     i.systemTaskResume                       0x08019564   Section        0  app_kernal.o(i.systemTaskResume)
     i.systemTaskSuspend                      0x080195b4   Section        0  app_kernal.o(i.systemTaskSuspend)
-    i.tapIntInMode5                          0x08019604   Section        0  app_user.o(i.tapIntInMode5)
-    i.taskRunInOneSecond                     0x080196ec   Section        0  app_task.o(i.taskRunInOneSecond)
-    i.terminalAccoff                         0x08019734   Section        0  app_sys.o(i.terminalAccoff)
-    i.terminalAccon                          0x08019744   Section        0  app_sys.o(i.terminalAccon)
-    i.terminalAlarmSet                       0x08019754   Section        0  app_sys.o(i.terminalAlarmSet)
-    i.terminalCharge                         0x08019768   Section        0  app_sys.o(i.terminalCharge)
-    i.terminalGPSFixed                       0x08019778   Section        0  app_sys.o(i.terminalGPSFixed)
-    i.terminalGPSUnFixed                     0x08019788   Section        0  app_sys.o(i.terminalGPSUnFixed)
-    i.terminalunCharge                       0x08019798   Section        0  app_sys.o(i.terminalunCharge)
-    i.updateAlarmA                           0x080197a8   Section        0  app_port.o(i.updateAlarmA)
-    updateAlarmA                             0x080197a9   Thumb Code    92  app_port.o(i.updateAlarmA)
-    i.updateLocalRTCTime                     0x08019834   Section        0  app_gps.o(i.updateLocalRTCTime)
-    i.updateRTCtimeRequest                   0x080198a0   Section        0  app_sys.o(i.updateRTCtimeRequest)
-    i.updateRange                            0x080198b0   Section        0  app_mir3da.o(i.updateRange)
-    i.updateSystemLedStatus                  0x080198e0   Section        0  app_task.o(i.updateSystemLedStatus)
-    i.updateSystemStartTime                  0x08019950   Section        0  app_sys.o(i.updateSystemStartTime)
-    i.uploadGpsRestoreData                   0x0801995c   Section        0  app_serverprotocol.o(i.uploadGpsRestoreData)
-    i.uploadRequestInMode4                   0x08019990   Section        0  app_task.o(i.uploadRequestInMode4)
-    i.voltageCheckTask                       0x08019a48   Section        0  app_task.o(i.voltageCheckTask)
-    i.wdtProcess                             0x08019da4   Section        0  app_task.o(i.wdtProcess)
-    i.wifiScanStart                          0x08019ec4   Section        0  app_task.o(i.wifiScanStart)
-    wifiScanStart                            0x08019ec5   Thumb Code    22  app_task.o(i.wifiScanStart)
-    i.wifiUploadRequestTask                  0x08019edc   Section        0  app_task.o(i.wifiUploadRequestTask)
-    i.ztvm_encrypt_des                       0x08019f10   Section        0  app_sn.o(i.ztvm_encrypt_des)
-    i.ztvm_encrypt_undes                     0x08019f66   Section        0  app_sn.o(i.ztvm_encrypt_undes)
-    i.ztvm_encrypt_untrides                  0x08019fbe   Section        0  app_sn.o(i.ztvm_encrypt_untrides)
-    .constdata                               0x08019fe6   Section      536  app_sys.o(.constdata)
-    ztvm_crctab16                            0x08019fe6   Data         512  app_sys.o(.constdata)
-    __FUNCTION__                             0x0801a1e6   Data          24  app_sys.o(.constdata)
-    .constdata                               0x0801a200   Section      464  app_net.o(.constdata)
-    .constdata                               0x0801a3d0   Section      482  app_atcmd.o(.constdata)
-    __FUNCTION__                             0x0801a590   Data          14  app_atcmd.o(.constdata)
-    __FUNCTION__                             0x0801a59e   Data          20  app_atcmd.o(.constdata)
-    .constdata                               0x0801a5b2   Section      840  app_sn.o(.constdata)
-    e                                        0x0801a5b2   Data          48  app_sn.o(.constdata)
-    PC1_C                                    0x0801a5e2   Data          28  app_sn.o(.constdata)
-    PC1_D                                    0x0801a5fe   Data          28  app_sn.o(.constdata)
-    shifts                                   0x0801a61a   Data          16  app_sn.o(.constdata)
-    PC2_C                                    0x0801a62a   Data          24  app_sn.o(.constdata)
-    PC2_D                                    0x0801a642   Data          24  app_sn.o(.constdata)
-    IP                                       0x0801a65a   Data          64  app_sn.o(.constdata)
-    FP                                       0x0801a69a   Data          64  app_sn.o(.constdata)
-    S                                        0x0801a6da   Data         512  app_sn.o(.constdata)
-    P                                        0x0801a8da   Data          32  app_sn.o(.constdata)
-    .constdata                               0x0801a8fa   Section       25  system_stm32l0xx.o(.constdata)
-    .constdata                               0x0801a913   Section        8  system_stm32l0xx.o(.constdata)
-    .constdata                               0x0801a920   Section       80  asin.o(.constdata)
-    pS                                       0x0801a920   Data          48  asin.o(.constdata)
-    qS                                       0x0801a950   Data          32  asin.o(.constdata)
-    .constdata                               0x0801a970   Section      136  pow.o(.constdata)
-    bp                                       0x0801a970   Data          16  pow.o(.constdata)
-    dp_h                                     0x0801a980   Data          16  pow.o(.constdata)
-    dp_l                                     0x0801a990   Data          16  pow.o(.constdata)
-    L                                        0x0801a9a0   Data          48  pow.o(.constdata)
-    P                                        0x0801a9d0   Data          40  pow.o(.constdata)
-    .constdata                               0x0801a9f8   Section       12  mktime.o(.constdata)
-    monlen                                   0x0801a9f8   Data          12  mktime.o(.constdata)
-    .constdata                               0x0801aa08   Section       48  cos_i.o(.constdata)
-    C                                        0x0801aa08   Data          48  cos_i.o(.constdata)
-    .constdata                               0x0801aa38   Section        8  qnan.o(.constdata)
-    .constdata                               0x0801aa40   Section      200  rred.o(.constdata)
-    pio2s                                    0x0801aa40   Data          48  rred.o(.constdata)
-    twooverpi                                0x0801aa70   Data         152  rred.o(.constdata)
-    .constdata                               0x0801ab08   Section       40  sin_i.o(.constdata)
-    S                                        0x0801ab08   Data          40  sin_i.o(.constdata)
-    .constdata                               0x0801ab30   Section      129  ctype_o.o(.constdata)
-    .constdata                               0x0801abb4   Section        4  ctype_o.o(.constdata)
-    table                                    0x0801abb4   Data           4  ctype_o.o(.constdata)
-    .constdata                               0x0801abb8   Section       12  localtime_i.o(.constdata)
-    monlen                                   0x0801abb8   Data          12  localtime_i.o(.constdata)
-    .conststring                             0x0801abc4   Section      643  app_net.o(.conststring)
-    .conststring                             0x0801ae48   Section      472  app_atcmd.o(.conststring)
-    .conststring                             0x0801b020   Section      525  app_instructioncmd.o(.conststring)
+    i.tapInt                                 0x08019604   Section        0  app_user.o(i.tapInt)
+    i.taskRunInOneSecond                     0x080196b4   Section        0  app_task.o(i.taskRunInOneSecond)
+    i.terminalAccoff                         0x080196fc   Section        0  app_sys.o(i.terminalAccoff)
+    i.terminalAccon                          0x0801970c   Section        0  app_sys.o(i.terminalAccon)
+    i.terminalAlarmSet                       0x0801971c   Section        0  app_sys.o(i.terminalAlarmSet)
+    i.terminalCharge                         0x08019730   Section        0  app_sys.o(i.terminalCharge)
+    i.terminalGPSFixed                       0x08019740   Section        0  app_sys.o(i.terminalGPSFixed)
+    i.terminalGPSUnFixed                     0x08019750   Section        0  app_sys.o(i.terminalGPSUnFixed)
+    i.terminalunCharge                       0x08019760   Section        0  app_sys.o(i.terminalunCharge)
+    i.updateAlarmA                           0x08019770   Section        0  app_port.o(i.updateAlarmA)
+    updateAlarmA                             0x08019771   Thumb Code    92  app_port.o(i.updateAlarmA)
+    i.updateLocalRTCTime                     0x080197fc   Section        0  app_gps.o(i.updateLocalRTCTime)
+    i.updateRTCtimeRequest                   0x08019868   Section        0  app_sys.o(i.updateRTCtimeRequest)
+    i.updateRange                            0x08019878   Section        0  app_mir3da.o(i.updateRange)
+    i.updateSystemLedStatus                  0x080198a8   Section        0  app_task.o(i.updateSystemLedStatus)
+    i.updateSystemStartTime                  0x08019918   Section        0  app_sys.o(i.updateSystemStartTime)
+    i.uploadGpsRestoreData                   0x08019924   Section        0  app_serverprotocol.o(i.uploadGpsRestoreData)
+    i.uploadRequestInMode4                   0x08019958   Section        0  app_task.o(i.uploadRequestInMode4)
+    i.voltageCheckTask                       0x08019a10   Section        0  app_task.o(i.voltageCheckTask)
+    i.wdtProcess                             0x08019d6c   Section        0  app_task.o(i.wdtProcess)
+    i.wifiScanStart                          0x08019e8c   Section        0  app_task.o(i.wifiScanStart)
+    wifiScanStart                            0x08019e8d   Thumb Code    22  app_task.o(i.wifiScanStart)
+    i.wifiUploadRequestTask                  0x08019ea4   Section        0  app_task.o(i.wifiUploadRequestTask)
+    i.ztvm_encrypt_des                       0x08019ed8   Section        0  app_sn.o(i.ztvm_encrypt_des)
+    i.ztvm_encrypt_undes                     0x08019f2e   Section        0  app_sn.o(i.ztvm_encrypt_undes)
+    i.ztvm_encrypt_untrides                  0x08019f86   Section        0  app_sn.o(i.ztvm_encrypt_untrides)
+    .constdata                               0x08019fae   Section      536  app_sys.o(.constdata)
+    ztvm_crctab16                            0x08019fae   Data         512  app_sys.o(.constdata)
+    __FUNCTION__                             0x0801a1ae   Data          24  app_sys.o(.constdata)
+    .constdata                               0x0801a1c8   Section      464  app_net.o(.constdata)
+    .constdata                               0x0801a398   Section      482  app_atcmd.o(.constdata)
+    __FUNCTION__                             0x0801a558   Data          14  app_atcmd.o(.constdata)
+    __FUNCTION__                             0x0801a566   Data          20  app_atcmd.o(.constdata)
+    .constdata                               0x0801a57a   Section      840  app_sn.o(.constdata)
+    e                                        0x0801a57a   Data          48  app_sn.o(.constdata)
+    PC1_C                                    0x0801a5aa   Data          28  app_sn.o(.constdata)
+    PC1_D                                    0x0801a5c6   Data          28  app_sn.o(.constdata)
+    shifts                                   0x0801a5e2   Data          16  app_sn.o(.constdata)
+    PC2_C                                    0x0801a5f2   Data          24  app_sn.o(.constdata)
+    PC2_D                                    0x0801a60a   Data          24  app_sn.o(.constdata)
+    IP                                       0x0801a622   Data          64  app_sn.o(.constdata)
+    FP                                       0x0801a662   Data          64  app_sn.o(.constdata)
+    S                                        0x0801a6a2   Data         512  app_sn.o(.constdata)
+    P                                        0x0801a8a2   Data          32  app_sn.o(.constdata)
+    .constdata                               0x0801a8c2   Section       25  system_stm32l0xx.o(.constdata)
+    .constdata                               0x0801a8db   Section        8  system_stm32l0xx.o(.constdata)
+    .constdata                               0x0801a8e8   Section       80  asin.o(.constdata)
+    pS                                       0x0801a8e8   Data          48  asin.o(.constdata)
+    qS                                       0x0801a918   Data          32  asin.o(.constdata)
+    .constdata                               0x0801a938   Section      136  pow.o(.constdata)
+    bp                                       0x0801a938   Data          16  pow.o(.constdata)
+    dp_h                                     0x0801a948   Data          16  pow.o(.constdata)
+    dp_l                                     0x0801a958   Data          16  pow.o(.constdata)
+    L                                        0x0801a968   Data          48  pow.o(.constdata)
+    P                                        0x0801a998   Data          40  pow.o(.constdata)
+    .constdata                               0x0801a9c0   Section       12  mktime.o(.constdata)
+    monlen                                   0x0801a9c0   Data          12  mktime.o(.constdata)
+    .constdata                               0x0801a9d0   Section       48  cos_i.o(.constdata)
+    C                                        0x0801a9d0   Data          48  cos_i.o(.constdata)
+    .constdata                               0x0801aa00   Section        8  qnan.o(.constdata)
+    .constdata                               0x0801aa08   Section      200  rred.o(.constdata)
+    pio2s                                    0x0801aa08   Data          48  rred.o(.constdata)
+    twooverpi                                0x0801aa38   Data         152  rred.o(.constdata)
+    .constdata                               0x0801aad0   Section       40  sin_i.o(.constdata)
+    S                                        0x0801aad0   Data          40  sin_i.o(.constdata)
+    .constdata                               0x0801aaf8   Section      129  ctype_o.o(.constdata)
+    .constdata                               0x0801ab7c   Section        4  ctype_o.o(.constdata)
+    table                                    0x0801ab7c   Data           4  ctype_o.o(.constdata)
+    .constdata                               0x0801ab80   Section       12  localtime_i.o(.constdata)
+    monlen                                   0x0801ab80   Data          12  localtime_i.o(.constdata)
+    .conststring                             0x0801ab8c   Section      643  app_net.o(.conststring)
+    .conststring                             0x0801ae10   Section      472  app_atcmd.o(.conststring)
+    .conststring                             0x0801afe8   Section      525  app_instructioncmd.o(.conststring)
     .data                                    0x20000000   Section        4  app_kernal.o(.data)
     timer_head                               0x20000000   Data           4  app_kernal.o(.data)
     .data                                    0x20000004   Section        8  app_port.o(.data)
     ldrLastState                             0x20000005   Data           1  app_port.o(.data)
     lastTick                                 0x20000008   Data           4  app_port.o(.data)
     .data                                    0x2000000c   Section        1  app_user.o(.data)
-    ind                                      0x2000000c   Data           1  app_user.o(.data)
+    idleFlag                                 0x2000000c   Data           1  app_user.o(.data)
     .data                                    0x20000010   Section        8  app_net.o(.data)
     autoatatimerid                           0x20000010   Data           1  app_net.o(.data)
     headNode                                 0x20000014   Data           4  app_net.o(.data)
@@ -1761,38 +1761,38 @@ Image Symbol Table
     systemShutDown                           0x080194d5   Thumb Code   118  app_task.o(i.systemShutDown)
     systemTaskResume                         0x08019565   Thumb Code    52  app_kernal.o(i.systemTaskResume)
     systemTaskSuspend                        0x080195b5   Thumb Code    50  app_kernal.o(i.systemTaskSuspend)
-    tapIntInMode5                            0x08019605   Thumb Code   196  app_user.o(i.tapIntInMode5)
-    taskRunInOneSecond                       0x080196ed   Thumb Code    68  app_task.o(i.taskRunInOneSecond)
-    terminalAccoff                           0x08019735   Thumb Code    12  app_sys.o(i.terminalAccoff)
-    terminalAccon                            0x08019745   Thumb Code    12  app_sys.o(i.terminalAccon)
-    terminalAlarmSet                         0x08019755   Thumb Code    16  app_sys.o(i.terminalAlarmSet)
-    terminalCharge                           0x08019769   Thumb Code    12  app_sys.o(i.terminalCharge)
-    terminalGPSFixed                         0x08019779   Thumb Code    12  app_sys.o(i.terminalGPSFixed)
-    terminalGPSUnFixed                       0x08019789   Thumb Code    12  app_sys.o(i.terminalGPSUnFixed)
-    terminalunCharge                         0x08019799   Thumb Code    12  app_sys.o(i.terminalunCharge)
-    updateLocalRTCTime                       0x08019835   Thumb Code    98  app_gps.o(i.updateLocalRTCTime)
-    updateRTCtimeRequest                     0x080198a1   Thumb Code    12  app_sys.o(i.updateRTCtimeRequest)
-    updateRange                              0x080198b1   Thumb Code    26  app_mir3da.o(i.updateRange)
-    updateSystemLedStatus                    0x080198e1   Thumb Code   108  app_task.o(i.updateSystemLedStatus)
-    updateSystemStartTime                    0x08019951   Thumb Code     8  app_sys.o(i.updateSystemStartTime)
-    uploadGpsRestoreData                     0x0801995d   Thumb Code    44  app_serverprotocol.o(i.uploadGpsRestoreData)
-    uploadRequestInMode4                     0x08019991   Thumb Code   138  app_task.o(i.uploadRequestInMode4)
-    voltageCheckTask                         0x08019a49   Thumb Code   542  app_task.o(i.voltageCheckTask)
-    wdtProcess                               0x08019da5   Thumb Code   178  app_task.o(i.wdtProcess)
-    wifiUploadRequestTask                    0x08019edd   Thumb Code    38  app_task.o(i.wifiUploadRequestTask)
-    ztvm_encrypt_des                         0x08019f11   Thumb Code    86  app_sn.o(i.ztvm_encrypt_des)
-    ztvm_encrypt_undes                       0x08019f67   Thumb Code    88  app_sn.o(i.ztvm_encrypt_undes)
-    ztvm_encrypt_untrides                    0x08019fbf   Thumb Code    40  app_sn.o(i.ztvm_encrypt_untrides)
-    n58_cmd_table                            0x0801a200   Data         464  app_net.o(.constdata)
-    atcmdtable                               0x0801a3d0   Data         152  app_atcmd.o(.constdata)
-    instructiontable                         0x0801a468   Data         296  app_atcmd.o(.constdata)
-    AHBPrescTable                            0x0801a8fa   Data          16  system_stm32l0xx.o(.constdata)
-    PLLMulTable                              0x0801a90a   Data           9  system_stm32l0xx.o(.constdata)
-    APBPrescTable                            0x0801a913   Data           8  system_stm32l0xx.o(.constdata)
-    __mathlib_zero                           0x0801aa38   Data           8  qnan.o(.constdata)
-    __ctype_table                            0x0801ab30   Data         129  ctype_o.o(.constdata)
-    Region$$Table$$Base                      0x0801b230   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0801b250   Number         0  anon$$obj.o(Region$$Table)
+    tapInt                                   0x08019605   Thumb Code   144  app_user.o(i.tapInt)
+    taskRunInOneSecond                       0x080196b5   Thumb Code    68  app_task.o(i.taskRunInOneSecond)
+    terminalAccoff                           0x080196fd   Thumb Code    12  app_sys.o(i.terminalAccoff)
+    terminalAccon                            0x0801970d   Thumb Code    12  app_sys.o(i.terminalAccon)
+    terminalAlarmSet                         0x0801971d   Thumb Code    16  app_sys.o(i.terminalAlarmSet)
+    terminalCharge                           0x08019731   Thumb Code    12  app_sys.o(i.terminalCharge)
+    terminalGPSFixed                         0x08019741   Thumb Code    12  app_sys.o(i.terminalGPSFixed)
+    terminalGPSUnFixed                       0x08019751   Thumb Code    12  app_sys.o(i.terminalGPSUnFixed)
+    terminalunCharge                         0x08019761   Thumb Code    12  app_sys.o(i.terminalunCharge)
+    updateLocalRTCTime                       0x080197fd   Thumb Code    98  app_gps.o(i.updateLocalRTCTime)
+    updateRTCtimeRequest                     0x08019869   Thumb Code    12  app_sys.o(i.updateRTCtimeRequest)
+    updateRange                              0x08019879   Thumb Code    26  app_mir3da.o(i.updateRange)
+    updateSystemLedStatus                    0x080198a9   Thumb Code   108  app_task.o(i.updateSystemLedStatus)
+    updateSystemStartTime                    0x08019919   Thumb Code     8  app_sys.o(i.updateSystemStartTime)
+    uploadGpsRestoreData                     0x08019925   Thumb Code    44  app_serverprotocol.o(i.uploadGpsRestoreData)
+    uploadRequestInMode4                     0x08019959   Thumb Code   138  app_task.o(i.uploadRequestInMode4)
+    voltageCheckTask                         0x08019a11   Thumb Code   542  app_task.o(i.voltageCheckTask)
+    wdtProcess                               0x08019d6d   Thumb Code   178  app_task.o(i.wdtProcess)
+    wifiUploadRequestTask                    0x08019ea5   Thumb Code    38  app_task.o(i.wifiUploadRequestTask)
+    ztvm_encrypt_des                         0x08019ed9   Thumb Code    86  app_sn.o(i.ztvm_encrypt_des)
+    ztvm_encrypt_undes                       0x08019f2f   Thumb Code    88  app_sn.o(i.ztvm_encrypt_undes)
+    ztvm_encrypt_untrides                    0x08019f87   Thumb Code    40  app_sn.o(i.ztvm_encrypt_untrides)
+    n58_cmd_table                            0x0801a1c8   Data         464  app_net.o(.constdata)
+    atcmdtable                               0x0801a398   Data         152  app_atcmd.o(.constdata)
+    instructiontable                         0x0801a430   Data         296  app_atcmd.o(.constdata)
+    AHBPrescTable                            0x0801a8c2   Data          16  system_stm32l0xx.o(.constdata)
+    PLLMulTable                              0x0801a8d2   Data           9  system_stm32l0xx.o(.constdata)
+    APBPrescTable                            0x0801a8db   Data           8  system_stm32l0xx.o(.constdata)
+    __mathlib_zero                           0x0801aa00   Data           8  qnan.o(.constdata)
+    __ctype_table                            0x0801aaf8   Data         129  ctype_o.o(.constdata)
+    Region$$Table$$Base                      0x0801b1f8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0801b218   Number         0  anon$$obj.o(Region$$Table)
     ringTimerId                              0x20000004   Data           1  app_port.o(.data)
     i2c_addr                                 0x20000070   Data           1  app_mir3da.o(.data)
     uwTickFreq                               0x20000074   Data           1  stm32l0xx_hal.o(.data)
@@ -1839,9 +1839,9 @@ Memory Map of the image
 
   Image Entry point : 0x080078c1
 
-  Load Region LR_IROM1 (Base: 0x08007800, Size: 0x00013ae0, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08007800, Size: 0x00013aa8, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08007800, Load base: 0x08007800, Size: 0x00013a50, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08007800, Load base: 0x08007800, Size: 0x00013a18, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2508,105 +2508,105 @@ Memory Map of the image
     0x080194d4   0x080194d4   0x00000090   Code   RO         1571    i.systemShutDown    app_task.o
     0x08019564   0x08019564   0x00000050   Code   RO           10    i.systemTaskResume  app_kernal.o
     0x080195b4   0x080195b4   0x00000050   Code   RO           11    i.systemTaskSuspend  app_kernal.o
-    0x08019604   0x08019604   0x000000e8   Code   RO          669    i.tapIntInMode5     app_user.o
-    0x080196ec   0x080196ec   0x00000048   Code   RO         1572    i.taskRunInOneSecond  app_task.o
-    0x08019734   0x08019734   0x00000010   Code   RO          480    i.terminalAccoff    app_sys.o
-    0x08019744   0x08019744   0x00000010   Code   RO          481    i.terminalAccon     app_sys.o
-    0x08019754   0x08019754   0x00000014   Code   RO          482    i.terminalAlarmSet  app_sys.o
-    0x08019768   0x08019768   0x00000010   Code   RO          483    i.terminalCharge    app_sys.o
-    0x08019778   0x08019778   0x00000010   Code   RO          486    i.terminalGPSFixed  app_sys.o
-    0x08019788   0x08019788   0x00000010   Code   RO          487    i.terminalGPSUnFixed  app_sys.o
-    0x08019798   0x08019798   0x00000010   Code   RO          488    i.terminalunCharge  app_sys.o
-    0x080197a8   0x080197a8   0x0000008c   Code   RO          256    i.updateAlarmA      app_port.o
-    0x08019834   0x08019834   0x0000006c   Code   RO         2030    i.updateLocalRTCTime  app_gps.o
-    0x080198a0   0x080198a0   0x00000010   Code   RO          489    i.updateRTCtimeRequest  app_sys.o
-    0x080198b0   0x080198b0   0x00000030   Code   RO         2839    i.updateRange       app_mir3da.o
-    0x080198e0   0x080198e0   0x00000070   Code   RO         1573    i.updateSystemLedStatus  app_task.o
-    0x08019950   0x08019950   0x0000000c   Code   RO          490    i.updateSystemStartTime  app_sys.o
-    0x0801995c   0x0801995c   0x00000034   Code   RO         1843    i.uploadGpsRestoreData  app_serverprotocol.o
-    0x08019990   0x08019990   0x000000b8   Code   RO         1574    i.uploadRequestInMode4  app_task.o
-    0x08019a48   0x08019a48   0x0000035c   Code   RO         1575    i.voltageCheckTask  app_task.o
-    0x08019da4   0x08019da4   0x00000120   Code   RO         1576    i.wdtProcess        app_task.o
-    0x08019ec4   0x08019ec4   0x00000016   Code   RO         1577    i.wifiScanStart     app_task.o
-    0x08019eda   0x08019eda   0x00000002   PAD
-    0x08019edc   0x08019edc   0x00000034   Code   RO         1578    i.wifiUploadRequestTask  app_task.o
-    0x08019f10   0x08019f10   0x00000056   Code   RO         2712    i.ztvm_encrypt_des  app_sn.o
-    0x08019f66   0x08019f66   0x00000058   Code   RO         2713    i.ztvm_encrypt_undes  app_sn.o
-    0x08019fbe   0x08019fbe   0x00000028   Code   RO         2714    i.ztvm_encrypt_untrides  app_sn.o
-    0x08019fe6   0x08019fe6   0x00000218   Data   RO          492    .constdata          app_sys.o
-    0x0801a1fe   0x0801a1fe   0x00000002   PAD
-    0x0801a200   0x0801a200   0x000001d0   Data   RO         1183    .constdata          app_net.o
-    0x0801a3d0   0x0801a3d0   0x000001e2   Data   RO         2252    .constdata          app_atcmd.o
-    0x0801a5b2   0x0801a5b2   0x00000348   Data   RO         2716    .constdata          app_sn.o
-    0x0801a8fa   0x0801a8fa   0x00000019   Data   RO         6126    .constdata          system_stm32l0xx.o
-    0x0801a913   0x0801a913   0x00000008   Data   RO         6127    .constdata          system_stm32l0xx.o
-    0x0801a91b   0x0801a91b   0x00000005   PAD
-    0x0801a920   0x0801a920   0x00000050   Data   RO         6165    .constdata          m_ps.l(asin.o)
-    0x0801a970   0x0801a970   0x00000088   Data   RO         6187    .constdata          m_ps.l(pow.o)
-    0x0801a9f8   0x0801a9f8   0x0000000c   Data   RO         6221    .constdata          mc_p.l(mktime.o)
-    0x0801aa04   0x0801aa04   0x00000004   PAD
-    0x0801aa08   0x0801aa08   0x00000030   Data   RO         6567    .constdata          m_ps.l(cos_i.o)
-    0x0801aa38   0x0801aa38   0x00000008   Data   RO         6587    .constdata          m_ps.l(qnan.o)
-    0x0801aa40   0x0801aa40   0x000000c8   Data   RO         6590    .constdata          m_ps.l(rred.o)
-    0x0801ab08   0x0801ab08   0x00000028   Data   RO         6594    .constdata          m_ps.l(sin_i.o)
-    0x0801ab30   0x0801ab30   0x00000081   Data   RO         6625    .constdata          mc_p.l(ctype_o.o)
-    0x0801abb1   0x0801abb1   0x00000003   PAD
-    0x0801abb4   0x0801abb4   0x00000004   Data   RO         6626    .constdata          mc_p.l(ctype_o.o)
-    0x0801abb8   0x0801abb8   0x0000000c   Data   RO         6656    .constdata          mc_p.l(localtime_i.o)
-    0x0801abc4   0x0801abc4   0x00000283   Data   RO         1184    .conststring        app_net.o
-    0x0801ae47   0x0801ae47   0x00000001   PAD
-    0x0801ae48   0x0801ae48   0x000001d8   Data   RO         2253    .conststring        app_atcmd.o
-    0x0801b020   0x0801b020   0x0000020d   Data   RO         2393    .conststring        app_instructioncmd.o
-    0x0801b22d   0x0801b22d   0x00000003   PAD
-    0x0801b230   0x0801b230   0x00000020   Data   RO         6707    Region$$Table       anon$$obj.o
+    0x08019604   0x08019604   0x000000b0   Code   RO          669    i.tapInt            app_user.o
+    0x080196b4   0x080196b4   0x00000048   Code   RO         1572    i.taskRunInOneSecond  app_task.o
+    0x080196fc   0x080196fc   0x00000010   Code   RO          480    i.terminalAccoff    app_sys.o
+    0x0801970c   0x0801970c   0x00000010   Code   RO          481    i.terminalAccon     app_sys.o
+    0x0801971c   0x0801971c   0x00000014   Code   RO          482    i.terminalAlarmSet  app_sys.o
+    0x08019730   0x08019730   0x00000010   Code   RO          483    i.terminalCharge    app_sys.o
+    0x08019740   0x08019740   0x00000010   Code   RO          486    i.terminalGPSFixed  app_sys.o
+    0x08019750   0x08019750   0x00000010   Code   RO          487    i.terminalGPSUnFixed  app_sys.o
+    0x08019760   0x08019760   0x00000010   Code   RO          488    i.terminalunCharge  app_sys.o
+    0x08019770   0x08019770   0x0000008c   Code   RO          256    i.updateAlarmA      app_port.o
+    0x080197fc   0x080197fc   0x0000006c   Code   RO         2030    i.updateLocalRTCTime  app_gps.o
+    0x08019868   0x08019868   0x00000010   Code   RO          489    i.updateRTCtimeRequest  app_sys.o
+    0x08019878   0x08019878   0x00000030   Code   RO         2839    i.updateRange       app_mir3da.o
+    0x080198a8   0x080198a8   0x00000070   Code   RO         1573    i.updateSystemLedStatus  app_task.o
+    0x08019918   0x08019918   0x0000000c   Code   RO          490    i.updateSystemStartTime  app_sys.o
+    0x08019924   0x08019924   0x00000034   Code   RO         1843    i.uploadGpsRestoreData  app_serverprotocol.o
+    0x08019958   0x08019958   0x000000b8   Code   RO         1574    i.uploadRequestInMode4  app_task.o
+    0x08019a10   0x08019a10   0x0000035c   Code   RO         1575    i.voltageCheckTask  app_task.o
+    0x08019d6c   0x08019d6c   0x00000120   Code   RO         1576    i.wdtProcess        app_task.o
+    0x08019e8c   0x08019e8c   0x00000016   Code   RO         1577    i.wifiScanStart     app_task.o
+    0x08019ea2   0x08019ea2   0x00000002   PAD
+    0x08019ea4   0x08019ea4   0x00000034   Code   RO         1578    i.wifiUploadRequestTask  app_task.o
+    0x08019ed8   0x08019ed8   0x00000056   Code   RO         2712    i.ztvm_encrypt_des  app_sn.o
+    0x08019f2e   0x08019f2e   0x00000058   Code   RO         2713    i.ztvm_encrypt_undes  app_sn.o
+    0x08019f86   0x08019f86   0x00000028   Code   RO         2714    i.ztvm_encrypt_untrides  app_sn.o
+    0x08019fae   0x08019fae   0x00000218   Data   RO          492    .constdata          app_sys.o
+    0x0801a1c6   0x0801a1c6   0x00000002   PAD
+    0x0801a1c8   0x0801a1c8   0x000001d0   Data   RO         1183    .constdata          app_net.o
+    0x0801a398   0x0801a398   0x000001e2   Data   RO         2252    .constdata          app_atcmd.o
+    0x0801a57a   0x0801a57a   0x00000348   Data   RO         2716    .constdata          app_sn.o
+    0x0801a8c2   0x0801a8c2   0x00000019   Data   RO         6126    .constdata          system_stm32l0xx.o
+    0x0801a8db   0x0801a8db   0x00000008   Data   RO         6127    .constdata          system_stm32l0xx.o
+    0x0801a8e3   0x0801a8e3   0x00000005   PAD
+    0x0801a8e8   0x0801a8e8   0x00000050   Data   RO         6165    .constdata          m_ps.l(asin.o)
+    0x0801a938   0x0801a938   0x00000088   Data   RO         6187    .constdata          m_ps.l(pow.o)
+    0x0801a9c0   0x0801a9c0   0x0000000c   Data   RO         6221    .constdata          mc_p.l(mktime.o)
+    0x0801a9cc   0x0801a9cc   0x00000004   PAD
+    0x0801a9d0   0x0801a9d0   0x00000030   Data   RO         6567    .constdata          m_ps.l(cos_i.o)
+    0x0801aa00   0x0801aa00   0x00000008   Data   RO         6587    .constdata          m_ps.l(qnan.o)
+    0x0801aa08   0x0801aa08   0x000000c8   Data   RO         6590    .constdata          m_ps.l(rred.o)
+    0x0801aad0   0x0801aad0   0x00000028   Data   RO         6594    .constdata          m_ps.l(sin_i.o)
+    0x0801aaf8   0x0801aaf8   0x00000081   Data   RO         6625    .constdata          mc_p.l(ctype_o.o)
+    0x0801ab79   0x0801ab79   0x00000003   PAD
+    0x0801ab7c   0x0801ab7c   0x00000004   Data   RO         6626    .constdata          mc_p.l(ctype_o.o)
+    0x0801ab80   0x0801ab80   0x0000000c   Data   RO         6656    .constdata          mc_p.l(localtime_i.o)
+    0x0801ab8c   0x0801ab8c   0x00000283   Data   RO         1184    .conststring        app_net.o
+    0x0801ae0f   0x0801ae0f   0x00000001   PAD
+    0x0801ae10   0x0801ae10   0x000001d8   Data   RO         2253    .conststring        app_atcmd.o
+    0x0801afe8   0x0801afe8   0x0000020d   Data   RO         2393    .conststring        app_instructioncmd.o
+    0x0801b1f5   0x0801b1f5   0x00000003   PAD
+    0x0801b1f8   0x0801b1f8   0x00000020   Data   RO         6707    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0801b250, Size: 0x00004398, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0801b218, Size: 0x00004398, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0801b250   0x00000004   Data   RW           14    .data               app_kernal.o
-    0x20000004   0x0801b254   0x00000008   Data   RW          258    .data               app_port.o
-    0x2000000c   0x0801b25c   0x00000001   Data   RW          671    .data               app_user.o
-    0x2000000d   0x0801b25d   0x00000003   PAD
-    0x20000010   0x0801b260   0x00000008   Data   RW         1185    .data               app_net.o
-    0x20000018   0x0801b268   0x00000028   Data   RW         1580    .data               app_task.o
-    0x20000040   0x0801b290   0x0000000e   Data   RW         1845    .data               app_serverprotocol.o
-    0x2000004e   0x0801b29e   0x00000001   Data   RW         2164    .data               app_nmea.o
-    0x2000004f   0x0801b29f   0x00000001   Data   RW         2394    .data               app_instructioncmd.o
-    0x20000050   0x0801b2a0   0x00000012   Data   RW         2717    .data               app_sn.o
-    0x20000062   0x0801b2b2   0x00000006   PAD
-    0x20000068   0x0801b2b8   0x00000008   Data   RW         2784    .data               app_gpsarithmetic.o
-    0x20000070   0x0801b2c0   0x00000001   Data   RW         2840    .data               app_mir3da.o
-    0x20000071   0x0801b2c1   0x00000003   PAD
-    0x20000074   0x0801b2c4   0x0000000c   Data   RW         3634    .data               stm32l0xx_hal.o
-    0x20000080   0x0801b2d0   0x00000004   Data   RW         6128    .data               system_stm32l0xx.o
-    0x20000084   0x0801b2d4   0x00000004   Data   RW         6658    .data               mc_p.l(mvars.o)
-    0x20000088   0x0801b2d8   0x00000004   Data   RW         6659    .data               mc_p.l(mvars.o)
-    0x2000008c   0x0801b2dc   0x00000004   Data   RW         6663    .data               mc_p.l(errno.o)
+    0x20000000   0x0801b218   0x00000004   Data   RW           14    .data               app_kernal.o
+    0x20000004   0x0801b21c   0x00000008   Data   RW          258    .data               app_port.o
+    0x2000000c   0x0801b224   0x00000001   Data   RW          671    .data               app_user.o
+    0x2000000d   0x0801b225   0x00000003   PAD
+    0x20000010   0x0801b228   0x00000008   Data   RW         1185    .data               app_net.o
+    0x20000018   0x0801b230   0x00000028   Data   RW         1580    .data               app_task.o
+    0x20000040   0x0801b258   0x0000000e   Data   RW         1845    .data               app_serverprotocol.o
+    0x2000004e   0x0801b266   0x00000001   Data   RW         2164    .data               app_nmea.o
+    0x2000004f   0x0801b267   0x00000001   Data   RW         2394    .data               app_instructioncmd.o
+    0x20000050   0x0801b268   0x00000012   Data   RW         2717    .data               app_sn.o
+    0x20000062   0x0801b27a   0x00000006   PAD
+    0x20000068   0x0801b280   0x00000008   Data   RW         2784    .data               app_gpsarithmetic.o
+    0x20000070   0x0801b288   0x00000001   Data   RW         2840    .data               app_mir3da.o
+    0x20000071   0x0801b289   0x00000003   PAD
+    0x20000074   0x0801b28c   0x0000000c   Data   RW         3634    .data               stm32l0xx_hal.o
+    0x20000080   0x0801b298   0x00000004   Data   RW         6128    .data               system_stm32l0xx.o
+    0x20000084   0x0801b29c   0x00000004   Data   RW         6658    .data               mc_p.l(mvars.o)
+    0x20000088   0x0801b2a0   0x00000004   Data   RW         6659    .data               mc_p.l(mvars.o)
+    0x2000008c   0x0801b2a4   0x00000004   Data   RW         6663    .data               mc_p.l(errno.o)
     0x20000090        -       0x00000010   Zero   RW           13    .bss                app_kernal.o
     0x200000a0        -       0x000009bc   Zero   RW          257    .bss                app_port.o
     0x20000a5c        -       0x00000180   Zero   RW          491    .bss                app_sys.o
     0x20000bdc        -       0x00000028   Zero   RW          670    .bss                app_user.o
     0x20000c04        -       0x000001e2   Zero   RW          789    .bss                app_param.o
-    0x20000de6   0x0801b2e0   0x00000002   PAD
+    0x20000de6   0x0801b2a8   0x00000002   PAD
     0x20000de8        -       0x000000a1   Zero   RW         1182    .bss                app_net.o
-    0x20000e89   0x0801b2e0   0x00000003   PAD
+    0x20000e89   0x0801b2a8   0x00000003   PAD
     0x20000e8c        -       0x00000020   Zero   RW         1579    .bss                app_task.o
     0x20000eac        -       0x00000848   Zero   RW         1844    .bss                app_serverprotocol.o
-    0x200016f4   0x0801b2e0   0x00000004   PAD
+    0x200016f4   0x0801b2a8   0x00000004   PAD
     0x200016f8        -       0x00000438   Zero   RW         2031    .bss                app_gps.o
     0x20001b30        -       0x0000003c   Zero   RW         2107    .bss                app_gpsrestore.o
-    0x20001b6c   0x0801b2e0   0x00000004   PAD
+    0x20001b6c   0x0801b2a8   0x00000004   PAD
     0x20001b70        -       0x00000070   Zero   RW         2163    .bss                app_nmea.o
     0x20001be0        -       0x0000001e   Zero   RW         2392    .bss                app_instructioncmd.o
-    0x20001bfe   0x0801b2e0   0x00000002   PAD
+    0x20001bfe   0x0801b2a8   0x00000002   PAD
     0x20001c00        -       0x00000044   Zero   RW         2619    .bss                app_rec.o
     0x20001c44        -       0x000003c0   Zero   RW         2715    .bss                app_sn.o
-    0x20002004   0x0801b2e0   0x00000004   PAD
+    0x20002004   0x0801b2a8   0x00000004   PAD
     0x20002008        -       0x00000020   Zero   RW         2783    .bss                app_gpsarithmetic.o
     0x20002028        -       0x00000017   Zero   RW         2933    .bss                app_ble.o
-    0x2000203f   0x0801b2e0   0x00000001   PAD
+    0x2000203f   0x0801b2a8   0x00000001   PAD
     0x20002040        -       0x0000005c   Zero   RW         3049    .bss                adc.o
     0x2000209c        -       0x0000004c   Zero   RW         3107    .bss                i2c.o
     0x200020e8        -       0x00000010   Zero   RW         3143    .bss                iwdg.o
@@ -2642,7 +2642,7 @@ Image component sizes
       1136         36        840         18        960       8303   app_sn.o
       1560        182        536          0        384      18913   app_sys.o
       6188       1862          0         40         32      25827   app_task.o
-       374         60          0          1         40       7382   app_user.o
+       318         56          0          1         40       7123   app_user.o
         56          4          0          0          0        674   dma.o
        268         30          0          0          0        899   gpio.o
        236         40          0          0         76       1933   i2c.o
@@ -2675,7 +2675,7 @@ Image component sizes
        696         78          0          0        612       3466   usart.o
 
     ----------------------------------------------------------------------
-     62780      13422       4230        132      17160     761434   Object Totals
+     62724      13418       4230        132      17160     761175   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         72          0         11         12         20          0   (incl. Padding)
 
@@ -2784,15 +2784,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     75558      14120       4906        144      17160     740762   Grand Totals
-     75558      14120       4906        144      17160     740762   ELF Image Totals
-     75558      14120       4906        144          0          0   ROM Totals
+     75502      14116       4906        144      17160     740503   Grand Totals
+     75502      14116       4906        144      17160     740503   ELF Image Totals
+     75502      14116       4906        144          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                80464 (  78.58kB)
+    Total RO  Size (Code + RO Data)                80408 (  78.52kB)
     Total RW  Size (RW Data + ZI Data)             17304 (  16.90kB)
-    Total ROM Size (Code + RO Data + RW Data)      80608 (  78.72kB)
+    Total ROM Size (Code + RO Data + RW Data)      80552 (  78.66kB)
 
 ==============================================================================
 

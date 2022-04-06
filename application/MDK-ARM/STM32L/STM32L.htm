@@ -3,7 +3,7 @@
 <title>Static Call Graph - [STM32L\STM32L.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32L\STM32L.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Mar 24 11:08:31 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Mar 24 13:10:20 2022
 <BR><P>
 <H3>Maximum Stack Usage =       2864 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -194,8 +194,7 @@ Global Symbols
 <P><STRONG><a name="[47]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapIntInMode5
-<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeUTCTimeToLocalTime
+<BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeUTCTimeToLocalTime
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portSetNextWakeUpTime
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portSetNextAlarmTime
 <LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
@@ -1188,7 +1187,7 @@ Global Symbols
 <P><STRONG><a name="[99]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, app_user.o(i.HAL_GPIO_EXTI_Callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = HAL_GPIO_EXTI_Callback &rArr; portRingSignal &rArr; startTimer &rArr; Create_Timer &rArr; LogMessage &rArr; portUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapIntInMode5
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapInt
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portRingSignal
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portLdrInt
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portGsensorInt
@@ -1780,7 +1779,7 @@ Global Symbols
 <LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestSet
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdParserFunction
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;alarmUploadRequest
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapIntInMode5
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapInt
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paraseInstructionToItem
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemModeRunStart
 <LI><a href="#[276]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startStep
@@ -2484,7 +2483,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[213]"></a>alarmRequestSet</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_task.o(i.alarmRequestSet))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapIntInMode5
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapInt
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portLdrInt
 <LI><a href="#[223]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;voltageCheckTask
 <LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
@@ -3782,7 +3781,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1cb]"></a>gpsRequestGet</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_task.o(i.gpsRequestGet))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapIntInMode5
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapInt
 <LI><a href="#[28e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemShutDown
 <LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorTapTask
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gsensorIntervalCheck
@@ -3796,7 +3795,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapIntInMode5
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapInt
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doPoitypeRequest
 <LI><a href="#[290]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uploadRequestInMode4
 <LI><a href="#[215]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hearbeatRequest
@@ -5439,7 +5438,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portGetSystemDateTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapIntInMode5
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapInt
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portLdrInt
 </UL>
 
@@ -6132,7 +6131,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b9]"></a>systemRequestSet</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_task.o(i.systemRequestSet))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapIntInMode5
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tapInt
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_WakeUpTimerEventCallback
 <LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;networkConnectProcess
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netExitStopMode
@@ -6203,8 +6202,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atCmdDebugParase
 </UL>
 
-<P><STRONG><a name="[9d]"></a>tapIntInMode5</STRONG> (Thumb, 196 bytes, Stack size 24 bytes, app_user.o(i.tapIntInMode5))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = tapIntInMode5 &rArr; gpsRequestSet &rArr; LogMessage &rArr; portUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[9d]"></a>tapInt</STRONG> (Thumb, 144 bytes, Stack size 16 bytes, app_user.o(i.tapInt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = tapInt &rArr; gpsRequestSet &rArr; LogMessage &rArr; portUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestSet
 <LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestGet
@@ -6212,7 +6211,6 @@ Global Symbols
 <LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;alarmRequestSet
 <LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;portGetDateTimeOfSeconds
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
