@@ -381,6 +381,7 @@ void netExitStopMode(void)
 
 void networkConnectProcess(void)
 {
+    static uint8_t atCnt = 0;
     if (n58_invoke_status.modulepowerstate == 0)
     {
         return ;
@@ -399,12 +400,22 @@ void networkConnectProcess(void)
                 sendModuleCmd(N58_AT_CMD, NULL);
                 if (n58_invoke_status.tick_time > 90)
                 {
-                    moduleReset();//复位设备
+
+                    if (atCnt++ >= 2)
+                    {
+                        atCnt = 0;
+                        modulePowerOn();
+                    }
+                    else
+                    {
+                        moduleReset();//复位设备
+                    }
                 }
                 break;
             }
             else
             {
+                atCnt = 0;
                 sendModuleCmd(N58_SIMHOTSWAP_CMD, "0");
                 n58_lte_status.at_respon = 0;
                 N58_ChangeInvokeStatus(N58_CPIN_STATUS);
@@ -597,7 +608,7 @@ void networkConnectProcess(void)
             if (n58_lte_status.cgdcont_ok == 0)
             {
                 n58setAPN();
-                if (n58_invoke_status.tick_time > 4)
+                if (n58_invoke_status.tick_time > 10)
                 {
                     moduleReset();//复位设备
                 }
@@ -612,7 +623,7 @@ void networkConnectProcess(void)
             if (n58_lte_status.xgauth_ok == 0)
             {
                 n58setXGAUTH();
-                if (n58_invoke_status.tick_time > 5)
+                if (n58_invoke_status.tick_time > 10)
                 {
                     moduleReset();//复位设备
                 }
@@ -629,7 +640,7 @@ void networkConnectProcess(void)
             if (n58_lte_status.xiic_ok == 0)
             {
                 sendModuleCmd(N58_XIIC_CMD, "1");
-                if (n58_invoke_status.tick_time > 8)
+                if (n58_invoke_status.tick_time > 10)
                 {
                     moduleReset();//复位设备
                 }

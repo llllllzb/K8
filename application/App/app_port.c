@@ -8,6 +8,7 @@
 #include "app_task.h"
 #include "i2c.h"
 #include "iwdg.h"
+#include <time.h>
 #include "app_kernal.h"
 
 UART_RXTX_CTL usart1_ctl;
@@ -303,6 +304,33 @@ void portSetSystemDateTime(uint8_t year, uint8_t month, uint8_t date, uint8_t ho
     char debug[100];
     RTC_TimeTypeDef sTime = {0};
     RTC_DateTypeDef sDate = {0};
+	uint32_t sec1, sec2;
+    uint16_t cyear;
+    uint8_t cmonth, cdate, chour, cminute, csecond;
+    struct tm datetime;
+    portGetSystemDateTime(&cyear, &cmonth, &cdate, &chour, &cminute, &csecond);
+    datetime.tm_year = cyear % 100;
+    datetime.tm_mon = cmonth;
+    datetime.tm_mday = cdate;
+    datetime.tm_hour = chour;
+    datetime.tm_min = cminute;
+    datetime.tm_sec = csecond;
+    sec1 = mktime(&datetime);
+    //LogPrintf(DEBUG_ALL, "SEC1:%02d/%02d/%02d-%02d:%02d:%02d==>%u\r\n", cyear%100,cmonth,cdate,chour,cminute,csecond ,sec1);
+    datetime.tm_year = year % 100;
+    datetime.tm_mon = month;
+    datetime.tm_mday = date;
+    datetime.tm_hour = hour;
+    datetime.tm_min = minute;
+    datetime.tm_sec = second + 1;
+    sec2 = mktime(&datetime);
+    //LogPrintf(DEBUG_ALL, "SEC2:%02d/%02d/%02d-%02d:%02d:%02d==>%u\r\n",year%100,month,date,hour,minute,second,sec2);
+
+    if (abs(sec1 - sec2) <= 300)
+    {
+    	LogMessage(DEBUG_ALL,"no need to update rtc\r\n");
+        return;
+    }
     sTime.Hours = hour;
     sTime.Minutes =	minute;
     sTime.Seconds = second;

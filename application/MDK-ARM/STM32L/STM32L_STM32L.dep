@@ -1,9 +1,9 @@
 Dependencies for Project 'STM32L', Target 'STM32L': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (..\App\app_kernal.c)(0x6235308E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_kernal.o --omf_browse stm32l\app_kernal.crf --depend stm32l\app_kernal.d)
+F (..\App\app_kernal.c)(0x63423EAE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_kernal.o --omf_browse stm32l\app_kernal.crf --depend stm32l\app_kernal.d)
 I (..\App\app_kernal.h)(0x5FB4CF46)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -44,11 +44,11 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_param.h)(0x623BFD11)
-F (..\App\app_port.c)(0x62359414)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_port.o --omf_browse stm32l\app_port.crf --depend stm32l\app_port.d)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_param.h)(0x63425E54)
+F (..\App\app_port.c)(0x63425EB9)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_port.o --omf_browse stm32l\app_port.crf --depend stm32l\app_port.d)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/main.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x610A3448)
 I (../Inc/stm32l0xx_hal_conf.h)(0x6212ECAC)
@@ -86,23 +86,23 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\string.h)(0x5E8E2EB2)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_mir3da.h)(0x623545BE)
-I (..\App\app_param.h)(0x623BFD11)
+I (..\App\app_mir3da.h)(0x63423EAE)
+I (..\App\app_param.h)(0x63425E54)
 I (../Inc/rtc.h)(0x6212ECAC)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\time.h)(0x5E8E2EB2)
 I (../Inc/adc.h)(0x6212ECAC)
-I (..\App\app_task.h)(0x6235311C)
+I (..\App\app_task.h)(0x624CFC39)
 I (../Inc/i2c.h)(0x6212ECAC)
 I (../Inc/iwdg.h)(0x6212ECAC)
 I (..\App\app_kernal.h)(0x5FB4CF46)
-F (..\App\app_sys.c)(0x6235308E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_sys.o --omf_browse stm32l\app_sys.crf --depend stm32l\app_sys.d)
-I (..\App\app_sys.h)(0x62357619)
+F (..\App\app_sys.c)(0x63423EAF)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_sys.o --omf_browse stm32l\app_sys.crf --depend stm32l\app_sys.d)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
@@ -144,12 +144,12 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_ble.h)(0x6235308E)
-F (..\App\app_user.c)(0x623BFD23)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_user.o --omf_browse stm32l\app_user.crf --depend stm32l\app_user.d)
+I (..\App\app_ble.h)(0x63423EAE)
+F (..\App\app_user.c)(0x63423EAF)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_user.o --omf_browse stm32l\app_user.crf --depend stm32l\app_user.d)
 I (..\App\app_user.h)(0x5FB4D027)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
@@ -192,18 +192,18 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
 I (..\App\app_kernal.h)(0x5FB4CF46)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_net.h)(0x6235308E)
-I (..\App\app_task.h)(0x6235311C)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_net.h)(0x63423EAF)
+I (..\App\app_task.h)(0x624CFC39)
 I (..\App\app_rec.h)(0x6108AFF3)
-I (..\App\app_atcmd.h)(0x623BDCB9)
+I (..\App\app_atcmd.h)(0x63423EAE)
 I (../Inc/adc.h)(0x6212ECAC)
-F (..\App\app_param.c)(0x623BDDAE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_param.o --omf_browse stm32l\app_param.crf --depend stm32l\app_param.d)
-I (..\App\app_param.h)(0x623BFD11)
+F (..\App\app_param.c)(0x63423EAF)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_param.o --omf_browse stm32l\app_param.crf --depend stm32l\app_param.d)
+I (..\App\app_param.h)(0x63425E54)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -244,10 +244,10 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
-F (..\App\app_net.c)(0x6235308E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_net.o --omf_browse stm32l\app_net.crf --depend stm32l\app_net.d)
-I (..\App\app_net.h)(0x6235308E)
+F (..\App\app_net.c)(0x63425FC4)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_net.o --omf_browse stm32l\app_net.crf --depend stm32l\app_net.d)
+I (..\App\app_net.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/main.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x610A3448)
 I (../Inc/stm32l0xx_hal_conf.h)(0x6212ECAC)
@@ -285,25 +285,25 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (../Inc/usart.h)(0x6212ECAC)
 I (..\App\app_kernal.h)(0x5FB4CF46)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\string.h)(0x5E8E2EB2)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_task.h)(0x6235311C)
-I (..\App\app_serverprotocol.h)(0x6235308E)
-I (..\App\app_gps.h)(0x5FD9A445)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_task.h)(0x624CFC39)
+I (..\App\app_serverprotocol.h)(0x63423EAF)
+I (..\App\app_gps.h)(0x630EC5C6)
 I (..\App\app_gpsrestore.h)(0x5FBC61F9)
 I (..\App\app_rec.h)(0x6108AFF3)
-I (..\App\app_instructioncmd.h)(0x623BDCAD)
-I (..\App\app_atcmd.h)(0x623BDCB9)
-I (..\App\app_ble.h)(0x6235308E)
-F (..\App\app_task.c)(0x62359469)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_task.o --omf_browse stm32l\app_task.crf --depend stm32l\app_task.d)
-I (..\App\app_task.h)(0x6235311C)
+I (..\App\app_instructioncmd.h)(0x63423EAE)
+I (..\App\app_atcmd.h)(0x63423EAE)
+I (..\App\app_ble.h)(0x63423EAE)
+F (..\App\app_task.c)(0x634260CF)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_task.o --omf_browse stm32l\app_task.crf --depend stm32l\app_task.d)
+I (..\App\app_task.h)(0x624CFC39)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/main.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x610A3448)
 I (../Inc/stm32l0xx_hal_conf.h)(0x6212ECAC)
@@ -340,29 +340,29 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\string.h)(0x5E8E2EB2)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_param.h)(0x623BFD11)
+I (..\App\app_param.h)(0x63425E54)
 I (..\App\app_kernal.h)(0x5FB4CF46)
-I (..\App\app_mir3da.h)(0x623545BE)
-I (..\App\app_instructioncmd.h)(0x623BDCAD)
-I (..\App\app_atcmd.h)(0x623BDCB9)
-I (..\App\app_serverprotocol.h)(0x6235308E)
-I (..\App\app_gps.h)(0x5FD9A445)
+I (..\App\app_mir3da.h)(0x63423EAE)
+I (..\App\app_instructioncmd.h)(0x63423EAE)
+I (..\App\app_atcmd.h)(0x63423EAE)
+I (..\App\app_serverprotocol.h)(0x63423EAF)
+I (..\App\app_gps.h)(0x630EC5C6)
 I (..\App\app_gpsrestore.h)(0x5FBC61F9)
-I (..\App\app_net.h)(0x6235308E)
+I (..\App\app_net.h)(0x63423EAF)
 I (..\App\app_gpsarithmetic.h)(0x5FB867E0)
 I (..\App\app_rec.h)(0x6108AFF3)
-I (..\App\app_ble.h)(0x6235308E)
-F (..\App\app_serverprotocol.c)(0x6235308E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_serverprotocol.o --omf_browse stm32l\app_serverprotocol.crf --depend stm32l\app_serverprotocol.d)
-I (..\App\app_serverprotocol.h)(0x6235308E)
+I (..\App\app_ble.h)(0x63423EAE)
+F (..\App\app_serverprotocol.c)(0x63423EAF)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_serverprotocol.o --omf_browse stm32l\app_serverprotocol.crf --depend stm32l\app_serverprotocol.d)
+I (..\App\app_serverprotocol.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_gps.h)(0x5FD9A445)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_gps.h)(0x630EC5C6)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -404,17 +404,17 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
 I (..\App\app_gpsrestore.h)(0x5FBC61F9)
-I (..\App\app_net.h)(0x6235308E)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_task.h)(0x6235311C)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_net.h)(0x63423EAF)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_task.h)(0x624CFC39)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_instructioncmd.h)(0x623BDCAD)
-I (..\App\app_atcmd.h)(0x623BDCB9)
+I (..\App\app_instructioncmd.h)(0x63423EAE)
+I (..\App\app_atcmd.h)(0x63423EAE)
 I (..\App\app_kernal.h)(0x5FB4CF46)
-F (..\App\app_gps.c)(0x6235308E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_gps.o --omf_browse stm32l\app_gps.crf --depend stm32l\app_gps.d)
-I (..\App\app_gps.h)(0x5FD9A445)
-I (..\App\app_sys.h)(0x62357619)
+F (..\App\app_gps.c)(0x63423EAE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_gps.o --omf_browse stm32l\app_gps.crf --depend stm32l\app_gps.d)
+I (..\App\app_gps.h)(0x630EC5C6)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
@@ -456,15 +456,15 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_task.h)(0x6235311C)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_task.h)(0x624CFC39)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-F (..\App\app_gpsrestore.c)(0x61612F9E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_gpsrestore.o --omf_browse stm32l\app_gpsrestore.crf --depend stm32l\app_gpsrestore.d)
+F (..\App\app_gpsrestore.c)(0x630EC5C6)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_gpsrestore.o --omf_browse stm32l\app_gpsrestore.crf --depend stm32l\app_gpsrestore.d)
 I (..\App\app_gpsrestore.h)(0x5FBC61F9)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_net.h)(0x6235308E)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_net.h)(0x63423EAF)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -544,17 +544,17 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\math.h)(0x5E8E2EB2)
-I (..\App\app_gps.h)(0x5FD9A445)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_gps.h)(0x630EC5C6)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\string.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\time.h)(0x5E8E2EB2)
-F (..\App\app_atcmd.c)(0x623BDCF0)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_atcmd.o --omf_browse stm32l\app_atcmd.crf --depend stm32l\app_atcmd.d)
-I (..\App\app_atcmd.h)(0x623BDCB9)
+F (..\App\app_atcmd.c)(0x63423EAE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_atcmd.o --omf_browse stm32l\app_atcmd.crf --depend stm32l\app_atcmd.d)
+I (..\App\app_atcmd.h)(0x63423EAE)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -596,21 +596,21 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
 I (..\App\app_kernal.h)(0x5FB4CF46)
-I (..\App\app_task.h)(0x6235311C)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_task.h)(0x624CFC39)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_net.h)(0x6235308E)
-I (..\App\app_mir3da.h)(0x623545BE)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_gps.h)(0x5FD9A445)
+I (..\App\app_net.h)(0x63423EAF)
+I (..\App\app_mir3da.h)(0x63423EAE)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_gps.h)(0x630EC5C6)
 I (..\App\app_sn.h)(0x5FB7AA23)
-I (..\App\app_serverprotocol.h)(0x6235308E)
+I (..\App\app_serverprotocol.h)(0x63423EAF)
 I (..\App\app_gpsrestore.h)(0x5FBC61F9)
-I (..\App\app_instructioncmd.h)(0x623BDCAD)
-F (..\App\app_instructioncmd.c)(0x623BDCEE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_instructioncmd.o --omf_browse stm32l\app_instructioncmd.crf --depend stm32l\app_instructioncmd.d)
-I (..\App\app_instructioncmd.h)(0x623BDCAD)
+I (..\App\app_instructioncmd.h)(0x63423EAE)
+F (..\App\app_instructioncmd.c)(0x63423EAE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_instructioncmd.o --omf_browse stm32l\app_instructioncmd.crf --depend stm32l\app_instructioncmd.d)
+I (..\App\app_instructioncmd.h)(0x63423EAE)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -651,25 +651,25 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_atcmd.h)(0x623BDCB9)
+I (..\App\app_atcmd.h)(0x63423EAE)
 I (..\App\app_sn.h)(0x5FB7AA23)
 I (..\App\app_rec.h)(0x6108AFF3)
-I (..\App\app_net.h)(0x6235308E)
+I (..\App\app_net.h)(0x63423EAF)
 I (..\App\app_kernal.h)(0x5FB4CF46)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_task.h)(0x6235311C)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_task.h)(0x624CFC39)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_mir3da.h)(0x623545BE)
-I (..\App\app_serverprotocol.h)(0x6235308E)
-I (..\App\app_gps.h)(0x5FD9A445)
+I (..\App\app_mir3da.h)(0x63423EAE)
+I (..\App\app_serverprotocol.h)(0x63423EAF)
+I (..\App\app_gps.h)(0x630EC5C6)
 I (..\App\app_gpsrestore.h)(0x5FBC61F9)
-I (..\App\app_ble.h)(0x6235308E)
-F (..\App\app_rec.c)(0x6235308E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_rec.o --omf_browse stm32l\app_rec.crf --depend stm32l\app_rec.d)
+I (..\App\app_ble.h)(0x63423EAE)
+F (..\App\app_rec.c)(0x63423EAF)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_rec.o --omf_browse stm32l\app_rec.crf --depend stm32l\app_rec.d)
 I (..\App\app_rec.h)(0x6108AFF3)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_net.h)(0x6235308E)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_net.h)(0x63423EAF)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/main.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x610A3448)
 I (../Inc/stm32l0xx_hal_conf.h)(0x6212ECAC)
@@ -706,19 +706,19 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\string.h)(0x5E8E2EB2)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_serverprotocol.h)(0x6235308E)
-I (..\App\app_gps.h)(0x5FD9A445)
+I (..\App\app_serverprotocol.h)(0x63423EAF)
+I (..\App\app_gps.h)(0x630EC5C6)
 I (..\App\app_gpsrestore.h)(0x5FBC61F9)
 F (..\App\app_sn.c)(0x5FB7B20F)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_sn.o --omf_browse stm32l\app_sn.crf --depend stm32l\app_sn.d)
 I (..\App\app_sn.h)(0x5FB7AA23)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -759,10 +759,10 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
-F (..\App\app_gpsarithmetic.c)(0x60750CD6)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_gpsarithmetic.o --omf_browse stm32l\app_gpsarithmetic.crf --depend stm32l\app_gpsarithmetic.d)
+F (..\App\app_gpsarithmetic.c)(0x630EC5C6)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_gpsarithmetic.o --omf_browse stm32l\app_gpsarithmetic.crf --depend stm32l\app_gpsarithmetic.d)
 I (..\App\app_gpsarithmetic.h)(0x5FB867E0)
-I (..\App\app_gps.h)(0x5FD9A445)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_gps.h)(0x630EC5C6)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
@@ -804,13 +804,13 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_serverprotocol.h)(0x6235308E)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_serverprotocol.h)(0x63423EAF)
 I (..\App\app_gpsrestore.h)(0x5FBC61F9)
-I (..\App\app_net.h)(0x6235308E)
+I (..\App\app_net.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\math.h)(0x5E8E2EB2)
-F (..\App\app_mir3da.c)(0x623545BD)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_mir3da.o --omf_browse stm32l\app_mir3da.crf --depend stm32l\app_mir3da.d)
-I (..\App\app_mir3da.h)(0x623545BE)
+F (..\App\app_mir3da.c)(0x63423EAE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_mir3da.o --omf_browse stm32l\app_mir3da.crf --depend stm32l\app_mir3da.d)
+I (..\App\app_mir3da.h)(0x63423EAE)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x610A3448)
 I (../Inc/stm32l0xx_hal_conf.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc.h)(0x610A3448)
@@ -849,16 +849,16 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (../Inc/i2c.h)(0x6212ECAC)
 I (../Inc/main.h)(0x6212ECAC)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\string.h)(0x5E8E2EB2)
 I (..\App\app_nmea.h)(0x61612F9E)
-F (..\App\app_ble.c)(0x6235308E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_ble.o --omf_browse stm32l\app_ble.crf --depend stm32l\app_ble.d)
-I (..\App\app_ble.h)(0x6235308E)
+F (..\App\app_ble.c)(0x63423EAE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_ble.o --omf_browse stm32l\app_ble.crf --depend stm32l\app_ble.d)
+I (..\App\app_ble.h)(0x63423EAE)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
-I (..\App\app_net.h)(0x6235308E)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_net.h)(0x63423EAF)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -899,11 +899,11 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (..\App\app_nmea.h)(0x61612F9E)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_atcmd.h)(0x623BDCB9)
-F (../Src/main.c)(0x6212ECAE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\main.o --omf_browse stm32l\main.crf --depend stm32l\main.d)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_atcmd.h)(0x63423EAE)
+F (../Src/main.c)(0x62FB2DB0)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\main.o --omf_browse stm32l\main.crf --depend stm32l\main.d)
 I (../Inc/main.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x610A3448)
 I (../Inc/stm32l0xx_hal_conf.h)(0x6212ECAC)
@@ -1214,7 +1214,7 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
-F (../Src/stm32l0xx_it.c)(0x62353091)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\stm32l0xx_it.o --omf_browse stm32l\stm32l0xx_it.crf --depend stm32l\stm32l0xx_it.d)
+F (../Src/stm32l0xx_it.c)(0x63423EB0)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L071xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\stm32l0xx_it.o --omf_browse stm32l\stm32l0xx_it.crf --depend stm32l\stm32l0xx_it.d)
 I (../Inc/main.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x610A3448)
 I (../Inc/stm32l0xx_hal_conf.h)(0x6212ECAC)
@@ -1252,10 +1252,10 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 I (../Inc/stm32l0xx_it.h)(0x6212ECAC)
-I (..\App\app_port.h)(0x6235308E)
+I (..\App\app_port.h)(0x63423EAF)
 I (../Inc/usart.h)(0x6212ECAC)
-I (..\App\app_param.h)(0x623BFD11)
-I (..\App\app_sys.h)(0x62357619)
+I (..\App\app_param.h)(0x63425E54)
+I (..\App\app_sys.h)(0x63423EAF)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (D:\aWinOS\KEIL\ARM\ARMCC\include\stdlib.h)(0x5E8E2EB2)
@@ -2163,4 +2163,4 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x610A3448)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6212ECAC)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6212ECAC)
 F (startup_stm32l071xx.s)(0x6212ECAE)(--cpu Cortex-M0+ -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_STM32L-ID:\aWinOS\KEIL\pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\aWinOS\KEIL\pack\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include--pd "__UVISION_VERSION SETA 533" --pd "_RTE_ SETA 1" --pd "STM32L071xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32l071xx.lst --xref -o stm32l\startup_stm32l071xx.o --depend stm32l\startup_stm32l071xx.d)
-F (.\STM32L\STM32L.map)(0x623BFD3C)()
+F (.\STM32L\STM32L.map)(0x634262A9)()
