@@ -318,7 +318,7 @@ static void gpsRequestOpen(void)
 {
 
     LogMessage(DEBUG_ALL, "gpsRequestTask==>open GPS\n");
-	moduleSleepCtl(0);
+    moduleSleepCtl(0);
     GPSLNAON;
     startTimer(8000, gpsStartBD, 0);
     sysinfo.gpsUpdatetick = sysinfo.System_Tick;
@@ -340,7 +340,7 @@ static void gpsRequestOpen(void)
 static void gpsRequestClose(void)
 {
     LogMessage(DEBUG_ALL, "gpsRequestTask==>close GSP\n");
-	moduleSleepCtl(1);
+    moduleSleepCtl(1);
     GPSLNAOFF;
     closeModuleGPS();
     gpsClearCurrentGPSInfo();
@@ -1009,23 +1009,26 @@ void systemModeRunTask(void)
 {
     static uint8_t mode2runtick;
     static uint8_t delaytick;
+    static uint8_t waitTick;
     switch (sysinfo.runFsm)
     {
         case MODE_START:
             mode2runtick = 0;
             delaytick = 0;
+            waitTick = 0;
             sysinfo.runStartTick = sysinfo.System_Tick;
             sysinfo.gpsuploadonepositiontime = 180;
 
-            gsensorConfig(1);
             if (sysparam.MODE == MODE1)
             {
+                gsensorConfig(0);
                 setNextAlarmTime();
                 sysparam.mode1startuptime++;
                 sysinfo.gpsuploadonepositiontime = 90;
             }
             else if (sysparam.MODE == MODE2)
             {
+                gsensorConfig(1);
                 if (sysparam.accctlgnss == 0)
                 {
                     gpsRequestSet(GPS_REQUEST_GPSKEEPOPEN_CTL);
@@ -1033,6 +1036,7 @@ void systemModeRunTask(void)
             }
             else if (sysparam.MODE == MODE3)
             {
+                gsensorConfig(0);
                 setNextWakeUpTime();
                 sysparam.mode1startuptime++;
                 sysinfo.gpsuploadonepositiontime = 90;
@@ -1051,12 +1055,14 @@ void systemModeRunTask(void)
             }
             else if (sysparam.MODE == MODE23)
             {
+                gsensorConfig(1);
                 setNextWakeUpTime();
                 if (getTerminalAccState() == 0)
                     sysparam.mode1startuptime++;
             }
             else if (sysparam.MODE == MODE21)
             {
+                gsensorConfig(1);
                 setNextAlarmTime();
                 if (getTerminalAccState() == 0)
                     sysparam.mode1startuptime++;
@@ -1067,6 +1073,7 @@ void systemModeRunTask(void)
             updateSystemLedStatus(SYSTEM_LED_RUN, 1);
             sysinfo.runFsm = MODE_RUNING;
             sysinfo.csqSearchTime = 30;
+			updateRTCtimeRequest();
             break;
         case MODE_RUNING:
 
@@ -1075,6 +1082,7 @@ void systemModeRunTask(void)
                 if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 210)
                 {
                     sysinfo.alarmrequest = 0;
+                    sysinfo.GPSRequest = 0;
                     sysinfo.runFsm = MODE_STOP; //执行完毕，关机
                 }
                 modeShutDownQuickly();
@@ -1095,6 +1103,8 @@ void systemModeRunTask(void)
                     //确保在已经关机下被感光唤醒时，4G模块开不起来时，最多工作3分钟
                     if (sysinfo.systempowerlow == 1)
                     {
+                        sysinfo.GPSRequest = 0;
+                        sysinfo.alarmrequest = 0;
                         sysinfo.runFsm = MODE_STOP; //执行完毕，关机
                     }
                 }
@@ -1104,6 +1114,7 @@ void systemModeRunTask(void)
                 if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 210)
                 {
                     sysinfo.alarmrequest = 0;
+                    sysinfo.GPSRequest = 0;
                     sysinfo.runFsm = MODE_STOP; //执行完毕，关机
                 }
                 modeShutDownQuickly();
@@ -1166,12 +1177,22 @@ void systemModeRunTask(void)
             voltageCheckTask();
             break;
         case MODE_STOP:
-            if (sysparam.MODE != MODE21 && sysparam.MODE != MODE23)
-                gsensorConfig(0);
-            systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
-            systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
-            updateSystemLedStatus(SYSTEM_LED_RUN, 0);
-            sysinfo.runFsm = MODE_DONE;
+            if (waitTick == 0)
+            {
+                if (sysparam.MODE != MODE21 && sysparam.MODE != MODE23)
+                {
+                    gsensorConfig(0);
+                }
+				sendModuleCmd(N58_AT_CMD,NULL);
+                sendModuleCmd(N58_MYPOWEROFF_CMD, NULL);
+                updateSystemLedStatus(SYSTEM_LED_RUN, 0);
+            }
+            else if (waitTick >= 5)
+            {
+                systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
+                sysinfo.runFsm = MODE_DONE;
+            }
+            waitTick++;
             break;
 
         case MODE_DONE:
@@ -1356,12 +1377,12 @@ uint8_t autoSleepTask(void)
 
 void delSmsOndDay(void)
 {
-	static uint32_t sectick=0;
-	if(++sectick>=86400)
-	{
-		sectick=0;
-		deleteMessage();
-	}
+    static uint32_t sectick = 0;
+    if (++sectick >= 86400)
+    {
+        sectick = 0;
+        deleteMessage();
+    }
 }
 
 
@@ -1371,7 +1392,7 @@ void taskRunInOneSecond(void)
 {
     sysinfo.System_Tick++;
     disPlaySystemTime();
-	delSmsOndDay();
+    delSmsOndDay();
     networkConnectProcess();
     gpsOutputCheckTask();
     gpsRequestTask();

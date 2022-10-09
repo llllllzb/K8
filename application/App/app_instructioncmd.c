@@ -225,7 +225,7 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                         if (strlen(item->item_data[2 + i]) <= 4 && strlen(item->item_data[2 + i]) >= 3)
                         {
                             valueofminute = atoi(item->item_data[2 + i]);
-                            mode1time[timecount++] = valueofminute / 100 * 60 + valueofminute % 100;
+                            mode1time[timecount++] = (valueofminute / 100 * 60 + valueofminute % 100) % 1440;
                         }
                         else
                         {
@@ -1158,22 +1158,22 @@ void doSetAgpsInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         if (item->item_data[1][0] != 0)
         {
             strcpy((char *)sysparam.agpsServer, item->item_data[1]);
-			paramSaveAgpsServer();
+            paramSaveAgpsServer();
         }
         if (item->item_data[2][0] != 0)
         {
             sysparam.agpsPort = atoi(item->item_data[2]);
-			paramSaveAgpsPort();
+            paramSaveAgpsPort();
         }
         if (item->item_data[3][0] != 0)
         {
             strcpy((char *)sysparam.agpsUser, item->item_data[3]);
-			paramSaveAgpsUser();
+            paramSaveAgpsUser();
         }
         if (item->item_data[4][0] != 0)
         {
             strcpy((char *)sysparam.agpsPswd, item->item_data[4]);
-			paramSaveAgpsPswd();
+            paramSaveAgpsPswd();
         }
         sprintf(message, "Update Agps info:%s,%d,%s,%s", sysparam.agpsServer, sysparam.agpsPort, sysparam.agpsUser,
                 sysparam.agpsPswd);

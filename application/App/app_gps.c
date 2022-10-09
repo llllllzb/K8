@@ -34,7 +34,6 @@ void updateLocalRTCTime(DATETIME * datetime)
     DATETIME localtime;
     localtime=changeUTCTimeToLocalTime(*datetime,sysparam.utc);
     updateRTCdatetime(localtime.year,localtime.month,localtime.day,localtime.hour,localtime.minute,localtime.second);
-
     if(sysparam.MODE==MODE1 || sysparam.MODE==MODE21)
     {
         setNextAlarmTime();
@@ -46,9 +45,7 @@ void updateLocalRTCTime(DATETIME * datetime)
 };
 void addNewGPSInfo(GPSINFO *gpsinfo)
 {
-
     //将添加进来的数据复制到队列中
-
     if(gpsinfo->fixstatus==1)
     {
         //addGPSDataToAnalyze(gpsinfo);

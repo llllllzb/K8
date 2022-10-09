@@ -835,7 +835,6 @@ void netConnectReset(void)
 void protocolFsmStateChange(NetWorkFsmState state)
 {
     netconnect.fsmstate = state;
-    LogPrintf(DEBUG_ALL, "protocolFsmStateChange:change state to %d\n", state);
 }
 
 void clearHbtTimer(void)

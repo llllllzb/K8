@@ -106,7 +106,6 @@ void terminalDisarm(void)
 uint8_t getTerminalAccState(void)
 {
     return (sysinfo.terminalStatus & 0x02);
-
 }
 void terminalAccon(void)
 {

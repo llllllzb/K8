@@ -10,7 +10,7 @@
 #include "app_sn.h"
 #include "app_serverprotocol.h"
 #include "app_instructioncmd.h"
-
+#include <time.h>
 
 const CMDTABLE atcmdtable[] =
 {
@@ -277,7 +277,30 @@ void atCmdDebugLevelParser(char *buf, uint16_t len)
         }
     }
 }
-
+void test(void)
+{
+    uint32_t sec;
+    uint16_t year;
+    uint8_t month, date, hour, minute, second;
+    struct tm datetime;
+    getRtcDateTime(&year, &month, &date, &hour, &minute, &second);
+    datetime.tm_year = year % 100;
+    datetime.tm_mon = month;
+    datetime.tm_mday = date;
+    datetime.tm_hour = hour;
+    datetime.tm_min = minute;
+    datetime.tm_sec = second;
+    sec = mktime(&datetime);
+	LogPrintf(DEBUG_ALL,"CurSec:%u\r\n",sec);
+    datetime.tm_year = year % 100;
+    datetime.tm_mon = month;
+    datetime.tm_mday = date;
+    datetime.tm_hour = hour;
+    datetime.tm_min = minute;
+    datetime.tm_sec = second+1;
+    sec = mktime(&datetime);
+	LogPrintf(DEBUG_ALL,"new:%u\r\n",sec);
+}
 static void atCmdDebugParase(uint8_t *buf, uint16_t len)
 {
     ITEM item;
@@ -344,9 +367,9 @@ static void atCmdDebugParase(uint8_t *buf, uint16_t len)
         sysinfo.blerequest = 0;
         sysinfo.alarmrequest = 0;
     }
-    else if (strstr(item.item_data[0], "RESET") != NULL)
+    else if (strstr(item.item_data[0], "RTC") != NULL)
     {
-        HAL_NVIC_SystemReset();
+        test();
     }
     else
     {

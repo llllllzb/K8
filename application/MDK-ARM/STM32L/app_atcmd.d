@@ -55,3 +55,4 @@ stm32l\app_atcmd.o: ..\App\app_sn.h
 stm32l\app_atcmd.o: ..\App\app_serverprotocol.h
 stm32l\app_atcmd.o: ..\App\app_gpsrestore.h
 stm32l\app_atcmd.o: ..\App\app_instructioncmd.h
+stm32l\app_atcmd.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\time.h
