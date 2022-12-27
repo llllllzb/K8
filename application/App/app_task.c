@@ -817,7 +817,7 @@ static void modeShutDownQuickly(void)
         return;
     }
 
-    if (sysparam.MODE == MODE2)
+    if (sysparam.MODE == MODE2 || getTerminalAccState())
     {
         return;
     }
@@ -1103,9 +1103,7 @@ static void modeRun(void)
             break;
         case MODE2:
             runTimeCount();
-
-            if (sysparam.gpsuploadgap != 0)
-                gpsUploadPointToServer();
+            gpsUploadPointToServer();
             break;
         case MODE21:
         case MODE23:
@@ -1195,6 +1193,7 @@ void systemModeTask(void)
 void gsensorTapTask(void)
 {
     static uint8_t index = 0;
+    static uint16_t autoTick;
     static uint32_t tick = 0;
     GPSINFO *gpsinfo;
     uint8_t i;
@@ -1211,6 +1210,24 @@ void gsensorTapTask(void)
         }
         return ;
     }
+
+
+    //保持运动状态时，如果gap大于Max，则周期性上报gps
+    if (getTerminalAccState() && sysparam.gpsuploadgap >= GPS_UPLOAD_GAP_MAX)
+    {
+        if (++autoTick >= sysparam.gpsuploadgap)
+        {
+            autoTick = 0;
+            gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
+        }
+    }
+    else
+    {
+        autoTick = 0;
+    }
+
+
+
     gpsinfo = getCurrentGPSInfo();
 
     sysinfo.onetaprecord[index++] = sysinfo.gsensortapcount;
@@ -1239,8 +1256,11 @@ void gsensorTapTask(void)
             }
             if (sysparam.gpsuploadgap != 0)
             {
-                gpsRequestSet(GPS_REQUEST_ACC_CTL);
                 gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
+                if (sysparam.gpsuploadgap < GPS_UPLOAD_GAP_MAX)
+                {
+                    gpsRequestSet(GPS_REQUEST_ACC_CTL);
+                }
             }
             memset(sysinfo.onetaprecord, 0, 15);
         }
@@ -1260,12 +1280,15 @@ void gsensorTapTask(void)
 
                 terminalAccoff();
                 LogMessage(DEBUG_ALL, "Acc off detected by gsensor\n");
+                if (sysparam.gpsuploadgap != 0)
+                {
+                    gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
+                    gpsRequestClear(GPS_REQUEST_ACC_CTL);
+                }
                 if (isProtocolReday())
                 {
                     sendProtocolToServer(PROTOCOL_13, NULL);
                 }
-                gpsRequestClear(GPS_REQUEST_ACC_CTL);
-
             }
 
         }

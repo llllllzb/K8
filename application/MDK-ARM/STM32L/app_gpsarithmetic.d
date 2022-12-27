@@ -48,4 +48,7 @@ stm32l\app_gpsarithmetic.o: ..\App\app_param.h
 stm32l\app_gpsarithmetic.o: ..\App\app_serverprotocol.h
 stm32l\app_gpsarithmetic.o: ..\App\app_gpsrestore.h
 stm32l\app_gpsarithmetic.o: ..\App\app_net.h
+stm32l\app_gpsarithmetic.o: ..\App\app_task.h
+stm32l\app_gpsarithmetic.o: ..\App\app_port.h
+stm32l\app_gpsarithmetic.o: ../Inc/usart.h
 stm32l\app_gpsarithmetic.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\math.h

@@ -1508,7 +1508,7 @@ void n58CMGRParser(uint8_t *buf, uint16_t len)
         }
         restore[index] = 0;
         LogPrintf(DEBUG_ALL, "Message:%s\n", restore);
-        instructionParase((uint8_t *)restore, index, SHORTMESSAGE_MODE, (char *)n58_lte_status.messagePhone);
+        instructionParser((uint8_t *)restore, index, SHORTMESSAGE_MODE, (char *)n58_lte_status.messagePhone);
     }
 }
 

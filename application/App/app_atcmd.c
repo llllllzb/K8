@@ -122,7 +122,7 @@ static int16_t getInstructionid(uint8_t *cmdstr)
 }
 
 
-static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+static void doinstruction(int16_t cmdid, ITEM *item, instructionMode_e mode, char *telnum)
 {
     char debug[50];
     switch (cmdid)
@@ -248,11 +248,11 @@ static void doinstruction(int16_t cmdid, ITEM *item, DOINSTRUCTIONMODE mode, cha
 //SERVER,1,JZWZ.BASEGPS.COM,9998#
 //PARAM#
 //STATUS
-void instructionParase(uint8_t *str, uint16_t len, DOINSTRUCTIONMODE mode, char *telnum)
+void instructionParser(uint8_t *str, uint16_t len, instructionMode_e mode, char *telnum)
 {
     ITEM item;
     int16_t cmdid;
-    paraseInstructionToItem(&item, str, len);
+    stringToItem(&item, str, len);
     cmdid = getInstructionid((uint8_t *)item.item_data[0]);
     doinstruction(cmdid, &item, mode, telnum);
 
@@ -287,7 +287,7 @@ void atCmdDebugLevelParser(char *buf, uint16_t len)
 static void atCmdDebugParase(uint8_t *buf, uint16_t len)
 {
     ITEM item;
-    paraseInstructionToItem(&item, buf, len);
+    stringToItem(&item, buf, len);
     if (strstr(item.item_data[0], "SUSPEND") != NULL)
     {
         LogMessage(DEBUG_FACTORY, "Suspend all task\n");
@@ -389,7 +389,7 @@ static void atCmdFMPCnmeaParase(uint8_t *buf, uint16_t len)
 static void atCmdFMPCrelayParase(uint8_t *buf, uint16_t len)
 {
     ITEM item;
-    paraseInstructionToItem(&item, buf, len);
+    stringToItem(&item, buf, len);
     if (strstr(item.item_data[0], "OFF") != NULL)
     {
         LogMessage(DEBUG_FACTORY, "Relay OFF OK\r\n");
@@ -462,7 +462,7 @@ void atCmdFMPCCSQParse(void)
 void atCmdFmpcAllParse(uint8_t *buf, uint16_t len)
 {
     ITEM item;
-    paraseInstructionToItem(&item, buf, len);
+    stringToItem(&item, buf, len);
     csqRequest();
     doFactoryTestInstruction(&item, AT_SMS_MODE, NULL);
 }
@@ -567,7 +567,7 @@ void atCmdParserFunction(uint8_t *buf, uint16_t len)
                 switch (cmdid)
                 {
                     case AT_SMS_CMD:
-                        instructionParase(buf + ret + 1, len - ret - 1, AT_SMS_MODE, NULL);
+                        instructionParser(buf + ret + 1, len - ret - 1, AT_SMS_MODE, NULL);
                         break;
                     case AT_FMPC_NMEA_CMD :
                         atCmdFMPCnmeaParase(buf + ret + 1, len - ret - 1);

@@ -10,7 +10,7 @@
 #include "app_port.h"
 #include "app_serverprotocol.h"
 #include "app_ble.h"
-void sendMessageWithDifMode(uint8_t *buf, uint16_t len, DOINSTRUCTIONMODE mode, char *telnum)
+void sendMessageWithDifMode(uint8_t *buf, uint16_t len, instructionMode_e mode, char *telnum)
 {
     switch (mode)
     {
@@ -43,7 +43,7 @@ void sendMessageWithDifMode(uint8_t *buf, uint16_t len, DOINSTRUCTIONMODE mode, 
     }
 }
 
-void doParamInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doParamInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     uint8_t i;
     char message[150];
@@ -132,7 +132,7 @@ void doParamInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 }
 
 
-void doStatusInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doStatusInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     GPSINFO *gpsinfo;
@@ -156,7 +156,7 @@ void doStatusInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doSNInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doSNInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char debug[50];
     char IMEI[15];
@@ -175,7 +175,7 @@ void doSNInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
         }
 }
 
-void doServerInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doServerInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     paramSaveServer((uint8_t *)item->item_data[2], (uint32_t)atol((const char *)item->item_data[3]));
@@ -184,14 +184,14 @@ void doServerInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
     startTimer(4000, reConnectServer, 0);
 }
-void doVersionInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doVersionInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     sprintf(message, "Version:%s;Compile:%s %s;", CODEVERSION, __DATE__, __TIME__);
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 
 }
-void doHbtInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doHbtInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -208,7 +208,7 @@ void doHbtInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doModeInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     uint8_t workmode, i, j, timecount = 0, gapday = 1;
     uint16_t mode1time[7];
@@ -313,10 +313,26 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                 portGsensorCfg(1);
                 paramSaveMode(MODE2);
 
-                sysparam.gpsuploadgap = (uint8_t)atoi((const char *)item->item_data[2]);
+                sysparam.gpsuploadgap = (uint16_t)atoi((const char *)item->item_data[2]);
                 paramSaveGPSUploadInterval(sysparam.gpsuploadgap);
                 sysparam.gapMinutes = atoi(item->item_data[3]);
                 paramSaveInterval();
+
+                if (getTerminalAccState())
+                {
+                    if (sysparam.gpsuploadgap < GPS_UPLOAD_GAP_MAX)
+                    {
+                        gpsRequestSet(GPS_REQUEST_ACC_CTL);
+                    }
+                    else
+                    {
+                        gpsRequestClear(GPS_REQUEST_ACC_CTL);
+                    }
+                }
+                else
+                {
+                    gpsRequestClear(GPS_REQUEST_ACC_CTL);
+                }
 
                 if (sysparam.accctlgnss == 0)
                 {
@@ -350,11 +366,6 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
                         sprintf(message,
                                 "The device switches to mode 2 and uploads the position every %d seconds when moving, and every %d minutes when standing still",
                                 sysparam.gpsuploadgap, sysparam.gapMinutes);
-                    }
-                    if (getTerminalAccState())
-                    {
-                        gpsRequestSet(GPS_REQUEST_ACC_CTL);
-                        gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
                     }
                 }
                 break;
@@ -424,7 +435,7 @@ void doModeInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doTTSInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doTTSInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char param[4];
     uint8_t decode[300];
@@ -459,7 +470,7 @@ void doTTSInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
 }
 
-void doJtInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doJtInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     int16_t recordtime, micl = 6;
     char param[4];
@@ -508,7 +519,7 @@ Done :
 
 //(357784086584883)<Local Time:2020-09-23 16:09:33>http://maps.google.com/maps?q=22.58799,113.85864
 
-static DOINSTRUCTIONMODE mode123;
+static instructionMode_e mode123;
 static char telnum123[30];
 
 void dorequestSend123(void)
@@ -532,7 +543,7 @@ void dorequestSend123(void)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode123, telnum123);
 }
 
-void do123Instruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void do123Instruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     mode123 = mode;
     strcpy(telnum123, telnum);
@@ -562,7 +573,7 @@ void do123Instruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
 }
 
-void doAPNInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doAPNInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[200];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -604,7 +615,7 @@ void doAPNInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 }
 
 
-void doUPSInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doUPSInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[200];
     uint16_t port;
@@ -628,7 +639,7 @@ void doUPSInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doLOWWInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doLOWWInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -650,7 +661,7 @@ void doLOWWInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doLEDInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doLEDInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -668,7 +679,7 @@ void doLEDInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 }
 
 
-void doPOITYPEInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doPOITYPEInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -720,7 +731,7 @@ void doPOITYPEInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doResetInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doResetInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[50];
     sprintf(message, "System will reset after 5 seconds");
@@ -729,7 +740,7 @@ void doResetInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doUTCInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doUTCInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -749,7 +760,7 @@ void doUTCInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
-void doAlarmModeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doAlarmModeInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -781,7 +792,7 @@ void doAlarmModeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 }
 
 //DEBUG,MODULE,AT+GMR=1,3,2,3
-void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doDebugInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[256];
     uint16_t year;
@@ -862,7 +873,7 @@ void doDebugInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doACCCTLGNSSInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doACCCTLGNSSInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -894,7 +905,7 @@ void doACCCTLGNSSInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
 
 
-void doPdopInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doPdopInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -912,7 +923,7 @@ void doPdopInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
 
 
-void doSetblemacInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doSetblemacInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -961,7 +972,7 @@ void doSetblemacInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 }
 
 
-void doBFInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doBFInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     paramSaveBF(1);
@@ -970,7 +981,7 @@ void doBFInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 }
 
 
-void doCFInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doCFInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     paramSaveBF(0);
@@ -978,7 +989,7 @@ void doCFInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doFactoryTestInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doFactoryTestInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     uint8_t total, i;
     GPSINFO *gpsinfo;
@@ -1036,7 +1047,7 @@ void doFactoryTestInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doFenceInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doFenceInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -1052,7 +1063,7 @@ void doFenceInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doFactoryInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doFactoryInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
 
@@ -1070,7 +1081,7 @@ void doFactoryInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doSmsreplyInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doSmsreplyInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -1087,7 +1098,7 @@ void doSmsreplyInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 
 }
 
-void doJTCYCLEInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doJTCYCLEInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     uint8_t value;
     char message[100];
@@ -1123,7 +1134,7 @@ void doJTCYCLEInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
 }
 
 
-void doAnswerInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doAnswerInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -1139,7 +1150,7 @@ void doAnswerInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
-void doTurnAlgInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doTurnAlgInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -1156,7 +1167,7 @@ void doTurnAlgInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doAdccalInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doAdccalInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     float v = 4.17;
@@ -1178,7 +1189,7 @@ void doAdccalInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doSetAgpsInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doSetAgpsInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -1213,7 +1224,7 @@ void doSetAgpsInstruction(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doAudioInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doAudioInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -1241,7 +1252,7 @@ void doAudioInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doVolInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doVolInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     uint8_t vol;
@@ -1262,7 +1273,7 @@ void doVolInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doVibrangeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doVibrangeInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -1280,7 +1291,7 @@ void doVibrangeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
-void doStaticTimeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
+void doStaticTimeInstrucion(ITEM *item, instructionMode_e mode, char *telnum)
 {
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
@@ -1290,7 +1301,7 @@ void doStaticTimeInstrucion(ITEM *item, DOINSTRUCTIONMODE mode, char *telnum)
     else
     {
         sysparam.staticTime = atoi(item->item_data[1]);
-        sysparam.staticTime = sysparam.staticTime ==0 ? 15 : sysparam.staticTime;
+        //sysparam.staticTime = sysparam.staticTime == 0 ? 15 : sysparam.staticTime;
         paramSaveStaticTime();
         sprintf(message, "Update static time to %d", sysparam.staticTime);
     }

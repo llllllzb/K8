@@ -62,6 +62,9 @@
 #define MODE_STOP		2
 #define MODE_DONE		3
 
+//GPS_UPLOAD_GAP_MAX 以下，gps常开，以上(包含GPS_UPLOAD_GAP_MAX),周期开启
+#define GPS_UPLOAD_GAP_MAX				60
+
 
 typedef struct
 {

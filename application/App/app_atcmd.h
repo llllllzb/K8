@@ -78,11 +78,11 @@ typedef enum{
 	SHORTMESSAGE_MODE,
 	NETWORK_MODE,
 	BLE_MODE
-}DOINSTRUCTIONMODE;
+}instructionMode_e;
 
 
 void atCmdParserFunction(uint8_t *buf, uint16_t len);
-void instructionParase(uint8_t * str,uint16_t len,DOINSTRUCTIONMODE mode,char * telnum);
+void instructionParser(uint8_t * str,uint16_t len,instructionMode_e mode,char * telnum);
 
 
 #endif

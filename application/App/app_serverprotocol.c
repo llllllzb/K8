@@ -1079,7 +1079,7 @@ static void protoclparase80(char *protocol, int size)
     instructionserier = (protocol[instructionlen + 11] << 8) | (protocol[instructionlen + 12]);
     memset(debug, 0, sizeof(debug));
     strncpy(debug, protocol + 9, instructionlen);
-    instructionParase((uint8_t *)debug, instructionlen, NETWORK_MODE, NULL);
+    instructionParser((uint8_t *)debug, instructionlen, NETWORK_MODE, NULL);
 }
 
 /*78780B8A140C10053B2E00036B5B0D0A*/

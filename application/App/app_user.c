@@ -37,16 +37,22 @@ void tapInt(void)
     static uint8_t idleFlag = 0;
     uint8_t i;
     uint32_t tickTemp;
+
+    if (sysparam.staticTime == 0)
+    {
+        return;
+    }
+
     for (i = MAX_TICK_CNT - 1; i > 0; i--)
     {
         tickTime[i] = tickTime[i - 1];
     }
     tickTemp = tickTime[0] = portGetDateTimeOfSeconds();
-//    for (i = 0; i < MAX_TICK_CNT; i++)
-//    {
-//        LogPrintf(DEBUG_ALL, "{[%d]:%d} ", i, tickTime[i]);
-//    }
-//    LogPrintf(DEBUG_ALL, "\r\n");
+    //    for (i = 0; i < MAX_TICK_CNT; i++)
+    //    {
+    //        LogPrintf(DEBUG_ALL, "{[%d]:%d} ", i, tickTime[i]);
+    //    }
+    //    LogPrintf(DEBUG_ALL, "\r\n");
     if (tickTemp < tickTime[1])
     {
         tickTemp += 86400;

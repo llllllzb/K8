@@ -334,7 +334,7 @@ void appBlePRecvParser(uint8_t *buf, uint16_t len)
         {
             strncpy(content, (char *)rebuf, blerxlen);
             content[blerxlen] = NULL;
-            instructionParase((uint8_t *)content, blerxlen, BLE_MODE, NULL);
+            instructionParser((uint8_t *)content, blerxlen, BLE_MODE, NULL);
         }
         index = my_getstrindex((char *)rebuf, "+NWURCBLEPRECV:", relen);
     }

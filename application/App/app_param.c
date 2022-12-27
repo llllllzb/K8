@@ -153,7 +153,7 @@ void paramDefaultInit(uint8_t level)
     paramSaveStep();
     sysparam.vibRange = 0;
     paramSaveVibrange();
-    sysparam.staticTime = 5;
+    sysparam.staticTime = 0;
     paramSaveStaticTime();
 
     paramSaveAgpsServer();
@@ -259,10 +259,10 @@ void paramInit(void)
     paramGetStep();
     paramGetVibrange();
     paramGetStaticTime();
-    if (sysparam.staticTime == 0)
-    {
-        sysparam.staticTime = 5;
-    }
+//    if (sysparam.staticTime == 0)
+//    {
+//        sysparam.staticTime = 5;
+//    }
     /*--------------------------------------------------*/
     //远程升级时，参数自动更新
     if (sysparam.autoParamUpdate != PARAM_AUTO_UPDATE_FLAG)

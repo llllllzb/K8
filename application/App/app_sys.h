@@ -140,7 +140,7 @@ int16_t getCharIndexWithNum(uint8_t * src,uint16_t src_len,uint8_t ch,uint8_t nu
 int16_t changeHexStringToByteArray(uint8_t *dest,uint8_t *src,uint16_t size);
 int16_t changeHexStringToByteArray_10in(uint8_t *dest,uint8_t *src,uint16_t size);
 
-void paraseInstructionToItem(ITEM *item,uint8_t * str,uint16_t len);
+void stringToItem(ITEM *item,uint8_t * str,uint16_t len);
 
 DATETIME changeUTCTimeToLocalTime(DATETIME utctime,int8_t localtimezone);
 
