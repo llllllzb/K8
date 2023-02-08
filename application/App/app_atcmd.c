@@ -97,7 +97,7 @@ static uint8_t mycmdPatch(uint8_t *cmd1, uint8_t *cmd2)
 static int16_t getatcmdid(uint8_t *cmdstr)
 {
     uint16_t i = 0;
-    for (i = 0; i < AT_MAX_CMD; i++)
+    for (i = 0; i < sizeof atcmdtable / sizeof atcmdtable[0]; i++)
     {
         if (mycmdPatch(cmdstr, (uint8_t *)atcmdtable[i].cmdstr) != NULL)
             return atcmdtable[i].cmdid;
@@ -113,7 +113,7 @@ static int16_t getInstructionid(uint8_t *cmdstr)
         LogMessage(DEBUG_ALL, "getInstructionid==>no cmd\n");
         return -1;
     }
-    for (i = 0; i < MAX_INS; i++)
+    for (i = 0; i < sizeof instructiontable / sizeof instructiontable[0]; i++)
     {
         if (mycmdPatch(cmdstr, (uint8_t *)instructiontable[i].cmdstr) != NULL)
             return instructiontable[i].cmdid;
@@ -211,9 +211,9 @@ static void doinstruction(int16_t cmdid, ITEM *item, instructionMode_e mode, cha
         case SMSREPLY_INS:
             doSmsreplyInstrucion(item, mode, telnum);
             break;
-        case JTCYCLE_INS:
-            doJTCYCLEInstrucion(item, mode, telnum);
-            break;
+//        case JTCYCLE_INS:
+//            doJTCYCLEInstrucion(item, mode, telnum);
+//            break;
         case ANSWER_INS:
             doAnswerInstrucion(item, mode, telnum);
             break;

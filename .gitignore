@@ -1,5 +1,6 @@
 dkms.conf
 *.si4project
 *.crf
+*.o
 
 

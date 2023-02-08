@@ -9,7 +9,7 @@
 
 
 //远程升级后，有需要更改参数时，这个值变一变
-#define PARAM_AUTO_UPDATE_FLAG							0xA1
+#define PARAM_AUTO_UPDATE_FLAG							0xA2
 
 //设置地址时，需要保证地址对齐，单个字节无所谓，半字或字，需要注意对齐，勿跨界
 //addr%4==0,字对齐
@@ -83,7 +83,7 @@ V
 次版本     	与之前版本不能兼容时改变
 修订版本        细节修改
 */
-#define EEPROM_VERSION									"K8_RI_V2.1.0"
+#define EEPROM_VERSION									"K8_RI_V2.1.1"
 
 /*EPROM中的数据*/
 typedef struct

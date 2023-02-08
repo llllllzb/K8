@@ -94,7 +94,8 @@ void recReadFileOk(void)
 
 uint8_t resIsCycleRuning(void)
 {
-    return rf.reccycle;
+	return 0;
+    //return rf.reccycle;
 }
 
 void recCycleStart(void)

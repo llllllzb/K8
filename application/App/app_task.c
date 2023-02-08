@@ -1416,7 +1416,7 @@ void taskRunInOneSecond(void)
     wifiUploadRequestTask();
     gsensorIntervalCheck();
     gsensorTapTask();
-    recCycleTask();
+    //recCycleTask();
     recRecordUploadTask();
     autoSleepTask();
 

@@ -278,6 +278,13 @@ void paramInit(void)
         paramSaveAgpsUser();
         paramSaveAgpsPswd();
 
+		sysparam.vibRange=0;
+		sysparam.staticTime=0;
+		paramSaveVibrange();
+		paramSaveStaticTime();
+
+		sysparam.heartbeatgap=180;
+		paramSaveHeartbeatInterval(sysparam.heartbeatgap);
     }
 }
 
