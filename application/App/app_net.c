@@ -190,7 +190,7 @@ void outPutNodeCmd(void)
 
     }
     headNode = nextnode;
-    if (headNode == NULL)
+    if (headNode == NULL && sysinfo.GPSRequest == 0)
         MODULE_DTR_LOW;
 }
 

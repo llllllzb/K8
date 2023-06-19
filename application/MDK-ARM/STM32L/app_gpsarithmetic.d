@@ -2,11 +2,11 @@ stm32l\app_gpsarithmetic.o: ..\App\app_gpsarithmetic.c
 stm32l\app_gpsarithmetic.o: ..\App\app_gpsarithmetic.h
 stm32l\app_gpsarithmetic.o: ..\App\app_gps.h
 stm32l\app_gpsarithmetic.o: ..\App\app_sys.h
-stm32l\app_gpsarithmetic.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
-stm32l\app_gpsarithmetic.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
-stm32l\app_gpsarithmetic.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-stm32l\app_gpsarithmetic.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
-stm32l\app_gpsarithmetic.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\string.h
+stm32l\app_gpsarithmetic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+stm32l\app_gpsarithmetic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+stm32l\app_gpsarithmetic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+stm32l\app_gpsarithmetic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+stm32l\app_gpsarithmetic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 stm32l\app_gpsarithmetic.o: ../Inc/main.h
 stm32l\app_gpsarithmetic.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h
 stm32l\app_gpsarithmetic.o: ../Inc/stm32l0xx_hal_conf.h
@@ -22,7 +22,7 @@ stm32l\app_gpsarithmetic.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 stm32l\app_gpsarithmetic.o: ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/system_stm32l0xx.h
 stm32l\app_gpsarithmetic.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h
 stm32l\app_gpsarithmetic.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-stm32l\app_gpsarithmetic.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stddef.h
+stm32l\app_gpsarithmetic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 stm32l\app_gpsarithmetic.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc_ex.h
 stm32l\app_gpsarithmetic.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_exti.h
 stm32l\app_gpsarithmetic.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio.h
@@ -51,4 +51,4 @@ stm32l\app_gpsarithmetic.o: ..\App\app_net.h
 stm32l\app_gpsarithmetic.o: ..\App\app_task.h
 stm32l\app_gpsarithmetic.o: ..\App\app_port.h
 stm32l\app_gpsarithmetic.o: ../Inc/usart.h
-stm32l\app_gpsarithmetic.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\math.h
+stm32l\app_gpsarithmetic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

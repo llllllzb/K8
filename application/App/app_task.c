@@ -321,19 +321,19 @@ static void gpsRequestOpen(void)
     GPSLNAON;
     startTimer(8000, gpsStartBD, 0);
     sysinfo.gpsUpdatetick = sysinfo.System_Tick;
-    if (sysinfo.agpsOpenTick == 0 || (sysinfo.System_Tick >= sysinfo.agpsOpenTick))
-    {
-        sysinfo.agpsOpenTick = sysinfo.System_Tick + 5400;
+//    if (sysinfo.agpsOpenTick == 0 || (sysinfo.System_Tick >= sysinfo.agpsOpenTick))
+//    {
+//        sysinfo.agpsOpenTick = sysinfo.System_Tick + 5400;
         setAgps();
         gpsChangeFsmState(GPSOPENWAITSTATUS);
 
-    }
-    else
-    {
-        openModuleGPS();
-        gpsChangeFsmState(GPSOPENSTATUS);
-
-    }
+//    }
+//    else
+//    {
+//        openModuleGPS();
+//        gpsChangeFsmState(GPSOPENSTATUS);
+//
+//    }
 }
 
 static void gpsRequestClose(void)
@@ -1023,7 +1023,7 @@ static void modeStart(void)
             }
             portSetNextAlarmTime();
             sysparam.startUpCnt++;
-            sysinfo.gpsuploadonepositiontime = 90;
+            sysinfo.gpsuploadonepositiontime = 120;
             break;
         case MODE2:
             portGsensorCfg(1);
@@ -1045,7 +1045,7 @@ static void modeStart(void)
             }
             portSetNextWakeUpTime();
             sysparam.startUpCnt++;
-            sysinfo.gpsuploadonepositiontime = 90;
+            sysinfo.gpsuploadonepositiontime = 120;
             break;
         case MODE4:
             portGsensorCfg(0);

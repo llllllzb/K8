@@ -1,11 +1,11 @@
 stm32l\app_atcmd.o: ..\App\app_atcmd.c
 stm32l\app_atcmd.o: ..\App\app_atcmd.h
-stm32l\app_atcmd.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+stm32l\app_atcmd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 stm32l\app_atcmd.o: ..\App\app_sys.h
-stm32l\app_atcmd.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
-stm32l\app_atcmd.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-stm32l\app_atcmd.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
-stm32l\app_atcmd.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\string.h
+stm32l\app_atcmd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+stm32l\app_atcmd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+stm32l\app_atcmd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+stm32l\app_atcmd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 stm32l\app_atcmd.o: ../Inc/main.h
 stm32l\app_atcmd.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h
 stm32l\app_atcmd.o: ../Inc/stm32l0xx_hal_conf.h
@@ -21,7 +21,7 @@ stm32l\app_atcmd.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 stm32l\app_atcmd.o: ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/system_stm32l0xx.h
 stm32l\app_atcmd.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h
 stm32l\app_atcmd.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-stm32l\app_atcmd.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stddef.h
+stm32l\app_atcmd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 stm32l\app_atcmd.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc_ex.h
 stm32l\app_atcmd.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_exti.h
 stm32l\app_atcmd.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio.h

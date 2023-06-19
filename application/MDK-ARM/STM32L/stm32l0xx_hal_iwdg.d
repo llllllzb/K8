@@ -6,7 +6,7 @@ stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_d
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l071xx.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/CMSIS/Include/core_cm0plus.h
-stm32l\stm32l0xx_hal_iwdg.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+stm32l\stm32l0xx_hal_iwdg.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/CMSIS/Include/cmsis_version.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -14,7 +14,7 @@ stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/system_stm32l0xx.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-stm32l\stm32l0xx_hal_iwdg.o: D:\aWinOS\KEIL\ARM\ARMCC\Bin\..\include\stddef.h
+stm32l\stm32l0xx_hal_iwdg.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc_ex.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_exti.h
 stm32l\stm32l0xx_hal_iwdg.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio.h
