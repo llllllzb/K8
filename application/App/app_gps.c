@@ -23,8 +23,8 @@ uint8_t  gpsFilter(GPSINFO * gpsinfo)
 {
     if(gpsinfo->fixstatus==0)
         return 0;
-//    if(gpsinfo->fixmode!=3)
-//        return 0;
+    if(gpsinfo->fixmode!=3)
+        return 0;
 //    if(gpsinfo->pdop>(sysparam.pdop/100.0))
 //        return 0;
     return 1;

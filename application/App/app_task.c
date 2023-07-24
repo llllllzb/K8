@@ -501,7 +501,7 @@ void wifiUploadRequestTask(void)
     if (isProtocolReday() == 0)
         return ;
     sysinfo.wifirequest = 0;
-    startTimer(12000, wifiScanStart, 0);
+    //startTimer(12000, wifiScanStart, 0);
 }
 
 /***********************************************************/
@@ -1023,7 +1023,7 @@ static void modeStart(void)
             }
             portSetNextAlarmTime();
             sysparam.startUpCnt++;
-            sysinfo.gpsuploadonepositiontime = 120;
+            sysinfo.gpsuploadonepositiontime = 300;
             break;
         case MODE2:
             portGsensorCfg(1);
@@ -1045,7 +1045,7 @@ static void modeStart(void)
             }
             portSetNextWakeUpTime();
             sysparam.startUpCnt++;
-            sysinfo.gpsuploadonepositiontime = 120;
+            sysinfo.gpsuploadonepositiontime = 300;
             break;
         case MODE4:
             portGsensorCfg(0);
@@ -1054,7 +1054,10 @@ static void modeStart(void)
     paramSaveMode1Timer(sysparam.startUpCnt);
     doPoitypeRequest();
     updateRTCtimeRequest();
-    systemRequestSet(SYSTEM_MODULE_STARTUP_REQUEST);
+
+    	systemRequestSet(SYSTEM_MODULE_STARTUP_REQUEST);
+
+    
     updateSystemLedStatus(SYSTEM_LED_RUN, 1);
     sysinfo.csqSearchTime = 60;
     modeChangeFsm(MODE_RUNING);
@@ -1093,7 +1096,7 @@ static void modeRun(void)
         case MODE1:
         case MODE3:
         case MODE5:
-            if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 210)
+            if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 300)
             {
                 sysinfo.alarmrequest = 0;
                 sysinfo.GPSRequest = 0;
@@ -1133,30 +1136,35 @@ static void modeRun(void)
 static void modeStop(void)
 {
     static uint8_t tick = 0;
-    if (tick++ == 0)
-    {
-        sendModuleCmd(N58_AT_CMD, NULL);
-        sendModuleCmd(N58_MYPOWEROFF_CMD, NULL);
-        if (sysparam.MODE != MODE21 && sysparam.MODE != MODE23 && sysparam.MODE != MODE5)
-        {
-            portGsensorCfg(0);
-        }
-    }
-    else if (tick >= 5)
-    {
-        tick = 0;
-        updateSystemLedStatus(SYSTEM_LED_RUN, 0);
-        systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
-        systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
-        modeChangeFsm(MODE_DONE);
-    }
+
+	    if (tick++ == 0)
+	    {
+	        sendModuleCmd(N58_AT_CMD, NULL);
+	        sendModuleCmd(N58_MYPOWEROFF_CMD, NULL);
+	        if (sysparam.MODE != MODE21 && sysparam.MODE != MODE23 && sysparam.MODE != MODE5)
+	        {
+	            portGsensorCfg(0);
+	        }
+	    }
+	    else if (tick >= 5)
+	    {
+	        tick = 0;
+	        updateSystemLedStatus(SYSTEM_LED_RUN, 0);
+	        systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
+	        systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
+	        modeChangeFsm(MODE_DONE);
+	    }
+    
 
 }
 static void modeDone(void)
 {
     if ((sysinfo.GPSRequest != 0 || sysinfo.alarmrequest != 0) && sysinfo.runFsm == MODE_DONE)
     {
+
+    	
         modeChangeFsm(MODE_START);
+        
     }
     else
     {

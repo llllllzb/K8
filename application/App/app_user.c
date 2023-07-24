@@ -11,6 +11,7 @@
 /**************************/
 void myAppConfig(void)
 {
+	memset(&sysinfo, 0, sizeof(sysinfo));
     //sysinfo.logmessage = DEBUG_ALL;
     portUartCfg(APPUSART1, 1, atCmdParserFunction);
     paramInit();

@@ -303,13 +303,13 @@ void N58_ChangeInvokeStatus(N58_WORK_STATUS status)
     }
 }
 
-static void N58enterFlightMode(void)
+void N58enterFlightMode(void)
 {
     LogMessage(DEBUG_ALL, "Module enter flight mode\n");
     sendModuleCmd(N58_CFUN_CMD, "4,0");
     n58_lte_status.moduleFlyMode = 1;
 }
-static void N58enterNormalMode(void)
+void N58enterNormalMode(void)
 {
     sendModuleCmd(N58_CFUN_CMD, "1,0");
     LogMessage(DEBUG_ALL, "Module enter normal mode\n");

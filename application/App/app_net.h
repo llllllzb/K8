@@ -198,6 +198,8 @@ void netExitStopMode(void);
 void networkConnectProcess(void);
 void moduleResponParaser(uint8_t * buf,uint16_t len);
 void N58_ChangeInvokeStatus(N58_WORK_STATUS status);
+void N58enterFlightMode(void);
+void N58enterNormalMode(void);
 
 
 uint8_t getModuleRssi(void);

@@ -81,6 +81,7 @@ typedef struct
 	
     float outsidevoltage;
     float lowvoltage;
+    uint8_t first;
 } SystemInfoTypedef;
 
 typedef struct

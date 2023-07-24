@@ -104,3 +104,7 @@ K8_RI_V2.1.5	2023/6/19
 2、MODE1和MODE3GPS工作时长改为120S
 3、每次开启GPS都打开AGPS
 
+K8_RI_V2.1.7
+1、开机初始化sysinfo参数
+2、开启gps的dpod过滤
+3、关闭wifi扫描
