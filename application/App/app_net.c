@@ -181,7 +181,7 @@ void outPutNodeCmd(void)
         n58_lte_status.current_cmd = currentnode->currentcmd;
         //Êý¾Ý·¢ËÍ
         portUartSend(&usart2_ctl, (uint8_t *)currentnode->data, currentnode->datalen);
-        if (currentnode->data[0] == 'A')
+        if (currentnode->data[0] == 'A' && currentnode->data[3]=='S' && currentnode->data[4] == 'E' && currentnode->data[5] == 'T' && currentnode->data[6] == 'S' && currentnode->data[6] == 'E')
         {
             LogMessageWL(DEBUG_ALL, currentnode->data, currentnode->datalen);
         }

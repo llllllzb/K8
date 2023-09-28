@@ -56,10 +56,70 @@ typedef struct {
 #define GPSLNAON	HAL_GPIO_WritePin(GPSLNA_GPIO_Port,GPSLNA_Pin,GPIO_PIN_SET)
 #define GPSLNAOFF	HAL_GPIO_WritePin(GPSLNA_GPIO_Port,GPSLNA_Pin,GPIO_PIN_RESET)
 
+//置位与清零SCL管脚
+#define	SET_SCL	HAL_GPIO_WritePin(GPIOB,SCL_Pin,GPIO_PIN_SET) 
+#define	CLR_SCL	HAL_GPIO_WritePin(GPIOB,SCL_Pin,GPIO_PIN_RESET)
+//置位与清零SDA管脚
+#define	SET_SDA	HAL_GPIO_WritePin(GPIOB,SDA_Pin,GPIO_PIN_SET)
+#define	CLR_SDA	HAL_GPIO_WritePin(GPIOB,SDA_Pin,GPIO_PIN_RESET)
+//读SDA管脚状态
+#define READ_SDA	HAL_GPIO_ReadPin(GPIOB,SDA_Pin)
+
+
 /***********************/
 extern UART_RXTX_CTL usart1_ctl;
 extern UART_RXTX_CTL usart2_ctl;
 extern UART_RXTX_CTL usart3_ctl;
+/* USER CODE BEGIN Includes */
+//定义枚举类型 -> BIT位
+typedef enum
+{
+	BIT0 = (uint8_t)(0x01 << 0),  
+	BIT1 = (uint8_t)(0x01 << 1),  
+	BIT2 = (uint8_t)(0x01 << 2),  
+	BIT3 = (uint8_t)(0x01 << 3),  
+	BIT4 = (uint8_t)(0x01 << 4),
+	BIT5 = (uint8_t)(0x01 << 5),
+	BIT6 = (uint8_t)(0x01 << 6),
+	BIT7 = (uint8_t)(0x01 << 7),
+}BIT_t;
+
+//宏定义
+//定义枚举类型
+typedef enum
+{
+	ACK	 = GPIO_PIN_RESET,
+	NACK = GPIO_PIN_SET,
+}ACK_Value_t;
+
+//定义结构体类型
+typedef struct
+{
+	void (*Init)(void);  //I2C初始化
+	void (*Start)(void); //I2C起始信号
+	void (*Stop)(void);  //I2C停止信号
+	ACK_Value_t (*Write_Byte)(uint8_t);      //I2C写字节
+	uint8_t     (*Read_Byte) (ACK_Value_t);  //I2C读字节
+}I2C_Soft_t;
+
+/* extern variables-----------------------------------------------------------*/
+extern I2C_Soft_t  I2C_Soft;
+
+/* USER CODE END Includes */
+
+extern I2C_HandleTypeDef hi2c1;
+
+/* USER CODE BEGIN Private defines */
+
+/* USER CODE END Private defines */
+
+
+/* USER CODE BEGIN Prototypes */
+uint8_t iicWriteData(uint8_t addr, uint8_t reg, uint8_t data);
+uint8_t iicReadData(uint8_t addr, uint8_t regaddr, uint8_t *data, uint8_t len);
+
+void Init(void);  //I2C初始化
+
 
 /*******FUNCTION********/
 /*串口功能*/

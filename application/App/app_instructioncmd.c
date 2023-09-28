@@ -320,7 +320,7 @@ void doModeInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 
                 if (getTerminalAccState())
                 {
-                    if (sysparam.gpsuploadgap < GPS_UPLOAD_GAP_MAX)
+                    if (sysparam.gpsuploadgap < GPS_UPLOAD_GAP_MAX && sysparam.gpsuploadgap != 0)
                     {
                         gpsRequestSet(GPS_REQUEST_ACC_CTL);
                     }
@@ -1194,7 +1194,7 @@ void doSetAgpsInstruction(ITEM *item, instructionMode_e mode, char *telnum)
     char message[100];
     if (item->item_data[1][0] == NULL || item->item_data[1][0] == '?')
     {
-        sprintf(message, "Agps:%s,%d,%s,%s", sysparam.agpsServer, sysparam.agpsPort, sysparam.agpsUser, sysparam.agpsPswd);
+        sprintf(message, "Agps:%s,%d", sysparam.agpsServer, sysparam.agpsPort);
     }
     else
     {
@@ -1218,8 +1218,7 @@ void doSetAgpsInstruction(ITEM *item, instructionMode_e mode, char *telnum)
             strcpy((char *)sysparam.agpsPswd, item->item_data[4]);
             paramSaveAgpsPswd();
         }
-        sprintf(message, "Update Agps info:%s,%d,%s,%s", sysparam.agpsServer, sysparam.agpsPort, sysparam.agpsUser,
-                sysparam.agpsPswd);
+        sprintf(message, "Update Agps info:%s,%d", sysparam.agpsServer, sysparam.agpsPort);
     }
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }

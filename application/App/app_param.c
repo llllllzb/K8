@@ -268,10 +268,10 @@ void paramInit(void)
     if (sysparam.autoParamUpdate != PARAM_AUTO_UPDATE_FLAG)
     {
         paramSaveAutoParam(PARAM_AUTO_UPDATE_FLAG);
-        strcpy((char *)sysparam.agpsServer, "agps.domilink.com");
-        strcpy((char *)sysparam.agpsUser, "Hi_Man");
-        strcpy((char *)sysparam.agpsPswd, "Hi_Girl");
-        sysparam.agpsPort = 10188;
+        strcpy((char *)sysparam.agpsServer, "www.gnss-aide.com");
+        strcpy((char *)sysparam.agpsUser, "isimact@189.cn");
+        strcpy((char *)sysparam.agpsPswd, "tinfo_13310886056");
+        sysparam.agpsPort = 2621;
 
         paramSaveAgpsServer();
         paramSaveAgpsPort();

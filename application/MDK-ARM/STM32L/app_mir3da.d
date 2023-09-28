@@ -36,8 +36,9 @@ stm32l\app_mir3da.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc.h
 stm32l\app_mir3da.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h
 stm32l\app_mir3da.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h
 stm32l\app_mir3da.o: ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h
-stm32l\app_mir3da.o: ../Inc/i2c.h
+stm32l\app_mir3da.o: ..\App\app_port.h
 stm32l\app_mir3da.o: ../Inc/main.h
+stm32l\app_mir3da.o: ../Inc/usart.h
 stm32l\app_mir3da.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 stm32l\app_mir3da.o: ..\App\app_sys.h
 stm32l\app_mir3da.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

@@ -7,7 +7,7 @@
 *******************************************************************************/
 #include "app_mir3da.h"
 #include "stm32l0xx_hal.h"
-#include "i2c.h"
+#include "app_port.h"
 #include <stdio.h>
 #include "app_sys.h"
 u8_m i2c_addr = 0x26;
@@ -16,7 +16,7 @@ s8_m mir3da_register_read(u8_m addr, u8_m *data_m, u8_m len)
 {
     //To do i2c read api
     //HAL_I2C_Master_Receive(&hi2c1,i2c_addr,data_m,len,0xfffff);
-    HAL_I2C_Mem_Read(&hi2c1, i2c_addr << 1, addr, 1, data_m, len, 50);
+    iicReadData(i2c_addr << 1, addr, data_m, len);
     return 0;
 
 }
@@ -24,7 +24,7 @@ s8_m mir3da_register_read(u8_m addr, u8_m *data_m, u8_m len)
 s8_m mir3da_register_write(u8_m addr, u8_m data_m)
 {
     //To do i2c write api
-    HAL_I2C_Mem_Write(&hi2c1, i2c_addr << 1, addr, 1, &data_m, 1, 50);
+    iicWriteData(i2c_addr << 1, addr, data_m);
     return 0;
 
 }

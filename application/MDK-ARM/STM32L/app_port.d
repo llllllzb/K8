@@ -50,6 +50,5 @@ stm32l\app_port.o: ../Inc/rtc.h
 stm32l\app_port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
 stm32l\app_port.o: ../Inc/adc.h
 stm32l\app_port.o: ..\App\app_task.h
-stm32l\app_port.o: ../Inc/i2c.h
 stm32l\app_port.o: ../Inc/iwdg.h
 stm32l\app_port.o: ..\App\app_kernal.h
