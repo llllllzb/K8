@@ -358,6 +358,10 @@ static void atCmdDebugParase(uint8_t *buf, uint16_t len)
     {
         updateRange(atoi(item.item_data[1]));
     }
+    else if (strstr(item.item_data[0], "GSENSORID") != NULL)
+    {
+        portGsensorCfg(1);
+    }
     else
     {
         atCmdDebugLevelParser(item.item_data[0], strlen(item.item_data[0]));
@@ -408,6 +412,7 @@ static void atCmdFMPCbatParase(void)
 
 static void atCmdFMPCgsensorParase(void)
 {
+
     read_gsensor_id();
 }
 

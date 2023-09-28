@@ -265,6 +265,8 @@ void portGsensorCfg(uint8_t onoff)
     {
         sysinfo.gsensoronoff = 0;
         GSENSOROFF;
+        HAL_Delay(50);
+        portGsensorSdaSclCtl(0);
         LogMessage(DEBUG_ALL, "portGsensorCfg==>off\n");
     }
 }
@@ -783,13 +785,13 @@ static void Start(void)
 	//SCL为高电平，SDA的下降沿为I2C起始信号
 	SET_SDA;
 	SET_SCL;
-	I2C_Delay_us(1);
+	I2C_Delay_us(5);
 	
 	CLR_SDA;
-	I2C_Delay_us(10);
+	I2C_Delay_us(5);
 	
 	CLR_SCL;
-	I2C_Delay_us(1);
+	I2C_Delay_us(5);
 }
 
 /*
@@ -803,10 +805,11 @@ static void Stop(void)
 	//SCL为高电平，SDA的上升沿为I2C停止信号
 	CLR_SDA;
 	SET_SCL;
-	I2C_Delay_us(1);
+	I2C_Delay_us(5);
 		
 	I2C_Delay_us(10);
 	SET_SDA;
+	I2C_Delay_us(10);
 }
 
 /*
@@ -826,7 +829,7 @@ static ACK_Value_t Write_Byte(uint8_t WR_Byte)
 	{
 		//SCL清零，主机SDA准备数据
 		CLR_SCL;
-		I2C_Delay_us(1);
+		I2C_Delay_us(5);
 		if((WR_Byte&BIT7) == BIT7)
 		{
 			SET_SDA;
@@ -835,10 +838,10 @@ static ACK_Value_t Write_Byte(uint8_t WR_Byte)
 		{
 			CLR_SDA;
 		}
-		I2C_Delay_us(1);
+		I2C_Delay_us(5);
 		//SCL置高，传输数据
 		SET_SCL;
-		I2C_Delay_us(10);
+		I2C_Delay_us(5);
 		
 		//准备发送下一比特位
 		WR_Byte <<= 1;
@@ -847,15 +850,15 @@ static ACK_Value_t Write_Byte(uint8_t WR_Byte)
 	CLR_SCL;	
 	//释放SDA，等待从机应答
 	SET_SDA;
-	I2C_Delay_us(1);
+	I2C_Delay_us(5);
 	
 	SET_SCL;
-	I2C_Delay_us(10);
+	I2C_Delay_us(5);
 	
 	ACK_Rspond = (ACK_Value_t)READ_SDA;
 	
 	CLR_SCL;
-	I2C_Delay_us(1);
+	I2C_Delay_us(5);
 	
 	//返回从机的应答信号
 	return ACK_Rspond;
@@ -881,11 +884,11 @@ static uint8_t Read_Byte(ACK_Value_t ACK_Value)
 		
 		//SCL清零，从机SDA准备数据
 		CLR_SCL;
-		I2C_Delay_us(10);
+		I2C_Delay_us(5);
 		
 		//SCL置高，获取数据
 		SET_SCL;
-		I2C_Delay_us(10);	
+		I2C_Delay_us(5);	
 
 		RD_Byte |= READ_SDA;		
 	}
@@ -893,7 +896,7 @@ static uint8_t Read_Byte(ACK_Value_t ACK_Value)
 	
 	//SCL清零，主机准备应答信号
 	CLR_SCL;
-	I2C_Delay_us(1);
+	I2C_Delay_us(5);
 	
 	//主机发送应答信号	
 	if(ACK_Value == ACK)
@@ -903,22 +906,319 @@ static uint8_t Read_Byte(ACK_Value_t ACK_Value)
 	else
 	{
 		SET_SDA;	
-  }	
-	I2C_Delay_us(1);
+  	}	
+	I2C_Delay_us(5);
 	
 	
 	SET_SCL; 	
-	I2C_Delay_us(10);
+	I2C_Delay_us(5);
 	
 	//Note:
   //释放SDA数据线
 	//SCL先清零，再释放SDA，防止连续传输数据时，从机错将SDA释放信号当成NACk信号
 	CLR_SCL;
-  SET_SDA; 	
-	I2C_Delay_us(1);
+  	SET_SDA; 	
+	I2C_Delay_us(5);
 
 	//返回数据
 	return RD_Byte;
+}
+
+///**
+// * @brief   IIC 读取多个字节
+// * @param
+// * @return
+// */
+//uint8_t iicReadData(uint8_t addr, uint8_t regaddr, uint8_t *data, uint8_t len)
+//{
+//    uint8_t i, ret = 0;
+//    if (data == NULL)
+//        return ret;
+//    Start();
+//    addr &= ~0x01;
+//    ret = Write_Byte(addr);
+//    Write_Byte(regaddr);
+//	Stop();
+//
+//    Start();
+//    addr |= 0x01;
+//    Write_Byte(addr);
+//    for (i = 0; i < len; i++)
+//    {
+//        if (i == (len - 1))
+//        {
+//            data[i] = Read_Byte(ACK);
+//        }
+//        else
+//        {
+//            data[i] = Read_Byte(NACK);
+//        }
+//    }
+//    Stop();
+//    return ret;
+//}
+///**
+// * @brief   IIC 写多个字节
+// * @param
+// * @return
+// */
+//uint8_t iicWriteData(uint8_t addr, uint8_t reg, uint8_t data)
+//{
+//    uint8_t ret = 0;
+//    Start();
+//    addr &= ~0x01;
+//    ret = Write_Byte(addr);
+//    Write_Byte(reg);
+//    Write_Byte(data);
+//    Stop();
+//    return ret;
+//}
+
+
+/*
+	* @name   I2C_Delay
+	* @brief  I2C延时
+	* @param  None
+	* @retval None      
+*/
+static void I2C_Delay_us(uint8_t us)
+{
+    uint32_t Delay = us * 16;
+    do
+    {
+        __NOP();
+    }
+    while (Delay --);
+
+}
+
+void IIC_Delay(uint8_t time)
+{
+    uint32_t Delay = time * 16;
+    do
+    {
+        __NOP();
+    }
+    while (Delay --);
+
+}
+
+/**
+ * @brief IIC初始化
+ * @param  无
+ * @return 无
+ */
+void Soft_IIC_Init(void)
+{
+    IIC_SDA_H();
+    IIC_SCL_H();
+}
+
+/**
+ * @brief SDA引脚设置输出模式
+ * @param  无
+ * @return 无
+ */
+static void Soft_IIC_Output(void)
+{
+    GPIO_InitTypeDef SOFT_IIC_GPIO_STRUCT;
+    SOFT_IIC_GPIO_STRUCT.Mode = GPIO_MODE_OUTPUT_PP;
+    SOFT_IIC_GPIO_STRUCT.Pin = IIC_SDA_PIN;
+    SOFT_IIC_GPIO_STRUCT.Speed = GPIO_SPEED_FREQ_LOW;
+
+    HAL_GPIO_Init(IIC_SDA_PORT, &SOFT_IIC_GPIO_STRUCT);
+}
+
+/**
+ * @brief SDA引脚设置输入模式
+ * @param  无
+ * @return 无
+ */
+static void Soft_IIC_Input(void)
+{
+    GPIO_InitTypeDef SOFT_IIC_GPIO_STRUCT;
+    SOFT_IIC_GPIO_STRUCT.Mode = GPIO_MODE_INPUT;
+    SOFT_IIC_GPIO_STRUCT.Pin = IIC_SDA_PIN;
+    SOFT_IIC_GPIO_STRUCT.Speed = GPIO_SPEED_FREQ_LOW;
+
+    HAL_GPIO_Init(IIC_SDA_PORT, &SOFT_IIC_GPIO_STRUCT);
+}
+
+/**
+ * @brief IIC起始信号
+ * @param  无
+ * @return 无
+ */
+void Soft_IIC_Start(void)
+{
+    Soft_IIC_Output();
+    IIC_SCL_L();
+    IIC_SDA_H();
+    IIC_SCL_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SDA_L();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SCL_L();
+}
+
+/**
+ * @brief IIC停止信号
+ * @param  无
+ * @return 无
+ */
+void Soft_IIC_Stop(void)
+{
+    Soft_IIC_Output();
+    IIC_SCL_L();
+    IIC_SDA_L();
+    IIC_SCL_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SDA_H();
+    IIC_Delay(IIC_DELAY_TIME);
+}
+
+/**
+ * @brief IIC应答信号
+ * @param  无
+ * @return 无
+ */
+void Soft_IIC_ACK(void)
+{
+    Soft_IIC_Output();
+    IIC_SCL_L();
+    IIC_SDA_L();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SCL_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SCL_L();
+}
+
+/**
+ * @brief IIC无应答信号
+ * @param  无
+ * @return 无
+ */
+void Soft_IIC_NACK(void)
+{
+    Soft_IIC_Output();
+    IIC_SCL_L();
+    IIC_SDA_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SCL_H();
+    IIC_Delay(IIC_DELAY_TIME);
+}
+
+/**
+ * @brief IIC等待应答信号
+ * @param  无
+ * @return 0无应答  1有应答
+ */
+uint8_t Soft_IIC_Wait_ACK(void)
+{
+    uint8_t wait;
+    Soft_IIC_Output();
+    IIC_SDA_H();
+    Soft_IIC_Input();
+    IIC_SCL_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    while (HAL_GPIO_ReadPin(IIC_SDA_PORT, IIC_SDA_PIN))
+    {
+        wait++;
+        if (wait > 200)
+        {
+            Soft_IIC_Stop();
+            return 0;
+        }
+    }
+    IIC_SCL_L();
+    return 1;
+}
+
+/**
+ * @brief IIC写数据1
+ * @param  无
+ * @return 无
+ */
+void Soft_IIC_Write_High(void)
+{
+    IIC_SCL_L();
+    IIC_SDA_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SCL_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SCL_L();
+}
+
+/**
+ * @brief IIC写数据0
+ * @param  无
+ * @return 无
+ */
+void Soft_IIC_Write_Low(void)
+{
+    IIC_SCL_L();
+    IIC_SDA_L();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SCL_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    IIC_SCL_L();
+}
+
+/**
+ * @brief IIC写入单个数据
+ * @param  无
+ * @return 应答信号, 0无应答 1有应答
+ */
+uint8_t Soft_IIC_Write_Byte(uint8_t Byte)
+{
+    uint8_t i;
+    Soft_IIC_Output();
+    for (i = 0x80; i != 0; i >>= 1)
+    {
+        if (Byte & i)
+        {
+            Soft_IIC_Write_High();
+        }
+        else
+        {
+            Soft_IIC_Write_Low();
+        }
+    }
+    return (Soft_IIC_Wait_ACK());
+}
+
+/**
+ * @brief IIC读一个数据
+ * @param  ACK:应答 NACK:不应答
+ * @return 返回读到的数据
+ */
+uint8_t Soft_IIC_Recv_Byte(uint8_t ack_sta)
+{
+    uint8_t data = 0, i;
+    Soft_IIC_Input();
+    IIC_SCL_H();
+    IIC_Delay(IIC_DELAY_TIME);
+    for (i = 0x80; i != 0; i >>= 1)
+    {
+        if (HAL_GPIO_ReadPin(IIC_SDA_PORT, IIC_SDA_PIN) == 1)
+        {
+            data |= i;
+        }
+        IIC_Delay(IIC_DELAY_TIME);
+        IIC_SCL_L();
+        IIC_Delay(IIC_DELAY_TIME);
+        IIC_SCL_H();
+        IIC_Delay(IIC_DELAY_TIME);
+    }
+    if (ack_sta == ACK)
+    {
+        Soft_IIC_ACK();
+    }
+    else
+    {
+        Soft_IIC_NACK();
+    }
+    return data;
 }
 
 /**
@@ -931,25 +1231,27 @@ uint8_t iicReadData(uint8_t addr, uint8_t regaddr, uint8_t *data, uint8_t len)
     uint8_t i, ret = 0;
     if (data == NULL)
         return ret;
-    Start();
+    Soft_IIC_Start();
     addr &= ~0x01;
-    ret = Write_Byte(addr);
-    Write_Byte(regaddr);
-    Start();
+    ret = Soft_IIC_Write_Byte(addr);
+    Soft_IIC_Write_Byte(regaddr);
+	Soft_IIC_Stop();
+
+    Soft_IIC_Start();
     addr |= 0x01;
-    Write_Byte(addr);
+    Soft_IIC_Write_Byte(addr);
     for (i = 0; i < len; i++)
     {
         if (i == (len - 1))
         {
-            data[i] = Read_Byte(ACK);
+            data[i] = Soft_IIC_Recv_Byte(ACK);
         }
         else
         {
-            data[i] = Read_Byte(NACK);
+            data[i] = Soft_IIC_Recv_Byte(NACK);
         }
     }
-    Stop();
+    Soft_IIC_Stop();
     return ret;
 }
 /**
@@ -960,30 +1262,13 @@ uint8_t iicReadData(uint8_t addr, uint8_t regaddr, uint8_t *data, uint8_t len)
 uint8_t iicWriteData(uint8_t addr, uint8_t reg, uint8_t data)
 {
     uint8_t ret = 0;
-    Start();
+    Soft_IIC_Start();
     addr &= ~0x01;
-    ret = Write_Byte(addr);
-    Write_Byte(reg);
-    Write_Byte(data);
-    Stop();
+    ret = Soft_IIC_Write_Byte(addr);
+    Soft_IIC_Write_Byte(reg);
+    Soft_IIC_Write_Byte(data);
+    Soft_IIC_Stop();
     return ret;
 }
 
-
-/*
-	* @name   I2C_Delay
-	* @brief  I2C延时
-	* @param  None
-	* @retval None      
-*/
-static void I2C_Delay_us(uint8_t us)
-{
-    uint32_t Delay = us * 168/4;
-    do
-    {
-        __NOP();
-    }
-    while (Delay --);
-
-}
 

@@ -66,6 +66,23 @@ typedef struct {
 #define READ_SDA	HAL_GPIO_ReadPin(GPIOB,SDA_Pin)
 
 
+#define IIC_SCL_PIN SCL_Pin
+#define IIC_SCL_PORT GPIOB
+
+#define IIC_SDA_PIN SDA_Pin
+#define IIC_SDA_PORT GPIOB
+
+#define IIC_DELAY_TIME 10
+
+
+
+
+#define IIC_SCL_H()     HAL_GPIO_WritePin(GPIOB,SCL_Pin,GPIO_PIN_SET)
+#define IIC_SCL_L()     HAL_GPIO_WritePin(GPIOB,SCL_Pin,GPIO_PIN_RESET)
+#define IIC_SDA_H()     HAL_GPIO_WritePin(GPIOB,SDA_Pin,GPIO_PIN_SET)
+#define IIC_SDA_L()     HAL_GPIO_WritePin(GPIOB,SDA_Pin,GPIO_PIN_RESET)
+
+
 /***********************/
 extern UART_RXTX_CTL usart1_ctl;
 extern UART_RXTX_CTL usart2_ctl;
@@ -88,8 +105,8 @@ typedef enum
 //定义枚举类型
 typedef enum
 {
-	ACK	 = GPIO_PIN_RESET,
-	NACK = GPIO_PIN_SET,
+	ACK	 = GPIO_PIN_SET,
+	NACK = GPIO_PIN_RESET,
 }ACK_Value_t;
 
 //定义结构体类型
@@ -119,6 +136,7 @@ uint8_t iicWriteData(uint8_t addr, uint8_t reg, uint8_t data);
 uint8_t iicReadData(uint8_t addr, uint8_t regaddr, uint8_t *data, uint8_t len);
 
 void Init(void);  //I2C初始化
+void portGsensorSdaSclCtl(uint8_t onoff);
 
 
 /*******FUNCTION********/

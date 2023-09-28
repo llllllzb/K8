@@ -44,11 +44,11 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (..\App\app_nmea.h)(0x648FE194)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
-I (..\App\app_param.h)(0x6512ACEF)
-F (..\App\app_port.c)(0x6512CAC7)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_port.o --omf_browse stm32l\app_port.crf --depend stm32l\app_port.d)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
+F (..\App\app_port.c)(0x65154257)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_port.o --omf_browse stm32l\app_port.crf --depend stm32l\app_port.d)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/main.h)(0x651166A1)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x6364F896)
 I (../Inc/stm32l0xx_hal_conf.h)(0x651165DD)
@@ -93,7 +93,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
 I (..\App\app_nmea.h)(0x648FE194)
 I (..\App\app_mir3da.h)(0x648FE194)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (../Inc/rtc.h)(0x651165F9)
 I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
 I (../Inc/adc.h)(0x651165F9)
@@ -143,7 +143,7 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (..\App\app_nmea.h)(0x648FE194)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
 I (..\App\app_ble.h)(0x648FE194)
 F (..\App\app_user.c)(0x6512B5CA)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_user.o --omf_browse stm32l\app_user.crf --depend stm32l\app_user.d)
@@ -191,16 +191,16 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (..\App\app_nmea.h)(0x648FE194)
 I (..\App\app_kernal.h)(0x648FE194)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_net.h)(0x6492DA66)
 I (..\App\app_task.h)(0x648FE195)
 I (..\App\app_rec.h)(0x648FE194)
 I (..\App\app_atcmd.h)(0x64E32E62)
 I (../Inc/adc.h)(0x651165F9)
 F (..\App\app_param.c)(0x6511478D)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_param.o --omf_browse stm32l\app_param.crf --depend stm32l\app_param.d)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (..\App\app_sys.h)(0x6492DAEB)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5D9AD21A)
@@ -246,7 +246,7 @@ I (..\App\app_nmea.h)(0x648FE194)
 F (..\App\app_net.c)(0x65115302)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_net.o --omf_browse stm32l\app_net.crf --depend stm32l\app_net.d)
 I (..\App\app_net.h)(0x6492DA66)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/main.h)(0x651166A1)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x6364F896)
 I (../Inc/stm32l0xx_hal_conf.h)(0x651165DD)
@@ -290,7 +290,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5ED64112)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
 I (..\App\app_nmea.h)(0x648FE194)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_task.h)(0x648FE195)
 I (..\App\app_serverprotocol.h)(0x648FE194)
 I (..\App\app_gps.h)(0x648FE194)
@@ -302,7 +302,7 @@ I (..\App\app_ble.h)(0x648FE194)
 F (..\App\app_task.c)(0x65114D0B)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_task.o --omf_browse stm32l\app_task.crf --depend stm32l\app_task.d)
 I (..\App\app_task.h)(0x648FE195)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/main.h)(0x651166A1)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x6364F896)
 I (../Inc/stm32l0xx_hal_conf.h)(0x651165DD)
@@ -345,7 +345,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5ED64112)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
 I (..\App\app_nmea.h)(0x648FE194)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_kernal.h)(0x648FE194)
 I (..\App\app_mir3da.h)(0x648FE194)
 I (..\App\app_instructioncmd.h)(0x64E32E62)
@@ -404,9 +404,9 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (..\App\app_nmea.h)(0x648FE194)
 I (..\App\app_gpsrestore.h)(0x648FE194)
 I (..\App\app_net.h)(0x6492DA66)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_task.h)(0x648FE195)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
 I (..\App\app_instructioncmd.h)(0x64E32E62)
 I (..\App\app_atcmd.h)(0x64E32E62)
@@ -455,9 +455,9 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (..\App\app_nmea.h)(0x648FE194)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_task.h)(0x648FE195)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
 F (..\App\app_gpsrestore.c)(0x648FE194)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_gpsrestore.o --omf_browse stm32l\app_gpsrestore.crf --depend stm32l\app_gpsrestore.d)
 I (..\App\app_gpsrestore.h)(0x648FE194)
@@ -550,7 +550,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5ED64112)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
 I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x5D9AD212)
-F (..\App\app_atcmd.c)(0x64E32E62)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_atcmd.o --omf_browse stm32l\app_atcmd.crf --depend stm32l\app_atcmd.d)
+F (..\App\app_atcmd.c)(0x6515373E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_atcmd.o --omf_browse stm32l\app_atcmd.crf --depend stm32l\app_atcmd.d)
 I (..\App\app_atcmd.h)(0x64E32E62)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (..\App\app_sys.h)(0x6492DAEB)
@@ -596,11 +596,11 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (..\App\app_nmea.h)(0x648FE194)
 I (..\App\app_kernal.h)(0x648FE194)
 I (..\App\app_task.h)(0x648FE195)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
 I (..\App\app_net.h)(0x6492DA66)
 I (..\App\app_mir3da.h)(0x648FE194)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_gps.h)(0x648FE194)
 I (..\App\app_sn.h)(0x648FE194)
 I (..\App\app_serverprotocol.h)(0x648FE194)
@@ -655,9 +655,9 @@ I (..\App\app_sn.h)(0x648FE194)
 I (..\App\app_rec.h)(0x648FE194)
 I (..\App\app_net.h)(0x6492DA66)
 I (..\App\app_kernal.h)(0x648FE194)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_task.h)(0x648FE195)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
 I (..\App\app_mir3da.h)(0x648FE194)
 I (..\App\app_serverprotocol.h)(0x648FE194)
@@ -668,7 +668,7 @@ F (..\App\app_rec.c)(0x648FE194)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 -
 I (..\App\app_rec.h)(0x648FE194)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (..\App\app_net.h)(0x6492DA66)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/main.h)(0x651166A1)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h)(0x6364F896)
 I (../Inc/stm32l0xx_hal_conf.h)(0x651165DD)
@@ -803,12 +803,12 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (..\App\app_nmea.h)(0x648FE194)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_serverprotocol.h)(0x648FE194)
 I (..\App\app_gpsrestore.h)(0x648FE194)
 I (..\App\app_net.h)(0x6492DA66)
 I (..\App\app_task.h)(0x648FE195)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AD212)
 F (..\App\app_mir3da.c)(0x65115DBC)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\app_mir3da.o --omf_browse stm32l\app_mir3da.crf --depend stm32l\app_mir3da.d)
@@ -848,7 +848,7 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/main.h)(0x651166A1)
 I (../Inc/usart.h)(0x651165F9)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5ED64112)
@@ -902,9 +902,9 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (..\App\app_nmea.h)(0x648FE194)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_atcmd.h)(0x64E32E62)
 F (../Src/main.c)(0x6511661B)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc -I ../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I ../Drivers/CMSIS/Include -I ..\App-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32L071xx -DUSE_HAL_DRIVER -DSTM32L071xx-o stm32l\main.o --omf_browse stm32l\main.crf --depend stm32l\main.d)
 I (../Inc/main.h)(0x651166A1)
@@ -1255,9 +1255,9 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 I (../Inc/stm32l0xx_it.h)(0x651165DD)
-I (..\App\app_port.h)(0x6512ACEF)
+I (..\App\app_port.h)(0x65153EB1)
 I (../Inc/usart.h)(0x651165F9)
-I (..\App\app_param.h)(0x6512ACEF)
+I (..\App\app_param.h)(0x651527C1)
 I (..\App\app_sys.h)(0x6492DAEB)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5D9AD21A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5ED64112)
@@ -2166,4 +2166,4 @@ I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rtc_ex.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h)(0x6364F896)
 I (../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h)(0x6364F896)
 F (startup_stm32l071xx.s)(0x651165F9)(--cpu Cortex-M0+ -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_STM32L-IC:\Users\nimo\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\nimo\AppData\Local\Arm\Packs\Keil\STM32L0xx_DFP\2.0.1\Drivers\CMSIS\Device\ST\STM32L0xx\Include--pd "__UVISION_VERSION SETA 529" --pd "_RTE_ SETA 1" --pd "STM32L071xx SETA 1"--list startup_stm32l071xx.lst --xref -o stm32l\startup_stm32l071xx.o --depend stm32l\startup_stm32l071xx.d)
-F (.\STM32L\STM32L.map)(0x6513991F)()
+F (.\STM32L\STM32L.map)(0x6515425D)()
