@@ -139,7 +139,8 @@ void paramDefaultInit(uint8_t level)
     sysparam.Switch_Alarm_En = 1;
     sysparam.heartbeatgap = 180;
     sysparam.startUpCnt = 0;
-    sysparam.gpsuploadgap = 10;
+    sysparam.gpsuploadgap = 30;
+   	sysparam.gapMinutes = 0;
     sysparam.ledctrl = 0;
     sysparam.poitype = 2;
     sysparam.smsRespon = 0;
@@ -149,6 +150,8 @@ void paramDefaultInit(uint8_t level)
     strcpy((char *)sysparam.agpsUser, "isimact@189.cn");
     strcpy((char *)sysparam.agpsPswd, "tinfo_13310886056");
     sysparam.agpsPort = 2621;
+    paramSaveServer((uint8_t *)"39.105.31.47", 7700);
+    paramSaveApnName((uint8_t *)"cmiot");
     sysparam.step = 0;
     paramSaveStep();
     sysparam.vibRange = 0;
@@ -181,6 +184,7 @@ void paramDefaultInit(uint8_t level)
     paramSavePdop(600);
     paramSaveMode1Timer(0);
     paramSaveMode2cnt(0);
+	eepromWriteTwoBytes(EEPROM_MODE3_GAP_ADDR, sysparam.gapMinutes);
 
     paramSaveLoww(36);
     paramSaveBF(0);
@@ -268,7 +272,7 @@ void paramInit(void)
     if (sysparam.autoParamUpdate != PARAM_AUTO_UPDATE_FLAG)
     {
         paramSaveAutoParam(PARAM_AUTO_UPDATE_FLAG);
-        strcpy((char *)sysparam.agpsServer, "www.gnss-aide.com");
+        strcpy((char *)sysparam.agpsServer, "121.41.40.95");
         strcpy((char *)sysparam.agpsUser, "isimact@189.cn");
         strcpy((char *)sysparam.agpsPswd, "tinfo_13310886056");
         sysparam.agpsPort = 2621;
@@ -285,6 +289,19 @@ void paramInit(void)
 
 		sysparam.heartbeatgap=180;
 		paramSaveHeartbeatInterval(sysparam.heartbeatgap);
+
+		sysparam.smsRespon = 0;
+		sysparam.MODE = 2;
+		sysparam.gpsuploadgap = 30;
+   		sysparam.gapMinutes = 0;
+   		eepromWriteByte(EEPROM_MODE_ADDR, sysparam.MODE);
+   		eepromWriteTwoBytes(EEPROM_MODE3_GAP_ADDR, sysparam.gapMinutes);
+   		paramSaveGPSUploadInterval(sysparam.gpsuploadgap);
+		paramSaveServer((uint8_t *)"39.105.31.47", 7700);
+    	paramSaveApnName((uint8_t *)"cmiot");
+    	paramSaveSmsreply(sysparam.smsRespon);
+    	paramGetServer(sysparam.Server, &sysparam.ServerPort);
+    	paramGetApnName(sysparam.apn);
     }
 }
 

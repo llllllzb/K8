@@ -617,16 +617,16 @@ void wdtProcess(void)
         systemRequestSet(SYSTEM_ENTERSLEEP_REQUEST);
     }
 
-    //每隔3分钟检查一下网络
-    if (sysparam.MODE == MODE4 && ++sysinfo.mode4checktick >= 18)
-    {
-
-        sysinfo.mode4checktick = 0;
-        if (isModuleRunNormal())
-        {
-            N58_ChangeInvokeStatus(N58_CPIN_STATUS);
-        }
-    }
+//    //每隔3分钟检查一下网络
+//    if (sysparam.MODE == MODE4 && ++sysinfo.mode4checktick >= 18)
+//    {
+//
+//        sysinfo.mode4checktick = 0;
+//        if (isModuleRunNormal())
+//        {
+//            N58_ChangeInvokeStatus(N58_CPIN_STATUS);
+//        }
+//    }
 }
 
 //心跳请求

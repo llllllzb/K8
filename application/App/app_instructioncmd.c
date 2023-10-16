@@ -153,6 +153,7 @@ void doStatusInstruction(ITEM *item, instructionMode_e mode, char *telnum)
     sprintf(message + strlen(message), "SIGNAL=%d;", getModuleRssi());
     sprintf(message + strlen(message), "BATTERY=%s;", getTerminalChargeState() > 0 ? "Charging" : "Uncharged");
     sprintf(message + strlen(message), "STEP=%d;", sysinfo.step);
+    sprintf(message + strlen(message), "LOGIN=%s;", isProtocolReday() > 0 ? "Yes" : "No");
     sendMessageWithDifMode((uint8_t *)message, strlen(message), mode, telnum);
 }
 
@@ -406,6 +407,7 @@ void doModeInstruction(ITEM *item, instructionMode_e mode, char *telnum)
                     }
                     gpsRequestClear(GPS_REQUEST_ACC_CTL);
                     paramSaveMode(MODE4);
+					startTimer(4000, mode4Callback, 0);
                 }
                 else
                 {

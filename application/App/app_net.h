@@ -101,15 +101,16 @@ typedef enum
     N58_CSQ_STATUS,
     N58_CREG_STATUS,
     N58_CCID_STATUS,
-    N58_CGATT_STATUS,//5
+    N58_CGATT_STATUS,//6
     N58_MYSYSINFO_STATUS,
     N58_CGDCONT_STATUS,
     N58_XGAUTH_STATUS,
     N58_XIIC_STATUS,
-    N58_XIIC_QUERY_STATUS,//10
+    N58_XIIC_QUERY_STATUS,//11
     N58_TCPCLOSE_STATUS,
-    N58_TCPSETUP_STATUS,//12
+    N58_TCPSETUP_STATUS,//13
     N58_NORMAL_STATUS,
+    N58_OFFLINE_STATUS,
 } N58_WORK_STATUS;
 
 /*指令集对应结构体*/
@@ -200,6 +201,7 @@ void moduleResponParaser(uint8_t * buf,uint16_t len);
 void N58_ChangeInvokeStatus(N58_WORK_STATUS status);
 void N58enterFlightMode(void);
 void N58enterNormalMode(void);
+void mode4Callback(void);
 
 
 uint8_t getModuleRssi(void);

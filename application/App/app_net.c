@@ -297,6 +297,7 @@ void N58_ChangeInvokeStatus(N58_WORK_STATUS status)
 {
     n58_invoke_status.invoke_status = status;
     n58_invoke_status.tick_time = 0;
+    LogPrintf(DEBUG_ALL, "ChangeInvokeStatus==>%d\n", status);
     if (n58_invoke_status.invoke_status != N58_NORMAL_STATUS)
     {
         updateSystemLedStatus(SYSTEM_LED_NETOK, 0);
@@ -545,7 +546,7 @@ void networkConnectProcess(void)
                 if (sysparam.MODE == MODE4 && sysinfo.GPSRequest == 0 && sysinfo.lbsrequest == 0 && sysinfo.alarmrequest == 0 &&
                         sysinfo.wifirequest == 0)
                 {
-                    N58_ChangeInvokeStatus(N58_NORMAL_STATUS);
+                    N58_ChangeInvokeStatus(N58_OFFLINE_STATUS);
                     break;
                 }
 
@@ -699,7 +700,7 @@ void networkConnectProcess(void)
                 if (sysparam.MODE == MODE4 && sysinfo.GPSRequest == 0 && sysinfo.lbsrequest == 0 && sysinfo.alarmrequest == 0 &&
                         sysinfo.wifirequest == 0)
                 {
-                    N58_ChangeInvokeStatus(N58_NORMAL_STATUS);
+                    N58_ChangeInvokeStatus(N58_OFFLINE_STATUS);
                     break;
                 }
             }
@@ -745,12 +746,22 @@ void networkConnectProcess(void)
                 {
                     protocolRunFsm();
                 }
+                else
+                {
+					mode4Callback();
+                }
             }
             else
             {
                 protocolRunFsm();
             }
             break;
+        case N58_OFFLINE_STATUS:
+			if (sysinfo.GPSRequest != 0 || sysinfo.lbsrequest != 0 || sysinfo.wifirequest != 0 || sysparam.MODE != 4)
+			{
+				N58_ChangeInvokeStatus(N58_CPIN_STATUS);	
+			}
+        	break;
         default :
             n58_invoke_status.invoke_status = N58_AT_STATUS;
             break;
@@ -1964,6 +1975,14 @@ uint8_t isModuleRunNormal(void)
     if (n58_invoke_status.invoke_status == N58_NORMAL_STATUS)
         return 1;
     return 0;
+}
+
+
+void mode4Callback(void)
+{
+	N58_ChangeInvokeStatus(N58_OFFLINE_STATUS);
+    sendModuleCmd(N58_TCPCLOSE_CMD, "0");
+    netConnectReset();
 }
 
 void csqRequest(void)
