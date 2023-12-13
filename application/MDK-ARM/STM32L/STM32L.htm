@@ -3,7 +3,7 @@
 <title>Static Call Graph - [STM32L\STM32L.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32L\STM32L.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Oct 08 18:37:03 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Dec 04 15:24:58 2023
 <BR><P>
 <H3>Maximum Stack Usage =       2852 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -316,6 +316,7 @@ Global Symbols
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsClearCurrentGPSInfo
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doSNInstruction
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 </UL>
@@ -3406,7 +3407,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doinstruction
 </UL>
 
-<P><STRONG><a name="[1cd]"></a>doSNInstruction</STRONG> (Thumb, 124 bytes, Stack size 112 bytes, app_instructioncmd.o(i.doSNInstruction))
+<P><STRONG><a name="[1cd]"></a>doSNInstruction</STRONG> (Thumb, 148 bytes, Stack size 112 bytes, app_instructioncmd.o(i.doSNInstruction))
 <BR><BR>[Stack]<UL><LI>Max Depth = 692<LI>Call Chain = doSNInstruction &rArr; decryptSN &rArr; ztvm_encrypt_untrides &rArr; ztvm_encrypt_des &rArr; encrypt
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
@@ -3416,6 +3417,7 @@ Global Symbols
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;paramGetSnNumber
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decryptSN
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;doinstruction

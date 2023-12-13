@@ -83,7 +83,7 @@ V
 次版本     	与之前版本不能兼容时改变
 修订版本        细节修改
 */
-#define EEPROM_VERSION									"K8_RI_V2.2.3"
+#define EEPROM_VERSION									"K8_RI_V2.2.5"
 
 /*EPROM中的数据*/
 typedef struct

@@ -159,9 +159,9 @@ void doStatusInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 
 void doSNInstruction(ITEM *item, instructionMode_e mode, char *telnum)
 {
-    char debug[50];
-    char IMEI[15];
-    uint8_t sndata[30];
+    char debug[50] = { 0 };
+    char IMEI[16] = { 0 };
+    uint8_t sndata[30] = { 0 };
     if (item->item_data[1])
         if (my_strpach(item->item_data[1], "ZTINFO") && my_strpach(item->item_data[2], "SN"))
         {
