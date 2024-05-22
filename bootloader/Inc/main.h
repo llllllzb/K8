@@ -65,7 +65,7 @@ void Error_Handler(void);
 #define CHARGE_GPIO_Port GPIOA
 #define WAKEUP_4G_Pin GPIO_PIN_0
 #define WAKEUP_4G_GPIO_Port GPIOB
-#define PWRKEY_4G_Pin GPIO_PIN_13
+#define PWRKEY_4G_Pin GPIO_PIN_12
 #define PWRKEY_4G_GPIO_Port GPIOB
 #define RSTKEY_4G_Pin GPIO_PIN_14
 #define RSTKEY_4G_GPIO_Port GPIOB

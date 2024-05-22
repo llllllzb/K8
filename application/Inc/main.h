@@ -61,6 +61,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define PWREN_Pin GPIO_PIN_1
 #define PWREN_GPIO_Port GPIOA
+#define PWRKEY_Pin GPIO_PIN_12
+#define PWRKEY_GPIO_Port GPIOB
 #define CHARGE_Pin GPIO_PIN_4
 #define CHARGE_GPIO_Port GPIOA
 #define RI_Pin GPIO_PIN_7
@@ -84,6 +86,12 @@ void Error_Handler(void);
 #define GSPWR_GPIO_Port GPIOB
 #define SCL_Pin GPIO_PIN_6
 #define SDA_Pin	GPIO_PIN_7
+//
+#define no3_Pin GPIO_PIN_6
+#define no3_GPIO_Port GPIOA
+#define no4_Pin GPIO_PIN_1
+#define no4_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [bootloader\bootloader.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image bootloader\bootloader.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Mar 30 19:31:33 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed May 22 16:32:42 2024
 <BR><P>
 <H3>Maximum Stack Usage =       2352 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -81,7 +81,7 @@ Global Symbols
 <P><STRONG><a name="[24]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l071xx.o(.text)
 </UL>
-<P><STRONG><a name="[f7]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[f8]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[35]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -91,15 +91,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[f8]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[f9]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[f9]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[fa]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[fa]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[fb]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[fb]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[fc]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[fc]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[fd]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32l071xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l071xx.o(RESET)
@@ -177,7 +177,7 @@ Global Symbols
 <P><STRONG><a name="[6]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32l071xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l071xx.o(RESET)
 </UL>
-<P><STRONG><a name="[fd]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[fe]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[59]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
@@ -209,26 +209,26 @@ Global Symbols
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[fe]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[ff]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[ff]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[100]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[3b]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[100]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[101]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[101]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[102]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[3a]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
 <P><STRONG><a name="[8b]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58Init
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
+<BR><BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58Init
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
@@ -236,11 +236,11 @@ Global Symbols
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveApnUser
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveApnPswd
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveApnName
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 </UL>
 
-<P><STRONG><a name="[102]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[103]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[3c]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -249,8 +249,8 @@ Global Symbols
 <P><STRONG><a name="[b6]"></a>strstr</STRONG> (Thumb, 40 bytes, Stack size 12 bytes, strstr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strstr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58tcpcloseparase
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58tcpcloseparase
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
 <LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;debuguartctrl
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
 </UL>
@@ -258,8 +258,8 @@ Global Symbols
 <P><STRONG><a name="[b9]"></a>strncpy</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, strncpy.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strncpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveServer
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveApnUser
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveApnPswd
@@ -270,9 +270,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;packIMEI
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol_F3
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendN58Cmd
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessageNoBlock
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
@@ -284,8 +284,17 @@ Global Symbols
 
 <P><STRONG><a name="[be]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveCodeVersion
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
 </UL>
+
+<P><STRONG><a name="[c9]"></a>__aeabi_uread4</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, uread4.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWriteCode
+</UL>
+
+<P><STRONG><a name="[104]"></a>__rt_uread4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, uread4.o(.text), UNUSED)
+
+<P><STRONG><a name="[105]"></a>_uread4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, uread4.o(.text), UNUSED)
 
 <P><STRONG><a name="[3d]"></a>atoi</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, atoi.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = atoi &rArr; strtol &rArr; _strtoul
@@ -293,9 +302,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtol
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
+<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
 </UL>
 
 <P><STRONG><a name="[39]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text))
@@ -307,7 +316,7 @@ Global Symbols
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[103]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[106]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[38]"></a>__aeabi_llsr</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, llushr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_llsr
@@ -317,7 +326,7 @@ Global Symbols
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[104]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[107]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[3f]"></a>strtol</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, strtol.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = strtol &rArr; _strtoul
@@ -329,7 +338,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 </UL>
 
-<P><STRONG><a name="[105]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, iusefp.o(.text), UNUSED)
+<P><STRONG><a name="[108]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[42]"></a>__aeabi_dadd</STRONG> (Thumb, 328 bytes, Stack size 48 bytes, dadd.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
@@ -379,13 +388,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[106]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[109]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[43]"></a>__aeabi_lasr</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[107]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
+<P><STRONG><a name="[10a]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
 
 <P><STRONG><a name="[40]"></a>__rt_ctype_table</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, ctype_o.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtol
@@ -473,7 +482,7 @@ Global Symbols
 <P><STRONG><a name="[b4]"></a>GetCrc16</STRONG> (Thumb, 36 bytes, Stack size 12 bytes, app_common.o(i.GetCrc16))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = GetCrc16
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol_F3
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol_01
 </UL>
@@ -588,21 +597,20 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chargeDetProcess
 </UL>
 
-<P><STRONG><a name="[c9]"></a>HAL_GPIO_TogglePin</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32l0xx_hal_gpio.o(i.HAL_GPIO_TogglePin))
+<P><STRONG><a name="[ca]"></a>HAL_GPIO_TogglePin</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32l0xx_hal_gpio.o(i.HAL_GPIO_TogglePin))
 <BR><BR>[Called By]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledtogg
 </UL>
 
 <P><STRONG><a name="[97]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32l0xx_hal_gpio.o(i.HAL_GPIO_WritePin))
-<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
+<BR><BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModulePowerOn
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ResetKeyProcessA
-<LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58PowerKeyProcessB
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58PowerKeyProcessA
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
 <P><STRONG><a name="[56]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32l0xx_hal.o(i.HAL_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerRun
+<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerRun
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_SetWakeUpTimer_IT
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IWDG_Init
@@ -678,7 +686,7 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 </UL>
 
-<P><STRONG><a name="[cf]"></a>HAL_NVIC_SystemReset</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32l0xx_hal_cortex.o(i.HAL_NVIC_SystemReset))
+<P><STRONG><a name="[d0]"></a>HAL_NVIC_SystemReset</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32l0xx_hal_cortex.o(i.HAL_NVIC_SystemReset))
 <BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startJumpToApp
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -800,10 +808,10 @@ Global Symbols
 <P><STRONG><a name="[75]"></a>HAL_UART_DMAStop</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, stm32l0xx_hal_uart.o(i.HAL_UART_DMAStop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_UART_DMAStop &rArr; HAL_DMA_Abort
 </UL>
-<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_GetError
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndTxTransfer
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndTxTransfer
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_GetError
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsartGetDataFromDMA
 </UL>
@@ -834,9 +842,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_TxCpltCallback
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_WakeupCallback
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
 <LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
@@ -933,22 +941,22 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWriteCode
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashEarseByFileSize
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outPutNodeCmd
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendN58Cmd
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgattparase
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgattparase
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModulePowerOn
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ResetKeyProcessA
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58PowerKeyProcessB
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58PowerKeyProcessA
@@ -958,8 +966,8 @@ Global Symbols
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chargeDetProcess
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
 </UL>
 
@@ -969,7 +977,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
 </UL>
 
@@ -980,7 +988,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outPutNodeCmd
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartReceiveCompleteCheck
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartReceiveCompleteCheck
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 </UL>
 
@@ -992,18 +1000,18 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWriteCode
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashEarseByFileSize
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashEarse
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerRun
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerRun
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Create_Timer
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startJumpToApp
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
 </UL>
 
 <P><STRONG><a name="[95]"></a>MX_DMA_Init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, dma.o(i.MX_DMA_Init))
@@ -1015,7 +1023,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[96]"></a>MX_GPIO_Init</STRONG> (Thumb, 174 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[96]"></a>MX_GPIO_Init</STRONG> (Thumb, 172 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -1063,7 +1071,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e0]"></a>N58_ChangeInvokeStatus</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, app_n58.o(i.N58_ChangeInvokeStatus))
+<P><STRONG><a name="[e1]"></a>N58_ChangeInvokeStatus</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, app_n58.o(i.N58_ChangeInvokeStatus))
 <BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
@@ -1077,7 +1085,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 </UL>
 
-<P><STRONG><a name="[f3]"></a>N58_GetInvokeStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_n58.o(i.N58_GetInvokeStatus))
+<P><STRONG><a name="[f4]"></a>N58_GetInvokeStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_n58.o(i.N58_GetInvokeStatus))
 <BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
 </UL>
 
@@ -1088,7 +1096,7 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendN58Cmd
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 </UL>
 
 <P><STRONG><a name="[1]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32l0xx_it.o(i.NMI_Handler))
@@ -1190,7 +1198,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l071xx.o(RESET)
 </UL>
-<P><STRONG><a name="[ca]"></a>UsartBufInit</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, app_uart.o(i.UsartBufInit))
+<P><STRONG><a name="[cb]"></a>UsartBufInit</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, app_uart.o(i.UsartBufInit))
 <BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1208,38 +1216,38 @@ Global Symbols
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[108]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[10b]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
 <P><STRONG><a name="[7e]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendN58Cmd
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setXGAUTH
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setAPN
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgattparase
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setXGAUTH
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setAPN
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgattparase
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_SendDataToServer
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_CreateSocket
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
 </UL>
 
-<P><STRONG><a name="[109]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[10c]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
-<P><STRONG><a name="[10a]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[10d]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
 <P><STRONG><a name="[ab]"></a>__0vsprintf</STRONG> (Thumb, 30 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[10b]"></a>__1vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[10e]"></a>__1vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
-<P><STRONG><a name="[10c]"></a>__2vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[10f]"></a>__2vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
-<P><STRONG><a name="[10d]"></a>__c89vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[110]"></a>__c89vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
 <P><STRONG><a name="[94]"></a>vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vsprintf
@@ -1266,19 +1274,19 @@ Global Symbols
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 </UL>
 
-<P><STRONG><a name="[10e]"></a>__rt_errno_addr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, errno.o(i.__aeabi_errno_addr), UNUSED)
+<P><STRONG><a name="[111]"></a>__rt_errno_addr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, errno.o(i.__aeabi_errno_addr), UNUSED)
 
-<P><STRONG><a name="[10f]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[112]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[110]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[113]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[111]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[114]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[e7]"></a>changeByteArrayToHexString</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, app_common.o(i.changeByteArrayToHexString))
+<P><STRONG><a name="[e8]"></a>changeByteArrayToHexString</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, app_common.o(i.changeByteArrayToHexString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = changeByteArrayToHexString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
+<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 </UL>
 
 <P><STRONG><a name="[29]"></a>debuguartctrl</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_uart.o(i.debuguartctrl))
@@ -1294,39 +1302,39 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicparase
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xgauthparase
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgdcontparase
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicparase
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xgauthparase
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgdcontparase
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[d5]"></a>eepromParamGetApnName</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_eeprom.o(i.eepromParamGetApnName))
-<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
+<P><STRONG><a name="[d6]"></a>eepromParamGetApnName</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_eeprom.o(i.eepromParamGetApnName))
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
 </UL>
 
-<P><STRONG><a name="[d7]"></a>eepromParamGetApnPswd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_eeprom.o(i.eepromParamGetApnPswd))
-<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
+<P><STRONG><a name="[d8]"></a>eepromParamGetApnPswd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_eeprom.o(i.eepromParamGetApnPswd))
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
 </UL>
 
-<P><STRONG><a name="[d6]"></a>eepromParamGetApnUser</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_eeprom.o(i.eepromParamGetApnUser))
-<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
+<P><STRONG><a name="[d7]"></a>eepromParamGetApnUser</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_eeprom.o(i.eepromParamGetApnUser))
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
 </UL>
 
-<P><STRONG><a name="[f6]"></a>eepromParamGetCodeVersion</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_eeprom.o(i.eepromParamGetCodeVersion))
-<BR><BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
+<P><STRONG><a name="[f7]"></a>eepromParamGetCodeVersion</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_eeprom.o(i.eepromParamGetCodeVersion))
+<BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
 </UL>
 
-<P><STRONG><a name="[d4]"></a>eepromParamGetServer</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, app_eeprom.o(i.eepromParamGetServer))
+<P><STRONG><a name="[d5]"></a>eepromParamGetServer</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, app_eeprom.o(i.eepromParamGetServer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = eepromParamGetServer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
 </UL>
 
-<P><STRONG><a name="[d3]"></a>eepromParamGetSnNumber</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, app_eeprom.o(i.eepromParamGetSnNumber))
+<P><STRONG><a name="[d4]"></a>eepromParamGetSnNumber</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, app_eeprom.o(i.eepromParamGetSnNumber))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = eepromParamGetSnNumber
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
 </UL>
 
 <P><STRONG><a name="[b8]"></a>eepromParamSaveApnName</STRONG> (Thumb, 56 bytes, Stack size 64 bytes, app_eeprom.o(i.eepromParamSaveApnName))
@@ -1337,7 +1345,7 @@ Global Symbols
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
 </UL>
 
 <P><STRONG><a name="[bb]"></a>eepromParamSaveApnPswd</STRONG> (Thumb, 56 bytes, Stack size 64 bytes, app_eeprom.o(i.eepromParamSaveApnPswd))
@@ -1348,7 +1356,7 @@ Global Symbols
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
 </UL>
 
 <P><STRONG><a name="[bc]"></a>eepromParamSaveApnUser</STRONG> (Thumb, 56 bytes, Stack size 64 bytes, app_eeprom.o(i.eepromParamSaveApnUser))
@@ -1359,7 +1367,7 @@ Global Symbols
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
 </UL>
 
 <P><STRONG><a name="[bd]"></a>eepromParamSaveCodeVersion</STRONG> (Thumb, 38 bytes, Stack size 48 bytes, app_eeprom.o(i.eepromParamSaveCodeVersion))
@@ -1368,7 +1376,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
 </UL>
 
 <P><STRONG><a name="[bf]"></a>eepromParamSaveServer</STRONG> (Thumb, 104 bytes, Stack size 72 bytes, app_eeprom.o(i.eepromParamSaveServer))
@@ -1382,7 +1390,7 @@ Global Symbols
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
 </UL>
 
 <P><STRONG><a name="[c2]"></a>eepromParamSaveSnNumber</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, app_eeprom.o(i.eepromParamSaveSnNumber))
@@ -1390,7 +1398,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
 </UL>
 
 <P><STRONG><a name="[c3]"></a>eepromParamSaveUpdateStatus</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, app_eeprom.o(i.eepromParamSaveUpdateStatus))
@@ -1398,11 +1406,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startJumpToApp
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
 </UL>
 
@@ -1425,10 +1433,10 @@ Global Symbols
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
 </UL>
 
-<P><STRONG><a name="[c8]"></a>flashWriteCode</STRONG> (Thumb, 198 bytes, Stack size 56 bytes, app_flash.o(i.flashWriteCode))
+<P><STRONG><a name="[c8]"></a>flashWriteCode</STRONG> (Thumb, 190 bytes, Stack size 56 bytes, app_flash.o(i.flashWriteCode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Unlock
@@ -1436,8 +1444,9 @@ Global Symbols
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Lock
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
 </UL>
 
 <P><STRONG><a name="[51]"></a>free</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, malloc.o(i.free))
@@ -1445,31 +1454,31 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;outPutNodeCmd
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateNodeCmd
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerRun
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerRun
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[dc]"></a>getCharIndex</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_common.o(i.getCharIndex))
+<P><STRONG><a name="[dd]"></a>getCharIndex</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_common.o(i.getCharIndex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = getCharIndex
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
 </UL>
 
-<P><STRONG><a name="[e6]"></a>getCharIndexWithNum</STRONG> (Thumb, 40 bytes, Stack size 20 bytes, app_common.o(i.getCharIndexWithNum))
+<P><STRONG><a name="[e7]"></a>getCharIndexWithNum</STRONG> (Thumb, 40 bytes, Stack size 20 bytes, app_common.o(i.getCharIndexWithNum))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = getCharIndexWithNum
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
+<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
 </UL>
 
-<P><STRONG><a name="[e4]"></a>getUpgradeFileSize</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_update.o(i.getUpgradeFileSize))
+<P><STRONG><a name="[e5]"></a>getUpgradeFileSize</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, app_update.o(i.getUpgradeFileSize))
 <BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 </UL>
 
 <P><STRONG><a name="[2c]"></a>ledtogg</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(i.ledtogg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = ledtogg &rArr; chargeDetProcess &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chargeDetProcess
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
@@ -1477,14 +1486,14 @@ Global Symbols
 <P><STRONG><a name="[22]"></a>main</STRONG> (Thumb, 268 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = main &rArr; startTimer &rArr; Create_Timer &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58Init
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerRun
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58Init
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerRun
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartReceiveCompleteCheck
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsartBufInit
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartReceiveCompleteCheck
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsartBufInit
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveUpdateStatus
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JumpToApp
@@ -1496,8 +1505,8 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateUIS
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1509,20 +1518,20 @@ Global Symbols
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[cb]"></a>mcuEEpromInit</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, app_eeprom.o(i.mcuEEpromInit))
+<P><STRONG><a name="[cc]"></a>mcuEEpromInit</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, app_eeprom.o(i.mcuEEpromInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = mcuEEpromInit &rArr; mcuEEpromResetInit &rArr; eepromParamSaveServer &rArr; eepromWriteByte &rArr; HAL_FLASHEx_DATAEEPROM_Program &rArr; FLASH_WaitForLastOperation &rArr; FLASH_SetErrorCode
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetSnNumber
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetServer
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetApnUser
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetApnPswd
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetApnName
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetSnNumber
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetServer
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetApnUser
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetApnPswd
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetApnName
 </UL>
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d2]"></a>mcuEEpromResetInit</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, app_eeprom.o(i.mcuEEpromResetInit))
+<P><STRONG><a name="[d3]"></a>mcuEEpromResetInit</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, app_eeprom.o(i.mcuEEpromResetInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = mcuEEpromResetInit &rArr; eepromParamSaveServer &rArr; eepromWriteByte &rArr; HAL_FLASHEx_DATAEEPROM_Program &rArr; FLASH_WaitForLastOperation &rArr; FLASH_SetErrorCode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveUpdateStatus
@@ -1535,48 +1544,48 @@ Global Symbols
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveApnName
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromInit
 </UL>
 
-<P><STRONG><a name="[d8]"></a>my_getstrindex</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, app_common.o(i.my_getstrindex))
+<P><STRONG><a name="[d9]"></a>my_getstrindex</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, app_common.o(i.my_getstrindex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = my_getstrindex &rArr; my_strpach
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58mysysteminfoparase
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgattparase
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58mysysteminfoparase
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgattparase
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
 </UL>
 
-<P><STRONG><a name="[d9]"></a>my_strpach</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, app_common.o(i.my_strpach))
+<P><STRONG><a name="[da]"></a>my_strpach</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, app_common.o(i.my_strpach))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = my_strpach
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 </UL>
 
-<P><STRONG><a name="[da]"></a>my_strstr</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, app_common.o(i.my_strstr))
+<P><STRONG><a name="[db]"></a>my_strstr</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, app_common.o(i.my_strstr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = my_strstr &rArr; my_strpach
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strpach
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[db]"></a>n58CIMIParase</STRONG> (Thumb, 98 bytes, Stack size 88 bytes, app_n58.o(i.n58CIMIParase))
+<P><STRONG><a name="[dc]"></a>n58CIMIParase</STRONG> (Thumb, 98 bytes, Stack size 88 bytes, app_n58.o(i.n58CIMIParase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = n58CIMIParase &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
@@ -1584,10 +1593,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[dd]"></a>n58CREGparase</STRONG> (Thumb, 154 bytes, Stack size 176 bytes, app_n58.o(i.n58CREGparase))
+<P><STRONG><a name="[de]"></a>n58CREGparase</STRONG> (Thumb, 154 bytes, Stack size 176 bytes, app_n58.o(i.n58CREGparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = n58CREGparase &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
@@ -1595,11 +1604,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[de]"></a>n58CSQparase</STRONG> (Thumb, 100 bytes, Stack size 48 bytes, app_n58.o(i.n58CSQparase))
+<P><STRONG><a name="[df]"></a>n58CSQparase</STRONG> (Thumb, 100 bytes, Stack size 48 bytes, app_n58.o(i.n58CSQparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = n58CSQparase &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndex
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
@@ -1608,12 +1617,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[cc]"></a>n58Init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, app_n58.o(i.n58Init))
+<P><STRONG><a name="[cd]"></a>n58Init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, app_n58.o(i.n58Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = n58Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModulePowerOn
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1622,18 +1631,18 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = n58ModulePowerOn &rArr; startTimer &rArr; Create_Timer &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58Init
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58Init
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[df]"></a>n58ModuleReset</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, app_n58.o(i.n58ModuleReset))
+<P><STRONG><a name="[e0]"></a>n58ModuleReset</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, app_n58.o(i.n58ModuleReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = n58ModuleReset &rArr; startTimer &rArr; Create_Timer &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58Init
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58Init
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
@@ -1642,29 +1651,29 @@ Global Symbols
 <P><STRONG><a name="[2e]"></a>n58NetworkConnectProcess</STRONG> (Thumb, 710 bytes, Stack size 16 bytes, app_n58.o(i.n58NetworkConnectProcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1272<LI>Call Chain = n58NetworkConnectProcess &rArr; N58_CreateSocket &rArr; sendN58Cmd &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netConnectReset
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUpgradeFileSize
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netConnectReset
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUpgradeFileSize
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendN58Cmd
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setXGAUTH
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setAPN
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setXGAUTH
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setAPN
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_CreateSocket
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_ChangeInvokeStatus
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_ChangeInvokeStatus
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveUpdateStatus
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[e5]"></a>n58TCPRecvparase</STRONG> (Thumb, 194 bytes, Stack size 536 bytes, app_n58.o(i.n58TCPRecvparase))
-<BR><BR>[Stack]<UL><LI>Max Depth = 752<LI>Call Chain = n58TCPRecvparase &rArr; protocolRxParase &rArr; protoclparaseF3 &rArr; flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[e6]"></a>n58TCPRecvparase</STRONG> (Thumb, 194 bytes, Stack size 536 bytes, app_n58.o(i.n58TCPRecvparase))
+<BR><BR>[Stack]<UL><LI>Max Depth = 760<LI>Call Chain = n58TCPRecvparase &rArr; protocolRxParase &rArr; protoclparaseF3 &rArr; flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndexWithNum
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeByteArrayToHexString
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCharIndexWithNum
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeByteArrayToHexString
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
@@ -1672,10 +1681,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[e9]"></a>n58TCPsetupparase</STRONG> (Thumb, 202 bytes, Stack size 80 bytes, app_n58.o(i.n58TCPsetupparase))
+<P><STRONG><a name="[ea]"></a>n58TCPsetupparase</STRONG> (Thumb, 202 bytes, Stack size 80 bytes, app_n58.o(i.n58TCPsetupparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = n58TCPsetupparase &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
@@ -1684,17 +1693,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[ea]"></a>n58cgattparase</STRONG> (Thumb, 50 bytes, Stack size 40 bytes, app_n58.o(i.n58cgattparase))
+<P><STRONG><a name="[eb]"></a>n58cgattparase</STRONG> (Thumb, 50 bytes, Stack size 40 bytes, app_n58.o(i.n58cgattparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = n58cgattparase &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[eb]"></a>n58cgdcontparase</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_n58.o(i.n58cgdcontparase))
+<P><STRONG><a name="[ec]"></a>n58cgdcontparase</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_n58.o(i.n58cgdcontparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = n58cgdcontparase &rArr; distinguishOK &rArr; strstr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
@@ -1702,32 +1711,32 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[ec]"></a>n58mysysteminfoparase</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, app_n58.o(i.n58mysysteminfoparase))
+<P><STRONG><a name="[ed]"></a>n58mysysteminfoparase</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, app_n58.o(i.n58mysysteminfoparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = n58mysysteminfoparase &rArr; my_getstrindex &rArr; my_strpach
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
 <P><STRONG><a name="[2a]"></a>n58responparase</STRONG> (Thumb, 288 bytes, Stack size 24 bytes, app_n58.o(i.n58responparase))
-<BR><BR>[Stack]<UL><LI>Max Depth = 776<LI>Call Chain = n58responparase &rArr; n58TCPRecvparase &rArr; protocolRxParase &rArr; protoclparaseF3 &rArr; flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 784<LI>Call Chain = n58responparase &rArr; n58TCPRecvparase &rArr; protocolRxParase &rArr; protoclparaseF3 &rArr; flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicparase
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xgauthparase
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58tcpcloseparase
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58mysysteminfoparase
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgdcontparase
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgattparase
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicqueryparase
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xiicparase
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58xgauthparase
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58tcpcloseparase
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58mysysteminfoparase
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgdcontparase
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58cgattparase
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPsetupparase
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CSQparase
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CREGparase
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58CIMIParase
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_ChangeInvokeStatus
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_ChangeInvokeStatus
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_strstr
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessageWL
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
@@ -1737,7 +1746,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_uart.o(i.UsartBufInit)
 </UL>
-<P><STRONG><a name="[e2]"></a>n58setAPN</STRONG> (Thumb, 26 bytes, Stack size 48 bytes, app_n58.o(i.n58setAPN))
+<P><STRONG><a name="[e3]"></a>n58setAPN</STRONG> (Thumb, 26 bytes, Stack size 48 bytes, app_n58.o(i.n58setAPN))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1192<LI>Call Chain = n58setAPN &rArr; sendN58Cmd &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendN58Cmd
@@ -1746,7 +1755,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 </UL>
 
-<P><STRONG><a name="[e3]"></a>n58setXGAUTH</STRONG> (Thumb, 30 bytes, Stack size 48 bytes, app_n58.o(i.n58setXGAUTH))
+<P><STRONG><a name="[e4]"></a>n58setXGAUTH</STRONG> (Thumb, 30 bytes, Stack size 48 bytes, app_n58.o(i.n58setXGAUTH))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1192<LI>Call Chain = n58setXGAUTH &rArr; sendN58Cmd &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendN58Cmd
@@ -1755,7 +1764,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 </UL>
 
-<P><STRONG><a name="[ed]"></a>n58tcpcloseparase</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, app_n58.o(i.n58tcpcloseparase))
+<P><STRONG><a name="[ee]"></a>n58tcpcloseparase</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, app_n58.o(i.n58tcpcloseparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = n58tcpcloseparase &rArr; strstr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
@@ -1763,7 +1772,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[ee]"></a>n58xgauthparase</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_n58.o(i.n58xgauthparase))
+<P><STRONG><a name="[ef]"></a>n58xgauthparase</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_n58.o(i.n58xgauthparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = n58xgauthparase &rArr; distinguishOK &rArr; strstr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
@@ -1771,7 +1780,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[ef]"></a>n58xiicparase</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_n58.o(i.n58xiicparase))
+<P><STRONG><a name="[f0]"></a>n58xiicparase</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, app_n58.o(i.n58xiicparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = n58xiicparase &rArr; distinguishOK &rArr; strstr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;distinguishOK
@@ -1779,17 +1788,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[f0]"></a>n58xiicqueryparase</STRONG> (Thumb, 154 bytes, Stack size 176 bytes, app_n58.o(i.n58xiicqueryparase))
+<P><STRONG><a name="[f1]"></a>n58xiicqueryparase</STRONG> (Thumb, 154 bytes, Stack size 176 bytes, app_n58.o(i.n58xiicqueryparase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = n58xiicqueryparase &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_getstrindex
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58responparase
 </UL>
 
-<P><STRONG><a name="[e1]"></a>netConnectReset</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_update.o(i.netConnectReset))
+<P><STRONG><a name="[e2]"></a>netConnectReset</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_update.o(i.netConnectReset))
 <BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 </UL>
 
@@ -1803,13 +1812,13 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[f2]"></a>protocolFsmStateChange</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, app_update.o(i.protocolFsmStateChange))
+<P><STRONG><a name="[f3]"></a>protocolFsmStateChange</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, app_update.o(i.protocolFsmStateChange))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = protocolFsmStateChange &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
 </UL>
 
@@ -1818,25 +1827,25 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashEarse
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_GetInvokeStatus
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_GetInvokeStatus
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveUpdateStatus
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[e8]"></a>protocolRxParase</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, app_update.o(i.protocolRxParase))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = protocolRxParase &rArr; protoclparaseF3 &rArr; flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[e9]"></a>protocolRxParase</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, app_update.o(i.protocolRxParase))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = protocolRxParase &rArr; protoclparaseF3 &rArr; flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessageNoBlock
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
+<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58TCPRecvparase
 </UL>
 
 <P><STRONG><a name="[9d]"></a>sendN58Cmd</STRONG> (Thumb, 164 bytes, Stack size 1048 bytes, app_n58.o(i.sendN58Cmd))
@@ -1847,21 +1856,21 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setXGAUTH
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setAPN
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setXGAUTH
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58setAPN
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58NetworkConnectProcess
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_SendDataToServer
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_CreateSocket
 </UL>
 
-<P><STRONG><a name="[f4]"></a>sendProtocolToServer</STRONG> (Thumb, 114 bytes, Stack size 1168 bytes, app_update.o(i.sendProtocolToServer))
+<P><STRONG><a name="[f5]"></a>sendProtocolToServer</STRONG> (Thumb, 114 bytes, Stack size 1168 bytes, app_update.o(i.sendProtocolToServer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 2336<LI>Call Chain = sendProtocolToServer &rArr; N58_SendDataToServer &rArr; sendN58Cmd &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol_F3
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol_01
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocolSerial
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocolSerial
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;N58_SendDataToServer
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeByteArrayToHexString
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeByteArrayToHexString
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
@@ -1872,7 +1881,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = startJumpToApp &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveUpdateStatus
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JumpToApp
@@ -1880,20 +1889,20 @@ Global Symbols
 <BR>[Address Reference Count : 2]<UL><LI> app_update.o(i.protocolRunFsm)
 <LI> app_update.o(i.protoclparaseF3)
 </UL>
-<P><STRONG><a name="[ce]"></a>startTimer</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, app_timer.o(i.startTimer))
+<P><STRONG><a name="[cf]"></a>startTimer</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, app_timer.o(i.startTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = startTimer &rArr; Create_Timer &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Create_Timer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protoclparaseF3
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModuleReset
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58ModulePowerOn
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;n58PowerKeyProcessA
 <LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRunFsm
 </UL>
 
-<P><STRONG><a name="[d1]"></a>timerRun</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, app_timer.o(i.timerRun))
+<P><STRONG><a name="[d2]"></a>timerRun</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, app_timer.o(i.timerRun))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = timerRun &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -1903,7 +1912,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d0]"></a>uartReceiveCompleteCheck</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, app_uart.o(i.uartReceiveCompleteCheck))
+<P><STRONG><a name="[d1]"></a>uartReceiveCompleteCheck</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, app_uart.o(i.uartReceiveCompleteCheck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = uartReceiveCompleteCheck &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessageWL
@@ -1911,11 +1920,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cd]"></a>updateUIS</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, app_update.o(i.updateUIS))
+<P><STRONG><a name="[ce]"></a>updateUIS</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, app_update.o(i.updateUIS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = updateUIS &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetCodeVersion
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamGetCodeVersion
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
@@ -1940,23 +1949,22 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 </UL>
 
 <P><STRONG><a name="[31]"></a>n58PowerKeyProcessA</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, app_n58.o(i.n58PowerKeyProcessA))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = n58PowerKeyProcessA &rArr; startTimer &rArr; Create_Timer &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_n58.o(i.n58ModulePowerOn)
 </UL>
-<P><STRONG><a name="[33]"></a>n58PowerKeyProcessB</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_n58.o(i.n58PowerKeyProcessB))
+<P><STRONG><a name="[33]"></a>n58PowerKeyProcessB</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, app_n58.o(i.n58PowerKeyProcessB))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = n58PowerKeyProcessB &rArr; LogMessage &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_n58.o(i.n58PowerKeyProcessA)
 </UL>
@@ -1968,8 +1976,8 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_n58.o(i.n58ModuleReset)
 </UL>
-<P><STRONG><a name="[f5]"></a>createProtocolSerial</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_update.o(i.createProtocolSerial))
-<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
+<P><STRONG><a name="[f6]"></a>createProtocolSerial</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, app_update.o(i.createProtocolSerial))
+<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 </UL>
 
 <P><STRONG><a name="[b2]"></a>createProtocol_01</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, app_update.o(i.createProtocol_01))
@@ -1978,7 +1986,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;packIMEI
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetCrc16
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 </UL>
 
 <P><STRONG><a name="[b5]"></a>createProtocol_F3</STRONG> (Thumb, 400 bytes, Stack size 40 bytes, app_update.o(i.createProtocol_F3))
@@ -1988,7 +1996,7 @@ Local Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendProtocolToServer
 </UL>
 
 <P><STRONG><a name="[b3]"></a>packIMEI</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, app_update.o(i.packIMEI))
@@ -1999,20 +2007,21 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol_01
 </UL>
 
-<P><STRONG><a name="[f1]"></a>protoclparaseF3</STRONG> (Thumb, 478 bytes, Stack size 32 bytes, app_update.o(i.protoclparaseF3))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = protoclparaseF3 &rArr; flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[f2]"></a>protoclparaseF3</STRONG> (Thumb, 460 bytes, Stack size 40 bytes, app_update.o(i.protoclparaseF3))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = protoclparaseF3 &rArr; flashWriteCode &rArr; LogPrintf &rArr; LogMessageWL &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashWriteCode
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flashEarseByFileSize
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveUpdateStatus
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogPrintf
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogMessage
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetCrc16
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolFsmStateChange
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uread4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;protocolRxParase
 </UL>
 
 <P><STRONG><a name="[ba]"></a>eepromWriteByte</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, app_eeprom.o(i.eepromWriteByte))
@@ -2023,7 +2032,7 @@ Local Symbols
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASHEx_DATAEEPROM_Lock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveUpdateStatus
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcuEEpromResetInit
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveSnNumber
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveServer
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromParamSaveCodeVersion
@@ -2101,7 +2110,7 @@ Local Symbols
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAError
 </UL>
 
-<P><STRONG><a name="[ac]"></a>_fp_digits</STRONG> (Thumb, 316 bytes, Stack size 56 bytes, printfa.o(i._fp_digits), UNUSED)
+<P><STRONG><a name="[ac]"></a>_fp_digits</STRONG> (Thumb, 344 bytes, Stack size 64 bytes, printfa.o(i._fp_digits), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv

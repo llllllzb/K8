@@ -46,7 +46,7 @@ const N58_CMD_STRUCT n58_cmd_table[N58_MAX_NUM] =
 
 static void n58PowerKeyProcessB(void)
 {
-    POWKEYOFMODULEON;//开机键高电平
+    //POWKEYOFMODULEON;//开机键高电平
     LogMessage("Power on complete\n");
     system_info.modulepowerstate = 1;
 }

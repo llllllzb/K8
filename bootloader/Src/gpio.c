@@ -51,10 +51,10 @@ void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, POWEREN4G_Pin|LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, WAKEUP_4G_Pin|PWRKEY_4G_Pin|RSTKEY_4G_Pin, GPIO_PIN_SET);
-
+  HAL_GPIO_WritePin(GPIOB, WAKEUP_4G_Pin|RSTKEY_4G_Pin, GPIO_PIN_SET);
+	
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GNSSLNA_GPIO_Port, GNSSLNA_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GNSSLNA_GPIO_Port, GNSSLNA_Pin|PWRKEY_4G_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PAPin PAPin */
   GPIO_InitStruct.Pin = POWEREN4G_Pin|LED_Pin;
@@ -70,14 +70,14 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(CHARGE_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PBPin PBPin */
-  GPIO_InitStruct.Pin = WAKEUP_4G_Pin|GNSSLNA_Pin;
+  GPIO_InitStruct.Pin = PWRKEY_4G_Pin|WAKEUP_4G_Pin|GNSSLNA_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PBPin PBPin */
-  GPIO_InitStruct.Pin = PWRKEY_4G_Pin|RSTKEY_4G_Pin;
+  GPIO_InitStruct.Pin = RSTKEY_4G_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

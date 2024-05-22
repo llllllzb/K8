@@ -3,7 +3,7 @@
 <title>Static Call Graph - [STM32L\STM32L.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32L\STM32L.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Dec 04 15:24:58 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue May 21 18:15:25 2024
 <BR><P>
 <H3>Maximum Stack Usage =       2852 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1890,7 +1890,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e3]"></a>MX_GPIO_Init</STRONG> (Thumb, 248 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[e3]"></a>MX_GPIO_Init</STRONG> (Thumb, 246 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -4187,7 +4187,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netModuleShutdown
 </UL>
 
-<P><STRONG><a name="[222]"></a>modulePowerOn</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, app_net.o(i.modulePowerOn))
+<P><STRONG><a name="[222]"></a>modulePowerOn</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, app_net.o(i.modulePowerOn))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = modulePowerOn &rArr; LogMessage &rArr; portUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -6931,7 +6931,7 @@ Local Symbols
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createProtocol16
 </UL>
 
-<P><STRONG><a name="[131]"></a>atCmdDebugParase</STRONG> (Thumb, 406 bytes, Stack size 504 bytes, app_atcmd.o(i.atCmdDebugParase))
+<P><STRONG><a name="[131]"></a>atCmdDebugParase</STRONG> (Thumb, 430 bytes, Stack size 504 bytes, app_atcmd.o(i.atCmdDebugParase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 760<LI>Call Chain = atCmdDebugParase &rArr; stringToItem &rArr; LogMessage &rArr; portUartSend &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stringToItem

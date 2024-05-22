@@ -249,6 +249,7 @@ static void moduleInfoInit(void)
 /*模组开机*/
 void modulePowerOn(void)
 {
+	MODULE_POWERKEY_LOW;
     MODULE_RSTKEY_HIGH;
     MODULE_DTR_HIGH;
     MODULE_POWER_ON;
