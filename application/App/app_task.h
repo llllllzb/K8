@@ -109,6 +109,8 @@ void SystemClock_Config(void);
 void systemModeRunStart(void);
 void getBatVoltage(void);
 
+void noNetWakeUpGapInit(void);
+void noNetWakeUpGapUpdate(void);
 
 void taskRunInOneSecond(void);
 

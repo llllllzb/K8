@@ -16,6 +16,7 @@ void myAppConfig(void)
     portUartCfg(APPUSART1, 1, atCmdParserFunction);
     paramInit();
     portLowPowerCfg();
+    noNetWakeUpGapInit();
     createSystemTask(ledRunTask, 100);
     createSystemTask(outPutNodeCmd, 200);
     sysinfo.SystaskID = createSystemTask(taskRunInOneSecond, 1000);

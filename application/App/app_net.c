@@ -367,6 +367,7 @@ void netEnterStopMode(void)
     if (sysparam.MODE == MODE2 && sysinfo.GPSRequest == 0 && n58_lte_status.moduleFlyMode == 0)
     {
         LogMessage(DEBUG_ALL, "netEnterStopMode\n");
+        
         sysinfo.netCtrlStop = 1;
         systemRequestSet(SYSTEM_MODULE_SHUTDOWN_REQUEST);
     }

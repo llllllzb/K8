@@ -698,14 +698,34 @@ void exitNetCtl(void)
     if (sysinfo.netCtrlStop)
     {
         sysinfo.netCtlTick++;//10 * n sec
-        LogPrintf(DEBUG_ALL, "net ctrl tick %d\n", sysinfo.netCtlTick * 10);
-        if (sysinfo.netCtlTick >= 360 || sysinfo.GPSRequest != 0)
+        LogPrintf(DEBUG_ALL, "net ctrl tick %d noNetWakeUpGap %d\n", sysinfo.netCtlTick * 10, sysinfo.noNetWakeUpGap * 3600);
+        if (sysinfo.netCtlTick >= (sysinfo.noNetWakeUpGap * 360) || sysinfo.GPSRequest != 0)
         {
+        	if (sysinfo.netCtlTick >= (sysinfo.noNetWakeUpGap * 360))
+        		noNetWakeUpGapUpdate();
             sysinfo.netCtlTick = 0;
-
             netExitStopMode();
         }
     }
+}
+
+/*
+ * 没网络唤醒时间间隔的初始化
+ */
+void noNetWakeUpGapInit(void)
+{
+	sysinfo.noNetWakeUpGap = 1;
+}
+
+/*
+ * 没网络唤醒时间间隔的更新
+ */
+
+void noNetWakeUpGapUpdate(void)
+{
+	sysinfo.noNetWakeUpGap += 2;
+	sysinfo.noNetWakeUpGap = sysinfo.noNetWakeUpGap > 5 ? 1 : sysinfo.noNetWakeUpGap;
+	LogPrintf(DEBUG_ALL, "%s==>noNetWakeUpGap:%d\n", __FUNCTION__, sysinfo.noNetWakeUpGap * 3600);
 }
 
 //处理系统请求，最快速度处理
@@ -1269,6 +1289,11 @@ void gsensorTapTask(void)
                 {
                     gpsRequestSet(GPS_REQUEST_ACC_CTL);
                 }
+            }
+            //MODE,2,0,0在无网络的情况下，震动也要唤醒搜网
+            if (sysinfo.netCtrlStop)
+            {
+				gpsRequestSet(GPS_REQUEST_UPLOAD_ONE);
             }
             memset(sysinfo.onetaprecord, 0, 15);
         }
