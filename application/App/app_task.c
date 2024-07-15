@@ -323,7 +323,7 @@ static void gpsRequestOpen(void)
     sysinfo.gpsUpdatetick = sysinfo.System_Tick;
     if (sysinfo.agpsOpenTick == 0 || (sysinfo.System_Tick >= sysinfo.agpsOpenTick))
     {
-        sysinfo.agpsOpenTick = sysinfo.System_Tick + 5400;
+        sysinfo.agpsOpenTick = sysinfo.System_Tick + 3600;
         setAgps();
         gpsChangeFsmState(GPSOPENWAITSTATUS);
 
@@ -428,7 +428,7 @@ void gpsUplodOnePointTask(void)
     }
     gpsinfo = getCurrentGPSInfo();
     runtick++;
-    if (runtick >= sysinfo.gpsuploadonepositiontime)
+    if (runtick >= 480)
     {
         runtick = 0;
         uploadtick = 0;
@@ -1116,7 +1116,7 @@ static void modeRun(void)
         case MODE1:
         case MODE3:
         case MODE5:
-            if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 300)
+            if ((sysinfo.System_Tick - sysinfo.runStartTick) >= 500)
             {
                 sysinfo.alarmrequest = 0;
                 sysinfo.GPSRequest = 0;

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [STM32L\STM32L.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32L\STM32L.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon May 27 10:52:03 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Jul 08 15:52:35 2024
 <BR><P>
 <H3>Maximum Stack Usage =       2852 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3893,7 +3893,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[21b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;modeRun
 </UL>
 
-<P><STRONG><a name="[205]"></a>gpsUplodOnePointTask</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, app_task.o(i.gpsUplodOnePointTask))
+<P><STRONG><a name="[205]"></a>gpsUplodOnePointTask</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, app_task.o(i.gpsUplodOnePointTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1404<LI>Call Chain = gpsUplodOnePointTask &rArr; dorequestSend123 &rArr; sendMessageWithDifMode &rArr; sendProtocolToServer &rArr; gpsRestoreWriteData &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; portSystemReset &rArr; portSaveStep &rArr; portUpdateStep &rArr; getStep &rArr; mir3da_register_read &rArr; iicReadData &rArr; Soft_IIC_Write_Byte &rArr; Soft_IIC_Wait_ACK &rArr; Soft_IIC_Stop &rArr; Soft_IIC_Output &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestGet
@@ -6698,7 +6698,7 @@ Local Symbols
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsRequestTask
 </UL>
 
-<P><STRONG><a name="[1fd]"></a>gpsRequestOpen</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, app_task.o(i.gpsRequestOpen))
+<P><STRONG><a name="[1fd]"></a>gpsRequestOpen</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, app_task.o(i.gpsRequestOpen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 644<LI>Call Chain = gpsRequestOpen &rArr; setAgps &rArr; sendModuleCmd &rArr; CreateNodeCmd &rArr; portSystemReset &rArr; portSaveStep &rArr; portUpdateStep &rArr; getStep &rArr; mir3da_register_read &rArr; iicReadData &rArr; Soft_IIC_Write_Byte &rArr; Soft_IIC_Wait_ACK &rArr; Soft_IIC_Stop &rArr; Soft_IIC_Output &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
